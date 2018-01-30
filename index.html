@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Inspire | Enterprise Wide</title>
+
+    <!-- CDN -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/minified.css">
+</head>
+<body class="theme-home">
+
+    <!-- PAGE LOADER -->
+    <div id="lv-page-loader" class="lv-page-loader">
+        <div class="lv-page-loader-spinner">
+            <div class="loader-spinner">
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
+    <script>
+    var loader = document.getElementById('lv-page-loader');
+    loader.style.display = 'flex';
+    // Limit to 2+ seconds of waiting time
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
+    </script>
+    <div class="lv-page">
+
+        <!-- HEADER -->
+        <header class="global-header fixed-top">
+
+            <!-- HEADER TOP -->
+            <div class="global-header-top hidden-lg-down">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <!-- PHONE -->
+                            <a href="tel:(05) 555 555">
+                                <i class="fa fa-phone"></i>&nbsp;
+                                <span class="text hidden-sm-down">(05) 555 555</span>
+                            </a>
+
+                            <!-- EMAIL -->
+                            <a class="hidden-sm-down" href="mailto:info@enterprisewide.com.au">
+                                <i class="fa fa-envelope"></i>&nbsp; info@enterprisewide.com.au</a>
+                        </div>
+                        <div class="col-6 text-right">
+
+                            <!-- MEMBERS AREA -->
+                            <a href="#">
+                                <i class="fa fa-user"></i>&nbsp;
+                                <span class="text hidden-sm-down">Members Area
+                                    <i class="fa fa-angle-down"></i>
+                                </span>
+                            </a>
+
+                            <!-- SEARCH -->
+                            <a href="#search" data-search-trigger>
+                                <i class="fa fa-search"></i>&nbsp;
+                                <span class="text hidden-sm-down">&nbsp;Search</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEADER BODY -->
+            <div class="global-header-body">
+                <div class="container">
+
+                    <!-- LOGO -->
+                    <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
+                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
+
+                    <!-- HAMBURGER -->
+                    <div class="global-header-hamburger hidden-xl-up">
+                        <div class="lv-hamburger" data-menu-toggle>
+                            <span class="lv-hamburger-top"></span>
+                            <span class="lv-hamburger-middle"></span>
+                            <span class="lv-hamburger-bottom"></span>
+                            <span class="lv-hamburger-hit"></span>
+                        </div>
+                    </div>
+
+                    <!-- NAVIGATION -->
+                    <nav class="global-navigation hidden-lg-down">
+                        <div class="lv-topbar">
+                            <ul>
+                                <li class="active">
+                                    <a class="top-parent-anchor" href="/">
+                                        <span class="text">Home</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="top-parent-anchor" href="/404/">
+                                        <span class="text">Standard Page</span>
+                                    </a>
+                                </li>
+                                <li class="">
+                                    <a class="top-parent-anchor" href="#advanced-page">
+                                        <span class="text">Advanced Page</span>
+                                    </a>
+                                </li>
+                                <li class="has-dropdown">
+                                    <a class="top-parent-anchor" href="/404/">
+                                        <span class="text">Case Studies</span>
+                                    </a>
+                                    <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">Item</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">Item</span>
+                                            </a>
+                                        </li>
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">Item</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="">
+                                    <a class="top-parent-anchor" href="#contact">
+                                        <span class="text">Contact</span>
+                                    </a>
+                                </li>
+
+                                <!-- SOCIAL MEDIA -->
+                                <li class="is-hidden-for-topbar pt-2">
+                                    <ul class="social-media">
+                                        <li>
+                                            <a class="facebook" href="">
+                                                <i class="fa fa-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="github" href="">
+                                                <i class="fa fa-github"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="google-plus" href="">
+                                                <i class="fa fa-google-plus"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="instagram" href="">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="linked-in" href="">
+                                                <i class="fa fa-linkedin"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="pinterest" href="">
+                                                <i class="fa fa-pinterest"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="twitter" href="">
+                                                <i class="fa fa-twitter"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="youtube" href="">
+                                                <i class="fa fa-youtube"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <!-- SEARCH -->
+                                <li class="is-hidden-for-topbar">
+                                    <div class="global-search is-hidden" data-search>
+                                        <div class="container text-right">
+                                            <div class="global-search-form-wrapper">
+                                                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <form class="global-search-form" action="/search/" method="get" novalidate>
+                                                    <div class="input-group">
+                                                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                                        <div class="input-group-append">
+                                                            <button type="submit" class="btn">
+                                                                <i class="fa fa-search"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO WRAPPER -->
+        <div class="lv-hero-wrapper" data-carousel>
+
+            <!-- HERO -->
+            <div class="lv-hero">
+
+                <!-- HERO ITEMS -->
+                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-1.png')">
+
+                    <!-- HERO CAPTION -->
+                    <div class="container">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-xl-9">
+                                <div class="lv-hero-item-caption">
+                                    <h1 class="display-1">Hero Caption 1</h1>
+                                    <p class="lead">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</p>
+                                    <p>
+                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </div>
+                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
+
+                    <!-- HERO CAPTION -->
+                    <div class="container">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-xl-9">
+                                <div class="lv-hero-item-caption">
+                                    <h1 class="display-1">Hero Caption 2</h1>
+                                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+                                    <p>
+                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </div>
+                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.png')">
+
+                    <!-- HERO CAPTION -->
+                    <div class="container">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-xl-9">
+                                <div class="lv-hero-item-caption">
+                                    <h1 class="display-1">Hero Caption 3</h1>
+                                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+                                    <p>
+                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- /.lv-hero -->
+            
+<!-- CAROUSEL CONTROLS --><div class="lv-hero-carousel-controls hidden-sm-down">
+                <span class="lv-hero-carousel-prev-btn">
+                    <i class="fa fa-angle-left"></i>
+                </span>
+                <span class="lv-hero-carousel-next-btn">
+                    <i class="fa fa-angle-right"></i>
+                </span>
+            </div>
+        </div>
+
+        <!-- /.lv-hero-wrapper -->
+        
+<!-- BODY --><main class="main-body">
+
+            <!-- SECTION -->
+            <section class="section">
+                <div class="container">
+                    <h1 id="h1-this-is-a-header-one">H1. This Is a Header One</h1>
+                    <h2 id="h2-this-is-a-header-two">H2. This Is a Header Two</h2>
+                    <h3 id="h3-this-is-a-header-three">H3. This Is a Header Three</h3>
+                    <h4 id="h4-this-is-a-header-four">H4. This Is a Header Four</h4>
+                    <h5 id="h5-this-is-a-header-five">H5. This Is a Header Five</h5>
+                    <h6 id="h6-this-is-a-header-six">H6. This Is a Header Six</h6>
+                    <h2 class="subheader">H2. Subheader</h2>
+                    <h3 class="subheader">H3. Subheader</h3>
+                    <h4 class="subheader">H4. Subheader</h4>
+                    <h5 class="subheader">H5. Subheader</h5>
+                    <h6 class="subheader">H6. Subheader</h6>
+                    <hr>
+                    <p class="lead">LEAD. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.</p>
+                    <h6>H6. Lorem ipsum dolor sit amet consectetur</h6>
+                    <p>Elaine: He took it out. Kramer: El Paso. I spent a month there, one night! Jerry: Looking at cleavage is like looking at the sun. You don’t stare at it. You get a sense of it and you look away. Jerry: I thought you said people dressed up when they go to the opera? Kramer: People do. I don’t. Uncle Leo: Jerry, hellooo! Kramer: Your Nana’s missing because she’s been passing those bum checks all over town and she finally pissed off the wrong people. George: My whole life has been a complete waste of time. Jerry: And there’s so much more to go!
+                        <a href="#">Anchor example</a>
+                    </p>
+                    <p>Jerry: The whole reason you watch a TV show is because it ends. If I wanted a long, boring story with no point to it, I’ve got my life. George: Frolf, frisbee golf, Jerry. Golf with a frisbee. George: I’d rather be dating the blind. A good looking blind woman doesn’t even know you’re not good enough for her. Kramer: Boxers! How do you wear these things? Look at that–they’re bagging up, they’re rising in, and there’s nothing holding me in place. Elaine: I am going to sidle the sidler. Jerry: You sidle? You stomp around like a Clydesdale. Mr. Ross: It’s a terrible tragedy when parents outlive their children. George: Yes, I agree. I hope my parents go long before I do. Jerry: Women go after doctors like men go after models. They want someone with knowledge of the body. We just want the body. Jerry: Is it possible they’re just having babies to get people to visit them? George: My father was a quitter, my grandfather was a quitter, I was raised to give up. It’s one of the few things I do well. George: You know what I love? How there’s two nuts named after people: Hazel and Filbert. Estelle Costanza: You’re not giving away our waterpik!, Jerry : I’ll tell you what the big advantage of homosexuality is. If you’re going out with someone your size, you double your wardrobe.</p>
+                    <h2 id="scroll-down">Scroll To</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </section>
+
+            <!-- OUTRO CTA -->
+            <section class="section is-light">
+                <div class="container">
+                    <h2>Outro Strip</h2>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                        </div>
+                        <div class="col-md-3 col-md-offset-1">
+                            <p>
+                                <a class="btn btn-block btn-primary" href="/contact/">Get in touch</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="global-footer">
+
+            <!-- FOOTER BODY -->
+            <section class="global-footer-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+
+                            <!-- QUICK LINKS -->
+                            <h4>Quick Links</h4>
+                            <ul class="list-unstyled">
+                                <li>Standard Page</li>
+                                <li>Blog</li>
+                                <li>Enterprise Wide</li>
+                                <li>Advanced Page</li>
+                                <li>Contact</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+
+                            <!-- CONTACT -->
+                            <h4>Enterprise Wide</h4>
+                            <p>Sydney, NSW, 2000
+                                <br>Australia
+                                <br>info@enterprisewide.com.au</p>
+                        </div>
+                        <div class="col-md-4">
+
+                            <!-- SOCIAL MEDIA -->
+                            <h4>Social Media</h4>
+                            <ul class="social-media">
+                                <li>
+                                    <a class="facebook" href="">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="github" href="">
+                                        <i class="fa fa-github"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="google-plus" href="">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="instagram" href="">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="linked-in" href="">
+                                        <i class="fa fa-linkedin"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="pinterest" href="">
+                                        <i class="fa fa-pinterest"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="twitter" href="">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="youtube" href="">
+                                        <i class="fa fa-youtube"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER BOTTOM -->
+            <section class="global-footer-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <small>&copy; 2018&nbsp;&nbsp;&nbsp;
+                                <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                            </small>
+                        </div>
+                        <div class="col-6 text-right">
+                            <small>
+                                <a class="author-logo" target="_blank" href="http://enterprisewide.com.au">
+                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Ben Norman">&nbsp;&nbsp;
+                                    <span class="text">Powered by Enterprise Wide</span>
+                                </a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER SITEMAP -->
+            <section id="sitemap" class="global-footer-sitemap collapse">
+                <div class="container">
+                    <ul class="block-grid-xs-2 block-grid-lg-7">
+                        <li>
+                            <h5>Standard Page</h5>
+                            <ul class="list-unstyled"></ul>
+                        </li>
+                        <li>
+                            <h5>Advanced Page</h5>
+                            <ul class="list-unstyled"></ul>
+                        </li>
+                        <li>
+                            <h5>Case Studies</h5>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="/404/">Item</a>
+                                </li>
+                                <li>
+                                    <a href="/404/">Item</a>
+                                </li>
+                                <li>
+                                    <a href="/404/">Item</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h5>Contact</h5>
+                            <ul class="list-unstyled"></ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <!-- /.lv-page -->
+    
+<!-- OFF-CANVAS MENU --><nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
+        <ul>
+            <li class="active">
+                <a class="top-parent-anchor" href="/">
+                    <span class="text">Home</span>
+                </a>
+            </li>
+            <li class="">
+                <a class="top-parent-anchor" href="/404/">
+                    <span class="text">Standard Page</span>
+                </a>
+            </li>
+            <li class="">
+                <a class="top-parent-anchor" href="#advanced-page">
+                    <span class="text">Advanced Page</span>
+                </a>
+            </li>
+            <li class="has-dropdown">
+                <a class="top-parent-anchor" href="/404/">
+                    <span class="text">Case Studies</span>
+                </a>
+                <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">Item</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">Item</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">Item</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="">
+                <a class="top-parent-anchor" href="#contact">
+                    <span class="text">Contact</span>
+                </a>
+            </li>
+
+            <!-- SOCIAL MEDIA -->
+            <li class="is-hidden-for-topbar pt-2">
+                <ul class="social-media">
+                    <li>
+                        <a class="facebook" href="">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="github" href="">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="google-plus" href="">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="instagram" href="">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="linked-in" href="">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pinterest" href="">
+                            <i class="fa fa-pinterest"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="">
+                            <i class="fa fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <!-- SEARCH -->
+            <li class="is-hidden-for-topbar">
+                <div class="global-search is-hidden" data-search>
+                    <div class="container text-right">
+                        <div class="global-search-form-wrapper">
+                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <form class="global-search-form" action="/search/" method="get" novalidate>
+                                <div class="input-group">
+                                    <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- SEARCH -->
+    <div class="global-search is-hidden" data-search>
+        <div class="container text-right">
+            <div class="global-search-form-wrapper">
+                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form class="global-search-form" action="/search/" method="get" novalidate>
+                    <div class="input-group">
+                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--[if lte IE 9]>
+    <div class="lv-alert-bar">
+        <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
+        <span class="lv-alert-bar-close-btn">&times;</span>
+    </div>
+    <![endif]-->
+
+    <!-- **** JAVASCRIPT **** -->
+    <script src="/assets/scripts/minified.js"></script>
+
+    <!-- GLOBAL SITE TAG (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXX-X');
+    </script>
+
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
+        <div class="lv-alert-bar">
+            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+        </div>
+    </noscript>
+</body>
+</html>
