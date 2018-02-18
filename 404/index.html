@@ -8,219 +8,12 @@
 
     <!-- CDN -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body class="">
 
-    <!-- PAGE LOADER -->
-    <div id="lv-page-loader" class="lv-page-loader">
-        <div class="lv-page-loader-spinner">
-            <div class="loader-spinner">
-                <div class="loader-component">
-                    <div class="half-circle"></div>
-                </div>
-                <div class="loader-component">
-                    <div class="half-circle"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
-    <script>
-    var loader = document.getElementById('lv-page-loader');
-    loader.style.display = 'flex';
-    // Limit to 2+ seconds of waiting time
-    setTimeout(function() {
-        loader.className += ' force-finish';
-    }, 2000);
-    </script>
+    <!-- { % include snippets/loader.html %} -->
     <div class="lv-page">
-
-        <!-- HEADER -->
-        <header class="global-header fixed-top">
-
-            <!-- HEADER TOP -->
-            <div class="global-header-top hidden-lg-down">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-6">
-
-                            <!-- PHONE -->
-                            <a href="tel:(05) 555 555">
-                                <i class="fa fa-phone"></i>&nbsp;
-                                <span class="text hidden-sm-down">(05) 555 555</span>
-                            </a>
-
-                            <!-- EMAIL -->
-                            <a class="hidden-sm-down" href="mailto:info@enterprisewide.com.au">
-                                <i class="fa fa-envelope"></i>&nbsp; info@enterprisewide.com.au</a>
-                        </div>
-                        <div class="col-6 text-right">
-
-                            <!-- MEMBERS AREA -->
-                            <a href="#">
-                                <i class="fa fa-user"></i>&nbsp;
-                                <span class="text hidden-sm-down">Members Area
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                            </a>
-
-                            <!-- SEARCH -->
-                            <a href="#search" data-search-trigger>
-                                <i class="fa fa-search"></i>&nbsp;
-                                <span class="text hidden-sm-down">&nbsp;Search</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HEADER BODY -->
-            <div class="global-header-body">
-                <div class="container">
-
-                    <!-- LOGO -->
-                    <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
-                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
-
-                    <!-- HAMBURGER -->
-                    <div class="global-header-hamburger hidden-xl-up">
-                        <div class="lv-hamburger" data-menu-toggle>
-                            <span class="lv-hamburger-top"></span>
-                            <span class="lv-hamburger-middle"></span>
-                            <span class="lv-hamburger-bottom"></span>
-                            <span class="lv-hamburger-hit"></span>
-                        </div>
-                    </div>
-
-                    <!-- NAVIGATION -->
-                    <nav class="global-navigation hidden-lg-down">
-                        <div class="lv-topbar">
-                            <ul>
-                                <li class="">
-                                    <a class="top-parent-anchor" href="/">
-                                        <span class="text">Home</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="top-parent-anchor" href="/chrome/">
-                                        <span class="text">Chrome</span>
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a class="top-parent-anchor" href="/404/">
-                                        <span class="text">Standard Page</span>
-                                    </a>
-                                </li>
-                                <li class="">
-                                    <a class="top-parent-anchor" href="#advanced-page">
-                                        <span class="text">Advanced Page</span>
-                                    </a>
-                                </li>
-                                <li class="active has-dropdown">
-                                    <a class="top-parent-anchor" href="/404/">
-                                        <span class="text">Case Studies</span>
-                                    </a>
-                                    <ul class="dropdown is-nav-included" data-parent="Case Studies">
-                                        <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
-                                            </a>
-                                        </li>
-                                        <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="">
-                                    <a class="top-parent-anchor" href="#contact">
-                                        <span class="text">Contact</span>
-                                    </a>
-                                </li>
-
-                                <!-- SOCIAL MEDIA -->
-                                <li class="is-hidden-for-topbar pt-2">
-                                    <ul class="social-media">
-                                        <li>
-                                            <a class="facebook" href="">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="github" href="">
-                                                <i class="fa fa-github"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="google-plus" href="">
-                                                <i class="fa fa-google-plus"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="instagram" href="">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="linked-in" href="">
-                                                <i class="fa fa-linkedin"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="pinterest" href="">
-                                                <i class="fa fa-pinterest"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="twitter" href="">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a class="youtube" href="">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-
-                                <!-- SEARCH -->
-                                <li class="is-hidden-for-topbar">
-                                    <div class="global-search is-hidden" data-search>
-                                        <div class="container text-right">
-                                            <div class="global-search-form-wrapper">
-                                                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <form class="global-search-form" action="/search/" method="get" novalidate>
-                                                    <div class="input-group">
-                                                        <input id="global-search" type="text" class="form-control" placeholder="Search">
-                                                        <div class="input-group-append">
-                                                            <button type="submit" class="btn">
-                                                                <i class="fa fa-search"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-        </header>
 
         <!-- HERO WRAPPER -->
         <div class="lv-hero-wrapper" data-carousel>
@@ -319,12 +112,10 @@
         </nav>
 
         <!-- BODY -->
-        <main class="main-body">
-            <div class="container"></div>
-        </main>
+        <main class="main-body"></main>
 
         <!-- FOOTER -->
-        <footer class="global-footer">
+        <footer class="global-footer theme-skyblue">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -618,19 +409,9 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- GLOBAL SITE TAG (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXX-X"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
-    gtag('config', 'UA-XXXXXXXX-X');
-    </script>
-
-    <!-- NO JAVASCRIPT WARNING -->
-    <noscript>
+    <!-- { % include snippets/google_analytics.html %} -->
+    
+<!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>
