@@ -8,12 +8,20 @@ function launchCarousel() {
   $("[data-carousel]").each(function () {
     var e = $(this),
         t = $(".lv-hero", e),
-        n = $(".lv-hero-carousel-prev-btn", e),
-        i = $(".lv-hero-carousel-next-btn", e);t.flickity({ adaptiveHeight: !0, autoPlay: !1, cellAlign: "left", contain: !0, dragThreshold: 3, freeScroll: !1, freeScrollFriction: .075, friction: .28, imagesLoaded: !0, pageDots: !0, prevNextButtons: !1, pauseAutoPlayOnHover: !1, selectedAttraction: .025, wrapAround: !0 });n.on("click", function () {
-      t.flickity("previous");
-    }), i.on("click", function () {
-      t.flickity("next");
-    });
+        n = $(".lv-hero-item-caption", e),
+        i = $(".lv-hero-item", t).length,
+        o = $(".lv-hero-carousel-prev-btn", e),
+        r = $(".lv-hero-carousel-next-btn", e);if (i > 1) {
+      var s = t.flickity({ adaptiveHeight: !0, autoPlay: !1, cellAlign: "left", contain: !0, dragThreshold: 3, freeScroll: !1, freeScrollFriction: .075, friction: .28, imagesLoaded: !0, pageDots: !0, prevNextButtons: !1, pauseAutoPlayOnHover: !1, selectedAttraction: .025, wrapAround: !0 });t.data("flickity");o.on("click", function () {
+        t.flickity("previous");
+      }), r.on("click", function () {
+        t.flickity("next");
+      }), s.on("select.flickity", function () {
+        n.hide(), setTimeout(function () {
+          n.show();
+        }, 500);
+      });
+    }
   });
 }!function (e, t) {
   "use strict";

@@ -15,6 +15,11 @@
     <!-- { % include snippets/loader.html %} -->
     <div class="lv-page">
 
+        <!-- HEADER -->
+        
+<!-- <header class="global-header fixed-top">{ % include header.html %}
+        </header> -->
+
         <!-- HERO WRAPPER -->
         <div class="lv-hero-wrapper" data-carousel>
 
@@ -28,7 +33,7 @@
                     <div class="container">
                         <div class="row justify-content-center text-center">
                             <div class="col-xl-9">
-                                <div class="lv-hero-item-caption">
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
                                     <h1 class="display-1">Hero Caption 1</h1>
                                     <p class="lead">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</p>
                                     <p>
@@ -50,7 +55,7 @@
                     <div class="container">
                         <div class="row justify-content-center text-center">
                             <div class="col-xl-9">
-                                <div class="lv-hero-item-caption">
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
                                     <h1 class="display-1">Hero Caption 2</h1>
                                     <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
                                     <p>
@@ -67,12 +72,13 @@
                     </a>
                 </div>
                 <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.png')">
+                    <iframe class="video ytplayer" width="100%" height="390" type="text/html" src="https://www.youtube.com/embed/ScMzIvxBSi4?controls=0&t=31s&loop=1&playlist=ScMzIvxBSi4&showinfo=0&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
 
                     <!-- HERO CAPTION -->
                     <div class="container">
                         <div class="row justify-content-center text-center">
                             <div class="col-xl-9">
-                                <div class="lv-hero-item-caption">
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
                                     <h1 class="display-1">Hero Caption 3</h1>
                                     <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
                                     <p>
@@ -104,7 +110,33 @@
 
         <!-- /.lv-hero-wrapper -->
         
-<!-- BREADCRUMB --><nav class="breadcrumb mb-0">
+<!-- IF YOUTUBE ID EXISTS IN SLIDES - INCLUDE SCRIPT --><script>
+        //-----------------------------------------------------------------
+        // YOUTUBE
+        // This code loads the IFrame Player API code asynchronously.
+        // https://stackoverflow.com/questions/31755519/how-can-i-use-a-class-instead-of-id-for-new-yt-player
+        //-----------------------------------------------------------------
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+        var player;
+        var playerEl = document.querySelector('.ytplayer');
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player(playerEl, {
+                events: {
+                    'onReady': onPlayerReady
+                }
+            });
+        }
+        function onPlayerReady() {
+            player.playVideo();
+            player.mute(); // Muted by default
+        }
+        </script>
+
+        <!-- BREADCRUMB -->
+        <nav class="breadcrumb mb-0">
             <div class="container">
                 <a class="breadcrumb-item" href="/">Home</a>
                 <span class="breadcrumb-item">404</span>
@@ -145,49 +177,10 @@
 
                             <!-- SOCIAL MEDIA -->
                             <h4>Social Media</h4>
-                            <ul class="social-media">
-                                <li>
-                                    <a class="facebook" href="">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="github" href="">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="google-plus" href="">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="instagram" href="">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="linked-in" href="">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pinterest" href="">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="twitter" href="">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="youtube" href="">
-                                        <i class="fa fa-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            <p>Returning soon...</p>
+
+                            <!-- { % include snippets/social_media.html %} -->
+                            </div>
                     </div>
                 </div>
             </section>
