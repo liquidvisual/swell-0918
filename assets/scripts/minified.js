@@ -4,7 +4,22 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function launchCarousel() {
+function createGoogleMap() {
+  var e = $(".lv-google-map");e.length && (e.each(function () {
+    $(this).click(function () {
+      $(this).find("iframe").css("pointer-events", "auto");
+    });
+  }), e.each(function () {
+    $(this).mouseleave(function () {
+      $(this).find("iframe").css("pointer-events", "none");
+    });
+  }));
+}function renderIframes() {
+  $("iframe").length && $("iframe").each(function () {
+    var e = $(this),
+        t = $(this).attr("data-src");e.attr("src", t), console.log(t);
+  });
+}function launchCarousel() {
   $("[data-carousel]").each(function () {
     var e = $(this),
         t = $(".lv-hero", e),
@@ -5150,13 +5165,6 @@ function launchCarousel() {
       } } }), p();
 }), function (e) {
   "use strict";
-  var t = e(".lv-google-map");t.length && (t.click(function () {
-    t.find("iframe").css("pointer-events", "auto");
-  }), t.mouseleave(function () {
-    t.find("iframe").css("pointer-events", "none");
-  }));
-}(jQuery), function (e) {
-  "use strict";
   var t = {},
       n = ["xs", "sm", "md", "lg", "xl", "xxl"];function i() {
     var n = e("body");1 != e(".lv-screen-data").length && n.append('<div class="lv-screen-data"></div>');var i,
@@ -5278,7 +5286,7 @@ function launchCarousel() {
     e(this).removeClass("is-open"), t.stopPropagation();
   }), e(".lv-off-canvas .has-dropdown > a").append(l);
 }(jQuery), $(window).on("load", function () {
-  $("html").addClass("has-loaded");
+  $("html").addClass("has-loaded"), renderIframes(), createGoogleMap();
 }), $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 }), $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function () {

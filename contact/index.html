@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Chrome - Inspire</title>
+    <title>Contact - Inspire</title>
 
     <!-- CDN -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
@@ -93,7 +93,7 @@
                                         <span class="text">Home</span>
                                     </a>
                                 </li>
-                                <li class="active">
+                                <li class="">
                                     <a class="top-parent-anchor" href="/chrome/">
                                         <span class="text">Chrome</span>
                                     </a>
@@ -130,7 +130,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="">
+                                <li class="active">
                                     <a class="top-parent-anchor" href="/contact/">
                                         <span class="text">Contact</span>
                                     </a>
@@ -210,25 +210,179 @@
                 </div>
             </div>
         </header>
-        <p>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-        </p>
-        <style>
-        .lv-page {
-            background: grey !important;
-        }
-        </style>
+
+        <!-- HERO WRAPPER -->
+        <div class="lv-hero-wrapper theme-skyblue">
+
+            <!-- HERO -->
+            <div class="lv-hero has-height-preset-2">
+
+                <!-- HERO ITEM -->
+                <div class="lv-hero-item align-items-end" style="background-image: url('')">
+
+                    <!-- HERO CAPTION -->
+                    <div class="container">
+                        <div class="lv-hero-item-caption px-0 animated fadeInLeftSubtle">
+                            <h1 class="display-1">Contact</h1>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /.lv-hero-item -->
+                </div>
+
+            <!-- /.lv-hero -->
+            </div>
+
+        <!-- /.lv-hero-wrapper -->
+        
+<!-- BREADCRUMB --><nav class="breadcrumb mb-0">
+            <div class="container">
+                <a class="breadcrumb-item" href="/">Home</a>
+                <span class="breadcrumb-item">Contact</span>
+            </div>
+        </nav>
+
+        <!-- BODY -->
+        <main class="main-body">
+
+            <!-- CONTACT SECTION -->
+            <section class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 pr-5">
+                            <h2>Get in Touch</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                            <div class="spacer mb-4"></div>
+
+                            <!-- FORM CONTACT -->
+                            <form id="contact-digital-agency" class="mb-4" name="Digital Agency Form" action="/hire/thanks/" data-toggle="validator" novalidate netlify>
+                                <fieldset>
+
+                                    <!-- NAME* -->
+                                    <label class="form-group d-block">
+                                        <p class="mb-2">Full Name
+                                            <small class="asterisk">*</small>
+                                        </p>
+                                        <input class="form-control" name="Name" type="text" placeholder="" required>
+                                        <small class="error shake animated">
+                                            <i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+                                    </label>
+
+                                    <!-- EMAIL* -->
+                                    <label class="form-group d-block">
+                                        <p class="mb-2">Email
+                                            <small class="asterisk">*</small>
+                                        </p>
+                                        <input class="form-control" name="Email" type="email" placeholder="" required>
+                                        <small class="error shake animated">
+                                            <i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+                                    </label>
+
+                                    <!-- PHONE -->
+                                    <label class="form-group d-block">
+                                        <p class="mb-2">Phone</p>
+                                        <input class="form-control" name="Phone" type="phone" placeholder="">
+                                        <small class="error shake animated">
+                                            <i class="fa fa-warning"></i>&nbsp; A valid phone number is required.</small>
+                                    </label>
+                                </fieldset>
+                                <fieldset>
+
+                                    <!-- MESSAGE -->
+                                    <label class="form-group d-block">
+                                        <p>Your Message
+                                            <small class="asterisk">*</small>
+                                        </p>
+                                        <textarea class="form-control" name="Message" rows="6" placeholder="" required></textarea>
+                                        <small class="error shake animated">
+                                            <i class="fa fa-warning"></i>&nbsp; Please leave a message.</small>
+                                    </label>
+                                </fieldset>
+                                <fieldset>
+
+                                    <!-- REFERRAL -->
+                                    <label class="form-group d-block">
+                                        <p>How did you hear about us?</p>
+                                        <select class="custom-select" name="Referral">
+                                            <option disabled selected>Choose one</option>
+                                            <option value="Google">Google</option>
+                                            <option value="Twitter">Twitter</option>
+                                            <option value="Facebook">Facebook</option>
+                                            <option value="Friend">Word of mouth</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </label>
+                                </fieldset>
+                                <fieldset>
+
+                                    <!-- SIGN UP TO OUR NEWSLETTER -->
+                                    <div class="form-group">
+                                        <label class="custom-control custom-checkbox">
+                                            <input class="custom-control-input" type="checkbox" name="Newsletter" value="true">
+                                            <p class="custom-control-label">Sign me up to the newsletter</p>
+                                        </label>
+                                    </div>
+                                </fieldset>
+
+                                <!-- * REQUIRED -->
+                                <p class="float-right">
+                                    <small class="asterisk">*</small>
+                                    <small class="text-muted" style="position: relative; top: -5px;">required</small>
+                                </p>
+
+                                <!-- SUBMIT -->
+                                <button type="submit" class="btn btn-primary mb-4">Send Message
+                                    <i class="fa fa-angle-right"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4">
+
+                            <!-- CONTACT DETAILS -->
+                            <h4>Enterprise Wide</h4>
+                            <p>Manly Office
+                                <br>55 North Steyne
+                                <br>Manly NSW
+                                <br>
+                                <a href="mailto:settings.offices[0].email">info@enterprisewide.com.au</a>
+                            </p>
+                            <br>
+                            <a href="#google-map" class="btn btn-primary">Directions&nbsp;
+                                <i class="fa fa-external-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GOOGLE MAP -->
+            <div id="google-map">
+
+                <!-- GOOGLE MAP -->
+                <div class="lv-google-map mb-0">
+                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+                    <iframe data-google-map width="100%" height="500" frameborder="0" style="pointer-events: none;" data-src="https://maps.google.com/maps?hl=en&q=55 North Steyne Manly NSW&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed"></iframe>
+                </div>
+            </div>
+
+            <!-- OUTRO CTA -->
+            <section class="section section-outro-cta theme-skyblue">
+                <div class="container">
+                    <h2>Outro CTA</h2>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                        </div>
+                        <div class="col-md-3 col-md-offset-1">
+                            <p>
+                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!-- FOOTER -->
         <footer class="global-footer theme-skyblue">
@@ -344,7 +498,7 @@
                     <span class="text">Home</span>
                 </a>
             </li>
-            <li class="active">
+            <li class="">
                 <a class="top-parent-anchor" href="/chrome/">
                     <span class="text">Chrome</span>
                 </a>
@@ -381,7 +535,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="">
+            <li class="active">
                 <a class="top-parent-anchor" href="/contact/">
                     <span class="text">Contact</span>
                 </a>

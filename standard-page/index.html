@@ -37,12 +37,24 @@
                         <div class="col-6 text-right">
 
                             <!-- MEMBERS AREA -->
-                            <a href="#">
-                                <i class="fa fa-user"></i>&nbsp;
-                                <span class="text hidden-sm-down">Members Area
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                            </a>
+                            
+<!-- <a href="#"><i class="fa fa-user"></i>&nbsp;
+                    <span class="text hidden-sm-down">Members Area <i class="fa fa-angle-down"></i></span>
+                </a> -->
+
+                            <!-- MEMBERS AREA -->
+                            <div class="dropdown d-inline-block mr-2" style="cursor: pointer">
+                                <a id="dropdownMenuButton" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>&nbsp;
+                                    <span class="text hidden-sm-down">Members Area
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-sign-in"></i> Login</a>
+                                </div>
+                            </div>
 
                             <!-- SEARCH -->
                             <a href="#search" data-search-trigger>
@@ -119,7 +131,7 @@
                                     </ul>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="#contact">
+                                    <a class="top-parent-anchor" href="/contact/">
                                         <span class="text">Contact</span>
                                     </a>
                                 </li>
@@ -233,7 +245,67 @@
 
         <!-- BODY -->
         <main class="main-body">
-            <p>Coming Soon…</p>
+
+            <!-- TEXT SECTION -->
+            <section class="section section-text">
+                <div class="container">
+                    <h2>Text Section</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</p>
+                    <p>
+                        <a href="#">Link here</a>
+                    </p>
+                    <h3>Header (h3)</h3>
+                    <h4>Header (h4)</h4>
+                    <h5>Header (h5)</h5>
+                    <h6>Header (h6)</h6>
+                    <p>ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                    <h4>Unordered List</h4>
+                    <ul>
+                        <li>List item #1</li>
+                        <li>List item #2</li>
+                        <li>List item #3
+                            <ul>
+                                <li>Nested item #1</li>
+                                <li>Nested item #2</li>
+                                <li>Nested item #3</li>
+                            </ul>
+                        </li>
+                        <li>List item #4</li>
+                        <li>List item #5</li>
+                    </ul>
+                    <h4>Ordered List</h4>
+                    <ol>
+                        <li>List item #1</li>
+                        <li>List item #2</li>
+                        <li>List item #3
+                            <ol>
+                                <li>Nested item #1</li>
+                                <li>Nested item #2</li>
+                                <li>Nested item #3</li>
+                            </ol>
+                        </li>
+                        <li>List item #4</li>
+                        <li>List item #5</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- OUTRO CTA -->
+            <section class="section section-outro-cta theme-skyblue">
+                <div class="container">
+                    <h2>Outro CTA</h2>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                        </div>
+                        <div class="col-md-3 col-md-offset-1">
+                            <p>
+                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
 
         <!-- FOOTER -->
@@ -259,9 +331,12 @@
 
                             <!-- CONTACT -->
                             <h4>Enterprise Wide</h4>
-                            <p>Sydney, NSW, 2000
-                                <br>Australia
-                                <br>info@enterprisewide.com.au</p>
+                            <p>Manly Office
+                                <br>55 North Steyne
+                                <br>Manly NSW
+                                <br>
+                                <a href="mailto:settings.offices[0].email">info@enterprisewide.com.au</a>
+                            </p>
                         </div>
                         <div class="col-md-4">
 
@@ -385,7 +460,7 @@
                 </ul>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="#contact">
+                <a class="top-parent-anchor" href="/contact/">
                     <span class="text">Contact</span>
                 </a>
             </li>

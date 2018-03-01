@@ -37,12 +37,24 @@
                         <div class="col-6 text-right">
 
                             <!-- MEMBERS AREA -->
-                            <a href="#">
-                                <i class="fa fa-user"></i>&nbsp;
-                                <span class="text hidden-sm-down">Members Area
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                            </a>
+                            
+<!-- <a href="#"><i class="fa fa-user"></i>&nbsp;
+                    <span class="text hidden-sm-down">Members Area <i class="fa fa-angle-down"></i></span>
+                </a> -->
+
+                            <!-- MEMBERS AREA -->
+                            <div class="dropdown d-inline-block mr-2" style="cursor: pointer">
+                                <a id="dropdownMenuButton" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>&nbsp;
+                                    <span class="text hidden-sm-down">Members Area
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-sign-in"></i> Login</a>
+                                </div>
+                            </div>
 
                             <!-- SEARCH -->
                             <a href="#search" data-search-trigger>
@@ -119,7 +131,7 @@
                                     </ul>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="#contact">
+                                    <a class="top-parent-anchor" href="/contact/">
                                         <span class="text">Contact</span>
                                     </a>
                                 </li>
@@ -428,9 +440,9 @@
                 </div>
             </section>
 
-            <!-- { % include components/text_section.html theme="theme-skyblue" %} -->
+            <!-- { % include components/section__text.html theme="theme-skyblue" %} -->
             
-<!-- { % include components/featured_blog_posts.html %} -->
+<!-- { % include components/blog_posts__featured_.html %} -->
 <!-- FEATURED BLOG POSTS --><section class="section section-featured-blog-posts theme-skyblue">
                 <div class="container">
                     <h2 class="mb-4 text-center">Featured Blog Posts</h2>
@@ -643,9 +655,12 @@
 
                             <!-- CONTACT -->
                             <h4>Enterprise Wide</h4>
-                            <p>Sydney, NSW, 2000
-                                <br>Australia
-                                <br>info@enterprisewide.com.au</p>
+                            <p>Manly Office
+                                <br>55 North Steyne
+                                <br>Manly NSW
+                                <br>
+                                <a href="mailto:settings.offices[0].email">info@enterprisewide.com.au</a>
+                            </p>
                         </div>
                         <div class="col-md-4">
 
@@ -769,7 +784,7 @@
                 </ul>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="#contact">
+                <a class="top-parent-anchor" href="/contact/">
                     <span class="text">Contact</span>
                 </a>
             </li>

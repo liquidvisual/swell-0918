@@ -37,12 +37,24 @@
                         <div class="col-6 text-right">
 
                             <!-- MEMBERS AREA -->
-                            <a href="#">
-                                <i class="fa fa-user"></i>&nbsp;
-                                <span class="text hidden-sm-down">Members Area
-                                    <i class="fa fa-angle-down"></i>
-                                </span>
-                            </a>
+                            
+<!-- <a href="#"><i class="fa fa-user"></i>&nbsp;
+                    <span class="text hidden-sm-down">Members Area <i class="fa fa-angle-down"></i></span>
+                </a> -->
+
+                            <!-- MEMBERS AREA -->
+                            <div class="dropdown d-inline-block mr-2" style="cursor: pointer">
+                                <a id="dropdownMenuButton" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>&nbsp;
+                                    <span class="text hidden-sm-down">Members Area
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-sign-in"></i> Login</a>
+                                </div>
+                            </div>
 
                             <!-- SEARCH -->
                             <a href="#search" data-search-trigger>
@@ -119,7 +131,7 @@
                                     </ul>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="#contact">
+                                    <a class="top-parent-anchor" href="/contact/">
                                         <span class="text">Contact</span>
                                     </a>
                                 </li>
@@ -232,7 +244,25 @@
         </nav>
 
         <!-- BODY -->
-        <main class="main-body"></main>
+        <main class="main-body">
+
+            <!-- OUTRO CTA -->
+            <section class="section section-outro-cta theme-skyblue">
+                <div class="container">
+                    <h2>Outro CTA</h2>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                        </div>
+                        <div class="col-md-3 col-md-offset-1">
+                            <p>
+                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
 
         <!-- FOOTER -->
         <footer class="global-footer theme-skyblue">
@@ -257,9 +287,12 @@
 
                             <!-- CONTACT -->
                             <h4>Enterprise Wide</h4>
-                            <p>Sydney, NSW, 2000
-                                <br>Australia
-                                <br>info@enterprisewide.com.au</p>
+                            <p>Manly Office
+                                <br>55 North Steyne
+                                <br>Manly NSW
+                                <br>
+                                <a href="mailto:settings.offices[0].email">info@enterprisewide.com.au</a>
+                            </p>
                         </div>
                         <div class="col-md-4">
 
@@ -383,7 +416,7 @@
                 </ul>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="#contact">
+                <a class="top-parent-anchor" href="/contact/">
                     <span class="text">Contact</span>
                 </a>
             </li>
