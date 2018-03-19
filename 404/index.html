@@ -12,11 +12,33 @@
 </head>
 <body class="">
 
-    <!-- { % include snippets/loader.html %} -->
+    <!-- PAGE LOADER -->
+    <div id="lv-page-loader" class="lv-page-loader">
+        <div class="lv-page-loader-spinner">
+            <div class="loader-spinner">
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
+    <script>
+    var loader = document.getElementById('lv-page-loader');
+    loader.style.display = 'flex';
+    // Limit to 2+ seconds of waiting time
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
+    </script>
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top theme-posh">
+        <header class="global-header fixed-top theme-posh is-tinted">
 
             <!-- HEADER TOP -->
             <div class="global-header-top hidden-lg-down">
@@ -60,7 +82,8 @@
 
                     <!-- LOGO -->
                     <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
-                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
+                        <img class="logo-light" src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo">
+                        <img class="logo-dark" src="/assets/img/content/inspire-logo@2x--dark.png" alt="Enterprise Wide" itemprop="logo"> </a>
 
                     <!-- HAMBURGER -->
                     <div class="global-header-hamburger hidden-xl-up">
@@ -253,7 +276,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-skyblue">
+        <footer class="global-footer theme-posh">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
