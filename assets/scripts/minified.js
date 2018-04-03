@@ -4,22 +4,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function createGoogleMap() {
-  var e = $(".lv-google-map");e.length && (e.each(function () {
-    $(this).click(function () {
-      $(this).find("iframe").css("pointer-events", "auto");
-    });
-  }), e.each(function () {
-    $(this).mouseleave(function () {
-      $(this).find("iframe").css("pointer-events", "none");
-    });
-  }));
-}function renderIframes() {
-  $("iframe").length && $("iframe").each(function () {
-    var e = $(this),
-        t = $(this).attr("data-src");e.attr("src", t), console.log(t);
-  });
-}function launchCarousel() {
+function launchCarousel() {
   $("[data-carousel]").each(function () {
     var e = $(this),
         t = $(".lv-hero", e),
@@ -30,7 +15,7 @@ function createGoogleMap() {
       t.flickity("previous");
     }), r.on("click", function () {
       t.flickity("next");
-    }), $flickity.on("select.flickity", function () {
+    }), t.on("select.flickity", function () {
       n.hide(), setTimeout(function () {
         n.show();
       }, 500);
@@ -5299,7 +5284,7 @@ function createGoogleMap() {
     e(this).removeClass("is-open"), t.stopPropagation();
   }), e(".lv-off-canvas .has-dropdown > a").append(l);
 }(jQuery), $(window).on("load", function () {
-  $("html").addClass("has-loaded"), renderIframes(), createGoogleMap();
+  $("html").addClass("has-loaded");
 }), $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 }), $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function () {
