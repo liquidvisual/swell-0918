@@ -5305,6 +5305,8 @@ function createGoogleMap() {
 }), $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function () {
   var e = $(this).attr("href"),
       t = $(e);if (t.length) return $.scrollTo(t.offset().top, 500), !1;
+}), $("[data-back-top]").click(function () {
+  $.scrollTo(0, 500);
 }), $('a[href="#sitemap"]').length && $('a[href="#sitemap"]').click(function () {
   var e = $(this).attr("href"),
       t = $(e);$(".fa-angle-down").toggleClass("is-active"), setTimeout(function () {

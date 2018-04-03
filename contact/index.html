@@ -422,7 +422,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-poshX">
+        <footer class="global-footer theme-posh">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -465,51 +465,10 @@
 
                             <!-- SOCIAL MEDIA -->
                             <h4>Social Media</h4>
+                            <p>Returning soon...</p>
 
-                            <!-- <p>Returning soon...</p> -->
-                            <ul class="social-media">
-                                <li>
-                                    <a class="facebook" href="">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="github" href="">
-                                        <i class="fa fa-github"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="google-plus" href="">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="instagram" href="">
-                                        <i class="fa fa-instagram"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="linked-in" href="">
-                                        <i class="fa fa-linkedin"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="pinterest" href="">
-                                        <i class="fa fa-pinterest"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="twitter" href="">
-                                        <i class="fa fa-twitter"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a class="youtube" href="">
-                                        <i class="fa fa-youtube"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            <!-- { % include snippets/social_media.html %} -->
+                            </div>
                     </div>
                 </div>
             </section>
@@ -517,19 +476,42 @@
             <!-- FOOTER BOTTOM -->
             <section class="global-footer-bottom">
                 <div class="container">
+
+                    <!-- BACK TO TOP -->
+                    <div class="text-center text-md-right">
+                        <button data-back-top class="back-to-top">
+                            <span class="text">TOP</span>&nbsp;
+                            <i class="fa fa-arrow-circle-up"></i>
+                        </button>
+                    </div>
                     <div class="row">
-                        <div class="col-6">
-                            <small>&copy; 2018&nbsp;&nbsp;&nbsp;
+                        <div class="col-md-6 text-center text-md-left">
+
+                            <!-- COPYRIGHT + SITEMAP -->
+                            <small class="mr-2 d-block d-md-inline">&copy;
+                                <date class="mr-2">2018</date>
                                 <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;
                                     <i class="fa fa-angle-down"></i>
                                 </a>
                             </small>
+
+                            <!-- OPTIONAL LINKS -->
+                            <small class="mr-2">
+                                <a href="#">Link One</a>
+                            </small>
+                            <small class="mr-2">
+                                <a href="#">Link Two</a>
+                            </small>
+                            <small class="mr-2">
+                                <a href="#">Link Three</a>
+                            </small>
                         </div>
-                        <div class="col-6 text-right">
+                        <div class="col-md-6 text-center text-md-right">
+
+                            <!-- AUTHOR -->
                             <small>
-                                <a class="author-logo" href="">Site by Tom Smith</a>
                                 <a class="author-logo" target="_blank" href="http://enterprisewide.com.au">
-                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Ben Norman">&nbsp;&nbsp;
+                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Ben Norman">
                                     <span class="text">Powered by Enterprise Wide</span>
                                 </a>
                             </small>
