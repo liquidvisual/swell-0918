@@ -4,21 +4,36 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function launchCarousel() {
-  $("[data-carousel]").each(function () {
+function cardSlider() {
+  Flickity.prototype._createResizeClass = function () {
+    this.element.classList.add("flickity-resize");
+  }, Flickity.createMethods.push("_createResizeClass");var e = Flickity.prototype.resize;Flickity.prototype.resize = function () {
+    this.element.classList.remove("flickity-resize"), e.call(this), this.element.classList.add("flickity-resize");
+  };
+}function launchGallery() {
+  $(".popup-gallery").each(function () {
+    var e = $(this),
+        t = e.attr("data-group-title");e.magnificPopup({ delegate: "a", type: "image", tLoading: "Loading image #%curr%...", mainClass: "mfp-img-mobile", gallery: { enabled: !0, navigateByImgClick: !0, preload: [0, 1] }, image: { tError: '<a href="%url%">The image #%curr%</a> could not be loaded.', titleSrc: function titleSrc(e) {
+          return '<div class="mb-1">' + e.el.attr("title") + "</div><small>" + t + "</small>";
+        } }, callbacks: { elementParse: function elementParse(e) {
+          (-1 != e.src.indexOf("youtube") || -1 != e.src.indexOf("vimeo") || -1 != e.src.indexOf("maps")) && (e.type = "iframe");
+        } } });
+  });
+}function launchSlider() {
+  $("[data-hero-slider]").each(function () {
     var e = $(this),
         t = $(".lv-hero", e),
         n = $(".lv-hero-item-caption", e),
         i = $(".lv-hero-item", t).length,
-        o = $(".lv-hero-carousel-prev-btn", e),
-        r = $(".lv-hero-carousel-next-btn", e);i > 1 && (o.on("click", function () {
+        o = $(".lv-hero-slider-prev-btn", e),
+        r = $(".lv-hero-slider-next-btn", e);i > 1 && (o.on("click", function () {
       t.flickity("previous");
     }), r.on("click", function () {
       t.flickity("next");
-    }), t.on("select.flickity", function () {
-      n.hide(), setTimeout(function () {
+    }), t.on("ready.flickity change.flickity", function () {
+      $(window).width() > 576 && (n.hide(), setTimeout(function () {
         n.show();
-      }, 500);
+      }, 500));
     }));
   });
 }!function (e, t) {
@@ -168,12 +183,12 @@ function launchCarousel() {
         D = function D(e, t) {
       return e === t && (d = !0), 0;
     },
-        A = {}.hasOwnProperty,
-        k = [],
-        I = k.pop,
-        N = k.push,
-        O = k.push,
-        L = k.slice,
+        k = {}.hasOwnProperty,
+        A = [],
+        I = A.pop,
+        N = A.push,
+        L = A.push,
+        O = A.slice,
         P = function P(e, t) {
       for (var n = 0, i = e.length; n < i; n++) {
         if (e[n] === t) return n;
@@ -211,10 +226,10 @@ function launchCarousel() {
         oe = ye(function (e) {
       return !0 === e.disabled && ("form" in e || "label" in e);
     }, { dir: "parentNode", next: "legend" });try {
-      O.apply(k = L.call(w.childNodes), w.childNodes), k[w.childNodes.length].nodeType;
+      L.apply(A = O.call(w.childNodes), w.childNodes), A[w.childNodes.length].nodeType;
     } catch (e) {
-      O = { apply: k.length ? function (e, t) {
-          N.apply(e, L.call(t));
+      L = { apply: A.length ? function (e, t) {
+          N.apply(e, O.call(t));
         } : function (e, t) {
           for (var n = e.length, i = 0; e[n++] = t[i++];) {}e.length = n - 1;
         } };
@@ -233,14 +248,14 @@ function launchCarousel() {
             if (!(c = t.getElementById(r))) return i;if (c.id === r) return i.push(c), i;
           } else if (y && (c = y.getElementById(r)) && b(t, c) && c.id === r) return i.push(c), i;
         } else {
-          if (d[2]) return O.apply(i, t.getElementsByTagName(e)), i;if ((r = d[3]) && n.getElementsByClassName && t.getElementsByClassName) return O.apply(i, t.getElementsByClassName(r)), i;
+          if (d[2]) return L.apply(i, t.getElementsByTagName(e)), i;if ((r = d[3]) && n.getElementsByClassName && t.getElementsByClassName) return L.apply(i, t.getElementsByClassName(r)), i;
         }if (n.qsa && !S[e + " "] && (!g || !g.test(e))) {
           if (1 !== E) y = t, v = e;else if ("object" !== t.nodeName.toLowerCase()) {
             for ((u = t.getAttribute("id")) ? u = u.replace(te, ne) : t.setAttribute("id", u = _), a = (p = s(e)).length; a--;) {
               p[a] = "#" + u + " " + ve(p[a]);
             }v = p.join(","), y = Z.test(e) && me(t.parentNode) || t;
           }if (v) try {
-            return O.apply(i, y.querySelectorAll(v)), i;
+            return L.apply(i, y.querySelectorAll(v)), i;
           } catch (e) {} finally {
             u === _ && t.removeAttribute("id");
           }
@@ -377,7 +392,7 @@ function launchCarousel() {
       return (e.ownerDocument || e) !== f && h(e), b(e, t);
     }, re.attr = function (e, t) {
       (e.ownerDocument || e) !== f && h(e);var o = i.attrHandle[t.toLowerCase()],
-          r = o && A.call(i.attrHandle, t.toLowerCase()) ? o(e, t, !m) : void 0;return void 0 !== r ? r : n.attributes || !m ? e.getAttribute(t) : (r = e.getAttributeNode(t)) && r.specified ? r.value : null;
+          r = o && k.call(i.attrHandle, t.toLowerCase()) ? o(e, t, !m) : void 0;return void 0 !== r ? r : n.attributes || !m ? e.getAttribute(t) : (r = e.getAttributeNode(t)) && r.specified ? r.value : null;
     }, re.escape = function (e) {
       return (e + "").replace(te, ne);
     }, re.error = function (e) {
@@ -605,7 +620,7 @@ function launchCarousel() {
               (d = v[u]) && (c = o ? P(r, d) : h[u]) > -1 && (r[c] = !(s[c] = d));
             }
           }
-        } else v = _e(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : O.apply(s, v);
+        } else v = _e(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : L.apply(s, v);
       });
     }function Ee(e) {
       for (var t, n, o, r = e.length, s = i.relative[e[0].type], a = s || i.relative[" "], l = s ? 1 : 0, u = ye(function (e) {
@@ -670,7 +685,7 @@ function launchCarousel() {
                 if (v > 0) for (; y--;) {
                   b[y] || _[y] || (_[y] = I.call(l));
                 }_ = _e(_);
-              }O.apply(l, _), u && !_r && _.length > 0 && v + t.length > 1 && re.uniqueSort(l);
+              }L.apply(l, _), u && !_r && _.length > 0 && v + t.length > 1 && re.uniqueSort(l);
             }return u && (E = x, c = w), b;
           };return n ? ae(r) : r;
         }(r, o))).selector = e;
@@ -687,7 +702,7 @@ function launchCarousel() {
           if (!(t = (i.find.ID(c.matches[0].replace(J, ee), t) || [])[0])) return n;h && (t = t.parentNode), e = e.slice(l.shift().value.length);
         }for (r = K.needsContext.test(e) ? 0 : l.length; r-- && (c = l[r], !i.relative[u = c.type]);) {
           if ((d = i.find[u]) && (o = d(c.matches[0].replace(J, ee), Z.test(l[0].type) && me(t.parentNode) || t))) {
-            if (l.splice(r, 1), !(e = o.length && ve(l))) return O.apply(n, o), n;break;
+            if (l.splice(r, 1), !(e = o.length && ve(l))) return L.apply(n, o), n;break;
           }
         }
       }return (h || a(e, f))(o, t, !m, n, !t || Z.test(e) && me(t.parentNode) || t), n;
@@ -720,7 +735,7 @@ function launchCarousel() {
   },
       S = _.expr.match.needsContext;function D(e, t) {
     return e.nodeName && e.nodeName.toLowerCase() === t.toLowerCase();
-  }var A = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;function k(e, t, n) {
+  }var k = /^<([a-z][^\/\0>:\x20\t\r\n\f]*)[\x20\t\r\n\f]*\/?>(?:<\/\1>|)$/i;function A(e, t, n) {
     return m(t) ? _.grep(e, function (e, i) {
       return !!t.call(e, i, e) !== n;
     }) : t.nodeType ? _.grep(e, function (e) {
@@ -744,22 +759,22 @@ function launchCarousel() {
         _.find(e, o[t], n);
       }return i > 1 ? _.uniqueSort(n) : n;
     }, filter: function filter(e) {
-      return this.pushStack(k(this, e || [], !1));
+      return this.pushStack(A(this, e || [], !1));
     }, not: function not(e) {
-      return this.pushStack(k(this, e || [], !0));
+      return this.pushStack(A(this, e || [], !0));
     }, is: function is(e) {
-      return !!k(this, "string" == typeof e && S.test(e) ? _(e) : e || [], !1).length;
+      return !!A(this, "string" == typeof e && S.test(e) ? _(e) : e || [], !1).length;
     } });var I,
       N = /^(?:\s*(<[\w\W]+>)[^>]*|#([\w-]+))$/;(_.fn.init = function (e, t, n) {
     var o, r;if (!e) return this;if (n = n || I, "string" == typeof e) {
       if (!(o = "<" === e[0] && ">" === e[e.length - 1] && e.length >= 3 ? [null, e, null] : N.exec(e)) || !o[1] && t) return !t || t.jquery ? (t || n).find(e) : this.constructor(t).find(e);if (o[1]) {
-        if (t = t instanceof _ ? t[0] : t, _.merge(this, _.parseHTML(o[1], t && t.nodeType ? t.ownerDocument || t : i, !0)), A.test(o[1]) && _.isPlainObject(t)) for (o in t) {
+        if (t = t instanceof _ ? t[0] : t, _.merge(this, _.parseHTML(o[1], t && t.nodeType ? t.ownerDocument || t : i, !0)), k.test(o[1]) && _.isPlainObject(t)) for (o in t) {
           m(this[o]) ? this[o](t[o]) : this.attr(o, t[o]);
         }return this;
       }return (r = i.getElementById(o[2])) && (this[0] = r, this.length = 1), this;
     }return e.nodeType ? (this[0] = e, this.length = 1, this) : m(e) ? void 0 !== n.ready ? n.ready(e) : e(_) : _.makeArray(e, this);
-  }).prototype = _.fn, I = _(i);var O = /^(?:parents|prev(?:Until|All))/,
-      L = { children: !0, contents: !0, next: !0, prev: !0 };function P(e, t) {
+  }).prototype = _.fn, I = _(i);var L = /^(?:parents|prev(?:Until|All))/,
+      O = { children: !0, contents: !0, next: !0, prev: !0 };function P(e, t) {
     for (; (e = e[t]) && 1 !== e.nodeType;) {}return e;
   }_.fn.extend({ has: function has(e) {
       var t = _(e, this),
@@ -812,7 +827,7 @@ function launchCarousel() {
       return D(e, "iframe") ? e.contentDocument : (D(e, "template") && (e = e.content || e), _.merge([], e.childNodes));
     } }, function (e, t) {
     _.fn[e] = function (n, i) {
-      var o = _.map(this, t, n);return "Until" !== e.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (L[e] || _.uniqueSort(o), O.test(e) && o.reverse()), this.pushStack(o);
+      var o = _.map(this, t, n);return "Until" !== e.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (O[e] || _.uniqueSort(o), L.test(e) && o.reverse()), this.pushStack(o);
     };
   });var j = /[^\x20\t\r\n\f]+/g;function M(e) {
     return e;
@@ -1287,13 +1302,13 @@ function launchCarousel() {
         _.event.remove(this, e, n, t);
       });
     } });var De = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
-      Ae = /<script|<style|<link/i,
-      ke = /checked\s*(?:[^=]|=\s*.checked.)/i,
+      ke = /<script|<style|<link/i,
+      Ae = /checked\s*(?:[^=]|=\s*.checked.)/i,
       Ie = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function Ne(e, t) {
     return D(e, "table") && D(11 !== t.nodeType ? t : t.firstChild, "tr") && _(e).children("tbody")[0] || e;
-  }function Oe(e) {
-    return e.type = (null !== e.getAttribute("type")) + "/" + e.type, e;
   }function Le(e) {
+    return e.type = (null !== e.getAttribute("type")) + "/" + e.type, e;
+  }function Oe(e) {
     return "true/" === (e.type || "").slice(0, 5) ? e.type = e.type.slice(5) : e.removeAttribute("type"), e;
   }function Pe(e, t) {
     var n, i, o, r, s, a, l, c;if (1 === t.nodeType) {
@@ -1314,12 +1329,12 @@ function launchCarousel() {
         h = e.length,
         f = h - 1,
         g = t[0],
-        v = m(g);if (v || h > 1 && "string" == typeof g && !p.checkClone && ke.test(g)) return e.each(function (o) {
+        v = m(g);if (v || h > 1 && "string" == typeof g && !p.checkClone && Ae.test(g)) return e.each(function (o) {
       var r = e.eq(o);v && (t[0] = g.call(this, o, r.html())), je(r, t, n, i);
     });if (h && (r = (o = ye(t, e[0].ownerDocument, !1, e, i)).firstChild, 1 === o.childNodes.length && (o = r), r || i)) {
-      for (l = (a = _.map(fe(o, "script"), Oe)).length; d < h; d++) {
+      for (l = (a = _.map(fe(o, "script"), Le)).length; d < h; d++) {
         c = o, d !== f && (c = _.clone(c, !0, !0), l && _.merge(a, fe(c, "script"))), n.call(e[d], c, d);
-      }if (l) for (u = a[a.length - 1].ownerDocument, _.map(a, Le), d = 0; d < l; d++) {
+      }if (l) for (u = a[a.length - 1].ownerDocument, _.map(a, Oe), d = 0; d < l; d++) {
         c = a[d], de.test(c.type || "") && !Y.access(c, "globalEval") && _.contains(u, c) && (c.src && "module" !== (c.type || "").toLowerCase() ? _._evalUrl && _._evalUrl(c.src) : y(c.textContent.replace(Ie, ""), u, c));
       }
     }return e;
@@ -1393,7 +1408,7 @@ function launchCarousel() {
       return R(this, function (e) {
         var t = this[0] || {},
             n = 0,
-            i = this.length;if (void 0 === e && 1 === t.nodeType) return t.innerHTML;if ("string" == typeof e && !Ae.test(e) && !he[(ue.exec(e) || ["", ""])[1].toLowerCase()]) {
+            i = this.length;if (void 0 === e && 1 === t.nodeType) return t.innerHTML;if ("string" == typeof e && !ke.test(e) && !he[(ue.exec(e) || ["", ""])[1].toLowerCase()]) {
           e = _.htmlPrefilter(e);try {
             for (; n < i; n++) {
               1 === (t = this[n] || {}).nodeType && (_.cleanData(fe(t, !1)), t.innerHTML = e);
@@ -1926,12 +1941,12 @@ function launchCarousel() {
       }).get();
     } });var St = /%20/g,
       Dt = /#.*$/,
-      At = /([?&])_=[^&]*/,
-      kt = /^(.*?):[ \t]*([^\r\n]*)$/gm,
+      kt = /([?&])_=[^&]*/,
+      At = /^(.*?):[ \t]*([^\r\n]*)$/gm,
       It = /^(?:GET|HEAD)$/,
       Nt = /^\/\//,
-      Ot = {},
       Lt = {},
+      Ot = {},
       Pt = "*/".concat("*"),
       jt = i.createElement("a");function Mt(e) {
     return function (t, n) {
@@ -1943,7 +1958,7 @@ function launchCarousel() {
     };
   }function Ht(e, t, n, i) {
     var o = {},
-        r = e === Lt;function s(a) {
+        r = e === Ot;function s(a) {
       var l;return o[a] = !0, _.each(e[a] || [], function (e, a) {
         var c = a(t, n, i);return "string" != typeof c || r || o[c] ? r ? !(l = c) : void 0 : (t.dataTypes.unshift(c), s(c), !1);
       }), l;
@@ -1956,7 +1971,7 @@ function launchCarousel() {
     }return i && _.extend(!0, e, i), e;
   }jt.href = yt.href, _.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: yt.href, type: "GET", isLocal: /^(?:about|app|app-storage|.+-extension|file|res|widget):$/.test(yt.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": Pt, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": JSON.parse, "text xml": _.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(e, t) {
       return t ? Ft(Ft(e, _.ajaxSettings), t) : Ft(_.ajaxSettings, e);
-    }, ajaxPrefilter: Mt(Ot), ajaxTransport: Mt(Lt), ajax: function ajax(t, n) {
+    }, ajaxPrefilter: Mt(Lt), ajaxTransport: Mt(Ot), ajax: function ajax(t, n) {
       "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && (n = t, t = void 0), n = n || {};var o,
           r,
           s,
@@ -1978,7 +1993,7 @@ function launchCarousel() {
           C = "canceled",
           x = { readyState: 0, getResponseHeader: function getResponseHeader(e) {
           var t;if (u) {
-            if (!a) for (a = {}; t = kt.exec(s);) {
+            if (!a) for (a = {}; t = At.exec(s);) {
               a[t[1].toLowerCase()] = t[2];
             }t = a[e.toLowerCase()];
           }return null == t ? null : t;
@@ -2000,9 +2015,9 @@ function launchCarousel() {
         } catch (e) {
           p.crossDomain = !0;
         }
-      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), Ht(Ot, p, n, x), u) return x;for (h in (d = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !It.test(p.type), r = p.url.replace(Dt, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(St, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (_t.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(At, "$1"), f = (_t.test(r) ? "&" : "?") + "_=" + bt++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Pt + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
+      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), Ht(Lt, p, n, x), u) return x;for (h in (d = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !It.test(p.type), r = p.url.replace(Dt, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(St, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (_t.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(kt, "$1"), f = (_t.test(r) ? "&" : "?") + "_=" + bt++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Pt + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
         x.setRequestHeader(h, p.headers[h]);
-      }if (p.beforeSend && (!1 === p.beforeSend.call(m, x, p) || u)) return x.abort();if (C = "abort", y.add(p.complete), x.done(p.success), x.fail(p.error), o = Ht(Lt, p, n, x)) {
+      }if (p.beforeSend && (!1 === p.beforeSend.call(m, x, p) || u)) return x.abort();if (C = "abort", y.add(p.complete), x.done(p.success), x.fail(p.error), o = Ht(Ot, p, n, x)) {
         if (x.readyState = 1, d && g.trigger("ajaxSend", [x, p]), u) return x;p.async && p.timeout > 0 && (l = e.setTimeout(function () {
           x.abort("timeout");
         }, p.timeout));try {
@@ -2147,7 +2162,7 @@ function launchCarousel() {
       void 0 === r ? _(e).removeProp(o) : e[o] = r, t[o] && (t.jsonpCallback = n.jsonpCallback, Rt.push(o)), s && m(r) && r(s[0]), s = r = void 0;
     }), "script";
   }), p.createHTMLDocument = ((Wt = i.implementation.createHTMLDocument("").body).innerHTML = "<form></form><form></form>", 2 === Wt.childNodes.length), _.parseHTML = function (e, t, n) {
-    return "string" != typeof e ? [] : ("boolean" == typeof t && (n = t, t = !1), t || (p.createHTMLDocument ? ((o = (t = i.implementation.createHTMLDocument("")).createElement("base")).href = i.location.href, t.head.appendChild(o)) : t = i), r = A.exec(e), s = !n && [], r ? [t.createElement(r[1])] : (r = ye([e], t, s), s && s.length && _(s).remove(), _.merge([], r.childNodes)));var o, r, s;
+    return "string" != typeof e ? [] : ("boolean" == typeof t && (n = t, t = !1), t || (p.createHTMLDocument ? ((o = (t = i.implementation.createHTMLDocument("")).createElement("base")).href = i.location.href, t.head.appendChild(o)) : t = i), r = k.exec(e), s = !n && [], r ? [t.createElement(r[1])] : (r = ye([e], t, s), s && s.length && _(s).remove(), _.merge([], r.childNodes)));var o, r, s;
   }, _.fn.load = function (e, t, n) {
     var i,
         o,
@@ -2283,45 +2298,40 @@ function launchCarousel() {
         i = t.overflowX,
         o = t.overflowY;return (/(auto|scroll|overlay)/.test(n + o + i) ? e : l(a(e))
     );
-  }var c = {},
-      u = function u() {
-    var e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "all";if (e = e.toString(), c.hasOwnProperty(e)) return c[e];switch (e) {case "11":
-        c[e] = -1 !== navigator.userAgent.indexOf("Trident");break;case "10":
-        c[e] = -1 !== navigator.appVersion.indexOf("MSIE 10");break;case "all":
-        c[e] = -1 !== navigator.userAgent.indexOf("Trident") || -1 !== navigator.userAgent.indexOf("MSIE");}return c.all = c.all || Object.keys(c).some(function (e) {
-      return c[e];
-    }), c[e];
-  };function d(e) {
-    if (!e) return document.documentElement;for (var t = u(10) ? document.body : null, n = e.offsetParent; n === t && e.nextElementSibling;) {
-      n = (e = e.nextElementSibling).offsetParent;
-    }var i = n && n.nodeName;return i && "BODY" !== i && "HTML" !== i ? -1 !== ["TD", "TABLE"].indexOf(n.nodeName) && "static" === s(n, "position") ? d(n) : n : e ? e.ownerDocument.documentElement : document.documentElement;
+  }var c = e && !(!window.MSInputMethodContext || !document.documentMode),
+      u = e && /MSIE 10/.test(navigator.userAgent);function d(e) {
+    return 11 === e ? c : 10 === e ? u : c || u;
   }function h(e) {
-    return null !== e.parentNode ? h(e.parentNode) : e;
-  }function f(e, t) {
+    if (!e) return document.documentElement;for (var t = d(10) ? document.body : null, n = e.offsetParent; n === t && e.nextElementSibling;) {
+      n = (e = e.nextElementSibling).offsetParent;
+    }var i = n && n.nodeName;return i && "BODY" !== i && "HTML" !== i ? -1 !== ["TD", "TABLE"].indexOf(n.nodeName) && "static" === s(n, "position") ? h(n) : n : e ? e.ownerDocument.documentElement : document.documentElement;
+  }function f(e) {
+    return null !== e.parentNode ? f(e.parentNode) : e;
+  }function p(e, t) {
     if (!(e && e.nodeType && t && t.nodeType)) return document.documentElement;var n = e.compareDocumentPosition(t) & Node.DOCUMENT_POSITION_FOLLOWING,
         i = n ? e : t,
         o = n ? t : e,
         r = document.createRange();r.setStart(i, 0), r.setEnd(o, 0);var s,
         a,
-        l = r.commonAncestorContainer;if (e !== l && t !== l || i.contains(o)) return "BODY" === (a = (s = l).nodeName) || "HTML" !== a && d(s.firstElementChild) !== s ? d(l) : l;var c = h(e);return c.host ? f(c.host, t) : f(e, h(t).host);
-  }function p(e) {
+        l = r.commonAncestorContainer;if (e !== l && t !== l || i.contains(o)) return "BODY" === (a = (s = l).nodeName) || "HTML" !== a && h(s.firstElementChild) !== s ? h(l) : l;var c = f(e);return c.host ? p(c.host, t) : p(e, f(t).host);
+  }function m(e) {
     var t = "top" === (arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : "top") ? "scrollTop" : "scrollLeft",
         n = e.nodeName;if ("BODY" === n || "HTML" === n) {
       var i = e.ownerDocument.documentElement;return (e.ownerDocument.scrollingElement || i)[t];
     }return e[t];
-  }function m(e, t) {
+  }function g(e, t) {
     var n = "x" === t ? "Left" : "Top",
         i = "Left" === n ? "Right" : "Bottom";return parseFloat(e["border" + n + "Width"], 10) + parseFloat(e["border" + i + "Width"], 10);
-  }function g(e, t, n, i) {
-    return Math.max(t["offset" + e], t["scroll" + e], n["client" + e], n["offset" + e], n["scroll" + e], u(10) ? n["offset" + e] + i["margin" + ("Height" === e ? "Top" : "Left")] + i["margin" + ("Height" === e ? "Bottom" : "Right")] : 0);
-  }function v() {
+  }function v(e, t, n, i) {
+    return Math.max(t["offset" + e], t["scroll" + e], n["client" + e], n["offset" + e], n["scroll" + e], d(10) ? n["offset" + e] + i["margin" + ("Height" === e ? "Top" : "Left")] + i["margin" + ("Height" === e ? "Bottom" : "Right")] : 0);
+  }function y() {
     var e = document.body,
         t = document.documentElement,
-        n = u(10) && getComputedStyle(t);return { height: g("Height", e, t, n), width: g("Width", e, t, n) };
-  }var y = function y(e, t) {
+        n = d(10) && getComputedStyle(t);return { height: v("Height", e, t, n), width: v("Width", e, t, n) };
+  }var b = function b(e, t) {
     if (!(e instanceof t)) throw new TypeError("Cannot call a class as a function");
   },
-      b = function () {
+      _ = function () {
     function e(e, t) {
       for (var n = 0; n < t.length; n++) {
         var i = t[n];i.enumerable = i.enumerable || !1, i.configurable = !0, "value" in i && (i.writable = !0), Object.defineProperty(e, i.key, i);
@@ -2330,78 +2340,78 @@ function launchCarousel() {
       return n && e(t.prototype, n), i && e(t, i), t;
     };
   }(),
-      _ = function _(e, t, n) {
+      w = function w(e, t, n) {
     return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
   },
-      w = Object.assign || function (e) {
+      E = Object.assign || function (e) {
     for (var t = 1; t < arguments.length; t++) {
       var n = arguments[t];for (var i in n) {
         Object.prototype.hasOwnProperty.call(n, i) && (e[i] = n[i]);
       }
     }return e;
-  };function E(e) {
-    return w({}, e, { right: e.left + e.width, bottom: e.top + e.height });
-  }function C(e) {
+  };function C(e) {
+    return E({}, e, { right: e.left + e.width, bottom: e.top + e.height });
+  }function x(e) {
     var t = {};try {
-      if (u(10)) {
-        t = e.getBoundingClientRect();var n = p(e, "top"),
-            i = p(e, "left");t.top += n, t.left += i, t.bottom += n, t.right += i;
+      if (d(10)) {
+        t = e.getBoundingClientRect();var n = m(e, "top"),
+            i = m(e, "left");t.top += n, t.left += i, t.bottom += n, t.right += i;
       } else t = e.getBoundingClientRect();
     } catch (e) {}var o = { left: t.left, top: t.top, width: t.right - t.left, height: t.bottom - t.top },
-        r = "HTML" === e.nodeName ? v() : {},
+        r = "HTML" === e.nodeName ? y() : {},
         a = r.width || e.clientWidth || o.right - o.left,
         l = r.height || e.clientHeight || o.bottom - o.top,
         c = e.offsetWidth - a,
-        d = e.offsetHeight - l;if (c || d) {
-      var h = s(e);c -= m(h, "x"), d -= m(h, "y"), o.width -= c, o.height -= d;
-    }return E(o);
-  }function x(e, t) {
+        u = e.offsetHeight - l;if (c || u) {
+      var h = s(e);c -= g(h, "x"), u -= g(h, "y"), o.width -= c, o.height -= u;
+    }return C(o);
+  }function T(e, t) {
     var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-        i = u(10),
+        i = d(10),
         o = "HTML" === t.nodeName,
-        r = C(e),
-        a = C(t),
+        r = x(e),
+        a = x(t),
         c = l(e),
-        d = s(t),
-        h = parseFloat(d.borderTopWidth, 10),
-        f = parseFloat(d.borderLeftWidth, 10);n && "HTML" === t.nodeName && (a.top = Math.max(a.top, 0), a.left = Math.max(a.left, 0));var m = E({ top: r.top - a.top - h, left: r.left - a.left - f, width: r.width, height: r.height });if (m.marginTop = 0, m.marginLeft = 0, !i && o) {
-      var g = parseFloat(d.marginTop, 10),
-          v = parseFloat(d.marginLeft, 10);m.top -= h - g, m.bottom -= h - g, m.left -= f - v, m.right -= f - v, m.marginTop = g, m.marginLeft = v;
-    }return (i && !n ? t.contains(c) : t === c && "BODY" !== c.nodeName) && (m = function (e, t) {
+        u = s(t),
+        h = parseFloat(u.borderTopWidth, 10),
+        f = parseFloat(u.borderLeftWidth, 10);n && "HTML" === t.nodeName && (a.top = Math.max(a.top, 0), a.left = Math.max(a.left, 0));var p = C({ top: r.top - a.top - h, left: r.left - a.left - f, width: r.width, height: r.height });if (p.marginTop = 0, p.marginLeft = 0, !i && o) {
+      var g = parseFloat(u.marginTop, 10),
+          v = parseFloat(u.marginLeft, 10);p.top -= h - g, p.bottom -= h - g, p.left -= f - v, p.right -= f - v, p.marginTop = g, p.marginLeft = v;
+    }return (i && !n ? t.contains(c) : t === c && "BODY" !== c.nodeName) && (p = function (e, t) {
       var n = arguments.length > 2 && void 0 !== arguments[2] && arguments[2],
-          i = p(t, "top"),
-          o = p(t, "left"),
+          i = m(t, "top"),
+          o = m(t, "left"),
           r = n ? -1 : 1;return e.top += i * r, e.bottom += i * r, e.left += o * r, e.right += o * r, e;
-    }(m, t)), m;
-  }function T(e) {
-    if (!e || !e.parentElement || u()) return document.documentElement;for (var t = e.parentElement; t && "none" === s(t, "transform");) {
+    }(p, t)), p;
+  }function S(e) {
+    if (!e || !e.parentElement || d()) return document.documentElement;for (var t = e.parentElement; t && "none" === s(t, "transform");) {
       t = t.parentElement;
     }return t || document.documentElement;
-  }function S(e, t, n, i) {
+  }function D(e, t, n, i) {
     var o = arguments.length > 4 && void 0 !== arguments[4] && arguments[4],
         r = { top: 0, left: 0 },
-        c = o ? T(e) : f(e, t);if ("viewport" === i) r = function (e) {
+        c = o ? S(e) : p(e, t);if ("viewport" === i) r = function (e) {
       var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
           n = e.ownerDocument.documentElement,
-          i = x(e, n),
+          i = T(e, n),
           o = Math.max(n.clientWidth, window.innerWidth || 0),
           r = Math.max(n.clientHeight, window.innerHeight || 0),
-          s = t ? 0 : p(n),
-          a = t ? 0 : p(n, "left");return E({ top: s - i.top + i.marginTop, left: a - i.left + i.marginLeft, width: o, height: r });
+          s = t ? 0 : m(n),
+          a = t ? 0 : m(n, "left");return C({ top: s - i.top + i.marginTop, left: a - i.left + i.marginLeft, width: o, height: r });
     }(c, o);else {
-      var u = void 0;"scrollParent" === i ? "BODY" === (u = l(a(t))).nodeName && (u = e.ownerDocument.documentElement) : u = "window" === i ? e.ownerDocument.documentElement : i;var d = x(u, c, o);if ("HTML" !== u.nodeName || function e(t) {
+      var u = void 0;"scrollParent" === i ? "BODY" === (u = l(a(t))).nodeName && (u = e.ownerDocument.documentElement) : u = "window" === i ? e.ownerDocument.documentElement : i;var d = T(u, c, o);if ("HTML" !== u.nodeName || function e(t) {
         var n = t.nodeName;return "BODY" !== n && "HTML" !== n && ("fixed" === s(t, "position") || e(a(t)));
       }(c)) r = d;else {
-        var h = v(),
-            m = h.height,
-            g = h.width;r.top += d.top - d.marginTop, r.bottom = m + d.top, r.left += d.left - d.marginLeft, r.right = g + d.left;
+        var h = y(),
+            f = h.height,
+            g = h.width;r.top += d.top - d.marginTop, r.bottom = f + d.top, r.left += d.left - d.marginLeft, r.right = g + d.left;
       }
     }return r.left += n, r.top += n, r.right -= n, r.bottom -= n, r;
-  }function D(e, t, n, i, o) {
-    var r = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : 0;if (-1 === e.indexOf("auto")) return e;var s = S(n, i, r, o),
+  }function k(e, t, n, i, o) {
+    var r = arguments.length > 5 && void 0 !== arguments[5] ? arguments[5] : 0;if (-1 === e.indexOf("auto")) return e;var s = D(n, i, r, o),
         a = { top: { width: s.width, height: t.top - s.top }, right: { width: s.right - t.right, height: s.height }, bottom: { width: s.width, height: s.bottom - t.bottom }, left: { width: t.left - s.left, height: s.height } },
         l = Object.keys(a).map(function (e) {
-      return w({ key: e }, a[e], { area: (t = a[e], t.width * t.height) });var t;
+      return E({ key: e }, a[e], { area: (t = a[e], t.width * t.height) });var t;
     }).sort(function (e, t) {
       return t.area - e.area;
     }),
@@ -2412,26 +2422,26 @@ function launchCarousel() {
         u = c.length > 0 ? c[0].key : l[0].key,
         d = e.split("-")[1];return u + (d ? "-" + d : "");
   }function A(e, t, n) {
-    var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;return x(n, i ? T(t) : f(t, n), i);
-  }function k(e) {
+    var i = arguments.length > 3 && void 0 !== arguments[3] ? arguments[3] : null;return T(n, i ? S(t) : p(t, n), i);
+  }function I(e) {
     var t = getComputedStyle(e),
         n = parseFloat(t.marginTop) + parseFloat(t.marginBottom),
         i = parseFloat(t.marginLeft) + parseFloat(t.marginRight);return { width: e.offsetWidth + i, height: e.offsetHeight + n };
-  }function I(e) {
+  }function N(e) {
     var t = { left: "right", right: "left", bottom: "top", top: "bottom" };return e.replace(/left|right|bottom|top/g, function (e) {
       return t[e];
     });
-  }function N(e, t, n) {
-    n = n.split("-")[0];var i = k(e),
+  }function L(e, t, n) {
+    n = n.split("-")[0];var i = I(e),
         o = { width: i.width, height: i.height },
         r = -1 !== ["right", "left"].indexOf(n),
         s = r ? "top" : "left",
         a = r ? "left" : "top",
         l = r ? "height" : "width",
-        c = r ? "width" : "height";return o[s] = t[s] + t[l] / 2 - i[l] / 2, o[a] = n === a ? t[a] - i[c] : t[I(a)], o;
+        c = r ? "width" : "height";return o[s] = t[s] + t[l] / 2 - i[l] / 2, o[a] = n === a ? t[a] - i[c] : t[N(a)], o;
   }function O(e, t) {
     return Array.prototype.find ? e.find(t) : e.filter(t)[0];
-  }function L(e, t, n) {
+  }function P(e, t, n) {
     return (void 0 === n ? e : e.slice(0, function (e, t, n) {
       if (Array.prototype.findIndex) return e.findIndex(function (e) {
         return e[t] === n;
@@ -2439,35 +2449,35 @@ function launchCarousel() {
         return e[t] === n;
       });return e.indexOf(i);
     }(e, "name", n))).forEach(function (e) {
-      e.function && console.warn("`modifier.function` is deprecated, use `modifier.fn`!");var n = e.function || e.fn;e.enabled && r(n) && (t.offsets.popper = E(t.offsets.popper), t.offsets.reference = E(t.offsets.reference), t = n(t, e));
+      e.function && console.warn("`modifier.function` is deprecated, use `modifier.fn`!");var n = e.function || e.fn;e.enabled && r(n) && (t.offsets.popper = C(t.offsets.popper), t.offsets.reference = C(t.offsets.reference), t = n(t, e));
     }), t;
-  }function P(e, t) {
+  }function j(e, t) {
     return e.some(function (e) {
       var n = e.name;return e.enabled && n === t;
     });
-  }function j(e) {
+  }function M(e) {
     for (var t = [!1, "ms", "Webkit", "Moz", "O"], n = e.charAt(0).toUpperCase() + e.slice(1), i = 0; i < t.length; i++) {
       var o = t[i],
           r = o ? "" + o + n : e;if (void 0 !== document.body.style[r]) return r;
     }return null;
-  }function M(e) {
+  }function H(e) {
     var t = e.ownerDocument;return t ? t.defaultView : window;
-  }function H(e, t, n, i) {
-    n.updateBound = i, M(e).addEventListener("resize", n.updateBound, { passive: !0 });var o = l(e);return function e(t, n, i, o) {
+  }function F(e, t, n, i) {
+    n.updateBound = i, H(e).addEventListener("resize", n.updateBound, { passive: !0 });var o = l(e);return function e(t, n, i, o) {
       var r = "BODY" === t.nodeName,
           s = r ? t.ownerDocument.defaultView : t;s.addEventListener(n, i, { passive: !0 }), r || e(l(s.parentNode), n, i, o), o.push(s);
     }(o, "scroll", n.updateBound, n.scrollParents), n.scrollElement = o, n.eventsEnabled = !0, n;
-  }function F() {
-    var e, t;this.state.eventsEnabled && (cancelAnimationFrame(this.scheduleUpdate), this.state = (e = this.reference, t = this.state, M(e).removeEventListener("resize", t.updateBound), t.scrollParents.forEach(function (e) {
+  }function z() {
+    var e, t;this.state.eventsEnabled && (cancelAnimationFrame(this.scheduleUpdate), this.state = (e = this.reference, t = this.state, H(e).removeEventListener("resize", t.updateBound), t.scrollParents.forEach(function (e) {
       e.removeEventListener("scroll", t.updateBound);
     }), t.updateBound = null, t.scrollParents = [], t.scrollElement = null, t.eventsEnabled = !1, t));
-  }function z(e) {
+  }function q(e) {
     return "" !== e && !isNaN(parseFloat(e)) && isFinite(e);
-  }function q(e, t) {
+  }function W(e, t) {
     Object.keys(t).forEach(function (n) {
-      var i = "";-1 !== ["width", "height", "top", "right", "bottom", "left"].indexOf(n) && z(t[n]) && (i = "px"), e.style[n] = t[n] + i;
+      var i = "";-1 !== ["width", "height", "top", "right", "bottom", "left"].indexOf(n) && q(t[n]) && (i = "px"), e.style[n] = t[n] + i;
     });
-  }function W(e, t, n) {
+  }function R(e, t, n) {
     var i = O(e, function (e) {
       return e.name === t;
     }),
@@ -2477,12 +2487,12 @@ function launchCarousel() {
       var r = "`" + t + "`",
           s = "`" + n + "`";console.warn(s + " modifier is required by " + r + " modifier in order to work, be sure to include it before " + r + "!");
     }return o;
-  }var R = ["auto-start", "auto", "auto-end", "top-start", "top", "top-end", "right-start", "right", "right-end", "bottom-end", "bottom", "bottom-start", "left-end", "left", "left-start"],
-      B = R.slice(3);function U(e) {
+  }var B = ["auto-start", "auto", "auto-end", "top-start", "top", "top-end", "right-start", "right", "right-end", "bottom-end", "bottom", "bottom-start", "left-end", "left", "left-start"],
+      U = B.slice(3);function $(e) {
     var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
-        n = B.indexOf(e),
-        i = B.slice(n + 1).concat(B.slice(0, n));return t ? i.reverse() : i;
-  }var $ = { FLIP: "flip", CLOCKWISE: "clockwise", COUNTERCLOCKWISE: "counterclockwise" };function V(e, t, n, i) {
+        n = U.indexOf(e),
+        i = U.slice(n + 1).concat(U.slice(0, n));return t ? i.reverse() : i;
+  }var V = { FLIP: "flip", CLOCKWISE: "clockwise", COUNTERCLOCKWISE: "counterclockwise" };function K(e, t, n, i) {
     var o = [0, 0],
         r = -1 !== ["right", "left"].indexOf(i),
         s = e.split(/(\+|\-)/).map(function (e) {
@@ -2502,16 +2512,16 @@ function launchCarousel() {
               s = o[2];if (!r) return e;if (0 === s.indexOf("%")) {
             var a = void 0;switch (s) {case "%p":
                 a = n;break;case "%":case "%r":default:
-                a = i;}return E(a)[t] / 100 * r;
+                a = i;}return C(a)[t] / 100 * r;
           }if ("vh" === s || "vw" === s) return ("vh" === s ? Math.max(document.documentElement.clientHeight, window.innerHeight || 0) : Math.max(document.documentElement.clientWidth, window.innerWidth || 0)) / 100 * r;return r;
         }(e, o, t, n);
       });
     })).forEach(function (e, t) {
       e.forEach(function (n, i) {
-        z(n) && (o[t] += n * ("-" === e[i - 1] ? -1 : 1));
+        q(n) && (o[t] += n * ("-" === e[i - 1] ? -1 : 1));
       });
     }), o;
-  }var K = { placement: "bottom", positionFixed: !1, eventsEnabled: !0, removeOnDestroy: !1, onCreate: function onCreate() {}, onUpdate: function onUpdate() {}, modifiers: { shift: { order: 100, enabled: !0, fn: function fn(e) {
+  }var Q = { placement: "bottom", positionFixed: !1, eventsEnabled: !0, removeOnDestroy: !1, onCreate: function onCreate() {}, onUpdate: function onUpdate() {}, modifiers: { shift: { order: 100, enabled: !0, fn: function fn(e) {
           var t = e.placement,
               n = t.split("-")[0],
               i = t.split("-")[1];if (i) {
@@ -2521,7 +2531,7 @@ function launchCarousel() {
                 a = -1 !== ["bottom", "top"].indexOf(n),
                 l = a ? "left" : "top",
                 c = a ? "width" : "height",
-                u = { start: _({}, l, r[l]), end: _({}, l, r[l] + r[c] - s[c]) };e.offsets.popper = w({}, s, u[i]);
+                u = { start: w({}, l, r[l]), end: w({}, l, r[l] + r[c] - s[c]) };e.offsets.popper = E({}, s, u[i]);
           }return e;
         } }, offset: { order: 200, enabled: !0, fn: function fn(e, t) {
           var n = t.offset,
@@ -2530,18 +2540,22 @@ function launchCarousel() {
               r = o.popper,
               s = o.reference,
               a = i.split("-")[0],
-              l = void 0;return l = z(+n) ? [+n, 0] : V(n, r, s, a), "left" === a ? (r.top += l[0], r.left -= l[1]) : "right" === a ? (r.top += l[0], r.left += l[1]) : "top" === a ? (r.left += l[0], r.top -= l[1]) : "bottom" === a && (r.left += l[0], r.top += l[1]), e.popper = r, e;
+              l = void 0;return l = q(+n) ? [+n, 0] : K(n, r, s, a), "left" === a ? (r.top += l[0], r.left -= l[1]) : "right" === a ? (r.top += l[0], r.left += l[1]) : "top" === a ? (r.left += l[0], r.top -= l[1]) : "bottom" === a && (r.left += l[0], r.top += l[1]), e.popper = r, e;
         }, offset: 0 }, preventOverflow: { order: 300, enabled: !0, fn: function fn(e, t) {
-          var n = t.boundariesElement || d(e.instance.popper);e.instance.reference === n && (n = d(n));var i = S(e.instance.popper, e.instance.reference, t.padding, n, e.positionFixed);t.boundaries = i;var o = t.priority,
-              r = e.offsets.popper,
-              s = { primary: function primary(e) {
-              var n = r[e];return r[e] < i[e] && !t.escapeWithReference && (n = Math.max(r[e], i[e])), _({}, e, n);
+          var n = t.boundariesElement || h(e.instance.popper);e.instance.reference === n && (n = h(n));var i = M("transform"),
+              o = e.instance.popper.style,
+              r = o.top,
+              s = o.left,
+              a = o[i];o.top = "", o.left = "", o[i] = "";var l = D(e.instance.popper, e.instance.reference, t.padding, n, e.positionFixed);o.top = r, o.left = s, o[i] = a, t.boundaries = l;var c = t.priority,
+              u = e.offsets.popper,
+              d = { primary: function primary(e) {
+              var n = u[e];return u[e] < l[e] && !t.escapeWithReference && (n = Math.max(u[e], l[e])), w({}, e, n);
             }, secondary: function secondary(e) {
               var n = "right" === e ? "left" : "top",
-                  o = r[n];return r[e] > i[e] && !t.escapeWithReference && (o = Math.min(r[n], i[e] - ("right" === e ? r.width : r.height))), _({}, n, o);
-            } };return o.forEach(function (e) {
-            var t = -1 !== ["left", "top"].indexOf(e) ? "primary" : "secondary";r = w({}, r, s[t](e));
-          }), e.offsets.popper = r, e;
+                  i = u[n];return u[e] > l[e] && !t.escapeWithReference && (i = Math.min(u[n], l[e] - ("right" === e ? u.width : u.height))), w({}, n, i);
+            } };return c.forEach(function (e) {
+            var t = -1 !== ["left", "top"].indexOf(e) ? "primary" : "secondary";u = E({}, u, d[t](e));
+          }), e.offsets.popper = u, e;
         }, priority: ["left", "right", "top", "bottom"], padding: 5, boundariesElement: "scrollParent" }, keepTogether: { order: 400, enabled: !0, fn: function fn(e) {
           var t = e.offsets,
               n = t.popper,
@@ -2553,7 +2567,7 @@ function launchCarousel() {
               l = s ? "left" : "top",
               c = s ? "width" : "height";return n[a] < r(i[l]) && (e.offsets.popper[l] = r(i[l]) - n[c]), n[l] > r(i[a]) && (e.offsets.popper[l] = r(i[a])), e;
         } }, arrow: { order: 500, enabled: !0, fn: function fn(e, t) {
-          var n;if (!W(e.instance.modifiers, "arrow", "keepTogether")) return e;var i = t.element;if ("string" == typeof i) {
+          var n;if (!R(e.instance.modifiers, "arrow", "keepTogether")) return e;var i = t.element;if ("string" == typeof i) {
             if (!(i = e.instance.popper.querySelector(i))) return e;
           } else if (!e.instance.popper.contains(i)) return console.warn("WARNING: `arrow.element` must be child of its popper element!"), e;var o = e.placement.split("-")[0],
               r = e.offsets,
@@ -2565,22 +2579,22 @@ function launchCarousel() {
               h = d.toLowerCase(),
               f = c ? "left" : "top",
               p = c ? "bottom" : "right",
-              m = k(i)[u];l[p] - m < a[h] && (e.offsets.popper[h] -= a[h] - (l[p] - m)), l[h] + m > a[p] && (e.offsets.popper[h] += l[h] + m - a[p]), e.offsets.popper = E(e.offsets.popper);var g = l[h] + l[u] / 2 - m / 2,
+              m = I(i)[u];l[p] - m < a[h] && (e.offsets.popper[h] -= a[h] - (l[p] - m)), l[h] + m > a[p] && (e.offsets.popper[h] += l[h] + m - a[p]), e.offsets.popper = C(e.offsets.popper);var g = l[h] + l[u] / 2 - m / 2,
               v = s(e.instance.popper),
               y = parseFloat(v["margin" + d], 10),
               b = parseFloat(v["border" + d + "Width"], 10),
-              w = g - e.offsets.popper[h] - y - b;return w = Math.max(Math.min(a[u] - m, w), 0), e.arrowElement = i, e.offsets.arrow = (_(n = {}, h, Math.round(w)), _(n, f, ""), n), e;
+              _ = g - e.offsets.popper[h] - y - b;return _ = Math.max(Math.min(a[u] - m, _), 0), e.arrowElement = i, e.offsets.arrow = (w(n = {}, h, Math.round(_)), w(n, f, ""), n), e;
         }, element: "[x-arrow]" }, flip: { order: 600, enabled: !0, fn: function fn(e, t) {
-          if (P(e.instance.modifiers, "inner")) return e;if (e.flipped && e.placement === e.originalPlacement) return e;var n = S(e.instance.popper, e.instance.reference, t.padding, t.boundariesElement, e.positionFixed),
+          if (j(e.instance.modifiers, "inner")) return e;if (e.flipped && e.placement === e.originalPlacement) return e;var n = D(e.instance.popper, e.instance.reference, t.padding, t.boundariesElement, e.positionFixed),
               i = e.placement.split("-")[0],
-              o = I(i),
+              o = N(i),
               r = e.placement.split("-")[1] || "",
-              s = [];switch (t.behavior) {case $.FLIP:
-              s = [i, o];break;case $.CLOCKWISE:
-              s = U(i);break;case $.COUNTERCLOCKWISE:
-              s = U(i, !0);break;default:
+              s = [];switch (t.behavior) {case V.FLIP:
+              s = [i, o];break;case V.CLOCKWISE:
+              s = $(i);break;case V.COUNTERCLOCKWISE:
+              s = $(i, !0);break;default:
               s = t.behavior;}return s.forEach(function (a, l) {
-            if (i !== a || s.length === l + 1) return e;i = e.placement.split("-")[0], o = I(i);var c = e.offsets.popper,
+            if (i !== a || s.length === l + 1) return e;i = e.placement.split("-")[0], o = N(i);var c = e.offsets.popper,
                 u = e.offsets.reference,
                 d = Math.floor,
                 h = "left" === i && d(c.right) > d(u.left) || "right" === i && d(c.left) < d(u.right) || "top" === i && d(c.bottom) > d(u.top) || "bottom" === i && d(c.top) < d(u.bottom),
@@ -2592,7 +2606,7 @@ function launchCarousel() {
                 y = -1 !== ["top", "bottom"].indexOf(i),
                 b = !!t.flipVariations && (y && "start" === r && f || y && "end" === r && p || !y && "start" === r && m || !y && "end" === r && g);(h || v || b) && (e.flipped = !0, (h || v) && (i = s[l + 1]), b && (r = function (e) {
               return "end" === e ? "start" : "start" === e ? "end" : e;
-            }(r)), e.placement = i + (r ? "-" + r : ""), e.offsets.popper = w({}, e.offsets.popper, N(e.instance.popper, e.offsets.reference, e.placement)), e = L(e.instance.modifiers, e, "flip"));
+            }(r)), e.placement = i + (r ? "-" + r : ""), e.offsets.popper = E({}, e.offsets.popper, L(e.instance.popper, e.offsets.reference, e.placement)), e = P(e.instance.modifiers, e, "flip"));
           }), e;
         }, behavior: "flip", padding: 5, boundariesElement: "viewport" }, inner: { order: 700, enabled: !1, fn: function fn(e) {
           var t = e.placement,
@@ -2601,9 +2615,9 @@ function launchCarousel() {
               o = i.popper,
               r = i.reference,
               s = -1 !== ["left", "right"].indexOf(n),
-              a = -1 === ["top", "left"].indexOf(n);return o[s ? "left" : "top"] = r[n] - (a ? o[s ? "width" : "height"] : 0), e.placement = I(t), e.offsets.popper = E(o), e;
+              a = -1 === ["top", "left"].indexOf(n);return o[s ? "left" : "top"] = r[n] - (a ? o[s ? "width" : "height"] : 0), e.placement = N(t), e.offsets.popper = C(o), e;
         } }, hide: { order: 800, enabled: !0, fn: function fn(e) {
-          if (!W(e.instance.modifiers, "hide", "preventOverflow")) return e;var t = e.offsets.reference,
+          if (!R(e.instance.modifiers, "hide", "preventOverflow")) return e;var t = e.offsets.reference,
               n = O(e.instance.modifiers, function (e) {
             return "preventOverflow" === e.name;
           }).boundaries;if (t.bottom < n.top || t.left > n.right || t.top > n.bottom || t.right < n.left) {
@@ -2618,57 +2632,57 @@ function launchCarousel() {
               r = O(e.instance.modifiers, function (e) {
             return "applyStyle" === e.name;
           }).gpuAcceleration;void 0 !== r && console.warn("WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!");var s = void 0 !== r ? r : t.gpuAcceleration,
-              a = C(d(e.instance.popper)),
+              a = x(h(e.instance.popper)),
               l = { position: o.position },
-              c = { left: Math.floor(o.left), top: Math.floor(o.top), bottom: Math.floor(o.bottom), right: Math.floor(o.right) },
+              c = { left: Math.floor(o.left), top: Math.round(o.top), bottom: Math.round(o.bottom), right: Math.floor(o.right) },
               u = "bottom" === n ? "top" : "bottom",
-              h = "right" === i ? "left" : "right",
-              f = j("transform"),
+              d = "right" === i ? "left" : "right",
+              f = M("transform"),
               p = void 0,
-              m = void 0;if (m = "bottom" === u ? -a.height + c.bottom : c.top, p = "right" === h ? -a.width + c.right : c.left, s && f) l[f] = "translate3d(" + p + "px, " + m + "px, 0)", l[u] = 0, l[h] = 0, l.willChange = "transform";else {
+              m = void 0;if (m = "bottom" === u ? -a.height + c.bottom : c.top, p = "right" === d ? -a.width + c.right : c.left, s && f) l[f] = "translate3d(" + p + "px, " + m + "px, 0)", l[u] = 0, l[d] = 0, l.willChange = "transform";else {
             var g = "bottom" === u ? -1 : 1,
-                v = "right" === h ? -1 : 1;l[u] = m * g, l[h] = p * v, l.willChange = u + ", " + h;
-          }var y = { "x-placement": e.placement };return e.attributes = w({}, y, e.attributes), e.styles = w({}, l, e.styles), e.arrowStyles = w({}, e.offsets.arrow, e.arrowStyles), e;
+                v = "right" === d ? -1 : 1;l[u] = m * g, l[d] = p * v, l.willChange = u + ", " + d;
+          }var y = { "x-placement": e.placement };return e.attributes = E({}, y, e.attributes), e.styles = E({}, l, e.styles), e.arrowStyles = E({}, e.offsets.arrow, e.arrowStyles), e;
         }, gpuAcceleration: !0, x: "bottom", y: "right" }, applyStyle: { order: 900, enabled: !0, fn: function fn(e) {
-          var t, n;return q(e.instance.popper, e.styles), t = e.instance.popper, n = e.attributes, Object.keys(n).forEach(function (e) {
+          var t, n;return W(e.instance.popper, e.styles), t = e.instance.popper, n = e.attributes, Object.keys(n).forEach(function (e) {
             !1 !== n[e] ? t.setAttribute(e, n[e]) : t.removeAttribute(e);
-          }), e.arrowElement && Object.keys(e.arrowStyles).length && q(e.arrowElement, e.arrowStyles), e;
+          }), e.arrowElement && Object.keys(e.arrowStyles).length && W(e.arrowElement, e.arrowStyles), e;
         }, onLoad: function onLoad(e, t, n, i, o) {
           var r = A(o, t, e, n.positionFixed),
-              s = D(n.placement, r, t, e, n.modifiers.flip.boundariesElement, n.modifiers.flip.padding);return t.setAttribute("x-placement", s), q(t, { position: n.positionFixed ? "fixed" : "absolute" }), n;
+              s = k(n.placement, r, t, e, n.modifiers.flip.boundariesElement, n.modifiers.flip.padding);return t.setAttribute("x-placement", s), W(t, { position: n.positionFixed ? "fixed" : "absolute" }), n;
         }, gpuAcceleration: void 0 } } },
-      Q = function () {
+      Y = function () {
     function e(t, n) {
       var i = this,
-          s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};y(this, e), this.scheduleUpdate = function () {
+          s = arguments.length > 2 && void 0 !== arguments[2] ? arguments[2] : {};b(this, e), this.scheduleUpdate = function () {
         return requestAnimationFrame(i.update);
-      }, this.update = o(this.update.bind(this)), this.options = w({}, e.Defaults, s), this.state = { isDestroyed: !1, isCreated: !1, scrollParents: [] }, this.reference = t && t.jquery ? t[0] : t, this.popper = n && n.jquery ? n[0] : n, this.options.modifiers = {}, Object.keys(w({}, e.Defaults.modifiers, s.modifiers)).forEach(function (t) {
-        i.options.modifiers[t] = w({}, e.Defaults.modifiers[t] || {}, s.modifiers ? s.modifiers[t] : {});
+      }, this.update = o(this.update.bind(this)), this.options = E({}, e.Defaults, s), this.state = { isDestroyed: !1, isCreated: !1, scrollParents: [] }, this.reference = t && t.jquery ? t[0] : t, this.popper = n && n.jquery ? n[0] : n, this.options.modifiers = {}, Object.keys(E({}, e.Defaults.modifiers, s.modifiers)).forEach(function (t) {
+        i.options.modifiers[t] = E({}, e.Defaults.modifiers[t] || {}, s.modifiers ? s.modifiers[t] : {});
       }), this.modifiers = Object.keys(this.options.modifiers).map(function (e) {
-        return w({ name: e }, i.options.modifiers[e]);
+        return E({ name: e }, i.options.modifiers[e]);
       }).sort(function (e, t) {
         return e.order - t.order;
       }), this.modifiers.forEach(function (e) {
         e.enabled && r(e.onLoad) && e.onLoad(i.reference, i.popper, i.options, e, i.state);
       }), this.update();var a = this.options.eventsEnabled;a && this.enableEventListeners(), this.state.eventsEnabled = a;
-    }return b(e, [{ key: "update", value: function value() {
+    }return _(e, [{ key: "update", value: function value() {
         return function () {
           if (!this.state.isDestroyed) {
-            var e = { instance: this, styles: {}, arrowStyles: {}, attributes: {}, flipped: !1, offsets: {} };e.offsets.reference = A(this.state, this.popper, this.reference, this.options.positionFixed), e.placement = D(this.options.placement, e.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding), e.originalPlacement = e.placement, e.positionFixed = this.options.positionFixed, e.offsets.popper = N(this.popper, e.offsets.reference, e.placement), e.offsets.popper.position = this.options.positionFixed ? "fixed" : "absolute", e = L(this.modifiers, e), this.state.isCreated ? this.options.onUpdate(e) : (this.state.isCreated = !0, this.options.onCreate(e));
+            var e = { instance: this, styles: {}, arrowStyles: {}, attributes: {}, flipped: !1, offsets: {} };e.offsets.reference = A(this.state, this.popper, this.reference, this.options.positionFixed), e.placement = k(this.options.placement, e.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding), e.originalPlacement = e.placement, e.positionFixed = this.options.positionFixed, e.offsets.popper = L(this.popper, e.offsets.reference, e.placement), e.offsets.popper.position = this.options.positionFixed ? "fixed" : "absolute", e = P(this.modifiers, e), this.state.isCreated ? this.options.onUpdate(e) : (this.state.isCreated = !0, this.options.onCreate(e));
           }
         }.call(this);
       } }, { key: "destroy", value: function value() {
         return function () {
-          return this.state.isDestroyed = !0, P(this.modifiers, "applyStyle") && (this.popper.removeAttribute("x-placement"), this.popper.style.position = "", this.popper.style.top = "", this.popper.style.left = "", this.popper.style.right = "", this.popper.style.bottom = "", this.popper.style.willChange = "", this.popper.style[j("transform")] = ""), this.disableEventListeners(), this.options.removeOnDestroy && this.popper.parentNode.removeChild(this.popper), this;
+          return this.state.isDestroyed = !0, j(this.modifiers, "applyStyle") && (this.popper.removeAttribute("x-placement"), this.popper.style.position = "", this.popper.style.top = "", this.popper.style.left = "", this.popper.style.right = "", this.popper.style.bottom = "", this.popper.style.willChange = "", this.popper.style[M("transform")] = ""), this.disableEventListeners(), this.options.removeOnDestroy && this.popper.parentNode.removeChild(this.popper), this;
         }.call(this);
       } }, { key: "enableEventListeners", value: function value() {
         return function () {
-          this.state.eventsEnabled || (this.state = H(this.reference, this.options, this.state, this.scheduleUpdate));
+          this.state.eventsEnabled || (this.state = F(this.reference, this.options, this.state, this.scheduleUpdate));
         }.call(this);
       } }, { key: "disableEventListeners", value: function value() {
-        return F.call(this);
+        return z.call(this);
       } }]), e;
-  }();return Q.Utils = ("undefined" != typeof window ? window : global).PopperUtils, Q.placements = R, Q.Defaults = K, Q;
+  }();return Y.Utils = ("undefined" != typeof window ? window : global).PopperUtils, Y.placements = B, Y.Defaults = Q, Y;
 }), function (e, t) {
   "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? t(exports, require("jquery"), require("popper.js")) : "function" == typeof define && define.amd ? define(["exports", "jquery", "popper.js"], t) : t(e.bootstrap = {}, e.jQuery, e.Popper);
 }(this, function (e, t, n) {
@@ -2679,16 +2693,19 @@ function launchCarousel() {
     }
   }function o(e, t, n) {
     return t && i(e.prototype, t), n && i(e, n), e;
-  }function r() {
-    return (r = Object.assign || function (e) {
-      for (var t = 1; t < arguments.length; t++) {
-        var n = arguments[t];for (var i in n) {
-          Object.prototype.hasOwnProperty.call(n, i) && (e[i] = n[i]);
-        }
-      }return e;
-    }).apply(this, arguments);
-  }t = t && t.hasOwnProperty("default") ? t.default : t, n = n && n.hasOwnProperty("default") ? n.default : n;var s = function (e) {
-    var t = !1;function n(t) {
+  }function r(e, t, n) {
+    return t in e ? Object.defineProperty(e, t, { value: n, enumerable: !0, configurable: !0, writable: !0 }) : e[t] = n, e;
+  }function s(e) {
+    for (var t = 1; t < arguments.length; t++) {
+      var n = null != arguments[t] ? arguments[t] : {},
+          i = Object.keys(n);"function" == typeof Object.getOwnPropertySymbols && (i = i.concat(Object.getOwnPropertySymbols(n).filter(function (e) {
+        return Object.getOwnPropertyDescriptor(n, e).enumerable;
+      }))), i.forEach(function (t) {
+        r(e, t, n[t]);
+      });
+    }return e;
+  }t = t && t.hasOwnProperty("default") ? t.default : t, n = n && n.hasOwnProperty("default") ? n.default : n;var a = function (e) {
+    var t = "transitionend";function n(t) {
       var n = this,
           o = !1;return e(this).one(i.TRANSITION_END, function () {
         o = !0;
@@ -2700,17 +2717,17 @@ function launchCarousel() {
           e += ~~(1e6 * Math.random());
         } while (document.getElementById(e));return e;
       }, getSelectorFromElement: function getSelectorFromElement(t) {
-        var n = t.getAttribute("data-target");n && "#" !== n || (n = t.getAttribute("href") || ""), "#" === n.charAt(0) && (n = function (t) {
-          return t = "function" == typeof e.escapeSelector ? e.escapeSelector(t).substr(1) : t.replace(/(:|\.|\[|\]|,|=|@)/g, "\\$1");
-        }(n));try {
+        var n = t.getAttribute("data-target");n && "#" !== n || (n = t.getAttribute("href") || "");try {
           return e(document).find(n).length > 0 ? n : null;
         } catch (e) {
           return null;
         }
+      }, getTransitionDurationFromElement: function getTransitionDurationFromElement(t) {
+        if (!t) return 0;var n = e(t).css("transition-duration");return parseFloat(n) ? (n = n.split(",")[0], 1e3 * parseFloat(n)) : 0;
       }, reflow: function reflow(e) {
         return e.offsetHeight;
       }, triggerTransitionEnd: function triggerTransitionEnd(n) {
-        e(n).trigger(t.end);
+        e(n).trigger(t);
       }, supportsTransitionEnd: function supportsTransitionEnd() {
         return Boolean(t);
       }, isElement: function isElement(e) {
@@ -2720,19 +2737,19 @@ function launchCarousel() {
           if (Object.prototype.hasOwnProperty.call(n, o)) {
             var r = n[o],
                 s = t[o],
-                a = s && i.isElement(s) ? "element" : (l = s, {}.toString.call(l).match(/\s([a-zA-Z]+)/)[1].toLowerCase());if (!new RegExp(r).test(a)) throw new Error(e.toUpperCase() + ': Option "' + o + '" provided type "' + a + '" but expected type "' + r + '".');
+                a = s && i.isElement(s) ? "element" : (l = s, {}.toString.call(l).match(/\s([a-z]+)/i)[1].toLowerCase());if (!new RegExp(r).test(a)) throw new Error(e.toUpperCase() + ': Option "' + o + '" provided type "' + a + '" but expected type "' + r + '".');
           }
         }var l;
-      } };return t = ("undefined" == typeof window || !window.QUnit) && { end: "transitionend" }, e.fn.emulateTransitionEnd = n, i.supportsTransitionEnd() && (e.event.special[i.TRANSITION_END] = { bindType: t.end, delegateType: t.end, handle: function handle(t) {
+      } };return e.fn.emulateTransitionEnd = n, e.event.special[i.TRANSITION_END] = { bindType: t, delegateType: t, handle: function handle(t) {
         if (e(t.target).is(this)) return t.handleObj.handler.apply(this, arguments);
-      } }), i;
+      } }, i;
   }(t),
-      a = function (e) {
+      l = function (e) {
     var t = e.fn.alert,
         n = { CLOSE: "close.bs.alert", CLOSED: "closed.bs.alert", CLICK_DATA_API: "click.bs.alert.data-api" },
         i = "alert",
         r = "fade",
-        a = "show",
+        s = "show",
         l = function () {
       function t(e) {
         this._element = e;
@@ -2741,14 +2758,16 @@ function launchCarousel() {
       }, l.dispose = function () {
         e.removeData(this._element, "bs.alert"), this._element = null;
       }, l._getRootElement = function (t) {
-        var n = s.getSelectorFromElement(t),
+        var n = a.getSelectorFromElement(t),
             o = !1;return n && (o = e(n)[0]), o || (o = e(t).closest("." + i)[0]), o;
       }, l._triggerCloseEvent = function (t) {
         var i = e.Event(n.CLOSE);return e(t).trigger(i), i;
       }, l._removeElement = function (t) {
-        var n = this;e(t).removeClass(a), s.supportsTransitionEnd() && e(t).hasClass(r) ? e(t).one(s.TRANSITION_END, function (e) {
-          return n._destroyElement(t, e);
-        }).emulateTransitionEnd(150) : this._destroyElement(t);
+        var n = this;if (e(t).removeClass(s), e(t).hasClass(r)) {
+          var i = a.getTransitionDurationFromElement(t);e(t).one(a.TRANSITION_END, function (e) {
+            return n._destroyElement(t, e);
+          }).emulateTransitionEnd(i);
+        } else this._destroyElement(t);
       }, l._destroyElement = function (t) {
         e(t).detach().trigger(n.CLOSED).remove();
       }, t._jQueryInterface = function (n) {
@@ -2761,13 +2780,13 @@ function launchCarousel() {
           t && t.preventDefault(), e.close(this);
         };
       }, o(t, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }]), t;
     }();return e(document).on(n.CLICK_DATA_API, '[data-dismiss="alert"]', l._handleDismiss(new l())), e.fn.alert = l._jQueryInterface, e.fn.alert.Constructor = l, e.fn.alert.noConflict = function () {
       return e.fn.alert = t, l._jQueryInterface;
     }, l;
   }(t),
-      l = function (e) {
+      c = function (e) {
     var t = "button",
         n = e.fn[t],
         i = "active",
@@ -2801,7 +2820,7 @@ function launchCarousel() {
           var i = e(this).data("bs.button");i || (i = new t(this), e(this).data("bs.button", i)), "toggle" === n && i[n]();
         });
       }, o(t, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }]), t;
     }();return e(document).on(h.CLICK_DATA_API, a, function (t) {
       t.preventDefault();var n = t.target;e(n).hasClass(r) || (n = e(n).closest(d)), f._jQueryInterface.call(e(n), "toggle");
@@ -2811,11 +2830,11 @@ function launchCarousel() {
       return e.fn[t] = n, f._jQueryInterface;
     }, f;
   }(t),
-      c = function (e) {
+      u = function (e) {
     var t = "carousel",
         n = "bs.carousel",
         i = "." + n,
-        a = e.fn[t],
+        r = e.fn[t],
         l = { interval: 5e3, keyboard: !0, slide: !1, pause: "hover", wrap: !0 },
         c = { interval: "(number|boolean)", keyboard: "boolean", slide: "(boolean|string)", pause: "(string|boolean)", wrap: "boolean" },
         u = "next",
@@ -2832,16 +2851,16 @@ function launchCarousel() {
         w = "carousel-item-prev",
         E = { ACTIVE: ".active", ACTIVE_ITEM: ".active.carousel-item", ITEM: ".carousel-item", NEXT_PREV: ".carousel-item-next, .carousel-item-prev", INDICATORS: ".carousel-indicators", DATA_SLIDE: "[data-slide], [data-slide-to]", DATA_RIDE: '[data-ride="carousel"]' },
         C = function () {
-      function a(t, n) {
+      function r(t, n) {
         this._items = null, this._interval = null, this._activeElement = null, this._isPaused = !1, this._isSliding = !1, this.touchTimeout = null, this._config = this._getConfig(n), this._element = e(t)[0], this._indicatorsElement = e(this._element).find(E.INDICATORS)[0], this._addEventListeners();
-      }var C = a.prototype;return C.next = function () {
+      }var C = r.prototype;return C.next = function () {
         this._isSliding || this._slide(u);
       }, C.nextWhenVisible = function () {
         !document.hidden && e(this._element).is(":visible") && "hidden" !== e(this._element).css("visibility") && this.next();
       }, C.prev = function () {
         this._isSliding || this._slide(d);
       }, C.pause = function (t) {
-        t || (this._isPaused = !0), e(this._element).find(E.NEXT_PREV)[0] && s.supportsTransitionEnd() && (s.triggerTransitionEnd(this._element), this.cycle(!0)), clearInterval(this._interval), this._interval = null;
+        t || (this._isPaused = !0), e(this._element).find(E.NEXT_PREV)[0] && (a.triggerTransitionEnd(this._element), this.cycle(!0)), clearInterval(this._interval), this._interval = null;
       }, C.cycle = function (e) {
         e || (this._isPaused = !1), this._interval && (clearInterval(this._interval), this._interval = null), this._config.interval && !this._isPaused && (this._interval = setInterval((document.visibilityState ? this.nextWhenVisible : this.next).bind(this), this._config.interval));
       }, C.to = function (t) {
@@ -2853,7 +2872,7 @@ function launchCarousel() {
       }, C.dispose = function () {
         e(this._element).off(i), e.removeData(this._element, n), this._items = null, this._config = null, this._element = null, this._interval = null, this._isPaused = null, this._isSliding = null, this._activeElement = null, this._indicatorsElement = null;
       }, C._getConfig = function (e) {
-        return e = r({}, l, e), s.typeCheckConfig(t, e, c), e;
+        return e = s({}, l, e), a.typeCheckConfig(t, e, c), e;
       }, C._addEventListeners = function () {
         var t = this;this._config.keyboard && e(this._element).on(p.KEYDOWN, function (e) {
           return t._keydown(e);
@@ -2889,50 +2908,52 @@ function launchCarousel() {
         var i,
             o,
             r,
-            a = this,
+            s = this,
             l = e(this._element).find(E.ACTIVE_ITEM)[0],
             c = this._getItemIndex(l),
             d = n || l && this._getItemByDirection(t, l),
             m = this._getItemIndex(d),
             C = Boolean(this._interval);if (t === u ? (i = b, o = _, r = h) : (i = y, o = w, r = f), d && e(d).hasClass(g)) this._isSliding = !1;else if (!this._triggerSlideEvent(d, r).isDefaultPrevented() && l && d) {
-          this._isSliding = !0, C && this.pause(), this._setActiveIndicatorElement(d);var x = e.Event(p.SLID, { relatedTarget: d, direction: r, from: c, to: m });s.supportsTransitionEnd() && e(this._element).hasClass(v) ? (e(d).addClass(o), s.reflow(d), e(l).addClass(i), e(d).addClass(i), e(l).one(s.TRANSITION_END, function () {
-            e(d).removeClass(i + " " + o).addClass(g), e(l).removeClass(g + " " + o + " " + i), a._isSliding = !1, setTimeout(function () {
-              return e(a._element).trigger(x);
-            }, 0);
-          }).emulateTransitionEnd(600)) : (e(l).removeClass(g), e(d).addClass(g), this._isSliding = !1, e(this._element).trigger(x)), C && this.cycle();
+          this._isSliding = !0, C && this.pause(), this._setActiveIndicatorElement(d);var x = e.Event(p.SLID, { relatedTarget: d, direction: r, from: c, to: m });if (e(this._element).hasClass(v)) {
+            e(d).addClass(o), a.reflow(d), e(l).addClass(i), e(d).addClass(i);var T = a.getTransitionDurationFromElement(l);e(l).one(a.TRANSITION_END, function () {
+              e(d).removeClass(i + " " + o).addClass(g), e(l).removeClass(g + " " + o + " " + i), s._isSliding = !1, setTimeout(function () {
+                return e(s._element).trigger(x);
+              }, 0);
+            }).emulateTransitionEnd(T);
+          } else e(l).removeClass(g), e(d).addClass(g), this._isSliding = !1, e(this._element).trigger(x);C && this.cycle();
         }
-      }, a._jQueryInterface = function (t) {
+      }, r._jQueryInterface = function (t) {
         return this.each(function () {
           var i = e(this).data(n),
-              o = r({}, l, e(this).data());"object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && (o = r({}, o, t));var s = "string" == typeof t ? t : o.slide;if (i || (i = new a(this, o), e(this).data(n, i)), "number" == typeof t) i.to(t);else if ("string" == typeof s) {
-            if (void 0 === i[s]) throw new TypeError('No method named "' + s + '"');i[s]();
+              o = s({}, l, e(this).data());"object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && (o = s({}, o, t));var a = "string" == typeof t ? t : o.slide;if (i || (i = new r(this, o), e(this).data(n, i)), "number" == typeof t) i.to(t);else if ("string" == typeof a) {
+            if (void 0 === i[a]) throw new TypeError('No method named "' + a + '"');i[a]();
           } else o.interval && (i.pause(), i.cycle());
         });
-      }, a._dataApiClickHandler = function (t) {
-        var i = s.getSelectorFromElement(this);if (i) {
+      }, r._dataApiClickHandler = function (t) {
+        var i = a.getSelectorFromElement(this);if (i) {
           var o = e(i)[0];if (o && e(o).hasClass(m)) {
-            var l = r({}, e(o).data(), e(this).data()),
-                c = this.getAttribute("data-slide-to");c && (l.interval = !1), a._jQueryInterface.call(e(o), l), c && e(o).data(n).to(c), t.preventDefault();
+            var l = s({}, e(o).data(), e(this).data()),
+                c = this.getAttribute("data-slide-to");c && (l.interval = !1), r._jQueryInterface.call(e(o), l), c && e(o).data(n).to(c), t.preventDefault();
           }
         }
-      }, o(a, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+      }, o(r, null, [{ key: "VERSION", get: function get() {
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
           return l;
-        } }]), a;
+        } }]), r;
     }();return e(document).on(p.CLICK_DATA_API, E.DATA_SLIDE, C._dataApiClickHandler), e(window).on(p.LOAD_DATA_API, function () {
       e(E.DATA_RIDE).each(function () {
         var t = e(this);C._jQueryInterface.call(t, t.data());
       });
     }), e.fn[t] = C._jQueryInterface, e.fn[t].Constructor = C, e.fn[t].noConflict = function () {
-      return e.fn[t] = a, C._jQueryInterface;
+      return e.fn[t] = r, C._jQueryInterface;
     }, C;
   }(t),
-      u = function (e) {
+      d = function (e) {
     var t = "collapse",
         n = "bs.collapse",
         i = e.fn[t],
-        a = { toggle: !0, parent: "" },
+        r = { toggle: !0, parent: "" },
         l = { toggle: "boolean", parent: "(string|element)" },
         c = { SHOW: "show.bs.collapse", SHOWN: "shown.bs.collapse", HIDE: "hide.bs.collapse", HIDDEN: "hidden.bs.collapse", CLICK_DATA_API: "click.bs.collapse.data-api" },
         u = "show",
@@ -2946,7 +2967,7 @@ function launchCarousel() {
       function i(t, n) {
         this._isTransitioning = !1, this._element = t, this._config = this._getConfig(n), this._triggerArray = e.makeArray(e('[data-toggle="collapse"][href="#' + t.id + '"],[data-toggle="collapse"][data-target="#' + t.id + '"]'));for (var i = e(g.DATA_TOGGLE), o = 0; o < i.length; o++) {
           var r = i[o],
-              a = s.getSelectorFromElement(r);null !== a && e(a).filter(t).length > 0 && (this._selector = a, this._triggerArray.push(r));
+              s = a.getSelectorFromElement(r);null !== s && e(s).filter(t).length > 0 && (this._selector = s, this._triggerArray.push(r));
         }this._parent = this._config.parent ? this._getParent() : null, this._config.parent || this._addAriaAndCollapsedClass(this._element, this._triggerArray), this._config.toggle && this.toggle();
       }var v = i.prototype;return v.toggle = function () {
         e(this._element).hasClass(u) ? this.hide() : this.show();
@@ -2954,23 +2975,22 @@ function launchCarousel() {
         var t,
             o,
             r = this;if (!this._isTransitioning && !e(this._element).hasClass(u) && (this._parent && 0 === (t = e.makeArray(e(this._parent).find(g.ACTIVES).filter('[data-parent="' + this._config.parent + '"]'))).length && (t = null), !(t && (o = e(t).not(this._selector).data(n)) && o._isTransitioning))) {
-          var a = e.Event(c.SHOW);if (e(this._element).trigger(a), !a.isDefaultPrevented()) {
-            t && (i._jQueryInterface.call(e(t).not(this._selector), "hide"), o || e(t).data(n, null));var l = this._getDimension();e(this._element).removeClass(d).addClass(h), this._element.style[l] = 0, this._triggerArray.length > 0 && e(this._triggerArray).removeClass(f).attr("aria-expanded", !0), this.setTransitioning(!0);var p = function p() {
+          var s = e.Event(c.SHOW);if (e(this._element).trigger(s), !s.isDefaultPrevented()) {
+            t && (i._jQueryInterface.call(e(t).not(this._selector), "hide"), o || e(t).data(n, null));var l = this._getDimension();e(this._element).removeClass(d).addClass(h), this._element.style[l] = 0, this._triggerArray.length > 0 && e(this._triggerArray).removeClass(f).attr("aria-expanded", !0), this.setTransitioning(!0);var p = "scroll" + (l[0].toUpperCase() + l.slice(1)),
+                m = a.getTransitionDurationFromElement(this._element);e(this._element).one(a.TRANSITION_END, function () {
               e(r._element).removeClass(h).addClass(d).addClass(u), r._element.style[l] = "", r.setTransitioning(!1), e(r._element).trigger(c.SHOWN);
-            };if (s.supportsTransitionEnd()) {
-              var m = "scroll" + (l[0].toUpperCase() + l.slice(1));e(this._element).one(s.TRANSITION_END, p).emulateTransitionEnd(600), this._element.style[l] = this._element[m] + "px";
-            } else p();
+            }).emulateTransitionEnd(m), this._element.style[l] = this._element[p] + "px";
           }
         }
       }, v.hide = function () {
         var t = this;if (!this._isTransitioning && e(this._element).hasClass(u)) {
           var n = e.Event(c.HIDE);if (e(this._element).trigger(n), !n.isDefaultPrevented()) {
-            var i = this._getDimension();if (this._element.style[i] = this._element.getBoundingClientRect()[i] + "px", s.reflow(this._element), e(this._element).addClass(h).removeClass(d).removeClass(u), this._triggerArray.length > 0) for (var o = 0; o < this._triggerArray.length; o++) {
+            var i = this._getDimension();if (this._element.style[i] = this._element.getBoundingClientRect()[i] + "px", a.reflow(this._element), e(this._element).addClass(h).removeClass(d).removeClass(u), this._triggerArray.length > 0) for (var o = 0; o < this._triggerArray.length; o++) {
               var r = this._triggerArray[o],
-                  a = s.getSelectorFromElement(r);if (null !== a) e(a).hasClass(u) || e(r).addClass(f).attr("aria-expanded", !1);
-            }this.setTransitioning(!0);var l = function l() {
+                  s = a.getSelectorFromElement(r);if (null !== s) e(s).hasClass(u) || e(r).addClass(f).attr("aria-expanded", !1);
+            }this.setTransitioning(!0);this._element.style[i] = "";var l = a.getTransitionDurationFromElement(this._element);e(this._element).one(a.TRANSITION_END, function () {
               t.setTransitioning(!1), e(t._element).removeClass(h).addClass(d).trigger(c.HIDDEN);
-            };this._element.style[i] = "", s.supportsTransitionEnd() ? e(this._element).one(s.TRANSITION_END, l).emulateTransitionEnd(600) : l();
+            }).emulateTransitionEnd(l);
           }
         }
       }, v.setTransitioning = function (e) {
@@ -2978,12 +2998,12 @@ function launchCarousel() {
       }, v.dispose = function () {
         e.removeData(this._element, n), this._config = null, this._parent = null, this._element = null, this._triggerArray = null, this._isTransitioning = null;
       }, v._getConfig = function (e) {
-        return (e = r({}, a, e)).toggle = Boolean(e.toggle), s.typeCheckConfig(t, e, l), e;
+        return (e = s({}, r, e)).toggle = Boolean(e.toggle), a.typeCheckConfig(t, e, l), e;
       }, v._getDimension = function () {
         return e(this._element).hasClass(p) ? p : m;
       }, v._getParent = function () {
         var t = this,
-            n = null;s.isElement(this._config.parent) ? (n = this._config.parent, void 0 !== this._config.parent.jquery && (n = this._config.parent[0])) : n = e(this._config.parent)[0];var o = '[data-toggle="collapse"][data-parent="' + this._config.parent + '"]';return e(n).find(o).each(function (e, n) {
+            n = null;a.isElement(this._config.parent) ? (n = this._config.parent, void 0 !== this._config.parent.jquery && (n = this._config.parent[0])) : n = e(this._config.parent)[0];var o = '[data-toggle="collapse"][data-parent="' + this._config.parent + '"]';return e(n).find(o).each(function (e, n) {
           t._addAriaAndCollapsedClass(i._getTargetFromElement(n), [n]);
         }), n;
       }, v._addAriaAndCollapsedClass = function (t, n) {
@@ -2991,23 +3011,23 @@ function launchCarousel() {
           var i = e(t).hasClass(u);n.length > 0 && e(n).toggleClass(f, !i).attr("aria-expanded", i);
         }
       }, i._getTargetFromElement = function (t) {
-        var n = s.getSelectorFromElement(t);return n ? e(n)[0] : null;
+        var n = a.getSelectorFromElement(t);return n ? e(n)[0] : null;
       }, i._jQueryInterface = function (t) {
         return this.each(function () {
           var o = e(this),
-              s = o.data(n),
-              l = r({}, a, o.data(), "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t);if (!s && l.toggle && /show|hide/.test(t) && (l.toggle = !1), s || (s = new i(this, l), o.data(n, s)), "string" == typeof t) {
-            if (void 0 === s[t]) throw new TypeError('No method named "' + t + '"');s[t]();
+              a = o.data(n),
+              l = s({}, r, o.data(), "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t);if (!a && l.toggle && /show|hide/.test(t) && (l.toggle = !1), a || (a = new i(this, l), o.data(n, a)), "string" == typeof t) {
+            if (void 0 === a[t]) throw new TypeError('No method named "' + t + '"');a[t]();
           }
         });
       }, o(i, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
-          return a;
+          return r;
         } }]), i;
     }();return e(document).on(c.CLICK_DATA_API, g.DATA_TOGGLE, function (t) {
       "A" === t.currentTarget.tagName && t.preventDefault();var i = e(this),
-          o = s.getSelectorFromElement(this);e(o).each(function () {
+          o = a.getSelectorFromElement(this);e(o).each(function () {
         var t = e(this),
             o = t.data(n) ? "toggle" : i.data();v._jQueryInterface.call(t, o);
       });
@@ -3015,73 +3035,72 @@ function launchCarousel() {
       return e.fn[t] = i, v._jQueryInterface;
     }, v;
   }(t),
-      d = function (e) {
+      h = function (e) {
     var t = "dropdown",
         i = "bs.dropdown",
-        a = "." + i,
+        r = "." + i,
         l = e.fn[t],
         c = new RegExp("38|40|27"),
-        u = { HIDE: "hide" + a, HIDDEN: "hidden" + a, SHOW: "show" + a, SHOWN: "shown" + a, CLICK: "click" + a, CLICK_DATA_API: "click.bs.dropdown.data-api", KEYDOWN_DATA_API: "keydown.bs.dropdown.data-api", KEYUP_DATA_API: "keyup.bs.dropdown.data-api" },
+        u = { HIDE: "hide" + r, HIDDEN: "hidden" + r, SHOW: "show" + r, SHOWN: "shown" + r, CLICK: "click" + r, CLICK_DATA_API: "click.bs.dropdown.data-api", KEYDOWN_DATA_API: "keydown.bs.dropdown.data-api", KEYUP_DATA_API: "keyup.bs.dropdown.data-api" },
         d = "disabled",
         h = "show",
         f = "dropup",
         p = "dropright",
         m = "dropleft",
         g = "dropdown-menu-right",
-        v = "dropdown-menu-left",
-        y = "position-static",
-        b = '[data-toggle="dropdown"]',
-        _ = ".dropdown form",
-        w = ".dropdown-menu",
-        E = ".navbar-nav",
-        C = ".dropdown-menu .dropdown-item:not(.disabled)",
-        x = "top-start",
-        T = "top-end",
-        S = "bottom-start",
-        D = "bottom-end",
-        A = "right-start",
+        v = "position-static",
+        y = '[data-toggle="dropdown"]',
+        b = ".dropdown form",
+        _ = ".dropdown-menu",
+        w = ".navbar-nav",
+        E = ".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)",
+        C = "top-start",
+        x = "top-end",
+        T = "bottom-start",
+        S = "bottom-end",
+        D = "right-start",
         k = "left-start",
-        I = { offset: 0, flip: !0, boundary: "scrollParent" },
-        N = { offset: "(number|string|function)", flip: "boolean", boundary: "(string|element)" },
-        O = function () {
+        A = { offset: 0, flip: !0, boundary: "scrollParent", reference: "toggle", display: "dynamic" },
+        I = { offset: "(number|string|function)", flip: "boolean", boundary: "(string|element)", reference: "(string|element)", display: "string" },
+        N = function () {
       function l(e, t) {
         this._element = e, this._popper = null, this._config = this._getConfig(t), this._menu = this._getMenuElement(), this._inNavbar = this._detectNavbar(), this._addEventListeners();
-      }var _ = l.prototype;return _.toggle = function () {
+      }var b = l.prototype;return b.toggle = function () {
         if (!this._element.disabled && !e(this._element).hasClass(d)) {
           var t = l._getParentFromElement(this._element),
               i = e(this._menu).hasClass(h);if (l._clearMenus(), !i) {
             var o = { relatedTarget: this._element },
                 r = e.Event(u.SHOW, o);if (e(t).trigger(r), !r.isDefaultPrevented()) {
               if (!this._inNavbar) {
-                if (void 0 === n) throw new TypeError("Bootstrap dropdown require Popper.js (https://popper.js.org)");var s = this._element;e(t).hasClass(f) && (e(this._menu).hasClass(v) || e(this._menu).hasClass(g)) && (s = t), "scrollParent" !== this._config.boundary && e(t).addClass(y), this._popper = new n(s, this._menu, this._getPopperConfig());
-              }"ontouchstart" in document.documentElement && 0 === e(t).closest(E).length && e("body").children().on("mouseover", null, e.noop), this._element.focus(), this._element.setAttribute("aria-expanded", !0), e(this._menu).toggleClass(h), e(t).toggleClass(h).trigger(e.Event(u.SHOWN, o));
+                if (void 0 === n) throw new TypeError("Bootstrap dropdown require Popper.js (https://popper.js.org)");var s = this._element;"parent" === this._config.reference ? s = t : a.isElement(this._config.reference) && (s = this._config.reference, void 0 !== this._config.reference.jquery && (s = this._config.reference[0])), "scrollParent" !== this._config.boundary && e(t).addClass(v), this._popper = new n(s, this._menu, this._getPopperConfig());
+              }"ontouchstart" in document.documentElement && 0 === e(t).closest(w).length && e(document.body).children().on("mouseover", null, e.noop), this._element.focus(), this._element.setAttribute("aria-expanded", !0), e(this._menu).toggleClass(h), e(t).toggleClass(h).trigger(e.Event(u.SHOWN, o));
             }
           }
         }
-      }, _.dispose = function () {
-        e.removeData(this._element, i), e(this._element).off(a), this._element = null, this._menu = null, null !== this._popper && (this._popper.destroy(), this._popper = null);
-      }, _.update = function () {
+      }, b.dispose = function () {
+        e.removeData(this._element, i), e(this._element).off(r), this._element = null, this._menu = null, null !== this._popper && (this._popper.destroy(), this._popper = null);
+      }, b.update = function () {
         this._inNavbar = this._detectNavbar(), null !== this._popper && this._popper.scheduleUpdate();
-      }, _._addEventListeners = function () {
+      }, b._addEventListeners = function () {
         var t = this;e(this._element).on(u.CLICK, function (e) {
           e.preventDefault(), e.stopPropagation(), t.toggle();
         });
-      }, _._getConfig = function (n) {
-        return n = r({}, this.constructor.Default, e(this._element).data(), n), s.typeCheckConfig(t, n, this.constructor.DefaultType), n;
-      }, _._getMenuElement = function () {
+      }, b._getConfig = function (n) {
+        return n = s({}, this.constructor.Default, e(this._element).data(), n), a.typeCheckConfig(t, n, this.constructor.DefaultType), n;
+      }, b._getMenuElement = function () {
         if (!this._menu) {
-          var t = l._getParentFromElement(this._element);this._menu = e(t).find(w)[0];
+          var t = l._getParentFromElement(this._element);this._menu = e(t).find(_)[0];
         }return this._menu;
-      }, _._getPlacement = function () {
+      }, b._getPlacement = function () {
         var t = e(this._element).parent(),
-            n = S;return t.hasClass(f) ? (n = x, e(this._menu).hasClass(g) && (n = T)) : t.hasClass(p) ? n = A : t.hasClass(m) ? n = k : e(this._menu).hasClass(g) && (n = D), n;
-      }, _._detectNavbar = function () {
+            n = T;return t.hasClass(f) ? (n = C, e(this._menu).hasClass(g) && (n = x)) : t.hasClass(p) ? n = D : t.hasClass(m) ? n = k : e(this._menu).hasClass(g) && (n = S), n;
+      }, b._detectNavbar = function () {
         return e(this._element).closest(".navbar").length > 0;
-      }, _._getPopperConfig = function () {
+      }, b._getPopperConfig = function () {
         var e = this,
-            t = {};return "function" == typeof this._config.offset ? t.fn = function (t) {
-          return t.offsets = r({}, t.offsets, e._config.offset(t.offsets) || {}), t;
-        } : t.offset = this._config.offset, { placement: this._getPlacement(), modifiers: { offset: t, flip: { enabled: this._config.flip }, preventOverflow: { boundariesElement: this._config.boundary } } };
+            t = {};"function" == typeof this._config.offset ? t.fn = function (t) {
+          return t.offsets = s({}, t.offsets, e._config.offset(t.offsets) || {}), t;
+        } : t.offset = this._config.offset;var n = { placement: this._getPlacement(), modifiers: { offset: t, flip: { enabled: this._config.flip }, preventOverflow: { boundariesElement: this._config.boundary } } };return "static" === this._config.display && (n.modifiers.applyStyle = { enabled: !1 }), n;
       }, l._jQueryInterface = function (t) {
         return this.each(function () {
           var n = e(this).data(i);if (n || (n = new l(this, "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) ? t : null), e(this).data(i, n)), "string" == typeof t) {
@@ -3089,51 +3108,51 @@ function launchCarousel() {
           }
         });
       }, l._clearMenus = function (t) {
-        if (!t || 3 !== t.which && ("keyup" !== t.type || 9 === t.which)) for (var n = e.makeArray(e(b)), o = 0; o < n.length; o++) {
+        if (!t || 3 !== t.which && ("keyup" !== t.type || 9 === t.which)) for (var n = e.makeArray(e(y)), o = 0; o < n.length; o++) {
           var r = l._getParentFromElement(n[o]),
               s = e(n[o]).data(i),
               a = { relatedTarget: n[o] };if (s) {
             var c = s._menu;if (e(r).hasClass(h) && !(t && ("click" === t.type && /input|textarea/i.test(t.target.tagName) || "keyup" === t.type && 9 === t.which) && e.contains(r, t.target))) {
-              var d = e.Event(u.HIDE, a);e(r).trigger(d), d.isDefaultPrevented() || ("ontouchstart" in document.documentElement && e("body").children().off("mouseover", null, e.noop), n[o].setAttribute("aria-expanded", "false"), e(c).removeClass(h), e(r).removeClass(h).trigger(e.Event(u.HIDDEN, a)));
+              var d = e.Event(u.HIDE, a);e(r).trigger(d), d.isDefaultPrevented() || ("ontouchstart" in document.documentElement && e(document.body).children().off("mouseover", null, e.noop), n[o].setAttribute("aria-expanded", "false"), e(c).removeClass(h), e(r).removeClass(h).trigger(e.Event(u.HIDDEN, a)));
             }
           }
         }
       }, l._getParentFromElement = function (t) {
         var n,
-            i = s.getSelectorFromElement(t);return i && (n = e(i)[0]), n || t.parentNode;
+            i = a.getSelectorFromElement(t);return i && (n = e(i)[0]), n || t.parentNode;
       }, l._dataApiKeydownHandler = function (t) {
-        if ((/input|textarea/i.test(t.target.tagName) ? !(32 === t.which || 27 !== t.which && (40 !== t.which && 38 !== t.which || e(t.target).closest(w).length)) : c.test(t.which)) && (t.preventDefault(), t.stopPropagation(), !this.disabled && !e(this).hasClass(d))) {
+        if ((/input|textarea/i.test(t.target.tagName) ? !(32 === t.which || 27 !== t.which && (40 !== t.which && 38 !== t.which || e(t.target).closest(_).length)) : c.test(t.which)) && (t.preventDefault(), t.stopPropagation(), !this.disabled && !e(this).hasClass(d))) {
           var n = l._getParentFromElement(this),
               i = e(n).hasClass(h);if ((i || 27 === t.which && 32 === t.which) && (!i || 27 !== t.which && 32 !== t.which)) {
-            var o = e(n).find(C).get();if (0 !== o.length) {
+            var o = e(n).find(E).get();if (0 !== o.length) {
               var r = o.indexOf(t.target);38 === t.which && r > 0 && r--, 40 === t.which && r < o.length - 1 && r++, r < 0 && (r = 0), o[r].focus();
             }
           } else {
             if (27 === t.which) {
-              var s = e(n).find(b)[0];e(s).trigger("focus");
+              var s = e(n).find(y)[0];e(s).trigger("focus");
             }e(this).trigger("click");
           }
         }
       }, o(l, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
-          return I;
+          return A;
         } }, { key: "DefaultType", get: function get() {
-          return N;
+          return I;
         } }]), l;
-    }();return e(document).on(u.KEYDOWN_DATA_API, b, O._dataApiKeydownHandler).on(u.KEYDOWN_DATA_API, w, O._dataApiKeydownHandler).on(u.CLICK_DATA_API + " " + u.KEYUP_DATA_API, O._clearMenus).on(u.CLICK_DATA_API, b, function (t) {
-      t.preventDefault(), t.stopPropagation(), O._jQueryInterface.call(e(this), "toggle");
-    }).on(u.CLICK_DATA_API, _, function (e) {
+    }();return e(document).on(u.KEYDOWN_DATA_API, y, N._dataApiKeydownHandler).on(u.KEYDOWN_DATA_API, _, N._dataApiKeydownHandler).on(u.CLICK_DATA_API + " " + u.KEYUP_DATA_API, N._clearMenus).on(u.CLICK_DATA_API, y, function (t) {
+      t.preventDefault(), t.stopPropagation(), N._jQueryInterface.call(e(this), "toggle");
+    }).on(u.CLICK_DATA_API, b, function (e) {
       e.stopPropagation();
-    }), e.fn[t] = O._jQueryInterface, e.fn[t].Constructor = O, e.fn[t].noConflict = function () {
-      return e.fn[t] = l, O._jQueryInterface;
-    }, O;
+    }), e.fn[t] = N._jQueryInterface, e.fn[t].Constructor = N, e.fn[t].noConflict = function () {
+      return e.fn[t] = l, N._jQueryInterface;
+    }, N;
   }(t),
-      h = function (e) {
+      f = function (e) {
     var t = "modal",
         n = ".bs.modal",
         i = e.fn.modal,
-        a = { backdrop: !0, keyboard: !0, focus: !0, show: !0 },
+        r = { backdrop: !0, keyboard: !0, focus: !0, show: !0 },
         l = { backdrop: "(boolean|string)", keyboard: "boolean", focus: "boolean", show: "boolean" },
         c = { HIDE: "hide.bs.modal", HIDDEN: "hidden.bs.modal", SHOW: "show.bs.modal", SHOWN: "shown.bs.modal", FOCUSIN: "focusin.bs.modal", RESIZE: "resize.bs.modal", CLICK_DISMISS: "click.dismiss.bs.modal", KEYDOWN_DISMISS: "keydown.dismiss.bs.modal", MOUSEUP_DISMISS: "mouseup.dismiss.bs.modal", MOUSEDOWN_DISMISS: "mousedown.dismiss.bs.modal", CLICK_DATA_API: "click.bs.modal.data-api" },
         u = "modal-scrollbar-measure",
@@ -3144,12 +3163,12 @@ function launchCarousel() {
         m = { DIALOG: ".modal-dialog", DATA_TOGGLE: '[data-toggle="modal"]', DATA_DISMISS: '[data-dismiss="modal"]', FIXED_CONTENT: ".fixed-top, .fixed-bottom, .is-fixed, .sticky-top", STICKY_CONTENT: ".sticky-top", NAVBAR_TOGGLER: ".navbar-toggler" },
         g = function () {
       function i(t, n) {
-        this._config = this._getConfig(n), this._element = t, this._dialog = e(t).find(m.DIALOG)[0], this._backdrop = null, this._isShown = !1, this._isBodyOverflowing = !1, this._ignoreBackdropClick = !1, this._originalBodyPadding = 0, this._scrollbarWidth = 0;
+        this._config = this._getConfig(n), this._element = t, this._dialog = e(t).find(m.DIALOG)[0], this._backdrop = null, this._isShown = !1, this._isBodyOverflowing = !1, this._ignoreBackdropClick = !1, this._scrollbarWidth = 0;
       }var g = i.prototype;return g.toggle = function (e) {
         return this._isShown ? this.hide() : this.show(e);
       }, g.show = function (t) {
         var n = this;if (!this._isTransitioning && !this._isShown) {
-          s.supportsTransitionEnd() && e(this._element).hasClass(f) && (this._isTransitioning = !0);var i = e.Event(c.SHOW, { relatedTarget: t });e(this._element).trigger(i), this._isShown || i.isDefaultPrevented() || (this._isShown = !0, this._checkScrollbar(), this._setScrollbar(), this._adjustDialog(), e(document.body).addClass(h), this._setEscapeEvent(), this._setResizeEvent(), e(this._element).on(c.CLICK_DISMISS, m.DATA_DISMISS, function (e) {
+          e(this._element).hasClass(f) && (this._isTransitioning = !0);var i = e.Event(c.SHOW, { relatedTarget: t });e(this._element).trigger(i), this._isShown || i.isDefaultPrevented() || (this._isShown = !0, this._checkScrollbar(), this._setScrollbar(), this._adjustDialog(), e(document.body).addClass(h), this._setEscapeEvent(), this._setResizeEvent(), e(this._element).on(c.CLICK_DISMISS, m.DATA_DISMISS, function (e) {
             return n.hide(e);
           }), e(this._dialog).on(c.MOUSEDOWN_DISMISS, function () {
             e(n._element).one(c.MOUSEUP_DISMISS, function (t) {
@@ -3162,9 +3181,11 @@ function launchCarousel() {
       }, g.hide = function (t) {
         var n = this;if (t && t.preventDefault(), !this._isTransitioning && this._isShown) {
           var i = e.Event(c.HIDE);if (e(this._element).trigger(i), this._isShown && !i.isDefaultPrevented()) {
-            this._isShown = !1;var o = s.supportsTransitionEnd() && e(this._element).hasClass(f);o && (this._isTransitioning = !0), this._setEscapeEvent(), this._setResizeEvent(), e(document).off(c.FOCUSIN), e(this._element).removeClass(p), e(this._element).off(c.CLICK_DISMISS), e(this._dialog).off(c.MOUSEDOWN_DISMISS), o ? e(this._element).one(s.TRANSITION_END, function (e) {
-              return n._hideModal(e);
-            }).emulateTransitionEnd(300) : this._hideModal();
+            this._isShown = !1;var o = e(this._element).hasClass(f);if (o && (this._isTransitioning = !0), this._setEscapeEvent(), this._setResizeEvent(), e(document).off(c.FOCUSIN), e(this._element).removeClass(p), e(this._element).off(c.CLICK_DISMISS), e(this._dialog).off(c.MOUSEDOWN_DISMISS), o) {
+              var r = a.getTransitionDurationFromElement(this._element);e(this._element).one(a.TRANSITION_END, function (e) {
+                return n._hideModal(e);
+              }).emulateTransitionEnd(r);
+            } else this._hideModal();
           }
         }
       }, g.dispose = function () {
@@ -3172,13 +3193,15 @@ function launchCarousel() {
       }, g.handleUpdate = function () {
         this._adjustDialog();
       }, g._getConfig = function (e) {
-        return e = r({}, a, e), s.typeCheckConfig(t, e, l), e;
+        return e = s({}, r, e), a.typeCheckConfig(t, e, l), e;
       }, g._showElement = function (t) {
         var n = this,
-            i = s.supportsTransitionEnd() && e(this._element).hasClass(f);this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE || document.body.appendChild(this._element), this._element.style.display = "block", this._element.removeAttribute("aria-hidden"), this._element.scrollTop = 0, i && s.reflow(this._element), e(this._element).addClass(p), this._config.focus && this._enforceFocus();var o = e.Event(c.SHOWN, { relatedTarget: t }),
+            i = e(this._element).hasClass(f);this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE || document.body.appendChild(this._element), this._element.style.display = "block", this._element.removeAttribute("aria-hidden"), this._element.scrollTop = 0, i && a.reflow(this._element), e(this._element).addClass(p), this._config.focus && this._enforceFocus();var o = e.Event(c.SHOWN, { relatedTarget: t }),
             r = function r() {
           n._config.focus && n._element.focus(), n._isTransitioning = !1, e(n._element).trigger(o);
-        };i ? e(this._dialog).one(s.TRANSITION_END, r).emulateTransitionEnd(300) : r();
+        };if (i) {
+          var s = a.getTransitionDurationFromElement(this._element);e(this._dialog).one(a.TRANSITION_END, r).emulateTransitionEnd(s);
+        } else r();
       }, g._enforceFocus = function () {
         var t = this;e(document).off(c.FOCUSIN).on(c.FOCUSIN, function (n) {
           document !== n.target && t._element !== n.target && 0 === e(t._element).has(n.target).length && t._element.focus();
@@ -3200,13 +3223,15 @@ function launchCarousel() {
       }, g._showBackdrop = function (t) {
         var n = this,
             i = e(this._element).hasClass(f) ? f : "";if (this._isShown && this._config.backdrop) {
-          var o = s.supportsTransitionEnd() && i;if (this._backdrop = document.createElement("div"), this._backdrop.className = d, i && e(this._backdrop).addClass(i), e(this._backdrop).appendTo(document.body), e(this._element).on(c.CLICK_DISMISS, function (e) {
+          if (this._backdrop = document.createElement("div"), this._backdrop.className = d, i && e(this._backdrop).addClass(i), e(this._backdrop).appendTo(document.body), e(this._element).on(c.CLICK_DISMISS, function (e) {
             n._ignoreBackdropClick ? n._ignoreBackdropClick = !1 : e.target === e.currentTarget && ("static" === n._config.backdrop ? n._element.focus() : n.hide());
-          }), o && s.reflow(this._backdrop), e(this._backdrop).addClass(p), !t) return;if (!o) return void t();e(this._backdrop).one(s.TRANSITION_END, t).emulateTransitionEnd(150);
+          }), i && a.reflow(this._backdrop), e(this._backdrop).addClass(p), !t) return;if (!i) return void t();var o = a.getTransitionDurationFromElement(this._backdrop);e(this._backdrop).one(a.TRANSITION_END, t).emulateTransitionEnd(o);
         } else if (!this._isShown && this._backdrop) {
           e(this._backdrop).removeClass(p);var r = function r() {
             n._removeBackdrop(), t && t();
-          };s.supportsTransitionEnd() && e(this._element).hasClass(f) ? e(this._backdrop).one(s.TRANSITION_END, r).emulateTransitionEnd(150) : r();
+          };if (e(this._element).hasClass(f)) {
+            var s = a.getTransitionDurationFromElement(this._backdrop);e(this._backdrop).one(a.TRANSITION_END, r).emulateTransitionEnd(s);
+          } else r();
         } else t && t();
       }, g._adjustDialog = function () {
         var e = this._element.scrollHeight > document.documentElement.clientHeight;!this._isBodyOverflowing && e && (this._element.style.paddingLeft = this._scrollbarWidth + "px"), this._isBodyOverflowing && !e && (this._element.style.paddingRight = this._scrollbarWidth + "px");
@@ -3226,44 +3251,44 @@ function launchCarousel() {
             var o = e(i)[0].style.marginRight,
                 r = e(i).css("margin-right");e(i).data("margin-right", o).css("margin-right", parseFloat(r) + t._scrollbarWidth + "px");
           });var n = document.body.style.paddingRight,
-              i = e("body").css("padding-right");e("body").data("padding-right", n).css("padding-right", parseFloat(i) + this._scrollbarWidth + "px");
+              i = e(document.body).css("padding-right");e(document.body).data("padding-right", n).css("padding-right", parseFloat(i) + this._scrollbarWidth + "px");
         }
       }, g._resetScrollbar = function () {
         e(m.FIXED_CONTENT).each(function (t, n) {
           var i = e(n).data("padding-right");void 0 !== i && e(n).css("padding-right", i).removeData("padding-right");
         }), e(m.STICKY_CONTENT + ", " + m.NAVBAR_TOGGLER).each(function (t, n) {
           var i = e(n).data("margin-right");void 0 !== i && e(n).css("margin-right", i).removeData("margin-right");
-        });var t = e("body").data("padding-right");void 0 !== t && e("body").css("padding-right", t).removeData("padding-right");
+        });var t = e(document.body).data("padding-right");void 0 !== t && e(document.body).css("padding-right", t).removeData("padding-right");
       }, g._getScrollbarWidth = function () {
         var e = document.createElement("div");e.className = u, document.body.appendChild(e);var t = e.getBoundingClientRect().width - e.clientWidth;return document.body.removeChild(e), t;
       }, i._jQueryInterface = function (t, n) {
         return this.each(function () {
           var o = e(this).data("bs.modal"),
-              s = r({}, i.Default, e(this).data(), "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t);if (o || (o = new i(this, s), e(this).data("bs.modal", o)), "string" == typeof t) {
+              r = s({}, i.Default, e(this).data(), "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t);if (o || (o = new i(this, r), e(this).data("bs.modal", o)), "string" == typeof t) {
             if (void 0 === o[t]) throw new TypeError('No method named "' + t + '"');o[t](n);
-          } else s.show && o.show(n);
+          } else r.show && o.show(n);
         });
       }, o(i, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
-          return a;
+          return r;
         } }]), i;
     }();return e(document).on(c.CLICK_DATA_API, m.DATA_TOGGLE, function (t) {
       var n,
           i = this,
-          o = s.getSelectorFromElement(this);o && (n = e(o)[0]);var a = e(n).data("bs.modal") ? "toggle" : r({}, e(n).data(), e(this).data());"A" !== this.tagName && "AREA" !== this.tagName || t.preventDefault();var l = e(n).one(c.SHOW, function (t) {
+          o = a.getSelectorFromElement(this);o && (n = e(o)[0]);var r = e(n).data("bs.modal") ? "toggle" : s({}, e(n).data(), e(this).data());"A" !== this.tagName && "AREA" !== this.tagName || t.preventDefault();var l = e(n).one(c.SHOW, function (t) {
         t.isDefaultPrevented() || l.one(c.HIDDEN, function () {
           e(i).is(":visible") && i.focus();
         });
-      });g._jQueryInterface.call(e(n), a, this);
+      });g._jQueryInterface.call(e(n), r, this);
     }), e.fn.modal = g._jQueryInterface, e.fn.modal.Constructor = g, e.fn.modal.noConflict = function () {
       return e.fn.modal = i, g._jQueryInterface;
     }, g;
   }(t),
-      f = function (e) {
+      p = function (e) {
     var t = "tooltip",
         i = ".bs.tooltip",
-        a = e.fn[t],
+        r = e.fn[t],
         l = new RegExp("(^|\\s)bs-tooltip\\S+", "g"),
         c = { animation: "boolean", template: "string", title: "(string|element|function)", trigger: "string", delay: "(number|object)", html: "boolean", selector: "(string|boolean)", placement: "(string|function)", offset: "(number|string)", container: "(string|element|boolean)", fallbackPlacement: "(string|array)", boundary: "(string|element)" },
         u = { AUTO: "auto", TOP: "top", RIGHT: "right", BOTTOM: "bottom", LEFT: "left" },
@@ -3280,9 +3305,9 @@ function launchCarousel() {
         w = "click",
         E = "manual",
         C = function () {
-      function a(e, t) {
+      function r(e, t) {
         if (void 0 === n) throw new TypeError("Bootstrap tooltips require Popper.js (https://popper.js.org)");this._isEnabled = !0, this._timeout = 0, this._hoverState = "", this._activeTrigger = {}, this._popper = null, this.element = e, this.config = this._getConfig(t), this.tip = null, this._setListeners();
-      }var C = a.prototype;return C.enable = function () {
+      }var C = r.prototype;return C.enable = function () {
         this._isEnabled = !0;
       }, C.disable = function () {
         this._isEnabled = !1;
@@ -3300,14 +3325,16 @@ function launchCarousel() {
       }, C.show = function () {
         var t = this;if ("none" === e(this.element).css("display")) throw new Error("Please use show on visible elements");var i = e.Event(this.constructor.Event.SHOW);if (this.isWithContent() && this._isEnabled) {
           e(this.element).trigger(i);var o = e.contains(this.element.ownerDocument.documentElement, this.element);if (i.isDefaultPrevented() || !o) return;var r = this.getTipElement(),
-              l = s.getUID(this.constructor.NAME);r.setAttribute("id", l), this.element.setAttribute("aria-describedby", l), this.setContent(), this.config.animation && e(r).addClass(m);var c = "function" == typeof this.config.placement ? this.config.placement.call(this, r, this.element) : this.config.placement,
-              u = this._getAttachment(c);this.addAttachmentClass(u);var d = !1 === this.config.container ? document.body : e(this.config.container);e(r).data(this.constructor.DATA_KEY, this), e.contains(this.element.ownerDocument.documentElement, this.tip) || e(r).appendTo(d), e(this.element).trigger(this.constructor.Event.INSERTED), this._popper = new n(this.element, r, { placement: u, modifiers: { offset: { offset: this.config.offset }, flip: { behavior: this.config.fallbackPlacement }, arrow: { element: y }, preventOverflow: { boundariesElement: this.config.boundary } }, onCreate: function onCreate(e) {
+              s = a.getUID(this.constructor.NAME);r.setAttribute("id", s), this.element.setAttribute("aria-describedby", s), this.setContent(), this.config.animation && e(r).addClass(m);var l = "function" == typeof this.config.placement ? this.config.placement.call(this, r, this.element) : this.config.placement,
+              c = this._getAttachment(l);this.addAttachmentClass(c);var u = !1 === this.config.container ? document.body : e(this.config.container);e(r).data(this.constructor.DATA_KEY, this), e.contains(this.element.ownerDocument.documentElement, this.tip) || e(r).appendTo(u), e(this.element).trigger(this.constructor.Event.INSERTED), this._popper = new n(this.element, r, { placement: c, modifiers: { offset: { offset: this.config.offset }, flip: { behavior: this.config.fallbackPlacement }, arrow: { element: y }, preventOverflow: { boundariesElement: this.config.boundary } }, onCreate: function onCreate(e) {
               e.originalPlacement !== e.placement && t._handlePopperPlacementChange(e);
             }, onUpdate: function onUpdate(e) {
               t._handlePopperPlacementChange(e);
-            } }), e(r).addClass(g), "ontouchstart" in document.documentElement && e("body").children().on("mouseover", null, e.noop);var h = function h() {
+            } }), e(r).addClass(g), "ontouchstart" in document.documentElement && e(document.body).children().on("mouseover", null, e.noop);var d = function d() {
             t.config.animation && t._fixTransition();var n = t._hoverState;t._hoverState = null, e(t.element).trigger(t.constructor.Event.SHOWN), n === f && t._leave(null, t);
-          };s.supportsTransitionEnd() && e(this.tip).hasClass(m) ? e(this.tip).one(s.TRANSITION_END, h).emulateTransitionEnd(a._TRANSITION_DURATION) : h();
+          };if (e(this.tip).hasClass(m)) {
+            var h = a.getTransitionDurationFromElement(this.tip);e(this.tip).one(a.TRANSITION_END, d).emulateTransitionEnd(h);
+          } else d();
         }
       }, C.hide = function (t) {
         var n = this,
@@ -3315,7 +3342,11 @@ function launchCarousel() {
             o = e.Event(this.constructor.Event.HIDE),
             r = function r() {
           n._hoverState !== h && i.parentNode && i.parentNode.removeChild(i), n._cleanTipClass(), n.element.removeAttribute("aria-describedby"), e(n.element).trigger(n.constructor.Event.HIDDEN), null !== n._popper && n._popper.destroy(), t && t();
-        };e(this.element).trigger(o), o.isDefaultPrevented() || (e(i).removeClass(g), "ontouchstart" in document.documentElement && e("body").children().off("mouseover", null, e.noop), this._activeTrigger[w] = !1, this._activeTrigger[_] = !1, this._activeTrigger[b] = !1, s.supportsTransitionEnd() && e(this.tip).hasClass(m) ? e(i).one(s.TRANSITION_END, r).emulateTransitionEnd(150) : r(), this._hoverState = "");
+        };if (e(this.element).trigger(o), !o.isDefaultPrevented()) {
+          if (e(i).removeClass(g), "ontouchstart" in document.documentElement && e(document.body).children().off("mouseover", null, e.noop), this._activeTrigger[w] = !1, this._activeTrigger[_] = !1, this._activeTrigger[b] = !1, e(this.tip).hasClass(m)) {
+            var s = a.getTransitionDurationFromElement(i);e(i).one(a.TRANSITION_END, r).emulateTransitionEnd(s);
+          } else r();this._hoverState = "";
+        }
       }, C.update = function () {
         null !== this._popper && this._popper.scheduleUpdate();
       }, C.isWithContent = function () {
@@ -3346,7 +3377,7 @@ function launchCarousel() {
           }e(t.element).closest(".modal").on("hide.bs.modal", function () {
             return t.hide();
           });
-        }), this.config.selector ? this.config = r({}, this.config, { trigger: "manual", selector: "" }) : this._fixTitle();
+        }), this.config.selector ? this.config = s({}, this.config, { trigger: "manual", selector: "" }) : this._fixTitle();
       }, C._fixTitle = function () {
         var e = _typeof(this.element.getAttribute("data-original-title"));(this.element.getAttribute("title") || "string" !== e) && (this.element.setAttribute("data-original-title", this.element.getAttribute("title") || ""), this.element.setAttribute("title", ""));
       }, C._enter = function (t, n) {
@@ -3362,7 +3393,7 @@ function launchCarousel() {
           if (this._activeTrigger[e]) return !0;
         }return !1;
       }, C._getConfig = function (n) {
-        return "number" == typeof (n = r({}, this.constructor.Default, e(this.element).data(), n)).delay && (n.delay = { show: n.delay, hide: n.delay }), "number" == typeof n.title && (n.title = n.title.toString()), "number" == typeof n.content && (n.content = n.content.toString()), s.typeCheckConfig(t, n, this.constructor.DefaultType), n;
+        return "number" == typeof (n = s({}, this.constructor.Default, e(this.element).data(), n)).delay && (n.delay = { show: n.delay, hide: n.delay }), "number" == typeof n.title && (n.title = n.title.toString()), "number" == typeof n.content && (n.content = n.content.toString()), a.typeCheckConfig(t, n, this.constructor.DefaultType), n;
       }, C._getDelegateConfig = function () {
         var e = {};if (this.config) for (var t in this.config) {
           this.constructor.Default[t] !== this.config[t] && (e[t] = this.config[t]);
@@ -3375,15 +3406,15 @@ function launchCarousel() {
       }, C._fixTransition = function () {
         var t = this.getTipElement(),
             n = this.config.animation;null === t.getAttribute("x-placement") && (e(t).removeClass(m), this.config.animation = !1, this.hide(), this.show(), this.config.animation = n);
-      }, a._jQueryInterface = function (t) {
+      }, r._jQueryInterface = function (t) {
         return this.each(function () {
           var n = e(this).data("bs.tooltip"),
-              i = "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t;if ((n || !/dispose|hide/.test(t)) && (n || (n = new a(this, i), e(this).data("bs.tooltip", n)), "string" == typeof t)) {
+              i = "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t;if ((n || !/dispose|hide/.test(t)) && (n || (n = new r(this, i), e(this).data("bs.tooltip", n)), "string" == typeof t)) {
             if (void 0 === n[t]) throw new TypeError('No method named "' + t + '"');n[t]();
           }
         });
-      }, o(a, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+      }, o(r, null, [{ key: "VERSION", get: function get() {
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
           return d;
         } }, { key: "NAME", get: function get() {
@@ -3396,27 +3427,27 @@ function launchCarousel() {
           return i;
         } }, { key: "DefaultType", get: function get() {
           return c;
-        } }]), a;
+        } }]), r;
     }();return e.fn[t] = C._jQueryInterface, e.fn[t].Constructor = C, e.fn[t].noConflict = function () {
-      return e.fn[t] = a, C._jQueryInterface;
+      return e.fn[t] = r, C._jQueryInterface;
     }, C;
   }(t),
-      p = function (e) {
+      m = function (e) {
     var t = "popover",
         n = ".bs.popover",
         i = e.fn[t],
-        s = new RegExp("(^|\\s)bs-popover\\S+", "g"),
-        a = r({}, f.Default, { placement: "right", trigger: "click", content: "", template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>' }),
-        l = r({}, f.DefaultType, { content: "(string|element|function)" }),
+        r = new RegExp("(^|\\s)bs-popover\\S+", "g"),
+        a = s({}, p.Default, { placement: "right", trigger: "click", content: "", template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>' }),
+        l = s({}, p.DefaultType, { content: "(string|element|function)" }),
         c = "fade",
         u = "show",
         d = ".popover-header",
         h = ".popover-body",
-        p = { HIDE: "hide" + n, HIDDEN: "hidden" + n, SHOW: "show" + n, SHOWN: "shown" + n, INSERTED: "inserted" + n, CLICK: "click" + n, FOCUSIN: "focusin" + n, FOCUSOUT: "focusout" + n, MOUSEENTER: "mouseenter" + n, MOUSELEAVE: "mouseleave" + n },
+        f = { HIDE: "hide" + n, HIDDEN: "hidden" + n, SHOW: "show" + n, SHOWN: "shown" + n, INSERTED: "inserted" + n, CLICK: "click" + n, FOCUSIN: "focusin" + n, FOCUSOUT: "focusout" + n, MOUSEENTER: "mouseenter" + n, MOUSELEAVE: "mouseleave" + n },
         m = function (i) {
-      var r, f;function m() {
+      var s, p;function m() {
         return i.apply(this, arguments) || this;
-      }f = i, (r = m).prototype = Object.create(f.prototype), r.prototype.constructor = r, r.__proto__ = f;var g = m.prototype;return g.isWithContent = function () {
+      }p = i, (s = m).prototype = Object.create(p.prototype), s.prototype.constructor = s, s.__proto__ = p;var g = m.prototype;return g.isWithContent = function () {
         return this.getTitle() || this._getContent();
       }, g.addAttachmentClass = function (t) {
         e(this.getTipElement()).addClass("bs-popover-" + t);
@@ -3428,7 +3459,7 @@ function launchCarousel() {
         return this.element.getAttribute("data-content") || this.config.content;
       }, g._cleanTipClass = function () {
         var t = e(this.getTipElement()),
-            n = t.attr("class").match(s);null !== n && n.length > 0 && t.removeClass(n.join(""));
+            n = t.attr("class").match(r);null !== n && n.length > 0 && t.removeClass(n.join(""));
       }, m._jQueryInterface = function (t) {
         return this.each(function () {
           var n = e(this).data("bs.popover"),
@@ -3437,7 +3468,7 @@ function launchCarousel() {
           }
         });
       }, o(m, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
           return a;
         } }, { key: "NAME", get: function get() {
@@ -3445,21 +3476,21 @@ function launchCarousel() {
         } }, { key: "DATA_KEY", get: function get() {
           return "bs.popover";
         } }, { key: "Event", get: function get() {
-          return p;
+          return f;
         } }, { key: "EVENT_KEY", get: function get() {
           return n;
         } }, { key: "DefaultType", get: function get() {
           return l;
         } }]), m;
-    }(f);return e.fn[t] = m._jQueryInterface, e.fn[t].Constructor = m, e.fn[t].noConflict = function () {
+    }(p);return e.fn[t] = m._jQueryInterface, e.fn[t].Constructor = m, e.fn[t].noConflict = function () {
       return e.fn[t] = i, m._jQueryInterface;
     }, m;
   }(t),
-      m = function (e) {
+      g = function (e) {
     var t = "scrollspy",
         n = e.fn[t],
         i = { offset: 10, method: "auto", target: "" },
-        a = { offset: "number", method: "string", target: "(string|element)" },
+        r = { offset: "number", method: "string", target: "(string|element)" },
         l = { ACTIVATE: "activate.bs.scrollspy", SCROLL: "scroll.bs.scrollspy", LOAD_DATA_API: "load.bs.scrollspy.data-api" },
         c = "dropdown-item",
         u = "active",
@@ -3477,8 +3508,8 @@ function launchCarousel() {
             i = "auto" === this._config.method ? n : this._config.method,
             o = i === f ? this._getScrollTop() : 0;this._offsets = [], this._targets = [], this._scrollHeight = this._getScrollHeight(), e.makeArray(e(this._selector)).map(function (t) {
           var n,
-              r = s.getSelectorFromElement(t);if (r && (n = e(r)[0]), n) {
-            var a = n.getBoundingClientRect();if (a.width || a.height) return [e(n)[i]().top + o, r];
+              r = a.getSelectorFromElement(t);if (r && (n = e(r)[0]), n) {
+            var s = n.getBoundingClientRect();if (s.width || s.height) return [e(n)[i]().top + o, r];
           }return null;
         }).filter(function (e) {
           return e;
@@ -3490,9 +3521,9 @@ function launchCarousel() {
       }, p.dispose = function () {
         e.removeData(this._element, "bs.scrollspy"), e(this._scrollElement).off(".bs.scrollspy"), this._element = null, this._scrollElement = null, this._config = null, this._selector = null, this._offsets = null, this._targets = null, this._activeTarget = null, this._scrollHeight = null;
       }, p._getConfig = function (n) {
-        if ("string" != typeof (n = r({}, i, n)).target) {
-          var o = e(n.target).attr("id");o || (o = s.getUID(t), e(n.target).attr("id", o)), n.target = "#" + o;
-        }return s.typeCheckConfig(t, n, a), n;
+        if ("string" != typeof (n = s({}, i, n)).target) {
+          var o = e(n.target).attr("id");o || (o = a.getUID(t), e(n.target).attr("id", o)), n.target = "#" + o;
+        }return a.typeCheckConfig(t, n, r), n;
       }, p._getScrollTop = function () {
         return this._scrollElement === window ? this._scrollElement.pageYOffset : this._scrollElement.scrollTop;
       }, p._getScrollHeight = function () {
@@ -3522,7 +3553,7 @@ function launchCarousel() {
           }
         });
       }, o(n, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }, { key: "Default", get: function get() {
           return i;
         } }]), n;
@@ -3534,12 +3565,12 @@ function launchCarousel() {
       return e.fn[t] = n, p._jQueryInterface;
     }, p;
   }(t),
-      g = function (e) {
+      v = function (e) {
     var t = e.fn.tab,
         n = { HIDE: "hide.bs.tab", HIDDEN: "hidden.bs.tab", SHOW: "show.bs.tab", SHOWN: "shown.bs.tab", CLICK_DATA_API: "click.bs.tab.data-api" },
         i = "dropdown-menu",
         r = "active",
-        a = "disabled",
+        s = "disabled",
         l = "fade",
         c = "show",
         u = ".dropdown",
@@ -3553,11 +3584,11 @@ function launchCarousel() {
       function t(e) {
         this._element = e;
       }var p = t.prototype;return p.show = function () {
-        var t = this;if (!(this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && e(this._element).hasClass(r) || e(this._element).hasClass(a))) {
+        var t = this;if (!(this._element.parentNode && this._element.parentNode.nodeType === Node.ELEMENT_NODE && e(this._element).hasClass(r) || e(this._element).hasClass(s))) {
           var i,
               o,
               l = e(this._element).closest(d)[0],
-              c = s.getSelectorFromElement(this._element);if (l) {
+              c = a.getSelectorFromElement(this._element);if (l) {
             var u = "UL" === l.nodeName ? f : h;o = (o = e.makeArray(e(l).find(u)))[o.length - 1];
           }var p = e.Event(n.HIDE, { relatedTarget: this._element }),
               m = e.Event(n.SHOW, { relatedTarget: o });if (o && e(o).trigger(p), e(this._element).trigger(m), !m.isDefaultPrevented() && !p.isDefaultPrevented()) {
@@ -3572,14 +3603,16 @@ function launchCarousel() {
       }, p._activate = function (t, n, i) {
         var o = this,
             r = ("UL" === n.nodeName ? e(n).find(f) : e(n).children(h))[0],
-            a = i && s.supportsTransitionEnd() && r && e(r).hasClass(l),
+            s = i && r && e(r).hasClass(l),
             c = function c() {
           return o._transitionComplete(t, r, i);
-        };r && a ? e(r).one(s.TRANSITION_END, c).emulateTransitionEnd(150) : c();
+        };if (r && s) {
+          var u = a.getTransitionDurationFromElement(r);e(r).one(a.TRANSITION_END, c).emulateTransitionEnd(u);
+        } else c();
       }, p._transitionComplete = function (t, n, o) {
         if (n) {
-          e(n).removeClass(c + " " + r);var a = e(n.parentNode).find(g)[0];a && e(a).removeClass(r), "tab" === n.getAttribute("role") && n.setAttribute("aria-selected", !1);
-        }if (e(t).addClass(r), "tab" === t.getAttribute("role") && t.setAttribute("aria-selected", !0), s.reflow(t), e(t).addClass(c), t.parentNode && e(t.parentNode).hasClass(i)) {
+          e(n).removeClass(c + " " + r);var s = e(n.parentNode).find(g)[0];s && e(s).removeClass(r), "tab" === n.getAttribute("role") && n.setAttribute("aria-selected", !1);
+        }if (e(t).addClass(r), "tab" === t.getAttribute("role") && t.setAttribute("aria-selected", !0), a.reflow(t), e(t).addClass(c), t.parentNode && e(t.parentNode).hasClass(i)) {
           var l = e(t).closest(u)[0];l && e(l).find(m).addClass(r), t.setAttribute("aria-expanded", !0);
         }o && o();
       }, t._jQueryInterface = function (n) {
@@ -3590,7 +3623,7 @@ function launchCarousel() {
           }
         });
       }, o(t, null, [{ key: "VERSION", get: function get() {
-          return "4.0.0";
+          return "4.1.0";
         } }]), t;
     }();return e(document).on(n.CLICK_DATA_API, p, function (t) {
       t.preventDefault(), v._jQueryInterface.call(e(this), "show");
@@ -3599,7 +3632,7 @@ function launchCarousel() {
     }, v;
   }(t);!function (e) {
     if (void 0 === e) throw new TypeError("Bootstrap's JavaScript requires jQuery. jQuery must be included before Bootstrap's JavaScript.");var t = e.fn.jquery.split(" ")[0].split(".");if (t[0] < 2 && t[1] < 9 || 1 === t[0] && 9 === t[1] && t[2] < 1 || t[0] >= 4) throw new Error("Bootstrap's JavaScript requires at least jQuery v1.9.1 but less than v4.0.0");
-  }(t), e.Util = s, e.Alert = a, e.Button = l, e.Carousel = c, e.Collapse = u, e.Dropdown = d, e.Modal = h, e.Popover = p, e.Scrollspy = m, e.Tab = g, e.Tooltip = f, Object.defineProperty(e, "__esModule", { value: !0 });
+  }(t), e.Util = a, e.Alert = l, e.Button = c, e.Carousel = u, e.Collapse = d, e.Dropdown = h, e.Modal = f, e.Popover = m, e.Scrollspy = g, e.Tab = v, e.Tooltip = p, Object.defineProperty(e, "__esModule", { value: !0 });
 }), function (e) {
   "use strict";
   function t(t) {
@@ -5253,7 +5286,7 @@ function launchCarousel() {
   }, e("[data-headroom]").each(function () {
     var t = e(this);t.headroom(t.data());
   }));
-}(window.Zepto || window.jQuery), launchCarousel(), $("[data-search-trigger]").click(function (e) {
+}(window.Zepto || window.jQuery), cardSlider(), launchGallery(), launchSlider(), $("[data-search-trigger]").click(function (e) {
   var t = $("[data-search]");return t.removeClass("is-hidden"), $(document).on("scroll", function () {
     t.addClass("is-hidden"), document.activeElement.blur();
   }), !1;
@@ -5287,7 +5320,7 @@ function launchCarousel() {
   $("html").addClass("has-loaded");
 }), $(function () {
   $('[data-toggle="tooltip"]').tooltip();
-}), $('a[href*="#"]:not([href="#"], [href="#sitemap"])').click(function () {
+}), $('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(function () {
   var e = $(this).attr("href"),
       t = $(e);if (t.length) return $.scrollTo(t.offset().top, 500), !1;
 }), $("[data-back-top]").click(function () {

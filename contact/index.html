@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Contact - Inspire</title>
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -38,7 +35,7 @@
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top theme-posh is-tintedX">
+        <header class="global-header is-tintedX">
 
             <!-- HEADER TOP -->
             <div class="global-header-top hidden-lg-down">
@@ -96,8 +93,7 @@
 
                     <!-- LOGO -->
                     <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
-                        <img class="logo-light" src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo">
-                        <img class="logo-dark" src="/assets/img/content/inspire-logo@2x--dark.png" alt="Enterprise Wide" itemprop="logo"> </a>
+                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
 
                     <!-- HAMBURGER -->
                     <div class="global-header-hamburger hidden-xl-up">
@@ -119,8 +115,8 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="/chrome/">
-                                        <span class="text">Chrome</span>
+                                    <a class="top-parent-anchor" href="/kitchen-sink/">
+                                        <span class="text">Kitchen Sink</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -128,16 +124,11 @@
                                         <span class="text">Standard Page</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="has-dropdown">
                                     <a class="top-parent-anchor" href="/advanced-page/">
                                         <span class="text">Advanced Page</span>
                                     </a>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a class="top-parent-anchor" href="/404/">
-                                        <span class="text">Case Studies</span>
-                                    </a>
-                                    <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                                    <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
@@ -163,6 +154,8 @@
 
                                 <!-- SOCIAL MEDIA -->
                                 <li class="is-hidden-for-topbar pt-2">
+
+                                    <!-- SOCIAL MEDIA -->
                                     <div class="social-media">
                                         <a title="Behance" href="#" target="_blank" class="behance">
                                             <div class="icon">
@@ -259,6 +252,8 @@
 
                                 <!-- SEARCH -->
                                 <li class="is-hidden-for-topbar">
+
+                                    <!-- GLOBAL SEARCH -->
                                     <div class="global-search is-hidden" data-search>
                                         <div class="container text-right">
                                             <div class="global-search-form-wrapper">
@@ -267,7 +262,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -287,36 +282,23 @@
         </header>
 
         <!-- HERO WRAPPER -->
-        <div class="lv-hero-wrapper theme-posh">
+        <section id="" class="lv-hero-wrapper">
 
             <!-- HERO -->
-            <div class="lv-hero has-height-preset-2">
+            <div class="lv-hero has-height-preset-3">
 
                 <!-- HERO ITEM -->
                 <div class="lv-hero-item align-items-end" style="background-image: url('')">
 
                     <!-- HERO CAPTION -->
                     <div class="container">
-                        <div class="lv-hero-item-caption px-0 animated fadeInLeftSubtle">
+                        <div class="lv-hero-item-caption animated fadeInLeftSubtle">
                             <h1 class="display-1">Contact</h1>
                         </div>
                     </div>
                 </div>
-
-                <!-- /.lv-hero-item -->
-                </div>
-
-            <!-- /.lv-hero -->
             </div>
-
-        <!-- /.lv-hero-wrapper -->
-        
-<!-- BREADCRUMB --><nav class="breadcrumb mb-0">
-            <div class="container">
-                <a class="breadcrumb-item" href="/">Home</a>
-                <span class="breadcrumb-item">Contact</span>
-            </div>
-        </nav>
+        </section>
 
         <!-- BODY -->
         <main class="main-body">
@@ -435,15 +417,21 @@
             <div id="google-map">
 
                 <!-- GOOGLE MAP -->
-                <div class="lv-google-map mb-0">
-                    <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
-                    <iframe data-google-map width="100%" height="500" frameborder="0" style="pointer-events: none;" data-src="https://maps.google.com/maps?hl=en&q=55 North Steyne Manly NSW&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed"></iframe>
+                <div class="lv-google-map" onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'" onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">
+                    <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                    <iframe src="https://maps.google.com/maps?hl=en&q=55 North Steyne Manly NSW&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed" width="100%" height="500" frameborder="0" style="pointer-events: none"></iframe>
                 </div>
             </div>
 
             <!-- AFFILIATES -->
-            <section class="section section-affiliates theme-silverfox">
+            <section class="section section-affiliates">
                 <div class="container">
+                    <h2>Affiliates Section</h2>
+
+                    <!-- WYSIWYG -->
+                    <div class="wysiwyg mb-4">
+                        <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                    </div>
                     <ul class="block-grid-xs-4 block-grid-md-8">
                         <li>
                             <img width="100%" src="http://placehold.it/300x300">
@@ -461,18 +449,26 @@
                 </div>
             </section>
 
-            <!-- OUTRO CTA -->
-            <section class="section section-outro-cta theme-silverfox">
+            <!-- TEXT BUTTON SECTION -->
+            <section id="" class="section">
                 <div class="container">
-                    <h2>Outro CTA</h2>
+                    <h2>Text Button Section</h2>
                     <div class="row">
                         <div class="col-md-8">
-                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+
+                            <!-- WYSIWYG -->
+                            <div class="wysiwyg mb-4">
+                                <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-md-offset-1">
-                            <p>
-                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
-                            </p>
+                        <div class="col-md-4">
+
+                            <!-- WYSIWYG - ASK ME ABOUT THIS -->
+                            <div class="wysiwyg">
+                                <p>
+                                    <a class="btn btn-block btn-primary" href="#">Get in touch</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -480,7 +476,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-skyblue">
+        <footer class="global-footer">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -492,19 +488,19 @@
                             <h4 class="mb-3">Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="">Standard Page</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="">Blog</a>
+                                    <a href="/kitchen-sink/">Kitchen Sink</a>
                                 </li>
                                 <li>
-                                    <a href="">Enterprise Wide</a>
+                                    <a href="/standard-page/">Standard Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Advanced Page</a>
+                                    <a href="/advanced-page/">Advanced Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Contact</a>
+                                    <a href="/contact/">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -523,6 +519,8 @@
 
                             <!-- SOCIAL MEDIA -->
                             <h4 class="mb-3">Social Media</h4>
+
+                            <!-- SOCIAL MEDIA -->
                             <div class="social-media">
                                 <a title="Behance" href="#" target="_blank" class="behance">
                                     <div class="icon">
@@ -643,13 +641,15 @@
 
                     <!-- BACK TO TOP -->
                     <div class="text-center text-md-right">
-                        <button data-back-top class="back-to-top">
-                            <span class="text">TOP</span>&nbsp;
-                            <i class="fa fa-arrow-circle-up"></i>
+                        <button data-back-top class="btn-back-top">
+                            <div class="m-auto">
+                                <i class="fa fa-angle-up"></i>
+                                <span class="text">TOP</span>
+                            </div>
                         </button>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-left">
+                        <div class="col-md-7 col-lg-9 text-center text-md-left">
 
                             <!-- COPYRIGHT + SITEMAP -->
                             <small class="mr-2 d-block d-md-inline">&copy;
@@ -667,10 +667,10 @@
                                 <a href="#">Link Two</a>
                             </small>
                             <small class="mr-2">
-                                <a href="#">Link Three</a>
+                                <a href="/kitchen-sink/">Link Three</a>
                             </small>
                         </div>
-                        <div class="col-md-6 text-center text-md-right">
+                        <div class="col-md-5 col-lg-3 text-center text-md-right">
 
                             <!-- AUTHOR -->
                             <small>
@@ -689,7 +689,7 @@
                 <div class="container">
                     <ul class="block-grid-xs-2 block-grid-lg-5">
                         <li>
-                            <h5>Chrome</h5>
+                            <h5>Kitchen Sink</h5>
                             <ul class="list-unstyled"></ul>
                         </li>
                         <li>
@@ -698,10 +698,6 @@
                         </li>
                         <li>
                             <h5>Advanced Page</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                        <li>
-                            <h5>Case Studies</h5>
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/404/">Item</a>
@@ -734,8 +730,8 @@
                 </a>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="/chrome/">
-                    <span class="text">Chrome</span>
+                <a class="top-parent-anchor" href="/kitchen-sink/">
+                    <span class="text">Kitchen Sink</span>
                 </a>
             </li>
             <li class="">
@@ -743,16 +739,11 @@
                     <span class="text">Standard Page</span>
                 </a>
             </li>
-            <li class="">
+            <li class="has-dropdown">
                 <a class="top-parent-anchor" href="/advanced-page/">
                     <span class="text">Advanced Page</span>
                 </a>
-            </li>
-            <li class="has-dropdown">
-                <a class="top-parent-anchor" href="/404/">
-                    <span class="text">Case Studies</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
@@ -778,6 +769,8 @@
 
             <!-- SOCIAL MEDIA -->
             <li class="is-hidden-for-topbar pt-2">
+
+                <!-- SOCIAL MEDIA -->
                 <div class="social-media">
                     <a title="Behance" href="#" target="_blank" class="behance">
                         <div class="icon">
@@ -874,6 +867,8 @@
 
             <!-- SEARCH -->
             <li class="is-hidden-for-topbar">
+
+                <!-- GLOBAL SEARCH -->
                 <div class="global-search is-hidden" data-search>
                     <div class="container text-right">
                         <div class="global-search-form-wrapper">
@@ -882,7 +877,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -898,7 +893,8 @@
     </nav>
 
     <!-- SEARCH -->
-    <div class="global-search is-hidden" data-search>
+    
+<!-- GLOBAL SEARCH --><div class="global-search is-hidden" data-search>
         <div class="container text-right">
             <div class="global-search-form-wrapper">
                 <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
@@ -906,7 +902,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -928,7 +924,7 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- { % include snippets/google_analytics.html %} -->
+    <!-- { % include components/widgets/google_analytics.html %} -->
     
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">

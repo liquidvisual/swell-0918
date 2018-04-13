@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Standard Page - Inspire</title>
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -38,7 +35,7 @@
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top theme-posh is-tintedX">
+        <header class="global-header is-tintedX">
 
             <!-- HEADER TOP -->
             <div class="global-header-top hidden-lg-down">
@@ -96,8 +93,7 @@
 
                     <!-- LOGO -->
                     <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
-                        <img class="logo-light" src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo">
-                        <img class="logo-dark" src="/assets/img/content/inspire-logo@2x--dark.png" alt="Enterprise Wide" itemprop="logo"> </a>
+                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
 
                     <!-- HAMBURGER -->
                     <div class="global-header-hamburger hidden-xl-up">
@@ -119,8 +115,8 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="/chrome/">
-                                        <span class="text">Chrome</span>
+                                    <a class="top-parent-anchor" href="/kitchen-sink/">
+                                        <span class="text">Kitchen Sink</span>
                                     </a>
                                 </li>
                                 <li class="active">
@@ -128,16 +124,11 @@
                                         <span class="text">Standard Page</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="has-dropdown">
                                     <a class="top-parent-anchor" href="/advanced-page/">
                                         <span class="text">Advanced Page</span>
                                     </a>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a class="top-parent-anchor" href="/404/">
-                                        <span class="text">Case Studies</span>
-                                    </a>
-                                    <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                                    <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
@@ -163,6 +154,8 @@
 
                                 <!-- SOCIAL MEDIA -->
                                 <li class="is-hidden-for-topbar pt-2">
+
+                                    <!-- SOCIAL MEDIA -->
                                     <div class="social-media">
                                         <a title="Behance" href="#" target="_blank" class="behance">
                                             <div class="icon">
@@ -259,6 +252,8 @@
 
                                 <!-- SEARCH -->
                                 <li class="is-hidden-for-topbar">
+
+                                    <!-- GLOBAL SEARCH -->
                                     <div class="global-search is-hidden" data-search>
                                         <div class="container text-right">
                                             <div class="global-search-form-wrapper">
@@ -267,7 +262,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -287,89 +282,90 @@
         </header>
 
         <!-- HERO WRAPPER -->
-        <div class="lv-hero-wrapper theme-posh">
+        <section id="" class="lv-hero-wrapper">
 
             <!-- HERO -->
-            <div class="lv-hero has-height-preset-2">
+            <div class="lv-hero has-height-preset-3">
 
                 <!-- HERO ITEM -->
                 <div class="lv-hero-item align-items-end" style="background-image: url('')">
 
                     <!-- HERO CAPTION -->
                     <div class="container">
-                        <div class="lv-hero-item-caption px-0 animated fadeInLeftSubtle">
+                        <div class="lv-hero-item-caption animated fadeInLeftSubtle">
                             <h1 class="display-1">Standard Page</h1>
                         </div>
                     </div>
                 </div>
-
-                <!-- /.lv-hero-item -->
-                </div>
-
-            <!-- /.lv-hero -->
             </div>
-
-        <!-- /.lv-hero-wrapper -->
-        
-<!-- BREADCRUMB --><nav class="breadcrumb mb-0">
-            <div class="container">
-                <a class="breadcrumb-item" href="/">Home</a>
-                <span class="breadcrumb-item">Standard page</span>
-            </div>
-        </nav>
+        </section>
 
         <!-- BODY -->
         <main class="main-body">
 
             <!-- TEXT SECTION -->
-            <section class="section section-text">
+            <section id="" class="section">
                 <div class="container">
                     <h2>Text Section</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
-                        <a href="#">Link inside paragraph</a>
-                    </p>
-                    <p>
-                        <a href="#">Link here</a>
-                    </p>
-                    <h3>Header (h3)</h3>
-                    <h4>Header (h4)</h4>
-                    <h5>Header (h5)</h5>
-                    <h6>Header (h6)</h6>
-                    <p>ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h4>Unordered List</h4>
-                    <ul>
-                        <li>List item #1</li>
-                        <li>List item #2</li>
-                        <li>List item #3
-                            <ul>
-                                <li>Nested item #1</li>
-                                <li>Nested item #2</li>
-                                <li>Nested item #3</li>
-                            </ul>
-                        </li>
-                        <li>List item #4</li>
-                        <li>List item #5</li>
-                    </ul>
-                    <h4>Ordered List</h4>
-                    <ol>
-                        <li>List item #1</li>
-                        <li>List item #2</li>
-                        <li>List item #3
-                            <ol>
-                                <li>Nested item #1</li>
-                                <li>Nested item #2</li>
-                                <li>Nested item #3</li>
-                            </ol>
-                        </li>
-                        <li>List item #4</li>
-                        <li>List item #5</li>
-                    </ol>
+
+                    <!-- WYSIWYG -->
+                    <div class="wysiwyg">
+                        <p>Lorem ipsum
+                            <strong>Strong text</strong>
+                            <b>bold text</b> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            <em>Emphasized text</em>
+                            <i>Italics</i> exercitation ullamco laboris nisi ut aliquip ex.
+                            <a href="#">Link inside paragraph</a>
+                        </p>
+                        <p>
+                            <a href="#">Link here</a>
+                        </p>
+                        <h3>Header (h3)</h3>
+                        <h4>Header (h4)</h4>
+                        <h5>Header (h5)</h5>
+                        <h6>Header (h6)</h6>
+                        <p>ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <h4>Unordered List</h4>
+                        <ul>
+                            <li>List item #1</li>
+                            <li>List item #2</li>
+                            <li>List item #3
+                                <ul>
+                                    <li>Nested item #1</li>
+                                    <li>Nested item #2</li>
+                                    <li>Nested item #3</li>
+                                </ul>
+                            </li>
+                            <li>List item #4</li>
+                            <li>List item #5</li>
+                        </ul>
+                        <h4>Ordered List</h4>
+                        <ol>
+                            <li>List item #1</li>
+                            <li>List item #2</li>
+                            <li>List item #3
+                                <ol>
+                                    <li>Nested item #1</li>
+                                    <li>Nested item #2</li>
+                                    <li>Nested item #3</li>
+                                </ol>
+                            </li>
+                            <li>List item #4</li>
+                            <li>List item #5</li>
+                        </ol>
+                    </div>
                 </div>
             </section>
 
             <!-- AFFILIATES -->
-            <section class="section section-affiliates theme-silverfox">
+            <section class="section section-affiliates">
                 <div class="container">
+                    <h2>Affiliates Section</h2>
+
+                    <!-- WYSIWYG -->
+                    <div class="wysiwyg mb-4">
+                        <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                    </div>
                     <ul class="block-grid-xs-4 block-grid-md-8">
                         <li>
                             <img width="100%" src="http://placehold.it/300x300">
@@ -387,18 +383,26 @@
                 </div>
             </section>
 
-            <!-- OUTRO CTA -->
-            <section class="section section-outro-cta theme-silverfox">
+            <!-- TEXT BUTTON SECTION -->
+            <section id="" class="section">
                 <div class="container">
-                    <h2>Outro CTA</h2>
+                    <h2>Text Button Section</h2>
                     <div class="row">
                         <div class="col-md-8">
-                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+
+                            <!-- WYSIWYG -->
+                            <div class="wysiwyg mb-4">
+                                <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                            </div>
                         </div>
-                        <div class="col-md-3 col-md-offset-1">
-                            <p>
-                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
-                            </p>
+                        <div class="col-md-4">
+
+                            <!-- WYSIWYG - ASK ME ABOUT THIS -->
+                            <div class="wysiwyg">
+                                <p>
+                                    <a class="btn btn-block btn-primary" href="#">Get in touch</a>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -406,7 +410,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-skyblue">
+        <footer class="global-footer">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -418,19 +422,19 @@
                             <h4 class="mb-3">Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="">Standard Page</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="">Blog</a>
+                                    <a href="/kitchen-sink/">Kitchen Sink</a>
                                 </li>
                                 <li>
-                                    <a href="">Enterprise Wide</a>
+                                    <a href="/standard-page/">Standard Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Advanced Page</a>
+                                    <a href="/advanced-page/">Advanced Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Contact</a>
+                                    <a href="/contact/">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -449,6 +453,8 @@
 
                             <!-- SOCIAL MEDIA -->
                             <h4 class="mb-3">Social Media</h4>
+
+                            <!-- SOCIAL MEDIA -->
                             <div class="social-media">
                                 <a title="Behance" href="#" target="_blank" class="behance">
                                     <div class="icon">
@@ -569,13 +575,15 @@
 
                     <!-- BACK TO TOP -->
                     <div class="text-center text-md-right">
-                        <button data-back-top class="back-to-top">
-                            <span class="text">TOP</span>&nbsp;
-                            <i class="fa fa-arrow-circle-up"></i>
+                        <button data-back-top class="btn-back-top">
+                            <div class="m-auto">
+                                <i class="fa fa-angle-up"></i>
+                                <span class="text">TOP</span>
+                            </div>
                         </button>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-left">
+                        <div class="col-md-7 col-lg-9 text-center text-md-left">
 
                             <!-- COPYRIGHT + SITEMAP -->
                             <small class="mr-2 d-block d-md-inline">&copy;
@@ -593,10 +601,10 @@
                                 <a href="#">Link Two</a>
                             </small>
                             <small class="mr-2">
-                                <a href="#">Link Three</a>
+                                <a href="/kitchen-sink/">Link Three</a>
                             </small>
                         </div>
-                        <div class="col-md-6 text-center text-md-right">
+                        <div class="col-md-5 col-lg-3 text-center text-md-right">
 
                             <!-- AUTHOR -->
                             <small>
@@ -615,7 +623,7 @@
                 <div class="container">
                     <ul class="block-grid-xs-2 block-grid-lg-5">
                         <li>
-                            <h5>Chrome</h5>
+                            <h5>Kitchen Sink</h5>
                             <ul class="list-unstyled"></ul>
                         </li>
                         <li>
@@ -624,10 +632,6 @@
                         </li>
                         <li>
                             <h5>Advanced Page</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                        <li>
-                            <h5>Case Studies</h5>
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/404/">Item</a>
@@ -660,8 +664,8 @@
                 </a>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="/chrome/">
-                    <span class="text">Chrome</span>
+                <a class="top-parent-anchor" href="/kitchen-sink/">
+                    <span class="text">Kitchen Sink</span>
                 </a>
             </li>
             <li class="active">
@@ -669,16 +673,11 @@
                     <span class="text">Standard Page</span>
                 </a>
             </li>
-            <li class="">
+            <li class="has-dropdown">
                 <a class="top-parent-anchor" href="/advanced-page/">
                     <span class="text">Advanced Page</span>
                 </a>
-            </li>
-            <li class="has-dropdown">
-                <a class="top-parent-anchor" href="/404/">
-                    <span class="text">Case Studies</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
@@ -704,6 +703,8 @@
 
             <!-- SOCIAL MEDIA -->
             <li class="is-hidden-for-topbar pt-2">
+
+                <!-- SOCIAL MEDIA -->
                 <div class="social-media">
                     <a title="Behance" href="#" target="_blank" class="behance">
                         <div class="icon">
@@ -800,6 +801,8 @@
 
             <!-- SEARCH -->
             <li class="is-hidden-for-topbar">
+
+                <!-- GLOBAL SEARCH -->
                 <div class="global-search is-hidden" data-search>
                     <div class="container text-right">
                         <div class="global-search-form-wrapper">
@@ -808,7 +811,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -824,7 +827,8 @@
     </nav>
 
     <!-- SEARCH -->
-    <div class="global-search is-hidden" data-search>
+    
+<!-- GLOBAL SEARCH --><div class="global-search is-hidden" data-search>
         <div class="container text-right">
             <div class="global-search-form-wrapper">
                 <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
@@ -832,7 +836,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -854,7 +858,7 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- { % include snippets/google_analytics.html %} -->
+    <!-- { % include components/widgets/google_analytics.html %} -->
     
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">

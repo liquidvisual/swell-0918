@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Inspire | Enterprise Wide</title>
-
-    <!-- CDN -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Poppins:400,400i,500,600,600i,700">
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -38,7 +35,7 @@
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header fixed-top theme-posh is-tintedX">
+        <header class="global-header is-tintedX">
 
             <!-- HEADER TOP -->
             <div class="global-header-top hidden-lg-down">
@@ -96,8 +93,7 @@
 
                     <!-- LOGO -->
                     <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
-                        <img class="logo-light" src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo">
-                        <img class="logo-dark" src="/assets/img/content/inspire-logo@2x--dark.png" alt="Enterprise Wide" itemprop="logo"> </a>
+                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
 
                     <!-- HAMBURGER -->
                     <div class="global-header-hamburger hidden-xl-up">
@@ -119,8 +115,8 @@
                                     </a>
                                 </li>
                                 <li class="">
-                                    <a class="top-parent-anchor" href="/chrome/">
-                                        <span class="text">Chrome</span>
+                                    <a class="top-parent-anchor" href="/kitchen-sink/">
+                                        <span class="text">Kitchen Sink</span>
                                     </a>
                                 </li>
                                 <li class="">
@@ -128,16 +124,11 @@
                                         <span class="text">Standard Page</span>
                                     </a>
                                 </li>
-                                <li class="">
+                                <li class="has-dropdown">
                                     <a class="top-parent-anchor" href="/advanced-page/">
                                         <span class="text">Advanced Page</span>
                                     </a>
-                                </li>
-                                <li class="has-dropdown">
-                                    <a class="top-parent-anchor" href="/404/">
-                                        <span class="text">Case Studies</span>
-                                    </a>
-                                    <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                                    <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
@@ -163,6 +154,8 @@
 
                                 <!-- SOCIAL MEDIA -->
                                 <li class="is-hidden-for-topbar pt-2">
+
+                                    <!-- SOCIAL MEDIA -->
                                     <div class="social-media">
                                         <a title="Behance" href="#" target="_blank" class="behance">
                                             <div class="icon">
@@ -259,6 +252,8 @@
 
                                 <!-- SEARCH -->
                                 <li class="is-hidden-for-topbar">
+
+                                    <!-- GLOBAL SEARCH -->
                                     <div class="global-search is-hidden" data-search>
                                         <div class="container text-right">
                                             <div class="global-search-form-wrapper">
@@ -267,7 +262,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -287,20 +282,21 @@
         </header>
 
         <!-- HERO WRAPPER -->
-        <div class="lv-hero-wrapper theme-skyblue" data-carousel>
+        <section id="" class="lv-hero-wrapper" data-hero-slider>
 
             <!-- HERO -->
-            <div class="lv-hero" data-flickity='
+            <div class="lv-hero has-height-preset-1" data-flickity='
         {
             "adaptiveHeight": true,
             "autoPlay": false,
             "cellAlign": "left",
             "contain": true,
             "draggable": ">1",
-            "dragThreshold": 3,
+            "dragThreshold": 40,
             "freeScroll": false,
             "freeScrollFriction": 0.075,
             "friction": 0.28,
+            "groupCells": false,
             "imagesLoaded": true,
             "pageDots": true,
             "prevNextButtons": false,
@@ -311,17 +307,23 @@
         }'>
 
                 <!-- HERO ITEMS -->
-                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-1.png')">
-
-                    <!-- HERO CAPTION -->
+                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-1.pngX')">
                     <div class="container">
                         <div class="row justify-content-center text-center">
-                            <div class="col-xl-9">
-                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                            <div class="col-md-10 col-xl-9">
+
+                                <!-- HERO CAPTION -->
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                    <!-- HEADER -->
                                     <h1 class="display-1">Hero Caption 1</h1>
-                                    <p class="lead">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</p>
+
+                                    <!-- BODY -->
+                                    <p class="lead mb-4">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+
+                                    <!-- LINK (OPTIONAL) -->
                                     <p>
-                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                        <a href="#" class="btn btn-outline-light">Read more</a>
                                     </p>
                                 </div>
                             </div>
@@ -329,21 +331,27 @@
                     </div>
 
                     <!-- DOWNWARDS ARROW -->
-                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                    <a class="lv-hero-arrow-scroll hidden-lg-down">
                         <i class="fa fa-angle-down"></i>
                     </a>
                 </div>
-                <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
-
-                    <!-- HERO CAPTION -->
+                <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
                     <div class="container">
                         <div class="row justify-content-center text-center">
-                            <div class="col-xl-9">
-                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                            <div class="col-md-10 col-xl-9">
+
+                                <!-- HERO CAPTION -->
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                    <!-- HEADER -->
                                     <h1 class="display-1">Hero Caption 2</h1>
-                                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+
+                                    <!-- BODY -->
+                                    <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
+
+                                    <!-- LINK (OPTIONAL) -->
                                     <p>
-                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                        <a href="#" class="btn btn-outline-light">Read more</a>
                                     </p>
                                 </div>
                             </div>
@@ -351,22 +359,75 @@
                     </div>
 
                     <!-- DOWNWARDS ARROW -->
-                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                    <a class="lv-hero-arrow-scroll hidden-lg-down">
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </div>
+                <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
+                    <iframe class="video" width="100%" height="390" frameborder="0" type="text/html" src="https://www.youtube.com/embed/ScMzIvxBSi4?controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" style="pointer-events: false"></iframe>
+                    <script>
+                    // YOUTUBE PLAYER INSTANCE - loads async
+                    var tag = document.createElement('script');
+                    tag.src = "https://www.youtube.com/iframe_api";
+                    var firstScriptTag = document.getElementsByTagName('script')[0];
+                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                    function onYouTubeIframeAPIReady() {
+                        document.querySelectorAll('.video').forEach((item) => {
+                            new YT.Player(item, {
+                                events: {
+                                    'onReady': (event) => {
+                                        event.target.playVideo();
+                                        event.target.mute();
+                                    }
+                                }
+                            })
+                        })
+                    }
+                    </script>
+                    <div class="container">
+                        <div class="row justify-content-center text-center">
+                            <div class="col-md-10 col-xl-9">
+
+                                <!-- HERO CAPTION -->
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                    <!-- HEADER -->
+                                    <h1 class="display-1">Hero Caption 3</h1>
+
+                                    <!-- BODY -->
+                                    <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+
+                                    <!-- LINK (OPTIONAL) -->
+                                    <p>
+                                        <a href="#" class="btn btn-outline-light">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DOWNWARDS ARROW -->
+                    <a class="lv-hero-arrow-scroll hidden-lg-down">
                         <i class="fa fa-angle-down"></i>
                     </a>
                 </div>
                 <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.png')">
-                    <iframe class="video ytplayer" width="100%" height="390" type="text/html" src="https://www.youtube.com/embed/ScMzIvxBSi4?controls=0&t=31s&loop=1&playlist=ScMzIvxBSi4&showinfo=0&rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
-
-                    <!-- HERO CAPTION -->
                     <div class="container">
                         <div class="row justify-content-center text-center">
-                            <div class="col-xl-9">
-                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
-                                    <h1 class="display-1">Hero Caption 3</h1>
-                                    <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+                            <div class="col-md-10 col-xl-9">
+
+                                <!-- HERO CAPTION -->
+                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                    <!-- HEADER -->
+                                    <h1 class="display-1">Hero Caption 4</h1>
+
+                                    <!-- BODY -->
+                                    <p class="lead mb-4">Video</p>
+
+                                    <!-- LINK (OPTIONAL) -->
                                     <p>
-                                        <a href="#scroll-down" class="btn btn-outline-light">Read more</a>
+                                        <a href="#" class="btn btn-outline-light">Read more</a>
                                     </p>
                                 </div>
                             </div>
@@ -374,7 +435,7 @@
                     </div>
 
                     <!-- DOWNWARDS ARROW -->
-                    <a class="lv-hero-arrow-scroll hidden-sm-down" href="#tagline">
+                    <a class="lv-hero-arrow-scroll hidden-lg-down">
                         <i class="fa fa-angle-down"></i>
                     </a>
                 </div>
@@ -382,58 +443,528 @@
 
             <!-- /.lv-hero -->
             
-<!-- CAROUSEL CONTROLS --><div class="lv-hero-carousel-controls hidden-sm-down">
-                <span class="lv-hero-carousel-prev-btn">
+<!-- SLIDER CONTROLS --><div class="lv-hero-slider-controls hidden-sm-down">
+                <span class="lv-hero-slider-prev-btn">
                     <i class="fa fa-angle-left"></i>
                 </span>
-                <span class="lv-hero-carousel-next-btn">
+                <span class="lv-hero-slider-next-btn">
                     <i class="fa fa-angle-right"></i>
                 </span>
             </div>
-        </div>
+        </section>
 
         <!-- /.lv-hero-wrapper -->
         
-<!-- IF YOUTUBE ID EXISTS IN SLIDES - INCLUDE SCRIPT --><script>
-        //-----------------------------------------------------------------
-        // YOUTUBE
-        // This code loads the IFrame Player API code asynchronously.
-        // https://stackoverflow.com/questions/31755519/how-can-i-use-a-class-instead-of-id-for-new-yt-player
-        //-----------------------------------------------------------------
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        var player;
-        var playerEl = document.querySelector('.ytplayer');
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player(playerEl, {
-                events: {
-                    'onReady': onPlayerReady
-                }
-            });
-        }
-        function onPlayerReady() {
-            player.playVideo();
-            player.mute(); // Muted by default
-        }
-        </script>
+<!-- BODY --><main class="main-body">
 
-        <!-- BODY -->
-        <main class="main-body">
-
-            <!-- LATEST BLOG POSTS -->
-            <section class="section section-featured-blog-posts">
+            <!-- CARDS -->
+            <section id="" class="section">
                 <div class="container">
-                    <h2 class="mb-4">Latest Blog Posts</h2>
+                    <h2>Cards Component</h2>
+
+                    <!-- WYSIWYG #1 -->
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10">
+                            <div class="wysiwyg mb-4">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-md-6 col-lg-4 mb-4">
+
+                            <!-- CARD -->
+                            <div class="card h-100 is-flat">
+
+                                <!-- IMAGE -->
+                                <a class="btn-tile" href="#">
+                                    <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Is Anyone Here a Marine Biologist?">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                </a>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
+                                        <h3 class="card-title">Is Anyone Here a Marine Biologist?</h3>
+                                    </a>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- BUTTON -->
+                                        <p>
+                                            <a href="#" class="btn btn-primary">Read more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+
+                            <!-- CARD -->
+                            <div class="card h-100 is-flat">
+
+                                <!-- IMAGE -->
+                                <a class="btn-tile" href="#">
+                                    <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                </a>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
+                                        <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                    </a>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- BUTTON -->
+                                        <p>
+                                            <a href="#" class="btn btn-primary">Read more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-4">
+
+                            <!-- CARD -->
+                            <div class="card h-100 is-flat">
+
+                                <!-- IMAGE -->
+                                <a class="btn-tile" href="#">
+                                    <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                </a>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
+                                        <h3 class="card-title">It's the Summer of George</h3>
+                                    </a>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- BUTTON -->
+                                        <p>
+                                            <a href="#" class="btn btn-primary">Read more</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- WYSIWYG #2 -->
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="wysiwyg mb-4">
+                                <small>
+                                    <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARDS TABS -->
+            <section id="" class="section">
+                <div class="container">
+                    <h2 class="mb-4">Cards Tabs Component</h2>
+
+                    <!-- TABS -->
+                    <nav class="btn-tabs nav mb-4" role="tablist">
+                        <a href="#tab-group-1" class="btn-tab active" data-toggle="tab" role="tab">Tab Group 1</a>
+                        <a href="#tab-group-2" class="btn-tab" data-toggle="tab" role="tab">Tab Group 2</a>
+                        <a href="#tab-group-3" class="btn-tab" data-toggle="tab" role="tab">Tab Group 3</a>
+                    </nav>
+
+                    <!-- TAB CONTENT -->
+                    <div class="tab-content">
+                        <div id="tab-group-1" class="tab-pane fade active show" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Is Anyone Here a Marine Biologist?">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">Is Anyone Here a Marine Biologist?</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">It's the Summer of George</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-group-2" class="tab-pane fade" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Is Anyone Here a Marine Biologist?">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">Is Anyone Here a Marine Biologist?</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">It's the Summer of George</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-group-3" class="tab-pane fade" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Is Anyone Here a Marine Biologist?">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">Is Anyone Here a Marine Biologist?</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-lg-4 mb-4">
+
+                                    <!-- CARD -->
+                                    <div class="card h-100">
+
+                                        <!-- IMAGE -->
+                                        <a class="btn-tile" href="#">
+                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                        </a>
+
+                                        <!-- CARD BODY -->
+                                        <div class="card-body d-flex flex-column">
+
+                                            <!-- TAGS / CATEGORIES -->
+                                            
+<!-- TITLE --><a class="text-dark" href="#">
+                                                <h3 class="card-title">It's the Summer of George</h3>
+                                            </a>
+
+                                            <!-- TEXT -->
+                                            <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                            <!-- CARD FOOTER -->
+                                            <div class="mt-auto">
+
+                                                <!-- BUTTON -->
+                                                <p>
+                                                    <a href="#" class="btn btn-primary">Read more</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARDS SLIDER -->
+            <section id="" class="section">
+                <div class="container">
+                    <h2>Cards Slider Component</h2>
+
+                    <!-- WYSIWYG -->
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10">
+                            <div class="wysiwyg mb-3">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD SLIDER -->
+                    <div class="card-slider" data-card-slider data-flickity='
+		    {
+		        "adaptiveHeight": false,
+		        "autoPlay": false,
+		        "cellAlign": "left",
+		        "contain": true,
+		        "draggable": ">1",
+		        "dragThreshold": 40,
+		        "freeScroll": true,
+		        "freeScrollFriction": 0.075,
+		        "friction": 0.28,
+		        "groupCells": true,
+		        "imagesLoaded": true,
+		        "pageDots": false,
+		        "prevNextButtons": true,
+		        "pauseAutoPlayOnHover": false,
+		        "selectedAttraction": 0.025,
+		        "watchCSS": false,
+		        "wrapAround": false
+		    }'>
+                        <div class="card-cell group-by-three">
 
                             <!-- CARD -->
                             <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
@@ -441,34 +972,41 @@
                                 <!-- CARD BODY -->
                                 <div class="card-body d-flex flex-column">
 
-                                    <!-- CATEGORIES -->
+                                    <!-- TAGS / CATEGORIES -->
                                     <small class="d-block text-uppercase mb-2">
+                                        <i class="fa fa-tags text-muted">&nbsp;</i>
                                         <a href="#">SEO</a>
                                     </small>
 
-                                    <!-- CONTENT -->
-                                    <a class="text-dark" href="/news/news-item/">
+                                    <!-- TITLE -->
+                                    <a class="text-dark" href="#">
                                         <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
 
-                                    <!-- DATE -->
-                                    <small class="mt-auto">
-                                        <date class="text-muted">05 January 2016</date>
-                                        <a target="_blank" href="#">Joe Bloggs
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </small>
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">05 January 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card-cell group-by-three">
 
                             <!-- CARD -->
                             <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
@@ -476,35 +1014,42 @@
                                 <!-- CARD BODY -->
                                 <div class="card-body d-flex flex-column">
 
-                                    <!-- CATEGORIES -->
+                                    <!-- TAGS / CATEGORIES -->
                                     <small class="d-block text-uppercase mb-2">
+                                        <i class="fa fa-tags text-muted">&nbsp;</i>
                                         <a href="#">Technology</a>,
                                         <a href="#">Umbraco CMS</a>
                                     </small>
 
-                                    <!-- CONTENT -->
-                                    <a class="text-dark" href="/news/news-item/">
+                                    <!-- TITLE -->
+                                    <a class="text-dark" href="#">
                                         <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
 
-                                    <!-- DATE -->
-                                    <small class="mt-auto">
-                                        <date class="text-muted">10 March 2016</date>
-                                        <a target="_blank" href="#">Joe Bloggs
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </small>
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">10 March 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card-cell group-by-three">
 
                             <!-- CARD -->
                             <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Nothing's Finer Than Being in Your Diner">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
@@ -512,382 +1057,263 @@
                                 <!-- CARD BODY -->
                                 <div class="card-body d-flex flex-column">
 
-                                    <!-- CATEGORIES -->
+                                    <!-- TAGS / CATEGORIES -->
                                     
-<!-- CONTENT --><a class="text-dark" href="/news/news-item/">
+<!-- TITLE --><a class="text-dark" href="#">
                                         <h3 class="card-title">Nothing's Finer Than Being in Your Diner</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
 
-                                    <!-- DATE -->
-                                    <small class="mt-auto">
-                                        <date class="text-muted">09 August 2016</date>
-                                        <a target="_blank" href="#">Joe Bloggs
-                                            <i class="fa fa-external-link"></i>
-                                        </a>
-                                    </small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
 
-            <!-- TEXT SECTION -->
-            <section class="section section-text theme-midnightX">
-                <div class="container">
-                    <h2>Text Section</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
-                        <a href="#">Link inside paragraph</a>
-                    </p>
-                    <p>
-                        <a href="#">Link here</a>
-                    </p>
-                    <h3>Header (h3)</h3>
-                    <h4>Header (h4)</h4>
-                    <h5>Header (h5)</h5>
-                    <h6>Header (h6)</h6>
-                    <p>ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <h4>Unordered List</h4>
-                    <ul>
-                        <li>List item #1</li>
-                        <li>List item #2</li>
-                        <li>List item #3
-                            <ul>
-                                <li>Nested item #1</li>
-                                <li>Nested item #2</li>
-                                <li>Nested item #3</li>
-                            </ul>
-                        </li>
-                        <li>List item #4</li>
-                        <li>List item #5</li>
-                    </ul>
-                    <h4>Ordered List</h4>
-                    <ol>
-                        <li>List item #1</li>
-                        <li>List item #2</li>
-                        <li>List item #3
-                            <ol>
-                                <li>Nested item #1</li>
-                                <li>Nested item #2</li>
-                                <li>Nested item #3</li>
-                            </ol>
-                        </li>
-                        <li>List item #4</li>
-                        <li>List item #5</li>
-                    </ol>
-                </div>
-            </section>
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
 
-            <!-- FEATURED BLOG POSTS -->
-            <section class="section section-featured-blog-posts">
-                <div class="container">
-                    <h2 class="mb-4 text-center">Featured Blog Posts</h2>
-                    <div class="row">
-                        <div class="col-xl-11 mx-auto">
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-
-                                    <!-- CARD -->
-                                    <div class="card h-100">
-
-                                        <!-- IMAGE -->
-                                        <a class="btn-tile" href="/news/news-item/">
-                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
-                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
-                                        </a>
-
-                                        <!-- CARD BODY -->
-                                        <div class="card-body d-flex flex-column">
-
-                                            <!-- CATEGORIES -->
-                                            <small class="d-block text-uppercase mb-2">
-                                                <a href="#">SEO</a>
-                                            </small>
-
-                                            <!-- CONTENT -->
-                                            <a class="text-dark" href="/news/news-item/">
-                                                <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">09 August 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
                                             </a>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-
-                                            <!-- DATE -->
-                                            <small class="mt-auto">
-                                                <date class="text-muted">05 January 2016</date>
-                                                <a target="_blank" href="#">Joe Bloggs
-                                                    <i class="fa fa-external-link"></i>
-                                                </a>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-
-                                    <!-- CARD -->
-                                    <div class="card h-100">
-
-                                        <!-- IMAGE -->
-                                        <a class="btn-tile" href="/news/news-item/">
-                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
-                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
-                                        </a>
-
-                                        <!-- CARD BODY -->
-                                        <div class="card-body d-flex flex-column">
-
-                                            <!-- CATEGORIES -->
-                                            <small class="d-block text-uppercase mb-2">
-                                                <a href="#">Technology</a>,
-                                                <a href="#">Umbraco CMS</a>
-                                            </small>
-
-                                            <!-- CONTENT -->
-                                            <a class="text-dark" href="/news/news-item/">
-                                                <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
-                                            </a>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-
-                                            <!-- DATE -->
-                                            <small class="mt-auto">
-                                                <date class="text-muted">10 March 2016</date>
-                                                <a target="_blank" href="#">Joe Bloggs
-                                                    <i class="fa fa-external-link"></i>
-                                                </a>
-                                            </small>
-                                        </div>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- FEATURED BLOG POSTS -->
-            <section class="section section-featured-blog-posts theme-midnight">
-                <div class="container">
-                    <h2 class="mb-4 text-center">Featured Blog Posts</h2>
-                    <div class="row">
-                        <div class="col-xl-11 mx-auto">
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-
-                                    <!-- CARD -->
-                                    <div class="card h-100">
-
-                                        <!-- IMAGE -->
-                                        <a class="btn-tile" href="/news/news-item/">
-                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
-                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
-                                        </a>
-
-                                        <!-- CARD BODY -->
-                                        <div class="card-body d-flex flex-column">
-
-                                            <!-- CATEGORIES -->
-                                            <small class="d-block text-uppercase mb-2">
-                                                <a href="#">SEO</a>
-                                            </small>
-
-                                            <!-- CONTENT -->
-                                            <a class="text-dark" href="/news/news-item/">
-                                                <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
-                                            </a>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-
-                                            <!-- DATE -->
-                                            <small class="mt-auto">
-                                                <date class="text-muted">05 January 2016</date>
-                                                <a target="_blank" href="#">Joe Bloggs
-                                                    <i class="fa fa-external-link"></i>
-                                                </a>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-4">
-
-                                    <!-- CARD -->
-                                    <div class="card h-100">
-
-                                        <!-- IMAGE -->
-                                        <a class="btn-tile" href="/news/news-item/">
-                                            <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
-                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
-                                        </a>
-
-                                        <!-- CARD BODY -->
-                                        <div class="card-body d-flex flex-column">
-
-                                            <!-- CATEGORIES -->
-                                            <small class="d-block text-uppercase mb-2">
-                                                <a href="#">Technology</a>,
-                                                <a href="#">Umbraco CMS</a>
-                                            </small>
-
-                                            <!-- CONTENT -->
-                                            <a class="text-dark" href="/news/news-item/">
-                                                <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
-                                            </a>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-
-                                            <!-- DATE -->
-                                            <small class="mt-auto">
-                                                <date class="text-muted">10 March 2016</date>
-                                                <a target="_blank" href="#">Joe Bloggs
-                                                    <i class="fa fa-external-link"></i>
-                                                </a>
-                                            </small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- { % include components/section__text.html %} -->
-            
-<!-- { % include components/section__text.html theme="theme-posh" %} -->
-<!-- LATEST BLOG POSTS --><section class="section section-featured-blog-posts">
-                <div class="container">
-
-                    <!-- <h2 class="mb-4">Heading</h2> -->
-                    <div class="row">
-                        <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card-cell group-by-three">
 
                             <!-- CARD -->
-                            <div class="card h-100" style="border: 0;">
+                            <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
+                                    <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Yadda Yadda Yadda">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                </a>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
+                                        <h3 class="card-title">Yadda Yadda Yadda</h3>
+                                    </a>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">11 September 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CARDS SLIDER -->
+            <section id="" class="section">
+                <div class="container">
+                    <h2>Cards Slider Component</h2>
+
+                    <!-- WYSIWYG -->
+                    <div class="row">
+                        <div class="col-md-11 col-lg-10">
+                            <div class="wysiwyg mb-3">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua lorem ipsum.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CARD SLIDER -->
+                    <div class="card-slider" data-card-slider data-flickity='
+		    {
+		        "adaptiveHeight": false,
+		        "autoPlay": false,
+		        "cellAlign": "left",
+		        "contain": true,
+		        "draggable": ">1",
+		        "dragThreshold": 40,
+		        "freeScroll": true,
+		        "freeScrollFriction": 0.075,
+		        "friction": 0.28,
+		        "groupCells": true,
+		        "imagesLoaded": true,
+		        "pageDots": false,
+		        "prevNextButtons": true,
+		        "pauseAutoPlayOnHover": false,
+		        "selectedAttraction": 0.025,
+		        "watchCSS": false,
+		        "wrapAround": false
+		    }'>
+                        <div class="card-cell group-by-two">
+
+                            <!-- CARD -->
+                            <div class="card h-100">
+
+                                <!-- IMAGE -->
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
 
                                 <!-- CARD BODY -->
-                                <div class="card-body d-flex flex-column px-0">
+                                <div class="card-body d-flex flex-column">
 
-                                    <!-- CONTENT -->
-                                    <a class="text-dark" href="/news/news-item/">
+                                    <!-- TAGS / CATEGORIES -->
+                                    <small class="d-block text-uppercase mb-2">
+                                        <i class="fa fa-tags text-muted">&nbsp;</i>
+                                        <a href="#">SEO</a>
+                                    </small>
+
+                                    <!-- TITLE -->
+                                    <a class="text-dark" href="#">
                                         <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary">Read more</a>
-                                    </p>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">05 January 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card-cell group-by-two">
 
                             <!-- CARD -->
-                            <div class="card h-100" style="border: 0;">
+                            <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
 
                                 <!-- CARD BODY -->
-                                <div class="card-body d-flex flex-column px-0">
+                                <div class="card-body d-flex flex-column">
 
-                                    <!-- CONTENT -->
-                                    <a class="text-dark" href="/news/news-item/">
+                                    <!-- TAGS / CATEGORIES -->
+                                    <small class="d-block text-uppercase mb-2">
+                                        <i class="fa fa-tags text-muted">&nbsp;</i>
+                                        <a href="#">Technology</a>,
+                                        <a href="#">Umbraco CMS</a>
+                                    </small>
+
+                                    <!-- TITLE -->
+                                    <a class="text-dark" href="#">
                                         <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary">Read more</a>
-                                    </p>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">10 March 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card-cell group-by-two">
 
                             <!-- CARD -->
-                            <div class="card h-100" style="border: 0;">
+                            <div class="card h-100">
 
                                 <!-- IMAGE -->
-                                <a class="btn-tile" href="/news/news-item/">
+                                <a class="btn-tile" href="#">
                                     <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Nothing's Finer Than Being in Your Diner">
                                     <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
                                 </a>
 
                                 <!-- CARD BODY -->
-                                <div class="card-body d-flex flex-column px-0">
+                                <div class="card-body d-flex flex-column">
 
-                                    <!-- CONTENT -->
-                                    <a class="text-dark" href="/news/news-item/">
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
                                         <h3 class="card-title">Nothing's Finer Than Being in Your Diner</h3>
                                     </a>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
-                                    <p>
-                                        <a href="#" class="btn btn-primary">Read more</a>
-                                    </p>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">09 August 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </section>
+                        <div class="card-cell group-by-two">
 
-            <!-- TEXT SECTION -->
-            <section class="section section-text section-text-media theme-posh">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6 d-flex flex-row align-items-center">
-                            <div>
-                                <h2>Text Section</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex.
-                                    <a href="#">Link inside paragraph</a>
-                                </p>
-                                <p></p>
+                            <!-- CARD -->
+                            <div class="card h-100">
+
+                                <!-- IMAGE -->
+                                <a class="btn-tile" href="#">
+                                    <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Yadda Yadda Yadda">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                </a>
+
+                                <!-- CARD BODY -->
+                                <div class="card-body d-flex flex-column">
+
+                                    <!-- TAGS / CATEGORIES -->
+                                    
+<!-- TITLE --><a class="text-dark" href="#">
+                                        <h3 class="card-title">Yadda Yadda Yadda</h3>
+                                    </a>
+
+                                    <!-- TEXT -->
+                                    <p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</p>
+
+                                    <!-- CARD FOOTER -->
+                                    <div class="mt-auto">
+
+                                        <!-- DATE + AUTHOR -->
+                                        <small>
+                                            <date class="text-muted mr-1">11 September 2016</date>
+                                            <a target="_blank" href="#">Joe Bloggs
+                                                <i class="fa fa-external-link"></i>
+                                            </a>
+                                        </small>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <a href="#" title="Fig. 4B - Description goes here, longer text if required">
-                                <img width="100%" src="http://placehold.it/500x400" alt="...">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- AFFILIATES -->
-            <section class="section section-affiliates theme-midnight">
-                <div class="container">
-                    <ul class="block-grid-xs-4 block-grid-md-8">
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                    </ul>
-                </div>
-            </section>
-
-            <!-- OUTRO CTA -->
-            <section class="section section-outro-cta theme-midnight">
-                <div class="container">
-                    <h2>Outro CTA</h2>
-                    <div class="row">
-                        <div class="col-md-8">
-                            <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
-                        </div>
-                        <div class="col-md-3 col-md-offset-1">
-                            <p>
-                                <a class="btn btn-block btn-primary" href="#">Get in touch</a>
-                            </p>
                         </div>
                     </div>
                 </div>
@@ -895,7 +1321,7 @@
         </main>
 
         <!-- FOOTER -->
-        <footer class="global-footer theme-skyblue">
+        <footer class="global-footer">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -907,19 +1333,19 @@
                             <h4 class="mb-3">Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="">Standard Page</a>
+                                    <a href="/">Home</a>
                                 </li>
                                 <li>
-                                    <a href="">Blog</a>
+                                    <a href="/kitchen-sink/">Kitchen Sink</a>
                                 </li>
                                 <li>
-                                    <a href="">Enterprise Wide</a>
+                                    <a href="/standard-page/">Standard Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Advanced Page</a>
+                                    <a href="/advanced-page/">Advanced Page</a>
                                 </li>
                                 <li>
-                                    <a href="">Contact</a>
+                                    <a href="/contact/">Contact</a>
                                 </li>
                             </ul>
                         </div>
@@ -938,6 +1364,8 @@
 
                             <!-- SOCIAL MEDIA -->
                             <h4 class="mb-3">Social Media</h4>
+
+                            <!-- SOCIAL MEDIA -->
                             <div class="social-media">
                                 <a title="Behance" href="#" target="_blank" class="behance">
                                     <div class="icon">
@@ -1058,13 +1486,15 @@
 
                     <!-- BACK TO TOP -->
                     <div class="text-center text-md-right">
-                        <button data-back-top class="back-to-top">
-                            <span class="text">TOP</span>&nbsp;
-                            <i class="fa fa-arrow-circle-up"></i>
+                        <button data-back-top class="btn-back-top">
+                            <div class="m-auto">
+                                <i class="fa fa-angle-up"></i>
+                                <span class="text">TOP</span>
+                            </div>
                         </button>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 text-center text-md-left">
+                        <div class="col-md-7 col-lg-9 text-center text-md-left">
 
                             <!-- COPYRIGHT + SITEMAP -->
                             <small class="mr-2 d-block d-md-inline">&copy;
@@ -1082,10 +1512,10 @@
                                 <a href="#">Link Two</a>
                             </small>
                             <small class="mr-2">
-                                <a href="#">Link Three</a>
+                                <a href="/kitchen-sink/">Link Three</a>
                             </small>
                         </div>
-                        <div class="col-md-6 text-center text-md-right">
+                        <div class="col-md-5 col-lg-3 text-center text-md-right">
 
                             <!-- AUTHOR -->
                             <small>
@@ -1104,7 +1534,7 @@
                 <div class="container">
                     <ul class="block-grid-xs-2 block-grid-lg-5">
                         <li>
-                            <h5>Chrome</h5>
+                            <h5>Kitchen Sink</h5>
                             <ul class="list-unstyled"></ul>
                         </li>
                         <li>
@@ -1113,10 +1543,6 @@
                         </li>
                         <li>
                             <h5>Advanced Page</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                        <li>
-                            <h5>Case Studies</h5>
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/404/">Item</a>
@@ -1149,8 +1575,8 @@
                 </a>
             </li>
             <li class="">
-                <a class="top-parent-anchor" href="/chrome/">
-                    <span class="text">Chrome</span>
+                <a class="top-parent-anchor" href="/kitchen-sink/">
+                    <span class="text">Kitchen Sink</span>
                 </a>
             </li>
             <li class="">
@@ -1158,16 +1584,11 @@
                     <span class="text">Standard Page</span>
                 </a>
             </li>
-            <li class="">
+            <li class="has-dropdown">
                 <a class="top-parent-anchor" href="/advanced-page/">
                     <span class="text">Advanced Page</span>
                 </a>
-            </li>
-            <li class="has-dropdown">
-                <a class="top-parent-anchor" href="/404/">
-                    <span class="text">Case Studies</span>
-                </a>
-                <ul class="dropdown is-nav-included" data-parent="Case Studies">
+                <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
@@ -1193,6 +1614,8 @@
 
             <!-- SOCIAL MEDIA -->
             <li class="is-hidden-for-topbar pt-2">
+
+                <!-- SOCIAL MEDIA -->
                 <div class="social-media">
                     <a title="Behance" href="#" target="_blank" class="behance">
                         <div class="icon">
@@ -1289,6 +1712,8 @@
 
             <!-- SEARCH -->
             <li class="is-hidden-for-topbar">
+
+                <!-- GLOBAL SEARCH -->
                 <div class="global-search is-hidden" data-search>
                     <div class="container text-right">
                         <div class="global-search-form-wrapper">
@@ -1297,7 +1722,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" type="text" class="form-control" placeholder="Search">
+                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -1313,7 +1738,8 @@
     </nav>
 
     <!-- SEARCH -->
-    <div class="global-search is-hidden" data-search>
+    
+<!-- GLOBAL SEARCH --><div class="global-search is-hidden" data-search>
         <div class="container text-right">
             <div class="global-search-form-wrapper">
                 <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
@@ -1321,7 +1747,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" type="text" class="form-control" placeholder="Search">
+                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -1343,7 +1769,7 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- { % include snippets/google_analytics.html %} -->
+    <!-- { % include components/widgets/google_analytics.html %} -->
     
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
