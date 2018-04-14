@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Standard Page - Inspire</title>
+
+    <!-- { % include components/widgets/google_analytics.html %} -->
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -390,14 +392,14 @@
                     <div class="row">
                         <div class="col-md-8">
 
-                            <!-- WYSIWYG -->
+                            <!-- WYSIWYG #1 -->
                             <div class="wysiwyg mb-4">
                                 <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
                             </div>
                         </div>
                         <div class="col-md-4">
 
-                            <!-- WYSIWYG - ASK ME ABOUT THIS -->
+                            <!-- WYSIWYG #2 -->
                             <div class="wysiwyg">
                                 <p>
                                     <a class="btn btn-block btn-primary" href="#">Get in touch</a>
@@ -553,7 +555,7 @@
                             <h4 class="mb-3">Join our Newsletter</h4>
 
                             <!-- FORM SUBSCRIBE -->
-                            <form name="Subscribe Form" action="/" novalidate>
+                            <form id="" name="Subscribe Form" action="/" novalidate>
                                 <div class="form-group d-block has-icon mb-3">
                                     <i class="fa fa-envelope"></i>
                                     <div class="input-group mb-3">
@@ -858,9 +860,8 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- { % include components/widgets/google_analytics.html %} -->
-    
-<!-- NO JAVASCRIPT WARNING --><noscript>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>
