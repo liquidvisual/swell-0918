@@ -5294,28 +5294,24 @@ function cardSlider() {
   $("[data-search]").addClass("is-hidden"), document.activeElement.blur();
 }), function (e) {
   "use strict";
-  var t,
-      n = e("html"),
-      i = e(".global-header"),
-      o = e(".lv-off-canvas .dropdown"),
-      r = e(".lv-page"),
-      s = e(".lv-off-canvas"),
-      a = e('a[href*="#"]:not([href="#"])', s),
-      l = e('<span class="submenu-trigger"><i class="fa fa-angle-right"></i></span>');e("[data-menu-toggle]").click(function (o) {
-    e(".has-open-menu").length || (n.removeClass("has-closed-menu").addClass("has-open-menu"), t = setInterval(function () {
-      e(".has-open-menu").length ? e(".global-header").css({ top: e(window).scrollTop() + "px" }) : (e(".global-header").removeAttr("style"), clearInterval(t));
-    }, 100), setTimeout(function () {
-      r.click(function (o) {
-        o.stopPropagation(), e(".has-open-menu").length && (i.removeAttr("style"), clearInterval(t), n.removeClass("has-open-menu").addClass("has-closed-menu"), e(this).unbind("click"));
+  var t = e("html"),
+      n = e(".lv-off-canvas .dropdown"),
+      i = e(".lv-page"),
+      o = e(".lv-off-canvas"),
+      r = e('a[href*="#"]:not([href="#"])', o),
+      s = e('<span class="submenu-trigger"><i class="fa fa-angle-right"></i></span>');e("[data-menu-toggle]").click(function (n) {
+    e(".has-open-menu").length || (t.removeClass("has-closed-menu").addClass("has-open-menu"), setTimeout(function () {
+      i.click(function (n) {
+        n.stopPropagation(), e(".has-open-menu").length && (t.removeClass("has-open-menu").addClass("has-closed-menu"), e(this).unbind("click"));
       });
     }, 10));
-  }), a.click(function (e) {
-    e.preventDefault(), e.stopPropagation(), i.removeAttr("style"), clearInterval(t), n.removeClass("has-open-menu").addClass("has-closed-menu"), r.unbind("click");
-  }), l.click(function (t) {
+  }), r.click(function (e) {
+    e.preventDefault(), e.stopPropagation(), t.removeClass("has-open-menu").addClass("has-closed-menu"), i.unbind("click");
+  }), s.click(function (t) {
     t.preventDefault(), t.stopPropagation(), e(this).parent().next(".dropdown").addClass("is-open");
-  }), o.click(function (t) {
+  }), n.click(function (t) {
     e(this).removeClass("is-open"), t.stopPropagation();
-  }), e(".lv-off-canvas .has-dropdown > a").append(l);
+  }), e(".lv-off-canvas .has-dropdown > a").append(s);
 }(jQuery), $(window).on("load", function () {
   $("html").addClass("has-loaded");
 }), $(function () {

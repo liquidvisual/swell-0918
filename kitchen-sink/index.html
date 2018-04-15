@@ -111,51 +111,85 @@
                     <nav class="global-navigation hidden-lg-down">
                         <div class="lv-topbar">
                             <ul>
+
+                                <!-- PHONE NUMBER (OPTIONAL) -->
+                                <li class="hide-for-topbar pt-2">
+                                    <p class="text-center">
+                                        <a class="h4 font-weight-normal" href="tel:(05) 555 555">
+                                            <i class="fa fa-phone"></i> (05) 555 555</a>
+                                    </p>
+                                </li>
                                 <li class="">
+
+                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/">
                                         <span class="text">Home</span>
                                     </a>
-                                </li>
+
+                                    <!-- SECOND LEVEL -->
+                                    </li>
                                 <li class="active">
+
+                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/kitchen-sink/">
                                         <span class="text">Kitchen Sink</span>
                                     </a>
-                                </li>
+
+                                    <!-- SECOND LEVEL -->
+                                    </li>
                                 <li class="">
+
+                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/standard-page/">
                                         <span class="text">Standard Page</span>
                                     </a>
-                                </li>
+
+                                    <!-- SECOND LEVEL -->
+                                    </li>
                                 <li class="has-dropdown">
+
+                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/advanced-page/">
                                         <span class="text">Advanced Page</span>
                                     </a>
+
+                                    <!-- SECOND LEVEL -->
                                     <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
                                             </a>
-                                        </li>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
                                             </a>
-                                        </li>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
                                         <li class="">
                                             <a href="/404/">
                                                 <span class="text">Item</span>
                                             </a>
-                                        </li>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
                                     </ul>
                                 </li>
                                 <li class="">
+
+                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/contact/">
                                         <span class="text">Contact</span>
                                     </a>
-                                </li>
 
-                                <!-- SOCIAL MEDIA -->
-                                <li class="is-hidden-for-topbar pt-2">
+                                    <!-- SECOND LEVEL -->
+                                    </li>
+
+                                <!-- SOCIAL MEDIA (OPTIONAL) -->
+                                <li class="hide-for-topbar pt-2">
 
                                     <!-- SOCIAL MEDIA -->
                                     <div class="social-media">
@@ -252,8 +286,8 @@
                                     </div>
                                 </li>
 
-                                <!-- SEARCH -->
-                                <li class="is-hidden-for-topbar">
+                                <!-- SEARCH (OPTIONAL) -->
+                                <li class="hide-for-topbar">
 
                                     <!-- GLOBAL SEARCH -->
                                     <div class="global-search is-hidden" data-search>
@@ -306,8 +340,9 @@
         <main class="main-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-9">
+                    <div class="col-lg-9 order-2 order-lg-1">
                         <div class="kitchen-sink">
+                            <div class="alert alert-primary" role="alert">Options: theme, background-image</div>
 
                             <!-- TEXT SECTION -->
                             <section id="text" class="section">
@@ -362,6 +397,13 @@
                                     </div>
                                 </div>
                             </section>
+                            <div class="alert alert-success" role="alert">
+                                <h6 class="alert-heading">Options</h6>
+                                <p>theme, background-image</p>
+                                <hr>
+
+                                <!-- <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p> -->
+                                </div>
 
                             <!-- TEXT BUTTON SECTION -->
                             <section id="text-button" class="section">
@@ -375,7 +417,7 @@
                                                 <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 pl-lg-5">
 
                                             <!-- WYSIWYG #2 -->
                                             <div class="wysiwyg">
@@ -1307,7 +1349,7 @@
                             </section>
                         </div>
                     </div>
-                    <div class="col-lg-3 pl-5">
+                    <div class="col-lg-3 pl-5 order-1 order-lg-2">
                         <aside class="sidebar">
                             <h5>Themes</h5>
                             <div class="d-flex flex-wrap mb-4">
@@ -1449,26 +1491,55 @@
             <!-- AFFILIATES -->
             <section class="section section-affiliates">
                 <div class="container">
-                    <h2>Affiliates Section</h2>
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <h2 class="text-center">Affiliates Section</h2>
 
-                    <!-- WYSIWYG -->
-                    <div class="wysiwyg mb-4">
-                        <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                            <!-- WYSIWYG -->
+                            <div class="wysiwyg text-center mb-4">
+                                <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
+                            </div>
+
+                            <!-- IMAGES -->
+                            <div class="row no-gutters justify-content-center text-center">
+                                <div class="col-4 col-md-2 align-items-center">
+                                    <p class="mb-4">
+                                        <a href="#">
+                                            <img width="70%" src="http://placehold.it/300x300" alt="...">
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-4 col-md-2 align-items-center">
+                                    <p class="mb-4">
+                                        <a href="#">
+                                            <img width="70%" src="http://placehold.it/300x300" alt="...">
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-4 col-md-2 align-items-center">
+                                    <p class="mb-4">
+                                        <a href="#">
+                                            <img width="70%" src="http://placehold.it/300x300" alt="...">
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-4 col-md-2 align-items-center">
+                                    <p class="mb-4">
+                                        <a href="#">
+                                            <img width="70%" src="http://placehold.it/300x300" alt="...">
+                                        </a>
+                                    </p>
+                                </div>
+                                <div class="col-4 col-md-2 align-items-center">
+                                    <p class="mb-4">
+                                        <a href="#">
+                                            <img width="70%" src="http://placehold.it/300x300" alt="...">
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <ul class="block-grid-xs-4 block-grid-md-8">
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                        <li>
-                            <img width="100%" src="http://placehold.it/300x300">
-                        </li>
-                    </ul>
                 </div>
             </section>
 
@@ -1484,7 +1555,7 @@
                                 <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-4 pl-lg-5">
 
                             <!-- WYSIWYG #2 -->
                             <div class="wysiwyg">
@@ -1747,51 +1818,85 @@
     
 <!-- OFF-CANVAS MENU --><nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
         <ul>
+
+            <!-- PHONE NUMBER (OPTIONAL) -->
+            <li class="hide-for-topbar pt-2">
+                <p class="text-center">
+                    <a class="h4 font-weight-normal" href="tel:(05) 555 555">
+                        <i class="fa fa-phone"></i> (05) 555 555</a>
+                </p>
+            </li>
             <li class="">
+
+                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/">
                     <span class="text">Home</span>
                 </a>
-            </li>
+
+                <!-- SECOND LEVEL -->
+                </li>
             <li class="active">
+
+                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/kitchen-sink/">
                     <span class="text">Kitchen Sink</span>
                 </a>
-            </li>
+
+                <!-- SECOND LEVEL -->
+                </li>
             <li class="">
+
+                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/standard-page/">
                     <span class="text">Standard Page</span>
                 </a>
-            </li>
+
+                <!-- SECOND LEVEL -->
+                </li>
             <li class="has-dropdown">
+
+                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/advanced-page/">
                     <span class="text">Advanced Page</span>
                 </a>
+
+                <!-- SECOND LEVEL -->
                 <ul class="dropdown is-nav-included" data-parent="Advanced Page">
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
                         </a>
-                    </li>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
                         </a>
-                    </li>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
                     <li class="">
                         <a href="/404/">
                             <span class="text">Item</span>
                         </a>
-                    </li>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
                 </ul>
             </li>
             <li class="">
+
+                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/contact/">
                     <span class="text">Contact</span>
                 </a>
-            </li>
 
-            <!-- SOCIAL MEDIA -->
-            <li class="is-hidden-for-topbar pt-2">
+                <!-- SECOND LEVEL -->
+                </li>
+
+            <!-- SOCIAL MEDIA (OPTIONAL) -->
+            <li class="hide-for-topbar pt-2">
 
                 <!-- SOCIAL MEDIA -->
                 <div class="social-media">
@@ -1888,8 +1993,8 @@
                 </div>
             </li>
 
-            <!-- SEARCH -->
-            <li class="is-hidden-for-topbar">
+            <!-- SEARCH (OPTIONAL) -->
+            <li class="hide-for-topbar">
 
                 <!-- GLOBAL SEARCH -->
                 <div class="global-search is-hidden" data-search>
