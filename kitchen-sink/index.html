@@ -321,14 +321,14 @@
         <section id="" class="lv-hero-wrapper">
 
             <!-- HERO -->
-            <div class="lv-hero has-height-preset-3">
+            <div class="lv-hero is-static">
 
                 <!-- HERO ITEM -->
                 <div class="lv-hero-item align-items-end" style="background-image: url('')">
 
                     <!-- HERO CAPTION -->
                     <div class="container">
-                        <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
                             <h1 class="display-1">Kitchen Sink</h1>
                         </div>
                     </div>
@@ -340,67 +340,13 @@
         <main class="main-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-xl-9">
+                    <div class="col-lg-9 pr-lg-4">
                         <div class="section-main-body card">
                             <div class="kitchen-sink">
 
-                                <!-- AFFILIATES -->
-                                <section id="affiliates" class="section" style="background-image: url(https://source.unsplash.com/random)">
-                                    <div class="container">
-                                        <div class="row justify-content-center">
-                                            <div class="col-md-10">
-                                                <h2 class="text-center">Affiliates Section</h2>
-
-                                                <!-- WYSIWYG -->
-                                                <div class="wysiwyg text-center mb-4">
-                                                    <p>Mauris ante augue, fringilla non accumsan at, imperdiet vel ipsum. Nunc hendrerit, felis nec hendrerit varius, lacus leo euismod mi, a pulvinar sapien libero.</p>
-                                                </div>
-
-                                                <!-- IMAGES -->
-                                                <div class="row no-gutters justify-content-center text-center">
-                                                    <div class="col-4 col-md-2 align-items-center">
-                                                        <p class="mb-4">
-                                                            <a href="#">
-                                                                <img width="70%" src="http://placehold.it/300x300" alt="...">
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-4 col-md-2 align-items-center">
-                                                        <p class="mb-4">
-                                                            <a href="#">
-                                                                <img width="70%" src="http://placehold.it/300x300" alt="...">
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-4 col-md-2 align-items-center">
-                                                        <p class="mb-4">
-                                                            <a href="#">
-                                                                <img width="70%" src="http://placehold.it/300x300" alt="...">
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-4 col-md-2 align-items-center">
-                                                        <p class="mb-4">
-                                                            <a href="#">
-                                                                <img width="70%" src="http://placehold.it/300x300" alt="...">
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-4 col-md-2 align-items-center">
-                                                        <p class="mb-4">
-                                                            <a href="#">
-                                                                <img width="70%" src="http://placehold.it/300x300" alt="...">
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
-
-                                <!-- CARDS -->
-                                <section id="cards" class="section">
+                                <!-- { % include components/affiliates.html id="affiliates" bg_image="https://source.unsplash.com/random" %} -->
+                                
+<!-- CARDS --><section id="cards" class="section">
                                     <div class="container">
                                         <h2>Cards Component</h2>
 
@@ -1096,29 +1042,29 @@
                                 <section id="hero" class="lv-hero-wrapper" data-hero-slider>
 
                                     <!-- HERO -->
-                                    <div class="lv-hero has-height-preset-1" data-flickity='
-        {
-            "adaptiveHeight": true,
-            "autoPlay": false,
-            "cellAlign": "left",
-            "contain": true,
-            "draggable": ">1",
-            "dragThreshold": 40,
-            "freeScroll": false,
-            "freeScrollFriction": 0.075,
-            "friction": 0.28,
-            "groupCells": false,
-            "imagesLoaded": true,
-            "pageDots": true,
-            "prevNextButtons": false,
-            "pauseAutoPlayOnHover": false,
-            "selectedAttraction": 0.025,
-            "watchCSS": false,
-            "wrapAround": true
-        }'>
+                                    <div class="lv-hero is-default" data-flickity='
+            {
+                "adaptiveHeight": true,
+                "autoPlay": false,
+                "cellAlign": "left",
+                "contain": true,
+                "draggable": false,
+                "dragThreshold": 40,
+                "freeScroll": false,
+                "freeScrollFriction": 0.075,
+                "friction": 0.28,
+                "groupCells": false,
+                "imagesLoaded": true,
+                "pageDots": true,
+                "prevNextButtons": false,
+                "pauseAutoPlayOnHover": false,
+                "selectedAttraction": 0.025,
+                "watchCSS": false,
+                "wrapAround": true
+            }'>
 
                                         <!-- HERO ITEMS -->
-                                        <div class="lv-hero-item" style="background-image: url('')">
+                                        <div class="lv-hero-item theme-skyblue" style="background-image: url('')">
                                             <div class="container">
                                                 <div class="row justify-content-center text-center">
                                                     <div class="col-md-10 col-xl-9">
@@ -1129,20 +1075,20 @@
                                                             <!-- HEADER -->
                                                             <h1 class="display-1">Hero Caption 1</h1>
 
-                                                            <!-- BODY -->
-                                                            <p class="lead mb-4">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing</p>
-
-                                                            <!-- LINK (OPTIONAL) -->
-                                                            <p>
-                                                                <a href="#" class="btn btn-outline-light">Read more</a>
-                                                            </p>
+                                                            <!-- WYSIWYG -->
+                                                            <div class="wysiwyg">
+                                                                <p class="lead">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                                                                <p>
+                                                                    <a href="#" class="btn btn-outline-light">Read more</a>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- DOWNWARDS ARROW -->
-                                            <a class="lv-hero-arrow-scroll hidden-lg-down">
+                                            <!-- SCROLL PROMPT -->
+                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                         </div>
@@ -1157,33 +1103,66 @@
                                                             <!-- HEADER -->
                                                             <h1 class="display-1">Hero Caption 2</h1>
 
-                                                            <!-- BODY -->
-                                                            <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
-
-                                                            <!-- LINK (OPTIONAL) -->
-                                                            <p>
-                                                                <a href="#" class="btn btn-outline-light">Read more</a>
-                                                            </p>
+                                                            <!-- WYSIWYG -->
+                                                            <div class="wysiwyg">
+                                                                <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
+                                                                <p>
+                                                                    <a href="#" class="btn btn-outline-light">Read more</a>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- DOWNWARDS ARROW -->
-                                            <a class="lv-hero-arrow-scroll hidden-lg-down">
+                                            <!-- SCROLL PROMPT -->
+                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                         </div>
                                         <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
-                                            <iframe class="video" width="100%" height="390" frameborder="0" type="text/html" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" style="pointer-events: false"></iframe>
+                                            <div class="container">
+                                                <div class="row justify-content-center text-center">
+                                                    <div class="col-md-10 col-xl-9">
+
+                                                        <!-- HERO CAPTION -->
+                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                                            <!-- HEADER -->
+                                                            <h1 class="display-1">Hero Caption 3</h1>
+
+                                                            <!-- WYSIWYG -->
+                                                            <div class="wysiwyg">
+                                                                <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
+                                                                <p>
+                                                                    <a href="#" class="btn btn-outline-light">Read more</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- SCROLL PROMPT -->
+                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
+                                                <i class="fa fa-angle-down"></i>
+                                            </a>
+
+                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
+                                            <div class="video-bg">
+                                                <div class="video-fg">
+                                                    <iframe class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                                                </div>
+                                            </div>
+
+                                            <!-- YOUTUBE PLAYER INSTANCE - loads *once* async -->
                                             <script>
-                                            // YOUTUBE PLAYER INSTANCE - loads async
                                             var tag = document.createElement('script');
                                             tag.src = "https://www.youtube.com/iframe_api";
                                             var firstScriptTag = document.getElementsByTagName('script')[0];
                                             firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                                             function onYouTubeIframeAPIReady() {
-                                                document.querySelectorAll('.video').forEach((item) => {
+                                                document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
                                                     new YT.Player(item, {
                                                         events: {
                                                             'onReady': (event) => {
@@ -1195,35 +1174,8 @@
                                                 })
                                             }
                                             </script>
-                                            <div class="container">
-                                                <div class="row justify-content-center text-center">
-                                                    <div class="col-md-10 col-xl-9">
-
-                                                        <!-- HERO CAPTION -->
-                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-
-                                                            <!-- HEADER -->
-                                                            <h1 class="display-1">Hero Caption 3</h1>
-
-                                                            <!-- BODY -->
-                                                            <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
-
-                                                            <!-- LINK (OPTIONAL) -->
-                                                            <p>
-                                                                <a href="#" class="btn btn-outline-light">Read more</a>
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- DOWNWARDS ARROW -->
-                                            <a class="lv-hero-arrow-scroll hidden-lg-down">
-                                                <i class="fa fa-angle-down"></i>
-                                            </a>
                                         </div>
-                                        <div class="lv-hero-item" style="background-image: url('/assets/img/content/hero/hero-3.png')">
-                                            <iframe class="video" width="100%" height="390" frameborder="0" type="text/html" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" style="pointer-events: false"></iframe>
+                                        <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                                             <div class="container">
                                                 <div class="row justify-content-center text-center">
                                                     <div class="col-md-10 col-xl-9">
@@ -1234,28 +1186,35 @@
                                                             <!-- HEADER -->
                                                             <h1 class="display-1">Hero Caption 4</h1>
 
-                                                            <!-- BODY -->
-                                                            <p class="lead mb-4">Video</p>
-
-                                                            <!-- LINK (OPTIONAL) -->
-                                                            <p>
-                                                                <a href="#" class="btn btn-outline-light">Read more</a>
-                                                            </p>
+                                                            <!-- WYSIWYG -->
+                                                            <div class="wysiwyg">
+                                                                <p class="lead">Video</p>
+                                                                <p>
+                                                                    <a href="#" class="btn btn-outline-light">Read more</a>
+                                                                </p>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- DOWNWARDS ARROW -->
-                                            <a class="lv-hero-arrow-scroll hidden-lg-down">
+                                            <!-- SCROLL PROMPT -->
+                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
+
+                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
+                                            <div class="video-bg">
+                                                <div class="video-fg">
+                                                    <iframe class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- /.lv-hero -->
                                     
-<!-- SLIDER CONTROLS --><div class="lv-hero-slider-controls hidden-sm-down">
+<!-- SLIDER CONTROLS --><div class="lv-hero-slider-controls hidden-lg-down">
                                         <span class="lv-hero-slider-prev-btn">
                                             <i class="fa fa-angle-left"></i>
                                         </span>
@@ -1270,14 +1229,14 @@
 <!-- HERO WRAPPER --><section id="hero-static" class="lv-hero-wrapper">
 
                                     <!-- HERO -->
-                                    <div class="lv-hero has-height-preset-3">
+                                    <div class="lv-hero is-static">
 
                                         <!-- HERO ITEM -->
                                         <div class="lv-hero-item align-items-end" style="background-image: url('')">
 
                                             <!-- HERO CAPTION -->
                                             <div class="container">
-                                                <div class="lv-hero-item-caption animated fadeInLeftSubtle">
+                                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
                                                     <h1 class="display-1">Kitchen Sink</h1>
                                                 </div>
                                             </div>
@@ -1397,7 +1356,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-xl-3 pl-lg-5">
+                    <div class="col-lg-3 pl-lg-3">
                         <aside class="sidebar">
                             <section class="section">
                                 <h5>Themes</h5>
@@ -1709,7 +1668,7 @@
                         <button data-back-top class="btn-back-top">
                             <div>
                                 <i class="d-block fa fa-angle-up"></i>
-                                <span class="d-block text">TOP</span>
+                                <span class="text">TOP</span>
                             </div>
                         </button>
                     </div>
@@ -1723,20 +1682,20 @@
                                     document.write(new Date().getFullYear())
                                     </script>
                                 </date>
-                                <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                            </small>
+                                <a href="/sitemap/">Site Map</a>
+
+                                <!-- <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;<i class="fa fa-angle-down"></i></a> -->
+                                </small>
 
                             <!-- OPTIONAL LINKS -->
                             <small class="mr-2">
-                                <a href="#">Link One</a>
+                                <a href="#">Your Link Here</a>
                             </small>
                             <small class="mr-2">
-                                <a href="#">Link Two</a>
+                                <a href="#">Your Link Here</a>
                             </small>
                             <small class="mr-2">
-                                <a href="/kitchen-sink/">Link Three</a>
+                                <a href="/kitchen-sink/">Your Link Here</a>
                             </small>
                         </div>
                         <div class="col-md-5 col-lg-3 text-center text-md-right">
@@ -1750,40 +1709,6 @@
                             </small>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <!-- FOOTER SITEMAP -->
-            <section id="sitemap" class="global-footer-sitemap collapse">
-                <div class="container">
-                    <ul class="block-grid-xs-2 block-grid-lg-5">
-                        <li>
-                            <h5>Kitchen Sink</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                        <li>
-                            <h5>Standard Page</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                        <li>
-                            <h5>Advanced Page</h5>
-                            <ul class="list-unstyled">
-                                <li>
-                                    <a href="/404/">Item</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Item</a>
-                                </li>
-                                <li>
-                                    <a href="/404/">Item</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <h5>Contact</h5>
-                            <ul class="list-unstyled"></ul>
-                        </li>
-                    </ul>
                 </div>
             </section>
         </footer>

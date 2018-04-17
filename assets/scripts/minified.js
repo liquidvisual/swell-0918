@@ -187,9 +187,9 @@ function cardSlider() {
         A = [],
         I = A.pop,
         N = A.push,
-        L = A.push,
-        O = A.slice,
-        P = function P(e, t) {
+        P = A.push,
+        L = A.slice,
+        O = function O(e, t) {
       for (var n = 0, i = e.length; n < i; n++) {
         if (e[n] === t) return n;
       }return -1;
@@ -200,9 +200,9 @@ function cardSlider() {
         F = "\\[" + M + "*(" + H + ")(?:" + M + "*([*^$|!~]?=)" + M + "*(?:'((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\"|(" + H + "))|)" + M + "*\\]",
         z = ":(" + H + ")(?:\\((('((?:\\\\.|[^\\\\'])*)'|\"((?:\\\\.|[^\\\\\"])*)\")|((?:\\\\.|[^\\\\()[\\]]|" + F + ")*)|.*)\\)|)",
         q = new RegExp(M + "+", "g"),
-        W = new RegExp("^" + M + "+|((?:^|[^\\\\])(?:\\\\.)*)" + M + "+$", "g"),
-        R = new RegExp("^" + M + "*," + M + "*"),
-        B = new RegExp("^" + M + "*([>+~]|" + M + ")" + M + "*"),
+        B = new RegExp("^" + M + "+|((?:^|[^\\\\])(?:\\\\.)*)" + M + "+$", "g"),
+        W = new RegExp("^" + M + "*," + M + "*"),
+        R = new RegExp("^" + M + "*([>+~]|" + M + ")" + M + "*"),
         U = new RegExp("=" + M + "*([^\\]'\"]*?)" + M + "*\\]", "g"),
         $ = new RegExp(z),
         V = new RegExp("^" + H + "$"),
@@ -226,10 +226,10 @@ function cardSlider() {
         oe = ye(function (e) {
       return !0 === e.disabled && ("form" in e || "label" in e);
     }, { dir: "parentNode", next: "legend" });try {
-      L.apply(A = O.call(w.childNodes), w.childNodes), A[w.childNodes.length].nodeType;
+      P.apply(A = L.call(w.childNodes), w.childNodes), A[w.childNodes.length].nodeType;
     } catch (e) {
-      L = { apply: A.length ? function (e, t) {
-          N.apply(e, O.call(t));
+      P = { apply: A.length ? function (e, t) {
+          N.apply(e, L.call(t));
         } : function (e, t) {
           for (var n = e.length, i = 0; e[n++] = t[i++];) {}e.length = n - 1;
         } };
@@ -248,19 +248,19 @@ function cardSlider() {
             if (!(c = t.getElementById(r))) return i;if (c.id === r) return i.push(c), i;
           } else if (y && (c = y.getElementById(r)) && b(t, c) && c.id === r) return i.push(c), i;
         } else {
-          if (d[2]) return L.apply(i, t.getElementsByTagName(e)), i;if ((r = d[3]) && n.getElementsByClassName && t.getElementsByClassName) return L.apply(i, t.getElementsByClassName(r)), i;
+          if (d[2]) return P.apply(i, t.getElementsByTagName(e)), i;if ((r = d[3]) && n.getElementsByClassName && t.getElementsByClassName) return P.apply(i, t.getElementsByClassName(r)), i;
         }if (n.qsa && !S[e + " "] && (!g || !g.test(e))) {
           if (1 !== E) y = t, v = e;else if ("object" !== t.nodeName.toLowerCase()) {
             for ((u = t.getAttribute("id")) ? u = u.replace(te, ne) : t.setAttribute("id", u = _), a = (p = s(e)).length; a--;) {
               p[a] = "#" + u + " " + ve(p[a]);
             }v = p.join(","), y = Z.test(e) && me(t.parentNode) || t;
           }if (v) try {
-            return L.apply(i, y.querySelectorAll(v)), i;
+            return P.apply(i, y.querySelectorAll(v)), i;
           } catch (e) {} finally {
             u === _ && t.removeAttribute("id");
           }
         }
-      }return l(e.replace(W, "$1"), t, i, o);
+      }return l(e.replace(B, "$1"), t, i, o);
     }function se() {
       var e = [];return function t(n, o) {
         return e.push(n + " ") > i.cacheLength && delete t[e.shift()], t[n + " "] = o;
@@ -367,14 +367,14 @@ function cardSlider() {
           if (t === e) return !0;
         }return !1;
       }, D = t ? function (e, t) {
-        if (e === t) return d = !0, 0;var i = !e.compareDocumentPosition - !t.compareDocumentPosition;return i || (1 & (i = (e.ownerDocument || e) === (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !n.sortDetached && t.compareDocumentPosition(e) === i ? e === f || e.ownerDocument === w && b(w, e) ? -1 : t === f || t.ownerDocument === w && b(w, t) ? 1 : u ? P(u, e) - P(u, t) : 0 : 4 & i ? -1 : 1);
+        if (e === t) return d = !0, 0;var i = !e.compareDocumentPosition - !t.compareDocumentPosition;return i || (1 & (i = (e.ownerDocument || e) === (t.ownerDocument || t) ? e.compareDocumentPosition(t) : 1) || !n.sortDetached && t.compareDocumentPosition(e) === i ? e === f || e.ownerDocument === w && b(w, e) ? -1 : t === f || t.ownerDocument === w && b(w, t) ? 1 : u ? O(u, e) - O(u, t) : 0 : 4 & i ? -1 : 1);
       } : function (e, t) {
         if (e === t) return d = !0, 0;var n,
             i = 0,
             o = e.parentNode,
             r = t.parentNode,
             s = [e],
-            a = [t];if (!o || !r) return e === f ? -1 : t === f ? 1 : o ? -1 : r ? 1 : u ? P(u, e) - P(u, t) : 0;if (o === r) return ue(e, t);for (n = e; n = n.parentNode;) {
+            a = [t];if (!o || !r) return e === f ? -1 : t === f ? 1 : o ? -1 : r ? 1 : u ? O(u, e) - O(u, t) : 0;if (o === r) return ue(e, t);for (n = e; n = n.parentNode;) {
           s.unshift(n);
         }for (n = t; n = n.parentNode;) {
           a.unshift(n);
@@ -478,7 +478,7 @@ function cardSlider() {
           var n,
               o = i.pseudos[e] || i.setFilters[e.toLowerCase()] || re.error("unsupported pseudo: " + e);return o[_] ? o(t) : o.length > 1 ? (n = [e, e, "", t], i.setFilters.hasOwnProperty(e.toLowerCase()) ? ae(function (e, n) {
             for (var i, r = o(e, t), s = r.length; s--;) {
-              e[i = P(e, r[s])] = !(n[i] = r[s]);
+              e[i = O(e, r[s])] = !(n[i] = r[s]);
             }
           }) : function (e) {
             return o(e, 0, n);
@@ -486,7 +486,7 @@ function cardSlider() {
         } }, pseudos: { not: ae(function (e) {
           var t = [],
               n = [],
-              i = a(e.replace(W, "$1"));return i[_] ? ae(function (e, t, n, o) {
+              i = a(e.replace(B, "$1"));return i[_] ? ae(function (e, t, n, o) {
             for (var r, s = i(e, null, o, []), a = e.length; a--;) {
               (r = s[a]) && (e[a] = !(t[a] = r));
             }
@@ -617,22 +617,22 @@ function cardSlider() {
                 (d = v[u]) && c.push(g[u] = d);
               }o(null, v = [], c, l);
             }for (u = v.length; u--;) {
-              (d = v[u]) && (c = o ? P(r, d) : h[u]) > -1 && (r[c] = !(s[c] = d));
+              (d = v[u]) && (c = o ? O(r, d) : h[u]) > -1 && (r[c] = !(s[c] = d));
             }
           }
-        } else v = _e(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : L.apply(s, v);
+        } else v = _e(v === s ? v.splice(p, v.length) : v), o ? o(null, s, v, l) : P.apply(s, v);
       });
     }function Ee(e) {
       for (var t, n, o, r = e.length, s = i.relative[e[0].type], a = s || i.relative[" "], l = s ? 1 : 0, u = ye(function (e) {
         return e === t;
       }, a, !0), d = ye(function (e) {
-        return P(t, e) > -1;
+        return O(t, e) > -1;
       }, a, !0), h = [function (e, n, i) {
         var o = !s && (i || n !== c) || ((t = n).nodeType ? u(e, n, i) : d(e, n, i));return t = null, o;
       }]; l < r; l++) {
         if (n = i.relative[e[l].type]) h = [ye(be(h), n)];else {
           if ((n = i.filter[e[l].type].apply(null, e[l].matches))[_]) {
-            for (o = ++l; o < r && !i.relative[e[o].type]; o++) {}return we(l > 1 && be(h), l > 1 && ve(e.slice(0, l - 1).concat({ value: " " === e[l - 2].type ? "*" : "" })).replace(W, "$1"), n, l < o && Ee(e.slice(l, o)), o < r && Ee(e = e.slice(o)), o < r && ve(e));
+            for (o = ++l; o < r && !i.relative[e[o].type]; o++) {}return we(l > 1 && be(h), l > 1 && ve(e.slice(0, l - 1).concat({ value: " " === e[l - 2].type ? "*" : "" })).replace(B, "$1"), n, l < o && Ee(e.slice(l, o)), o < r && Ee(e = e.slice(o)), o < r && ve(e));
           }h.push(n);
         }
       }return be(h);
@@ -645,7 +645,7 @@ function cardSlider() {
           l,
           c,
           u = T[e + " "];if (u) return t ? 0 : u.slice(0);for (a = e, l = [], c = i.preFilter; a;) {
-        for (s in n && !(o = R.exec(a)) || (o && (a = a.slice(o[0].length) || a), l.push(r = [])), n = !1, (o = B.exec(a)) && (n = o.shift(), r.push({ value: n, type: o[0].replace(W, " ") }), a = a.slice(n.length)), i.filter) {
+        for (s in n && !(o = W.exec(a)) || (o && (a = a.slice(o[0].length) || a), l.push(r = [])), n = !1, (o = R.exec(a)) && (n = o.shift(), r.push({ value: n, type: o[0].replace(B, " ") }), a = a.slice(n.length)), i.filter) {
           !(o = K[s].exec(a)) || c[s] && !(o = c[s](o)) || (n = o.shift(), r.push({ value: n, type: s, matches: o }), a = a.slice(n.length));
         }if (!n) break;
       }return t ? a.length : a ? re.error(e) : T(e, l).slice(0);
@@ -685,7 +685,7 @@ function cardSlider() {
                 if (v > 0) for (; y--;) {
                   b[y] || _[y] || (_[y] = I.call(l));
                 }_ = _e(_);
-              }L.apply(l, _), u && !_r && _.length > 0 && v + t.length > 1 && re.uniqueSort(l);
+              }P.apply(l, _), u && !_r && _.length > 0 && v + t.length > 1 && re.uniqueSort(l);
             }return u && (E = x, c = w), b;
           };return n ? ae(r) : r;
         }(r, o))).selector = e;
@@ -702,7 +702,7 @@ function cardSlider() {
           if (!(t = (i.find.ID(c.matches[0].replace(J, ee), t) || [])[0])) return n;h && (t = t.parentNode), e = e.slice(l.shift().value.length);
         }for (r = K.needsContext.test(e) ? 0 : l.length; r-- && (c = l[r], !i.relative[u = c.type]);) {
           if ((d = i.find[u]) && (o = d(c.matches[0].replace(J, ee), Z.test(l[0].type) && me(t.parentNode) || t))) {
-            if (l.splice(r, 1), !(e = o.length && ve(l))) return L.apply(n, o), n;break;
+            if (l.splice(r, 1), !(e = o.length && ve(l))) return P.apply(n, o), n;break;
           }
         }
       }return (h || a(e, f))(o, t, !m, n, !t || Z.test(e) && me(t.parentNode) || t), n;
@@ -773,8 +773,8 @@ function cardSlider() {
         }return this;
       }return (r = i.getElementById(o[2])) && (this[0] = r, this.length = 1), this;
     }return e.nodeType ? (this[0] = e, this.length = 1, this) : m(e) ? void 0 !== n.ready ? n.ready(e) : e(_) : _.makeArray(e, this);
-  }).prototype = _.fn, I = _(i);var L = /^(?:parents|prev(?:Until|All))/,
-      O = { children: !0, contents: !0, next: !0, prev: !0 };function P(e, t) {
+  }).prototype = _.fn, I = _(i);var P = /^(?:parents|prev(?:Until|All))/,
+      L = { children: !0, contents: !0, next: !0, prev: !0 };function O(e, t) {
     for (; (e = e[t]) && 1 !== e.nodeType;) {}return e;
   }_.fn.extend({ has: function has(e) {
       var t = _(e, this),
@@ -808,9 +808,9 @@ function cardSlider() {
     }, parentsUntil: function parentsUntil(e, t, n) {
       return x(e, "parentNode", n);
     }, next: function next(e) {
-      return P(e, "nextSibling");
+      return O(e, "nextSibling");
     }, prev: function prev(e) {
-      return P(e, "previousSibling");
+      return O(e, "previousSibling");
     }, nextAll: function nextAll(e) {
       return x(e, "nextSibling");
     }, prevAll: function prevAll(e) {
@@ -827,7 +827,7 @@ function cardSlider() {
       return D(e, "iframe") ? e.contentDocument : (D(e, "template") && (e = e.content || e), _.merge([], e.childNodes));
     } }, function (e, t) {
     _.fn[e] = function (n, i) {
-      var o = _.map(this, t, n);return "Until" !== e.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (O[e] || _.uniqueSort(o), L.test(e) && o.reverse()), this.pushStack(o);
+      var o = _.map(this, t, n);return "Until" !== e.slice(-5) && (i = n), i && "string" == typeof i && (o = _.filter(i, o)), this.length > 1 && (L[e] || _.uniqueSort(o), P.test(e) && o.reverse()), this.pushStack(o);
     };
   });var j = /[^\x20\t\r\n\f]+/g;function M(e) {
     return e;
@@ -957,30 +957,30 @@ function cardSlider() {
     e.setTimeout(function () {
       throw t;
     });
-  };var q = _.Deferred();function W() {
-    i.removeEventListener("DOMContentLoaded", W), e.removeEventListener("load", W), _.ready();
+  };var q = _.Deferred();function B() {
+    i.removeEventListener("DOMContentLoaded", B), e.removeEventListener("load", B), _.ready();
   }_.fn.ready = function (e) {
     return q.then(e).catch(function (e) {
       _.readyException(e);
     }), this;
   }, _.extend({ isReady: !1, readyWait: 1, ready: function ready(e) {
       (!0 === e ? --_.readyWait : _.isReady) || (_.isReady = !0, !0 !== e && --_.readyWait > 0 || q.resolveWith(i, [_]));
-    } }), _.ready.then = q.then, "complete" === i.readyState || "loading" !== i.readyState && !i.documentElement.doScroll ? e.setTimeout(_.ready) : (i.addEventListener("DOMContentLoaded", W), e.addEventListener("load", W));var R = function R(e, t, n, i, o, r, s) {
+    } }), _.ready.then = q.then, "complete" === i.readyState || "loading" !== i.readyState && !i.documentElement.doScroll ? e.setTimeout(_.ready) : (i.addEventListener("DOMContentLoaded", B), e.addEventListener("load", B));var W = function W(e, t, n, i, o, r, s) {
     var a = 0,
         l = e.length,
         c = null == n;if ("object" === b(n)) for (a in o = !0, n) {
-      R(e, t, a, n[a], !0, r, s);
+      W(e, t, a, n[a], !0, r, s);
     } else if (void 0 !== i && (o = !0, m(i) || (s = !0), c && (s ? (t.call(e, i), t = null) : (c = t, t = function t(e, _t2, n) {
       return c.call(_(e), n);
     })), t)) for (; a < l; a++) {
       t(e[a], n, s ? i : i.call(e[a], a, t(e[a], n)));
     }return o ? e : c ? t.call(e) : l ? t(e[0], n) : r;
   },
-      B = /^-ms-/,
+      R = /^-ms-/,
       U = /-([a-z])/g;function $(e, t) {
     return t.toUpperCase();
   }function V(e) {
-    return e.replace(B, "ms-").replace(U, $);
+    return e.replace(R, "ms-").replace(U, $);
   }var K = function K(e) {
     return 1 === e.nodeType || 9 === e.nodeType || !+e.nodeType;
   };function Q() {
@@ -1041,7 +1041,7 @@ function cardSlider() {
         }return o;
       }return "object" == (typeof e === "undefined" ? "undefined" : _typeof(e)) ? this.each(function () {
         G.set(this, e);
-      }) : R(this, function (t) {
+      }) : W(this, function (t) {
         var n;if (r && void 0 === t) return void 0 !== (n = G.get(r, e)) ? n : void 0 !== (n = J(r, e)) ? n : void 0;this.each(function () {
           G.set(this, e, t);
         });
@@ -1306,11 +1306,11 @@ function cardSlider() {
       Ae = /checked\s*(?:[^=]|=\s*.checked.)/i,
       Ie = /^\s*<!(?:\[CDATA\[|--)|(?:\]\]|--)>\s*$/g;function Ne(e, t) {
     return D(e, "table") && D(11 !== t.nodeType ? t : t.firstChild, "tr") && _(e).children("tbody")[0] || e;
-  }function Le(e) {
+  }function Pe(e) {
     return e.type = (null !== e.getAttribute("type")) + "/" + e.type, e;
-  }function Oe(e) {
+  }function Le(e) {
     return "true/" === (e.type || "").slice(0, 5) ? e.type = e.type.slice(5) : e.removeAttribute("type"), e;
-  }function Pe(e, t) {
+  }function Oe(e, t) {
     var n, i, o, r, s, a, l, c;if (1 === t.nodeType) {
       if (Y.hasData(e) && (r = Y.access(e), s = Y.set(t, r), c = r.events)) for (o in delete s.handle, s.events = {}, c) {
         for (n = 0, i = c[o].length; n < i; n++) {
@@ -1332,9 +1332,9 @@ function cardSlider() {
         v = m(g);if (v || h > 1 && "string" == typeof g && !p.checkClone && Ae.test(g)) return e.each(function (o) {
       var r = e.eq(o);v && (t[0] = g.call(this, o, r.html())), je(r, t, n, i);
     });if (h && (r = (o = ye(t, e[0].ownerDocument, !1, e, i)).firstChild, 1 === o.childNodes.length && (o = r), r || i)) {
-      for (l = (a = _.map(fe(o, "script"), Le)).length; d < h; d++) {
+      for (l = (a = _.map(fe(o, "script"), Pe)).length; d < h; d++) {
         c = o, d !== f && (c = _.clone(c, !0, !0), l && _.merge(a, fe(c, "script"))), n.call(e[d], c, d);
-      }if (l) for (u = a[a.length - 1].ownerDocument, _.map(a, Oe), d = 0; d < l; d++) {
+      }if (l) for (u = a[a.length - 1].ownerDocument, _.map(a, Le), d = 0; d < l; d++) {
         c = a[d], de.test(c.type || "") && !Y.access(c, "globalEval") && _.contains(u, c) && (c.src && "module" !== (c.type || "").toLowerCase() ? _._evalUrl && _._evalUrl(c.src) : y(c.textContent.replace(Ie, ""), u, c));
       }
     }return e;
@@ -1356,8 +1356,8 @@ function cardSlider() {
           d = _.contains(e.ownerDocument, e);if (!(p.noCloneChecked || 1 !== e.nodeType && 11 !== e.nodeType || _.isXMLDoc(e))) for (s = fe(u), i = 0, o = (r = fe(e)).length; i < o; i++) {
         a = r[i], l = s[i], void 0, "input" === (c = l.nodeName.toLowerCase()) && ce.test(a.type) ? l.checked = a.checked : "input" !== c && "textarea" !== c || (l.defaultValue = a.defaultValue);
       }if (t) if (n) for (r = r || fe(e), s = s || fe(u), i = 0, o = r.length; i < o; i++) {
-        Pe(r[i], s[i]);
-      } else Pe(e, u);return (s = fe(u, "script")).length > 0 && pe(s, !d && fe(e, "script")), u;
+        Oe(r[i], s[i]);
+      } else Oe(e, u);return (s = fe(u, "script")).length > 0 && pe(s, !d && fe(e, "script")), u;
     }, cleanData: function cleanData(e) {
       for (var t, n, i, o = _.event.special, r = 0; void 0 !== (n = e[r]); r++) {
         if (K(n)) {
@@ -1373,7 +1373,7 @@ function cardSlider() {
     }, remove: function remove(e) {
       return Me(this, e);
     }, text: function text(e) {
-      return R(this, function (e) {
+      return W(this, function (e) {
         return void 0 === e ? _.text(this) : this.empty().each(function () {
           1 !== this.nodeType && 11 !== this.nodeType && 9 !== this.nodeType || (this.textContent = e);
         });
@@ -1405,7 +1405,7 @@ function cardSlider() {
         return _.clone(this, e, t);
       });
     }, html: function html(e) {
-      return R(this, function (e) {
+      return W(this, function (e) {
         var t = this[0] || {},
             n = 0,
             i = this.length;if (void 0 === e && 1 === t.nodeType) return t.innerHTML;if ("string" == typeof e && !ke.test(e) && !he[(ue.exec(e) || ["", ""])[1].toLowerCase()]) {
@@ -1436,7 +1436,7 @@ function cardSlider() {
         r,
         s,
         a = e.style;return (n = n || Fe(e)) && ("" !== (s = n.getPropertyValue(t) || n[t]) || _.contains(e.ownerDocument, e) || (s = _.style(e, t)), !p.pixelBoxStyles() && He.test(s) && ze.test(t) && (i = a.width, o = a.minWidth, r = a.maxWidth, a.minWidth = a.maxWidth = a.width = s, s = n.width, a.width = i, a.minWidth = o, a.maxWidth = r)), void 0 !== s ? s + "" : s;
-  }function We(e, t) {
+  }function Be(e, t) {
     return { get: function get() {
         if (!e()) return (this.get = t).apply(this, arguments);delete this.get;
       } };
@@ -1464,8 +1464,8 @@ function cardSlider() {
       }, scrollboxSize: function scrollboxSize() {
         return t(), s;
       } }));
-  }();var Re = /^(none|table(?!-c[ea]).+)/,
-      Be = /^--/,
+  }();var We = /^(none|table(?!-c[ea]).+)/,
+      Re = /^--/,
       Ue = { position: "absolute", visibility: "hidden", display: "block" },
       $e = { letterSpacing: "0", fontWeight: "400" },
       Ve = ["Webkit", "Moz", "ms"],
@@ -1502,17 +1502,17 @@ function cardSlider() {
             r,
             s,
             a = V(t),
-            l = Be.test(t),
+            l = Re.test(t),
             c = e.style;if (l || (t = Qe(a)), s = _.cssHooks[t] || _.cssHooks[a], void 0 === n) return s && "get" in s && void 0 !== (o = s.get(e, !1, i)) ? o : c[t];"string" === (r = typeof n === "undefined" ? "undefined" : _typeof(n)) && (o = te.exec(n)) && o[1] && (n = re(e, t, o), r = "number"), null != n && n == n && ("number" === r && (n += o && o[3] || (_.cssNumber[a] ? "" : "px")), p.clearCloneStyle || "" !== n || 0 !== t.indexOf("background") || (c[t] = "inherit"), s && "set" in s && void 0 === (n = s.set(e, n, i)) || (l ? c.setProperty(t, n) : c[t] = n));
       }
     }, css: function css(e, t, n, i) {
       var o,
           r,
           s,
-          a = V(t);return Be.test(t) || (t = Qe(a)), (s = _.cssHooks[t] || _.cssHooks[a]) && "get" in s && (o = s.get(e, !0, n)), void 0 === o && (o = qe(e, t, i)), "normal" === o && t in $e && (o = $e[t]), "" === n || n ? (r = parseFloat(o), !0 === n || isFinite(r) ? r || 0 : o) : o;
+          a = V(t);return Re.test(t) || (t = Qe(a)), (s = _.cssHooks[t] || _.cssHooks[a]) && "get" in s && (o = s.get(e, !0, n)), void 0 === o && (o = qe(e, t, i)), "normal" === o && t in $e && (o = $e[t]), "" === n || n ? (r = parseFloat(o), !0 === n || isFinite(r) ? r || 0 : o) : o;
     } }), _.each(["height", "width"], function (e, t) {
     _.cssHooks[t] = { get: function get(e, n, i) {
-        if (n) return !Re.test(_.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? Xe(e, t, i) : oe(e, Ue, function () {
+        if (n) return !We.test(_.css(e, "display")) || e.getClientRects().length && e.getBoundingClientRect().width ? Xe(e, t, i) : oe(e, Ue, function () {
           return Xe(e, t, i);
         });
       }, set: function set(e, n, i) {
@@ -1521,7 +1521,7 @@ function cardSlider() {
             s = "border-box" === _.css(e, "boxSizing", !1, r),
             a = i && Ge(e, t, i, s, r);return s && p.scrollboxSize() === r.position && (a -= Math.ceil(e["offset" + t[0].toUpperCase() + t.slice(1)] - parseFloat(r[t]) - Ge(e, t, "border", !1, r) - .5)), a && (o = te.exec(n)) && "px" !== (o[3] || "px") && (e.style[t] = n, n = _.css(e, t)), Ye(0, n, a);
       } };
-  }), _.cssHooks.marginLeft = We(p.reliableMarginLeft, function (e, t) {
+  }), _.cssHooks.marginLeft = Be(p.reliableMarginLeft, function (e, t) {
     if (t) return (parseFloat(qe(e, "marginLeft")) || e.getBoundingClientRect().left - oe(e, { marginLeft: 0 }, function () {
       return e.getBoundingClientRect().left;
     })) + "px";
@@ -1532,7 +1532,7 @@ function cardSlider() {
         }return o;
       } }, "margin" !== e && (_.cssHooks[e + t].set = Ye);
   }), _.fn.extend({ css: function css(e, t) {
-      return R(this, function (e, t, n) {
+      return W(this, function (e, t, n) {
         var i,
             o,
             r = {},
@@ -1722,7 +1722,7 @@ function cardSlider() {
         t = i.createElement("select").appendChild(i.createElement("option"));e.type = "checkbox", p.checkOn = "" !== e.value, p.optSelected = t.selected, (e = i.createElement("input")).value = "t", e.type = "radio", p.radioValue = "t" === e.value;
   }();var lt,
       ct = _.expr.attrHandle;_.fn.extend({ attr: function attr(e, t) {
-      return R(this, _.attr, e, t, arguments.length > 1);
+      return W(this, _.attr, e, t, arguments.length > 1);
     }, removeAttr: function removeAttr(e) {
       return this.each(function () {
         _.removeAttr(this, e);
@@ -1757,7 +1757,7 @@ function cardSlider() {
   }function pt(e) {
     return Array.isArray(e) ? e : "string" == typeof e && e.match(j) || [];
   }_.fn.extend({ prop: function prop(e, t) {
-      return R(this, _.prop, e, t, arguments.length > 1);
+      return W(this, _.prop, e, t, arguments.length > 1);
     }, removeProp: function removeProp(e) {
       return this.each(function () {
         delete this[_.propFix[e] || e];
@@ -1945,9 +1945,9 @@ function cardSlider() {
       At = /^(.*?):[ \t]*([^\r\n]*)$/gm,
       It = /^(?:GET|HEAD)$/,
       Nt = /^\/\//,
+      Pt = {},
       Lt = {},
-      Ot = {},
-      Pt = "*/".concat("*"),
+      Ot = "*/".concat("*"),
       jt = i.createElement("a");function Mt(e) {
     return function (t, n) {
       "string" != typeof t && (n = t, t = "*");var i,
@@ -1958,7 +1958,7 @@ function cardSlider() {
     };
   }function Ht(e, t, n, i) {
     var o = {},
-        r = e === Ot;function s(a) {
+        r = e === Lt;function s(a) {
       var l;return o[a] = !0, _.each(e[a] || [], function (e, a) {
         var c = a(t, n, i);return "string" != typeof c || r || o[c] ? r ? !(l = c) : void 0 : (t.dataTypes.unshift(c), s(c), !1);
       }), l;
@@ -1969,9 +1969,9 @@ function cardSlider() {
         o = _.ajaxSettings.flatOptions || {};for (n in t) {
       void 0 !== t[n] && ((o[n] ? e : i || (i = {}))[n] = t[n]);
     }return i && _.extend(!0, e, i), e;
-  }jt.href = yt.href, _.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: yt.href, type: "GET", isLocal: /^(?:about|app|app-storage|.+-extension|file|res|widget):$/.test(yt.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": Pt, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": JSON.parse, "text xml": _.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(e, t) {
+  }jt.href = yt.href, _.extend({ active: 0, lastModified: {}, etag: {}, ajaxSettings: { url: yt.href, type: "GET", isLocal: /^(?:about|app|app-storage|.+-extension|file|res|widget):$/.test(yt.protocol), global: !0, processData: !0, async: !0, contentType: "application/x-www-form-urlencoded; charset=UTF-8", accepts: { "*": Ot, text: "text/plain", html: "text/html", xml: "application/xml, text/xml", json: "application/json, text/javascript" }, contents: { xml: /\bxml\b/, html: /\bhtml/, json: /\bjson\b/ }, responseFields: { xml: "responseXML", text: "responseText", json: "responseJSON" }, converters: { "* text": String, "text html": !0, "text json": JSON.parse, "text xml": _.parseXML }, flatOptions: { url: !0, context: !0 } }, ajaxSetup: function ajaxSetup(e, t) {
       return t ? Ft(Ft(e, _.ajaxSettings), t) : Ft(_.ajaxSettings, e);
-    }, ajaxPrefilter: Mt(Lt), ajaxTransport: Mt(Ot), ajax: function ajax(t, n) {
+    }, ajaxPrefilter: Mt(Pt), ajaxTransport: Mt(Lt), ajax: function ajax(t, n) {
       "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && (n = t, t = void 0), n = n || {};var o,
           r,
           s,
@@ -2015,9 +2015,9 @@ function cardSlider() {
         } catch (e) {
           p.crossDomain = !0;
         }
-      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), Ht(Lt, p, n, x), u) return x;for (h in (d = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !It.test(p.type), r = p.url.replace(Dt, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(St, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (_t.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(kt, "$1"), f = (_t.test(r) ? "&" : "?") + "_=" + bt++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Pt + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
+      }if (p.data && p.processData && "string" != typeof p.data && (p.data = _.param(p.data, p.traditional)), Ht(Pt, p, n, x), u) return x;for (h in (d = _.event && p.global) && 0 == _.active++ && _.event.trigger("ajaxStart"), p.type = p.type.toUpperCase(), p.hasContent = !It.test(p.type), r = p.url.replace(Dt, ""), p.hasContent ? p.data && p.processData && 0 === (p.contentType || "").indexOf("application/x-www-form-urlencoded") && (p.data = p.data.replace(St, "+")) : (f = p.url.slice(r.length), p.data && (p.processData || "string" == typeof p.data) && (r += (_t.test(r) ? "&" : "?") + p.data, delete p.data), !1 === p.cache && (r = r.replace(kt, "$1"), f = (_t.test(r) ? "&" : "?") + "_=" + bt++ + f), p.url = r + f), p.ifModified && (_.lastModified[r] && x.setRequestHeader("If-Modified-Since", _.lastModified[r]), _.etag[r] && x.setRequestHeader("If-None-Match", _.etag[r])), (p.data && p.hasContent && !1 !== p.contentType || n.contentType) && x.setRequestHeader("Content-Type", p.contentType), x.setRequestHeader("Accept", p.dataTypes[0] && p.accepts[p.dataTypes[0]] ? p.accepts[p.dataTypes[0]] + ("*" !== p.dataTypes[0] ? ", " + Ot + "; q=0.01" : "") : p.accepts["*"]), p.headers) {
         x.setRequestHeader(h, p.headers[h]);
-      }if (p.beforeSend && (!1 === p.beforeSend.call(m, x, p) || u)) return x.abort();if (C = "abort", y.add(p.complete), x.done(p.success), x.fail(p.error), o = Ht(Ot, p, n, x)) {
+      }if (p.beforeSend && (!1 === p.beforeSend.call(m, x, p) || u)) return x.abort();if (C = "abort", y.add(p.complete), x.done(p.success), x.fail(p.error), o = Ht(Lt, p, n, x)) {
         if (x.readyState = 1, d && g.trigger("ajaxSend", [x, p]), u) return x;p.async && p.timeout > 0 && (l = e.setTimeout(function () {
           x.abort("timeout");
         }, p.timeout));try {
@@ -2146,22 +2146,22 @@ function cardSlider() {
       }, abort: function abort() {
         _n2 && _n2();
       } };
-  });var Wt,
-      Rt = [],
-      Bt = /(=)\?(?=&|$)|\?\?/;_.ajaxSetup({ jsonp: "callback", jsonpCallback: function jsonpCallback() {
-      var e = Rt.pop() || _.expando + "_" + bt++;return this[e] = !0, e;
+  });var Bt,
+      Wt = [],
+      Rt = /(=)\?(?=&|$)|\?\?/;_.ajaxSetup({ jsonp: "callback", jsonpCallback: function jsonpCallback() {
+      var e = Wt.pop() || _.expando + "_" + bt++;return this[e] = !0, e;
     } }), _.ajaxPrefilter("json jsonp", function (t, n, i) {
     var o,
         r,
         s,
-        a = !1 !== t.jsonp && (Bt.test(t.url) ? "url" : "string" == typeof t.data && 0 === (t.contentType || "").indexOf("application/x-www-form-urlencoded") && Bt.test(t.data) && "data");if (a || "jsonp" === t.dataTypes[0]) return o = t.jsonpCallback = m(t.jsonpCallback) ? t.jsonpCallback() : t.jsonpCallback, a ? t[a] = t[a].replace(Bt, "$1" + o) : !1 !== t.jsonp && (t.url += (_t.test(t.url) ? "&" : "?") + t.jsonp + "=" + o), t.converters["script json"] = function () {
+        a = !1 !== t.jsonp && (Rt.test(t.url) ? "url" : "string" == typeof t.data && 0 === (t.contentType || "").indexOf("application/x-www-form-urlencoded") && Rt.test(t.data) && "data");if (a || "jsonp" === t.dataTypes[0]) return o = t.jsonpCallback = m(t.jsonpCallback) ? t.jsonpCallback() : t.jsonpCallback, a ? t[a] = t[a].replace(Rt, "$1" + o) : !1 !== t.jsonp && (t.url += (_t.test(t.url) ? "&" : "?") + t.jsonp + "=" + o), t.converters["script json"] = function () {
       return s || _.error(o + " was not called"), s[0];
     }, t.dataTypes[0] = "json", r = e[o], e[o] = function () {
       s = arguments;
     }, i.always(function () {
-      void 0 === r ? _(e).removeProp(o) : e[o] = r, t[o] && (t.jsonpCallback = n.jsonpCallback, Rt.push(o)), s && m(r) && r(s[0]), s = r = void 0;
+      void 0 === r ? _(e).removeProp(o) : e[o] = r, t[o] && (t.jsonpCallback = n.jsonpCallback, Wt.push(o)), s && m(r) && r(s[0]), s = r = void 0;
     }), "script";
-  }), p.createHTMLDocument = ((Wt = i.implementation.createHTMLDocument("").body).innerHTML = "<form></form><form></form>", 2 === Wt.childNodes.length), _.parseHTML = function (e, t, n) {
+  }), p.createHTMLDocument = ((Bt = i.implementation.createHTMLDocument("").body).innerHTML = "<form></form><form></form>", 2 === Bt.childNodes.length), _.parseHTML = function (e, t, n) {
     return "string" != typeof e ? [] : ("boolean" == typeof t && (n = t, t = !1), t || (p.createHTMLDocument ? ((o = (t = i.implementation.createHTMLDocument("")).createElement("base")).href = i.location.href, t.head.appendChild(o)) : t = i), r = k.exec(e), s = !n && [], r ? [t.createElement(r[1])] : (r = ye([e], t, s), s && s.length && _(s).remove(), _.merge([], r.childNodes)));var o, r, s;
   }, _.fn.load = function (e, t, n) {
     var i,
@@ -2219,19 +2219,19 @@ function cardSlider() {
       });
     } }), _.each({ scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function (e, t) {
     var n = "pageYOffset" === t;_.fn[e] = function (i) {
-      return R(this, function (e, i, o) {
+      return W(this, function (e, i, o) {
         var r;if (g(e) ? r = e : 9 === e.nodeType && (r = e.defaultView), void 0 === o) return r ? r[t] : e[i];r ? r.scrollTo(n ? r.pageXOffset : o, n ? o : r.pageYOffset) : e[i] = o;
       }, e, i, arguments.length);
     };
   }), _.each(["top", "left"], function (e, t) {
-    _.cssHooks[t] = We(p.pixelPosition, function (e, n) {
+    _.cssHooks[t] = Be(p.pixelPosition, function (e, n) {
       if (n) return n = qe(e, t), He.test(n) ? _(e).position()[t] + "px" : n;
     });
   }), _.each({ Height: "height", Width: "width" }, function (e, t) {
     _.each({ padding: "inner" + e, content: t, "": "outer" + e }, function (n, i) {
       _.fn[i] = function (o, r) {
         var s = arguments.length && (n || "boolean" != typeof o),
-            a = n || (!0 === o || !0 === r ? "margin" : "border");return R(this, function (t, n, o) {
+            a = n || (!0 === o || !0 === r ? "margin" : "border");return W(this, function (t, n, o) {
           var r;return g(t) ? 0 === i.indexOf("outer") ? t["inner" + e] : t.document.documentElement["client" + e] : 9 === t.nodeType ? (r = t.documentElement, Math.max(t.body["scroll" + e], r["scroll" + e], t.body["offset" + e], r["offset" + e], r["client" + e])) : void 0 === o ? _.css(t, n, a) : _.style(t, n, o, a);
         }, t, s ? o : void 0, s);
       };
@@ -2431,7 +2431,7 @@ function cardSlider() {
     var t = { left: "right", right: "left", bottom: "top", top: "bottom" };return e.replace(/left|right|bottom|top/g, function (e) {
       return t[e];
     });
-  }function L(e, t, n) {
+  }function P(e, t, n) {
     n = n.split("-")[0];var i = I(e),
         o = { width: i.width, height: i.height },
         r = -1 !== ["right", "left"].indexOf(n),
@@ -2439,13 +2439,13 @@ function cardSlider() {
         a = r ? "left" : "top",
         l = r ? "height" : "width",
         c = r ? "width" : "height";return o[s] = t[s] + t[l] / 2 - i[l] / 2, o[a] = n === a ? t[a] - i[c] : t[N(a)], o;
-  }function O(e, t) {
+  }function L(e, t) {
     return Array.prototype.find ? e.find(t) : e.filter(t)[0];
-  }function P(e, t, n) {
+  }function O(e, t, n) {
     return (void 0 === n ? e : e.slice(0, function (e, t, n) {
       if (Array.prototype.findIndex) return e.findIndex(function (e) {
         return e[t] === n;
-      });var i = O(e, function (e) {
+      });var i = L(e, function (e) {
         return e[t] === n;
       });return e.indexOf(i);
     }(e, "name", n))).forEach(function (e) {
@@ -2473,12 +2473,12 @@ function cardSlider() {
     }), t.updateBound = null, t.scrollParents = [], t.scrollElement = null, t.eventsEnabled = !1, t));
   }function q(e) {
     return "" !== e && !isNaN(parseFloat(e)) && isFinite(e);
-  }function W(e, t) {
+  }function B(e, t) {
     Object.keys(t).forEach(function (n) {
       var i = "";-1 !== ["width", "height", "top", "right", "bottom", "left"].indexOf(n) && q(t[n]) && (i = "px"), e.style[n] = t[n] + i;
     });
-  }function R(e, t, n) {
-    var i = O(e, function (e) {
+  }function W(e, t, n) {
+    var i = L(e, function (e) {
       return e.name === t;
     }),
         o = !!i && e.some(function (e) {
@@ -2487,8 +2487,8 @@ function cardSlider() {
       var r = "`" + t + "`",
           s = "`" + n + "`";console.warn(s + " modifier is required by " + r + " modifier in order to work, be sure to include it before " + r + "!");
     }return o;
-  }var B = ["auto-start", "auto", "auto-end", "top-start", "top", "top-end", "right-start", "right", "right-end", "bottom-end", "bottom", "bottom-start", "left-end", "left", "left-start"],
-      U = B.slice(3);function $(e) {
+  }var R = ["auto-start", "auto", "auto-end", "top-start", "top", "top-end", "right-start", "right", "right-end", "bottom-end", "bottom", "bottom-start", "left-end", "left", "left-start"],
+      U = R.slice(3);function $(e) {
     var t = arguments.length > 1 && void 0 !== arguments[1] && arguments[1],
         n = U.indexOf(e),
         i = U.slice(n + 1).concat(U.slice(0, n));return t ? i.reverse() : i;
@@ -2498,7 +2498,7 @@ function cardSlider() {
         s = e.split(/(\+|\-)/).map(function (e) {
       return e.trim();
     }),
-        a = s.indexOf(O(s, function (e) {
+        a = s.indexOf(L(s, function (e) {
       return -1 !== e.search(/,|\s/);
     }));s[a] && -1 === s[a].indexOf(",") && console.warn("Offsets separated by white space(s) are deprecated, use a comma (,) instead.");var l = /\s*,\s*|\s+/,
         c = -1 !== a ? [s.slice(0, a).concat([s[a].split(l)[0]]), [s[a].split(l)[1]].concat(s.slice(a + 1))] : [s];return (c = c.map(function (e, i) {
@@ -2567,7 +2567,7 @@ function cardSlider() {
               l = s ? "left" : "top",
               c = s ? "width" : "height";return n[a] < r(i[l]) && (e.offsets.popper[l] = r(i[l]) - n[c]), n[l] > r(i[a]) && (e.offsets.popper[l] = r(i[a])), e;
         } }, arrow: { order: 500, enabled: !0, fn: function fn(e, t) {
-          var n;if (!R(e.instance.modifiers, "arrow", "keepTogether")) return e;var i = t.element;if ("string" == typeof i) {
+          var n;if (!W(e.instance.modifiers, "arrow", "keepTogether")) return e;var i = t.element;if ("string" == typeof i) {
             if (!(i = e.instance.popper.querySelector(i))) return e;
           } else if (!e.instance.popper.contains(i)) return console.warn("WARNING: `arrow.element` must be child of its popper element!"), e;var o = e.placement.split("-")[0],
               r = e.offsets,
@@ -2606,7 +2606,7 @@ function cardSlider() {
                 y = -1 !== ["top", "bottom"].indexOf(i),
                 b = !!t.flipVariations && (y && "start" === r && f || y && "end" === r && p || !y && "start" === r && m || !y && "end" === r && g);(h || v || b) && (e.flipped = !0, (h || v) && (i = s[l + 1]), b && (r = function (e) {
               return "end" === e ? "start" : "start" === e ? "end" : e;
-            }(r)), e.placement = i + (r ? "-" + r : ""), e.offsets.popper = E({}, e.offsets.popper, L(e.instance.popper, e.offsets.reference, e.placement)), e = P(e.instance.modifiers, e, "flip"));
+            }(r)), e.placement = i + (r ? "-" + r : ""), e.offsets.popper = E({}, e.offsets.popper, P(e.instance.popper, e.offsets.reference, e.placement)), e = O(e.instance.modifiers, e, "flip"));
           }), e;
         }, behavior: "flip", padding: 5, boundariesElement: "viewport" }, inner: { order: 700, enabled: !1, fn: function fn(e) {
           var t = e.placement,
@@ -2617,8 +2617,8 @@ function cardSlider() {
               s = -1 !== ["left", "right"].indexOf(n),
               a = -1 === ["top", "left"].indexOf(n);return o[s ? "left" : "top"] = r[n] - (a ? o[s ? "width" : "height"] : 0), e.placement = N(t), e.offsets.popper = C(o), e;
         } }, hide: { order: 800, enabled: !0, fn: function fn(e) {
-          if (!R(e.instance.modifiers, "hide", "preventOverflow")) return e;var t = e.offsets.reference,
-              n = O(e.instance.modifiers, function (e) {
+          if (!W(e.instance.modifiers, "hide", "preventOverflow")) return e;var t = e.offsets.reference,
+              n = L(e.instance.modifiers, function (e) {
             return "preventOverflow" === e.name;
           }).boundaries;if (t.bottom < n.top || t.left > n.right || t.top > n.bottom || t.right < n.left) {
             if (!0 === e.hide) return e;e.hide = !0, e.attributes["x-out-of-boundaries"] = "";
@@ -2629,7 +2629,7 @@ function cardSlider() {
           var n = t.x,
               i = t.y,
               o = e.offsets.popper,
-              r = O(e.instance.modifiers, function (e) {
+              r = L(e.instance.modifiers, function (e) {
             return "applyStyle" === e.name;
           }).gpuAcceleration;void 0 !== r && console.warn("WARNING: `gpuAcceleration` option moved to `computeStyle` modifier and will not be supported in future versions of Popper.js!");var s = void 0 !== r ? r : t.gpuAcceleration,
               a = x(h(e.instance.popper)),
@@ -2644,12 +2644,12 @@ function cardSlider() {
                 v = "right" === d ? -1 : 1;l[u] = m * g, l[d] = p * v, l.willChange = u + ", " + d;
           }var y = { "x-placement": e.placement };return e.attributes = E({}, y, e.attributes), e.styles = E({}, l, e.styles), e.arrowStyles = E({}, e.offsets.arrow, e.arrowStyles), e;
         }, gpuAcceleration: !0, x: "bottom", y: "right" }, applyStyle: { order: 900, enabled: !0, fn: function fn(e) {
-          var t, n;return W(e.instance.popper, e.styles), t = e.instance.popper, n = e.attributes, Object.keys(n).forEach(function (e) {
+          var t, n;return B(e.instance.popper, e.styles), t = e.instance.popper, n = e.attributes, Object.keys(n).forEach(function (e) {
             !1 !== n[e] ? t.setAttribute(e, n[e]) : t.removeAttribute(e);
-          }), e.arrowElement && Object.keys(e.arrowStyles).length && W(e.arrowElement, e.arrowStyles), e;
+          }), e.arrowElement && Object.keys(e.arrowStyles).length && B(e.arrowElement, e.arrowStyles), e;
         }, onLoad: function onLoad(e, t, n, i, o) {
           var r = A(o, t, e, n.positionFixed),
-              s = k(n.placement, r, t, e, n.modifiers.flip.boundariesElement, n.modifiers.flip.padding);return t.setAttribute("x-placement", s), W(t, { position: n.positionFixed ? "fixed" : "absolute" }), n;
+              s = k(n.placement, r, t, e, n.modifiers.flip.boundariesElement, n.modifiers.flip.padding);return t.setAttribute("x-placement", s), B(t, { position: n.positionFixed ? "fixed" : "absolute" }), n;
         }, gpuAcceleration: void 0 } } },
       Y = function () {
     function e(t, n) {
@@ -2668,7 +2668,7 @@ function cardSlider() {
     }return _(e, [{ key: "update", value: function value() {
         return function () {
           if (!this.state.isDestroyed) {
-            var e = { instance: this, styles: {}, arrowStyles: {}, attributes: {}, flipped: !1, offsets: {} };e.offsets.reference = A(this.state, this.popper, this.reference, this.options.positionFixed), e.placement = k(this.options.placement, e.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding), e.originalPlacement = e.placement, e.positionFixed = this.options.positionFixed, e.offsets.popper = L(this.popper, e.offsets.reference, e.placement), e.offsets.popper.position = this.options.positionFixed ? "fixed" : "absolute", e = P(this.modifiers, e), this.state.isCreated ? this.options.onUpdate(e) : (this.state.isCreated = !0, this.options.onCreate(e));
+            var e = { instance: this, styles: {}, arrowStyles: {}, attributes: {}, flipped: !1, offsets: {} };e.offsets.reference = A(this.state, this.popper, this.reference, this.options.positionFixed), e.placement = k(this.options.placement, e.offsets.reference, this.popper, this.reference, this.options.modifiers.flip.boundariesElement, this.options.modifiers.flip.padding), e.originalPlacement = e.placement, e.positionFixed = this.options.positionFixed, e.offsets.popper = P(this.popper, e.offsets.reference, e.placement), e.offsets.popper.position = this.options.positionFixed ? "fixed" : "absolute", e = O(this.modifiers, e), this.state.isCreated ? this.options.onUpdate(e) : (this.state.isCreated = !0, this.options.onCreate(e));
           }
         }.call(this);
       } }, { key: "destroy", value: function value() {
@@ -2682,7 +2682,7 @@ function cardSlider() {
       } }, { key: "disableEventListeners", value: function value() {
         return z.call(this);
       } }]), e;
-  }();return Y.Utils = ("undefined" != typeof window ? window : global).PopperUtils, Y.placements = B, Y.Defaults = Q, Y;
+  }();return Y.Utils = ("undefined" != typeof window ? window : global).PopperUtils, Y.placements = R, Y.Defaults = Q, Y;
 }), function (e, t) {
   "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) && "undefined" != typeof module ? t(exports, require("jquery"), require("popper.js")) : "function" == typeof define && define.amd ? define(["exports", "jquery", "popper.js"], t) : t(e.bootstrap = {}, e.jQuery, e.Popper);
 }(this, function (e, t, n) {
@@ -4794,7 +4794,98 @@ function cardSlider() {
       });
     }
   }, t;
+}), function (e, t) {
+  "use strict";
+  "function" == typeof define && define.amd ? define([], t) : "object" == (typeof exports === "undefined" ? "undefined" : _typeof(exports)) ? module.exports = t() : e.Headroom = t();
+}(this, function () {
+  "use strict";
+  var e = { bind: !!function () {}.bind, classList: "classList" in document.documentElement, rAF: !!(window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame) };function t(e) {
+    this.callback = e, this.ticking = !1;
+  }function n(e, t) {
+    var i;t = function e(t) {
+      if (arguments.length <= 0) throw new Error("Missing arguments in extend function");var n,
+          i,
+          o,
+          r = t || {};for (i = 1; i < arguments.length; i++) {
+        var s = arguments[i] || {};for (n in s) {
+          "object" != _typeof(r[n]) || (o = r[n]) && "undefined" != typeof window && (o === window || o.nodeType) ? r[n] = r[n] || s[n] : r[n] = e(r[n], s[n]);
+        }
+      }return r;
+    }(t, n.options), this.lastKnownScrollY = 0, this.elem = e, this.tolerance = (i = t.tolerance) === Object(i) ? i : { down: i, up: i }, this.classes = t.classes, this.offset = t.offset, this.scroller = t.scroller, this.initialised = !1, this.onPin = t.onPin, this.onUnpin = t.onUnpin, this.onTop = t.onTop, this.onNotTop = t.onNotTop, this.onBottom = t.onBottom, this.onNotBottom = t.onNotBottom;
+  }return window.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame, t.prototype = { constructor: t, update: function update() {
+      this.callback && this.callback(), this.ticking = !1;
+    }, requestTick: function requestTick() {
+      this.ticking || (requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this))), this.ticking = !0);
+    }, handleEvent: function handleEvent() {
+      this.requestTick();
+    } }, n.prototype = { constructor: n, init: function init() {
+      if (n.cutsTheMustard) return this.debouncer = new t(this.update.bind(this)), this.elem.classList.add(this.classes.initial), setTimeout(this.attachEvent.bind(this), 100), this;
+    }, destroy: function destroy() {
+      var e = this.classes;for (var t in this.initialised = !1, e) {
+        e.hasOwnProperty(t) && this.elem.classList.remove(e[t]);
+      }this.scroller.removeEventListener("scroll", this.debouncer, !1);
+    }, attachEvent: function attachEvent() {
+      this.initialised || (this.lastKnownScrollY = this.getScrollY(), this.initialised = !0, this.scroller.addEventListener("scroll", this.debouncer, !1), this.debouncer.handleEvent());
+    }, unpin: function unpin() {
+      var e = this.elem.classList,
+          t = this.classes;!e.contains(t.pinned) && e.contains(t.unpinned) || (e.add(t.unpinned), e.remove(t.pinned), this.onUnpin && this.onUnpin.call(this));
+    }, pin: function pin() {
+      var e = this.elem.classList,
+          t = this.classes;e.contains(t.unpinned) && (e.remove(t.unpinned), e.add(t.pinned), this.onPin && this.onPin.call(this));
+    }, top: function top() {
+      var e = this.elem.classList,
+          t = this.classes;e.contains(t.top) || (e.add(t.top), e.remove(t.notTop), this.onTop && this.onTop.call(this));
+    }, notTop: function notTop() {
+      var e = this.elem.classList,
+          t = this.classes;e.contains(t.notTop) || (e.add(t.notTop), e.remove(t.top), this.onNotTop && this.onNotTop.call(this));
+    }, bottom: function bottom() {
+      var e = this.elem.classList,
+          t = this.classes;e.contains(t.bottom) || (e.add(t.bottom), e.remove(t.notBottom), this.onBottom && this.onBottom.call(this));
+    }, notBottom: function notBottom() {
+      var e = this.elem.classList,
+          t = this.classes;e.contains(t.notBottom) || (e.add(t.notBottom), e.remove(t.bottom), this.onNotBottom && this.onNotBottom.call(this));
+    }, getScrollY: function getScrollY() {
+      return void 0 !== this.scroller.pageYOffset ? this.scroller.pageYOffset : void 0 !== this.scroller.scrollTop ? this.scroller.scrollTop : (document.documentElement || document.body.parentNode || document.body).scrollTop;
+    }, getViewportHeight: function getViewportHeight() {
+      return window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    }, getElementPhysicalHeight: function getElementPhysicalHeight(e) {
+      return Math.max(e.offsetHeight, e.clientHeight);
+    }, getScrollerPhysicalHeight: function getScrollerPhysicalHeight() {
+      return this.scroller === window || this.scroller === document.body ? this.getViewportHeight() : this.getElementPhysicalHeight(this.scroller);
+    }, getDocumentHeight: function getDocumentHeight() {
+      var e = document.body,
+          t = document.documentElement;return Math.max(e.scrollHeight, t.scrollHeight, e.offsetHeight, t.offsetHeight, e.clientHeight, t.clientHeight);
+    }, getElementHeight: function getElementHeight(e) {
+      return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight);
+    }, getScrollerHeight: function getScrollerHeight() {
+      return this.scroller === window || this.scroller === document.body ? this.getDocumentHeight() : this.getElementHeight(this.scroller);
+    }, isOutOfBounds: function isOutOfBounds(e) {
+      var t = e < 0,
+          n = e + this.getScrollerPhysicalHeight() > this.getScrollerHeight();return t || n;
+    }, toleranceExceeded: function toleranceExceeded(e, t) {
+      return Math.abs(e - this.lastKnownScrollY) >= this.tolerance[t];
+    }, shouldUnpin: function shouldUnpin(e, t) {
+      var n = e > this.lastKnownScrollY,
+          i = e >= this.offset;return n && i && t;
+    }, shouldPin: function shouldPin(e, t) {
+      var n = e < this.lastKnownScrollY,
+          i = e <= this.offset;return n && t || i;
+    }, update: function update() {
+      var e = this.getScrollY(),
+          t = e > this.lastKnownScrollY ? "down" : "up",
+          n = this.toleranceExceeded(e, t);this.isOutOfBounds(e) || (e <= this.offset ? this.top() : this.notTop(), e + this.getViewportHeight() >= this.getScrollerHeight() ? this.bottom() : this.notBottom(), this.shouldUnpin(e, n) ? this.unpin() : this.shouldPin(e, n) && this.pin(), this.lastKnownScrollY = e);
+    } }, n.options = { tolerance: { up: 0, down: 0 }, offset: 0, scroller: window, classes: { pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", bottom: "headroom--bottom", notBottom: "headroom--not-bottom", initial: "headroom" } }, n.cutsTheMustard = void 0 !== e && e.rAF && e.bind && e.classList, n;
 }), function (e) {
+  e && (e.fn.headroom = function (t) {
+    return this.each(function () {
+      var n = e(this),
+          i = n.data("headroom"),
+          o = "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t;o = e.extend(!0, {}, Headroom.options, o), i || ((i = new Headroom(this, o)).init(), n.data("headroom", i)), "string" == typeof t && (i[t](), "destroy" === t && n.removeData("headroom"));
+    });
+  }, e("[data-headroom]").each(function () {
+    var t = e(this);t.headroom(t.data());
+  }));
+}(window.Zepto || window.jQuery), function (e) {
   "use strict";
   "function" == typeof define && define.amd ? define(["jquery"], e) : "undefined" != typeof module && module.exports ? module.exports = e(require("jquery")) : e(jQuery);
 }(function (e) {
@@ -5210,89 +5301,7 @@ function cardSlider() {
   }(), e("html[development]").length && (i(), e(window).resize(function () {
     i();
   }));
-}(jQuery), function (e, t) {
-  "use strict";
-  var n = { bind: !!function () {}.bind, classList: "classList" in t.documentElement, rAF: !!(e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame) };function i(e) {
-    this.callback = e, this.ticking = !1;
-  }function o(t, n) {
-    var r;n = function t(n) {
-      if (arguments.length <= 0) throw new Error("Missing arguments in extend function");var i,
-          o,
-          r,
-          s = n || {};for (o = 1; o < arguments.length; o++) {
-        var a = arguments[o] || {};for (i in a) {
-          "object" != _typeof(s[i]) || (r = s[i]) && void 0 !== e && (r === e || r.nodeType) ? s[i] = s[i] || a[i] : s[i] = t(s[i], a[i]);
-        }
-      }return s;
-    }(n, o.options), this.lastKnownScrollY = 0, this.elem = t, this.debouncer = new i(this.update.bind(this)), this.tolerance = (r = n.tolerance) === Object(r) ? r : { down: r, up: r }, this.classes = n.classes, this.offset = n.offset, this.scroller = n.scroller, this.initialised = !1, this.onPin = n.onPin, this.onUnpin = n.onUnpin, this.onTop = n.onTop, this.onNotTop = n.onNotTop;
-  }e.requestAnimationFrame = e.requestAnimationFrame || e.webkitRequestAnimationFrame || e.mozRequestAnimationFrame, i.prototype = { constructor: i, update: function update() {
-      this.callback && this.callback(), this.ticking = !1;
-    }, requestTick: function requestTick() {
-      this.ticking || (requestAnimationFrame(this.rafCallback || (this.rafCallback = this.update.bind(this))), this.ticking = !0);
-    }, handleEvent: function handleEvent() {
-      this.requestTick();
-    } }, o.prototype = { constructor: o, init: function init() {
-      if (o.cutsTheMustard) return this.elem.classList.add(this.classes.initial), setTimeout(this.attachEvent.bind(this), 100), this;
-    }, destroy: function destroy() {
-      var e = this.classes;this.initialised = !1, this.elem.classList.remove(e.unpinned, e.pinned, e.top, e.initial), this.scroller.removeEventListener("scroll", this.debouncer, !1);
-    }, attachEvent: function attachEvent() {
-      this.initialised || (this.lastKnownScrollY = this.getScrollY(), this.initialised = !0, this.scroller.addEventListener("scroll", this.debouncer, !1), this.debouncer.handleEvent());
-    }, unpin: function unpin() {
-      var e = this.elem.classList,
-          t = this.classes;!e.contains(t.pinned) && e.contains(t.unpinned) || (e.add(t.unpinned), e.remove(t.pinned), this.onUnpin && this.onUnpin.call(this));
-    }, pin: function pin() {
-      var e = this.elem.classList,
-          t = this.classes;e.contains(t.unpinned) && (e.remove(t.unpinned), e.add(t.pinned), this.onPin && this.onPin.call(this));
-    }, top: function top() {
-      var e = this.elem.classList,
-          t = this.classes;e.contains(t.top) || (e.add(t.top), e.remove(t.notTop), this.onTop && this.onTop.call(this));
-    }, notTop: function notTop() {
-      var e = this.elem.classList,
-          t = this.classes;e.contains(t.notTop) || (e.add(t.notTop), e.remove(t.top), this.onNotTop && this.onNotTop.call(this));
-    }, getScrollY: function getScrollY() {
-      return void 0 !== this.scroller.pageYOffset ? this.scroller.pageYOffset : void 0 !== this.scroller.scrollTop ? this.scroller.scrollTop : (t.documentElement || t.body.parentNode || t.body).scrollTop;
-    }, getViewportHeight: function getViewportHeight() {
-      return e.innerHeight || t.documentElement.clientHeight || t.body.clientHeight;
-    }, getDocumentHeight: function getDocumentHeight() {
-      var e = t.body,
-          n = t.documentElement;return Math.max(e.scrollHeight, n.scrollHeight, e.offsetHeight, n.offsetHeight, e.clientHeight, n.clientHeight);
-    }, getElementHeight: function getElementHeight(e) {
-      return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight);
-    }, getScrollerHeight: function getScrollerHeight() {
-      return this.scroller === e || this.scroller === t.body ? this.getDocumentHeight() : this.getElementHeight(this.scroller);
-    }, isOutOfBounds: function isOutOfBounds(e) {
-      var t = e < 0,
-          n = e + this.getViewportHeight() > this.getScrollerHeight();return t || n;
-    }, toleranceExceeded: function toleranceExceeded(e, t) {
-      return Math.abs(e - this.lastKnownScrollY) >= this.tolerance[t];
-    }, shouldUnpin: function shouldUnpin(e, t) {
-      var n = e > this.lastKnownScrollY,
-          i = e >= this.offset;return n && i && t;
-    }, shouldPin: function shouldPin(e, t) {
-      var n = e < this.lastKnownScrollY,
-          i = e <= this.offset;return n && t || i;
-    }, update: function update() {
-      var e = this.getScrollY(),
-          t = e > this.lastKnownScrollY ? "down" : "up",
-          n = this.toleranceExceeded(e, t);this.isOutOfBounds(e) || (e <= this.offset ? this.top() : this.notTop(), this.shouldUnpin(e, n) ? this.unpin() : this.shouldPin(e, n) && this.pin(), this.lastKnownScrollY = e);
-    } }, o.options = { tolerance: { up: 0, down: 0 }, offset: 0, scroller: e, classes: { pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", initial: "headroom" } }, o.cutsTheMustard = void 0 !== n && n.rAF && n.bind && n.classList, e.Headroom = o;
-}(window, document), function (e) {
-  e && (e.fn.headroom = function (t) {
-    return this.each(function () {
-      var n = e(this),
-          i = n.data("headroom"),
-          o = "object" == (typeof t === "undefined" ? "undefined" : _typeof(t)) && t;o = e.extend(!0, {}, Headroom.options, o), i || ((i = new Headroom(this, o)).init(), n.data("headroom", i)), "string" == typeof t && i[t]();
-    });
-  }, e("[data-headroom]").each(function () {
-    var t = e(this);t.headroom(t.data());
-  }));
-}(window.Zepto || window.jQuery), cardSlider(), launchGallery(), launchSlider(), $("[data-search-trigger]").click(function (e) {
-  var t = $("[data-search]");return t.removeClass("is-hidden"), $(document).on("scroll", function () {
-    t.addClass("is-hidden"), document.activeElement.blur();
-  }), !1;
-}), $("[data-search] .close").on("click", function () {
-  $("[data-search]").addClass("is-hidden"), document.activeElement.blur();
-}), function (e) {
+}(jQuery), cardSlider(), launchGallery(), launchSlider(), function (e) {
   "use strict";
   var t = e("html"),
       n = e(".lv-off-canvas .dropdown"),
@@ -5312,7 +5321,13 @@ function cardSlider() {
   }), n.click(function (t) {
     e(this).removeClass("is-open"), t.stopPropagation();
   }), e(".lv-off-canvas .has-dropdown > a").append(s);
-}(jQuery), $(window).on("load", function () {
+}(jQuery), $("[data-search-trigger]").click(function (e) {
+  var t = $("[data-search]");return t.removeClass("is-hidden"), $(document).on("scroll", function () {
+    t.addClass("is-hidden"), document.activeElement.blur();
+  }), !1;
+}), $("[data-search] .close").on("click", function () {
+  $("[data-search]").addClass("is-hidden"), document.activeElement.blur();
+}), $(window).on("load", function () {
   $("html").addClass("has-loaded");
 }), $(function () {
   $('[data-toggle="tooltip"]').tooltip();
@@ -5326,4 +5341,4 @@ function cardSlider() {
       t = $(e);$(".fa-angle-down").toggleClass("is-active"), setTimeout(function () {
     $.scrollTo(t.offset().top, 300);
   }, 300);
-}), $(".global-header").headroom((_$$headroom = { offset: 60, tolerance: 0 }, _defineProperty(_$$headroom, "tolerance", { up: 5, down: 0 }), _defineProperty(_$$headroom, "classes", { initial: "headroom", pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", bottom: "headroom--bottom", notBottom: "headroom--not-bottom" }), _defineProperty(_$$headroom, "onPin", function onPin() {}), _defineProperty(_$$headroom, "onUnpin", function onUnpin() {}), _defineProperty(_$$headroom, "onTop", function onTop() {}), _defineProperty(_$$headroom, "onNotTop", function onNotTop() {}), _defineProperty(_$$headroom, "onBottom", function onBottom() {}), _defineProperty(_$$headroom, "onNotBottom", function onNotBottom() {}), _$$headroom));
+}), $(".global-header, .btn-back-top").headroom((_$$headroom = { offset: 60, tolerance: 0 }, _defineProperty(_$$headroom, "tolerance", { up: 5, down: 0 }), _defineProperty(_$$headroom, "classes", { initial: "headroom", pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", bottom: "headroom--bottom", notBottom: "headroom--not-bottom" }), _defineProperty(_$$headroom, "onPin", function onPin() {}), _defineProperty(_$$headroom, "onUnpin", function onUnpin() {}), _defineProperty(_$$headroom, "onTop", function onTop() {}), _defineProperty(_$$headroom, "onNotTop", function onNotTop() {}), _defineProperty(_$$headroom, "onBottom", function onBottom() {}), _defineProperty(_$$headroom, "onNotBottom", function onNotBottom() {}), _$$headroom));
