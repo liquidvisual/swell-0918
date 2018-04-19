@@ -35,7 +35,7 @@
     <div class="lv-page">
 
         <!-- HEADER -->
-        <header class="global-header is-tintedX">
+        <header class="global-header">
 
             <!-- HEADER TOP -->
             <div class="global-header-top hidden-md-down">
@@ -111,7 +111,7 @@
                             <ul>
 
                                 <!-- PHONE NUMBER (OPTIONAL) -->
-                                <li class="hide-for-topbar pt-2">
+                                <li class="is-off-canvas-only pt-2">
                                     <p class="text-center">
                                         <a class="h4 font-weight-normal" href="tel:(05) 555 555">
                                             <i class="fa fa-phone"></i> (05) 555 555</a>
@@ -187,7 +187,7 @@
                                     </li>
 
                                 <!-- SOCIAL MEDIA (OPTIONAL) -->
-                                <li class="hide-for-topbar pt-2">
+                                <li class="is-off-canvas-only pt-2">
 
                                     <!-- SOCIAL MEDIA -->
                                     <div class="social-media">
@@ -285,7 +285,7 @@
                                 </li>
 
                                 <!-- SEARCH (OPTIONAL) -->
-                                <li class="hide-for-topbar">
+                                <li class="is-off-canvas-only">
 
                                     <!-- GLOBAL SEARCH -->
                                     <div class="global-search is-hidden" data-search>
@@ -337,13 +337,213 @@
         <!-- BODY -->
         <main class="main-body">
 
-            <!-- SITEMAP -->
+            <!-- SITE MAP -->
             <section class="section">
                 <div class="container">
-                    <h3 class="text-center my-5">Coming shortly</h3>
+                    <nav class="lv-site-map">
+                        <ul>
 
-                    <!-- { % include components/navigation/navigation.html %} -->
-                    </div>
+                            <!-- PHONE NUMBER (OPTIONAL) -->
+                            <li class="is-off-canvas-only pt-2">
+                                <p class="text-center">
+                                    <a class="h4 font-weight-normal" href="tel:(05) 555 555">
+                                        <i class="fa fa-phone"></i> (05) 555 555</a>
+                                </p>
+                            </li>
+                            <li class="">
+
+                                <!-- TOP LEVEL -->
+                                <a class="top-parent-anchor" href="/">
+                                    <span class="text">Home</span>
+                                </a>
+
+                                <!-- SECOND LEVEL -->
+                                </li>
+                            <li class="">
+
+                                <!-- TOP LEVEL -->
+                                <a class="top-parent-anchor" href="/kitchen-sink/">
+                                    <span class="text">Kitchen Sink</span>
+                                </a>
+
+                                <!-- SECOND LEVEL -->
+                                </li>
+                            <li class="">
+
+                                <!-- TOP LEVEL -->
+                                <a class="top-parent-anchor" href="/standard-page/">
+                                    <span class="text">Standard Page</span>
+                                </a>
+
+                                <!-- SECOND LEVEL -->
+                                </li>
+                            <li class="has-dropdown">
+
+                                <!-- TOP LEVEL -->
+                                <a class="top-parent-anchor" href="/advanced-page/">
+                                    <span class="text">Advanced Page</span>
+                                </a>
+
+                                <!-- SECOND LEVEL -->
+                                <ul class="dropdown is-nav-included" data-parent="Advanced Page">
+                                    <li class="">
+                                        <a href="/404/">
+                                            <span class="text">Item</span>
+                                        </a>
+
+                                        <!-- THIRD LEVEL -->
+                                        </li>
+                                    <li class="">
+                                        <a href="/404/">
+                                            <span class="text">Item</span>
+                                        </a>
+
+                                        <!-- THIRD LEVEL -->
+                                        </li>
+                                    <li class="">
+                                        <a href="/404/">
+                                            <span class="text">Item</span>
+                                        </a>
+
+                                        <!-- THIRD LEVEL -->
+                                        </li>
+                                </ul>
+                            </li>
+                            <li class="">
+
+                                <!-- TOP LEVEL -->
+                                <a class="top-parent-anchor" href="/contact/">
+                                    <span class="text">Contact</span>
+                                </a>
+
+                                <!-- SECOND LEVEL -->
+                                </li>
+
+                            <!-- SOCIAL MEDIA (OPTIONAL) -->
+                            <li class="is-off-canvas-only pt-2">
+
+                                <!-- SOCIAL MEDIA -->
+                                <div class="social-media">
+                                    <a title="Behance" href="#" target="_blank" class="behance">
+                                        <div class="icon">
+                                            <i class="fa fa-behance"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Codepen" href="#" target="_blank" class="codepen">
+                                        <div class="icon">
+                                            <i class="fa fa-codepen"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Dribbble" href="#" target="_blank" class="dribbble">
+                                        <div class="icon">
+                                            <i class="fa fa-dribbble"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Facebook" href="#" target="_blank" class="facebook">
+                                        <div class="icon">
+                                            <i class="fa fa-facebook"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Flickr" href="#" target="_blank" class="flickr">
+                                        <div class="icon">
+                                            <i class="fa fa-flickr"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Github" href="#" target="_blank" class="github">
+                                        <div class="icon">
+                                            <i class="fa fa-github"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Google Plus" href="#" target="_blank" class="google-plus">
+                                        <div class="icon">
+                                            <i class="fa fa-google-plus"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Instagram" href="#" target="_blank" class="instagram">
+                                        <div class="icon">
+                                            <i class="fa fa-instagram"></i>
+                                        </div>
+                                    </a>
+                                    <a title="LinkedIn" href="#" target="_blank" class="linkedin">
+                                        <div class="icon">
+                                            <i class="fa fa-linkedin"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Pinterest" href="#" target="_blank" class="pinterest">
+                                        <div class="icon">
+                                            <i class="fa fa-pinterest"></i>
+                                        </div>
+                                    </a>
+                                    <a title="RSS" href="#" target="_blank" class="rss">
+                                        <div class="icon">
+                                            <i class="fa fa-rss"></i>
+                                        </div>
+                                    </a>
+                                    <a title="SnapChat" href="#" target="_blank" class="snapchat">
+                                        <div class="icon">
+                                            <i class="fa fa-snapchat"></i>
+                                        </div>
+                                    </a>
+                                    <a title="SoundCloud" href="#" target="_blank" class="soundcloud">
+                                        <div class="icon">
+                                            <i class="fa fa-soundcloud"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Slack" href="#" target="_blank" class="slack">
+                                        <div class="icon">
+                                            <i class="fa fa-slack"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Tumblr" href="#" target="_blank" class="tumblr">
+                                        <div class="icon">
+                                            <i class="fa fa-tumblr"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Twitter" href="#" target="_blank" class="twitter">
+                                        <div class="icon">
+                                            <i class="fa fa-twitter"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Youtube" href="#" target="_blank" class="youtube">
+                                        <div class="icon">
+                                            <i class="fa fa-youtube-play"></i>
+                                        </div>
+                                    </a>
+                                    <a title="Vimeo" href="#" target="_blank" class="vimeo">
+                                        <div class="icon">
+                                            <i class="fa fa-vimeo"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <!-- SEARCH (OPTIONAL) -->
+                            <li class="is-off-canvas-only">
+
+                                <!-- GLOBAL SEARCH -->
+                                <div class="global-search is-hidden" data-search>
+                                    <div class="container text-right">
+                                        <div class="global-search-form-wrapper">
+                                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <form class="global-search-form" action="/search/" method="get" novalidate>
+                                                <div class="input-group">
+                                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </section>
         </main>
 
@@ -530,7 +730,7 @@
                                     document.write(new Date().getFullYear())
                                     </script>
                                 </date>
-                                <a href="/sitemap/">Site Map</a>
+                                <a href="/site-map/">Site Map</a>
 
                                 <!-- <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;<i class="fa fa-angle-down"></i></a> -->
                                 </small>
@@ -568,7 +768,7 @@
         <ul>
 
             <!-- PHONE NUMBER (OPTIONAL) -->
-            <li class="hide-for-topbar pt-2">
+            <li class="is-off-canvas-only pt-2">
                 <p class="text-center">
                     <a class="h4 font-weight-normal" href="tel:(05) 555 555">
                         <i class="fa fa-phone"></i> (05) 555 555</a>
@@ -644,7 +844,7 @@
                 </li>
 
             <!-- SOCIAL MEDIA (OPTIONAL) -->
-            <li class="hide-for-topbar pt-2">
+            <li class="is-off-canvas-only pt-2">
 
                 <!-- SOCIAL MEDIA -->
                 <div class="social-media">
@@ -742,7 +942,7 @@
             </li>
 
             <!-- SEARCH (OPTIONAL) -->
-            <li class="hide-for-topbar">
+            <li class="is-off-canvas-only">
 
                 <!-- GLOBAL SEARCH -->
                 <div class="global-search is-hidden" data-search>
