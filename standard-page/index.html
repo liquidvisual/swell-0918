@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Standard Page - Inspire</title>
-
-    <!-- { % include components/widgets/google_analytics.html %} -->
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -352,13 +350,13 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Hero Caption 1</h1>
+                                    <h1 class="display-1">Hero Component</h1>
 
                                     <!-- WYSIWYG -->
                                     <div class="wysiwyg">
-                                        <p class="lead">Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing</p>
+                                        <p class="lead">The .lv-hero supports various heights: .is-default, .is-medium, .is-full, .is-static. The hero include can toggle the Scroll Prompt via the template as well as caption alignment which is per hero (not per hero item). The hero-item supports: image, youtube id, .theme-[x] and .is-tinted</p>
                                         <p>
-                                            <a href="#" class="btn btn-outline-light">Read more</a>
+                                            <a href="{{ item.url }}" class="btn btn-outline-light">Read more</a>
                                         </p>
                                     </div>
                                 </div>
@@ -371,7 +369,7 @@
                         <i class="fa fa-angle-down"></i>
                     </a>
                 </div>
-                <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
+                <div class="lv-hero-item theme-posh is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
                     <div class="container">
                         <div class="row justify-content-left text-left">
                             <div class="col-md-10 col-xl-9">
@@ -380,24 +378,16 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Hero Caption 2</h1>
+                                    <h1 class="display-1"></h1>
 
                                     <!-- WYSIWYG -->
                                     <div class="wysiwyg">
                                         <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-outline-light">Read more</a>
-                                        </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- SCROLL PROMPT -->
-                    <a class="lv-hero-scroll-prompt hidden-lg-down">
-                        <i class="fa fa-angle-down"></i>
-                    </a>
                 </div>
                 <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                     <div class="container">
@@ -408,24 +398,16 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Hero Caption 3</h1>
+                                    <h1 class="display-1">Hero With YouTube Embedded Background</h1>
 
                                     <!-- WYSIWYG -->
                                     <div class="wysiwyg">
-                                        <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-outline-light">Read more</a>
-                                        </p>
+                                        <p class="lead">Although you can embed video across multiple slides, we recommended you only use one for performance reasons.</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- SCROLL PROMPT -->
-                    <a class="lv-hero-scroll-prompt hidden-lg-down">
-                        <i class="fa fa-angle-down"></i>
-                    </a>
 
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
@@ -463,24 +445,14 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Hero Caption 4</h1>
+                                    <h1 class="display-1">Hero With YouTube Embedded Background</h1>
 
                                     <!-- WYSIWYG -->
-                                    <div class="wysiwyg">
-                                        <p class="lead">Video</p>
-                                        <p>
-                                            <a href="#" class="btn btn-outline-light">Read more</a>
-                                        </p>
-                                    </div>
+                                    <div class="wysiwyg"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- SCROLL PROMPT -->
-                    <a class="lv-hero-scroll-prompt hidden-lg-down">
-                        <i class="fa fa-angle-down"></i>
-                    </a>
 
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
@@ -715,7 +687,7 @@
                             <!-- AUTHOR -->
                             <small>
                                 <a class="author-logo" target="_blank" href="http://enterprisewide.com.au">
-                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Ben Norman">
+                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Mitch">
                                     <span class="text">Powered by Enterprise Wide</span>
                                 </a>
                             </small>
@@ -952,9 +924,6 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="lv-alert-bar">
-        <p>Warning: Codebase is still violatile, updates coming soon</p>
     </div>
 
     <!--[if lte IE 9]>
