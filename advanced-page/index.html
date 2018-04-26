@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Advanced Page - Inspire</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -120,71 +121,104 @@
                                 <li class="">
 
                                     <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/">
-                                        <span class="text">Home</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/kitchen-sink/">
-                                        <span class="text">Kitchen Sink</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/standard-page/">
-                                        <span class="text">Standard Page</span>
+                                        <span class="text">Components</span>
                                     </a>
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="active has-dropdown">
+                                <li class="has-dropdown">
 
                                     <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/advanced-page/">
-                                        <span class="text">Advanced Page</span>
+                                    <a class="top-parent-anchor" href="/sections/">
+                                        <span class="text">Sections</span>
                                     </a>
 
                                     <!-- SECOND LEVEL -->
-                                    <ul class="dropdown is-nav-included" data-parent="Advanced Page">
+                                    <ul class="dropdown is-nav-included" data-parent="Sections">
                                         <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
+                                            <a href="/kitchen-sink/">
+                                                <span class="text">Kitchen Sink (old)</span>
                                             </a>
 
                                             <!-- THIRD LEVEL -->
                                             </li>
                                         <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                        <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Item</span>
+                                            <a href="/sections/">
+                                                <span class="text">Sections (wip)</span>
                                             </a>
 
                                             <!-- THIRD LEVEL -->
                                             </li>
                                     </ul>
                                 </li>
-                                <li class="">
+                                <li class="active has-dropdown is-mega is-right-aligned">
 
                                     <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/contact/">
-                                        <span class="text">Contact</span>
+                                    <a class="top-parent-anchor" href="/advanced-page/">
+                                        <span class="text">Pages</span>
                                     </a>
 
                                     <!-- SECOND LEVEL -->
-                                    </li>
+                                    <ul class="dropdown is-nav-included" data-parent="Pages">
+                                        <li class="">
+                                            <a href="/advanced-page/">
+                                                <span class="text">Advanced Page</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/standard-page/">
+                                                <span class="text">Standard Page</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/blog/">
+                                                <span class="text">Blog</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/blog/blog-item/">
+                                                <span class="text">Blog Post</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/contact/">
+                                                <span class="text">Contact</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">Search Results</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/site-map/">
+                                                <span class="text">Site Map</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">404</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                    </ul>
+                                </li>
 
                                 <!-- SOCIAL MEDIA (OPTIONAL) -->
                                 <li class="is-off-canvas-only pt-2">
@@ -496,19 +530,13 @@
                             <h4 class="mb-3">Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/">Home</a>
+                                    <a href="/standard-page/">Components</a>
                                 </li>
                                 <li>
-                                    <a href="/kitchen-sink/">Kitchen Sink</a>
+                                    <a href="/sections/">Sections</a>
                                 </li>
                                 <li>
-                                    <a href="/standard-page/">Standard Page</a>
-                                </li>
-                                <li>
-                                    <a href="/advanced-page/">Advanced Page</a>
-                                </li>
-                                <li>
-                                    <a href="/contact/">Contact</a>
+                                    <a href="/advanced-page/">Pages</a>
                                 </li>
                             </ul>
                         </div>
@@ -713,71 +741,104 @@
             <li class="">
 
                 <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/">
-                    <span class="text">Home</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/kitchen-sink/">
-                    <span class="text">Kitchen Sink</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/standard-page/">
-                    <span class="text">Standard Page</span>
+                    <span class="text">Components</span>
                 </a>
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="active has-dropdown">
+            <li class="has-dropdown">
 
                 <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/advanced-page/">
-                    <span class="text">Advanced Page</span>
+                <a class="top-parent-anchor" href="/sections/">
+                    <span class="text">Sections</span>
                 </a>
 
                 <!-- SECOND LEVEL -->
-                <ul class="dropdown is-nav-included" data-parent="Advanced Page">
+                <ul class="dropdown is-nav-included" data-parent="Sections">
                     <li class="">
-                        <a href="/404/">
-                            <span class="text">Item</span>
+                        <a href="/kitchen-sink/">
+                            <span class="text">Kitchen Sink (old)</span>
                         </a>
 
                         <!-- THIRD LEVEL -->
                         </li>
                     <li class="">
-                        <a href="/404/">
-                            <span class="text">Item</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Item</span>
+                        <a href="/sections/">
+                            <span class="text">Sections (wip)</span>
                         </a>
 
                         <!-- THIRD LEVEL -->
                         </li>
                 </ul>
             </li>
-            <li class="">
+            <li class="active has-dropdown is-mega is-right-aligned">
 
                 <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/contact/">
-                    <span class="text">Contact</span>
+                <a class="top-parent-anchor" href="/advanced-page/">
+                    <span class="text">Pages</span>
                 </a>
 
                 <!-- SECOND LEVEL -->
-                </li>
+                <ul class="dropdown is-nav-included" data-parent="Pages">
+                    <li class="">
+                        <a href="/advanced-page/">
+                            <span class="text">Advanced Page</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/standard-page/">
+                            <span class="text">Standard Page</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/blog/">
+                            <span class="text">Blog</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/blog/blog-item/">
+                            <span class="text">Blog Post</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/contact/">
+                            <span class="text">Contact</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">Search Results</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/site-map/">
+                            <span class="text">Site Map</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">404</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                </ul>
+            </li>
 
             <!-- SOCIAL MEDIA (OPTIONAL) -->
             <li class="is-off-canvas-only pt-2">
@@ -936,8 +997,9 @@
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
 
-    <!-- NO JAVASCRIPT WARNING -->
-    <noscript>
+    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
+    
+<!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>
