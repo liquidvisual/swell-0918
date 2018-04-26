@@ -5722,11 +5722,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }));
   });
 }Vue.config.productionTip = !1, Vue.component("docs", { props: { files: String }, data: function data() {
-    return { filesArray: [], url: "https://cdn.rawgit.com/liquidvisual/inspire-0118/master/src/_includes/", codeEnabled: !1, showProperties: !1 };
+    return { filesArray: [], url: "https://raw.githubusercontent.com/liquidvisual/inspire-0118/master/src/", codeEnabled: !1, showProperties: !1 };
   }, created: function created() {
     var e = this.files.split(","),
         t = e.length;for (var r in e) {
-      var n = { name: e[r], alias: e[r].split("/").pop(), path: this.url + e[r], active: !1, result: "loading..." },
+      var n = { name: e[r], alias: e[r].split("/").pop(), path: this.url + e[r] + "?" + Date.now(), active: !1, result: "loading..." },
           i = Number(r) + 1 === t;this.fetchDataAXIOS(n, i), this.filesArray.push(n);
     }
   },
