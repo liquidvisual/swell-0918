@@ -1636,6 +1636,540 @@
                                 </div>
                             </docs>
                             <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/text/text.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="text" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Text</h2>
+                                                <p>The Text Section is the simplest way to add WYSIWYG content to the site.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Header</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Body</td>
+                                                        <td>Markdown</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Body</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Theme</td>
+                                                        <td>Select</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image</td>
+                                                        <td>Image</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image Fixed</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Tinted</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Tinted</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- TEXT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG -->
+                                                        <div class="wysiwyg">
+                                                            <p>
+                                                                <a href="#" class="btn btn-primary">Primary</a>
+                                                                <a href="#" class="btn btn-secondary">Secondary</a>
+                                                                <a href="#" class="btn btn-success">Success</a>
+                                                                <a href="#" class="btn btn-danger">Danger</a>
+                                                                <a href="#" class="btn btn-warning">Warning</a>
+                                                                <a href="#" class="btn btn-info">Info</a>
+
+                                                                <!-- <a href="#" class="btn btn-light">Light</a> -->
+                                                                
+<!-- <a href="#" class="btn btn-dark">Dark</a> --></p>
+                                                            <hr>
+                                                            <p>This is
+                                                                <b>bold</b> and this is
+                                                                <strong>strong</strong>. This is
+                                                                <i>italic</i> and this is
+                                                                <em>emphasized</em>. This is
+                                                                <sup>superscript</sup> text and this is
+                                                                <sub>subscript</sub> text. This is
+                                                                <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, this is a
+                                                                <a href="#">link</a>.</p>
+                                                            <a href="#">Link here</a>
+                                                            <br>
+                                                            <h3>Header (h3)</h3>
+                                                            <h4>Header (h4)</h4>
+                                                            <h5>Header (h5)</h5>
+                                                            <h6>Header (h6)</h6>
+                                                            <p>ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                            <h4>Unordered List</h4>
+                                                            <ul>
+                                                                <li>List item #1</li>
+                                                                <li>List item #2</li>
+                                                                <li>List item #3
+                                                                    <ul>
+                                                                        <li>Nested item #1</li>
+                                                                        <li>Nested item #2</li>
+                                                                        <li>Nested item #3</li>
+                                                                    </ul>
+                                                                </li>
+                                                                <li>List item #4</li>
+                                                                <li>List item #5</li>
+                                                            </ul>
+                                                            <h4>Ordered List</h4>
+                                                            <ol>
+                                                                <li>List item #1</li>
+                                                                <li>List item #2</li>
+                                                                <li>List item #3
+                                                                    <ol>
+                                                                        <li>Nested item #1</li>
+                                                                        <li>Nested item #2</li>
+                                                                        <li>Nested item #3</li>
+                                                                    </ol>
+                                                                </li>
+                                                                <li>List item #4</li>
+                                                                <li>List item #5</li>
+                                                            </ol>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/text/text_button.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="text-button" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Text Button</h2>
+                                                <p>This section contains a single WYSIWYG field and a button. It’s best suited for a simple call to action.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Header</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Body</td>
+                                                        <td>Markdown</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Body</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Theme</td>
+                                                        <td>Select</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image</td>
+                                                        <td>Image</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image Fixed</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Tinted</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Tinted</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Reverse Columns</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Reverse Columns</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Link</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Link</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Link Label</td>
+                                                        <td>String</td>
+                                                        <td>Click me</td>
+
+                                                        <!-- <td>Component Link Label</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- TEXT BUTTON -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-8">
+                                                                <div>
+                                                                    <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                    <!-- WYSIWYG -->
+                                                                    <div class="wysiwyg mb-4">
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-4 pl-lg-5">
+
+                                                                <!-- WYSIWYG (NON-USER WYSIWYG) -->
+                                                                <div class="wysiwyg">
+                                                                    <p>
+                                                                        <a class="btn btn-block btn-primary" href="#">Click me</a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/text/text_media.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="text-media" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Text Media</h2>
+                                                <p>This section provides a WYSIWYG field accompanied with an image, video (YouTube or Vimeo) or Google Map. Media will automatically open inside a lightbox when clicked. If no image is specified for video, the template will default to a still from that video.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Header</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Body</td>
+                                                        <td>Markdown</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Body</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Theme</td>
+                                                        <td>Select</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image</td>
+                                                        <td>Image</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image Fixed</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Tinted</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Tinted</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Reverse Columns</td>
+                                                        <td>Boolean</td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Reverse Columns</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Image</td>
+                                                        <td>Image</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Image Description</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Image Description</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Link</td>
+                                                        <td>String</td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Link</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- TEXT MEDIA -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-7">
+                                                                <div>
+                                                                    <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                    <!-- WYSIWYG -->
+                                                                    <div class="wysiwyg mb-4">
+                                                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-5 pl-lg-5">
+
+                                                                <!-- MEDIA -->
+                                                                <div class="popup-gallery" data-group-title="">
+                                                                    <a class="btn-tile" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
                         </div>
                         <div class="col-lg-3 pl-lg-3">
 
@@ -1686,12 +2220,18 @@
                                                 </ul>
                                             </li>
                                             <li class="mb-3">
-                                                <h5>Hero</h5>
-                                                <ul class="list-unstyled"></ul>
-                                            </li>
-                                            <li class="mb-3">
                                                 <h5>Text</h5>
-                                                <ul class="list-unstyled"></ul>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#text">Text</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#text-button">Text Button</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#text-media">Text Media</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li class="mb-3">
                                                 <h5>Other</h5>
