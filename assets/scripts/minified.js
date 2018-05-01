@@ -5748,7 +5748,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       e = Number.isInteger(e) ? this.filesArray[e] : e;this.deselectFiles(), e.active = !0;
     }
   } }), new Vue({ el: "#docs-app", data: function data() {
-    return { themes: [{ name: "theme-base", label: "Base", active: !1 }, { name: "theme-silverfox", label: "Base", active: !1 }, { name: "theme-skyblue", label: "Base", active: !1 }, { name: "theme-posh", label: "Base", active: !1 }, { name: "theme-midnight", label: "Base", active: !1 }] };
+    return { themes: [{ name: "theme-base", label: "Base", active: !1 }, { name: "theme-silverfox", label: "Base", active: !1 }, { name: "theme-skyblue", label: "Base", active: !1 }, { name: "theme-posh", label: "Base", active: !1 }, { name: "theme-midnight", label: "Base", active: !1 }], modifiers: [{ name: "is-tinted", label: "Tint", active: !1 }, { name: "has-image-bg", label: "Bg Image", active: !1 }, { name: "is-fixed", label: "Fixed Image", active: !1 }] };
   }, computed: {
     currentTheme: function currentTheme() {
       return this.themes.find(function (e) {
@@ -5757,11 +5757,20 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }
   }, methods: {
     selectTheme: function selectTheme(e) {
-      for (var _e2 in this.themes) {
-        this.themes[_e2].active = !1;
-      }e.active = !0, $(".card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper").removeClass(function (e, t) {
+      for (var _t3 in this.themes) {
+        this.themes[_t3] !== e && (this.themes[_t3].active = !1);
+      }e.active = !e.active;var t = e.active ? e.name : "";$(".card-docs-component .section, .global-header, .global-footer, .lv-hero-wrapper .lv-hero-item, .lv-breadcrumb-wrapper").removeClass(function (e, t) {
         return (t.match(/\btheme-\S+/g) || []).join(" ");
-      }).addClass(e.name);
+      }).addClass(t);
+    },
+    selectModifier: function selectModifier(e) {
+      if ("is-tinted" == e.name) {
+        var t = e.active ? "" : e.name;$(".card-docs-component .section, .lv-hero-item").removeClass(e.name).addClass(t);
+      }if ("has-image-bg" == e.name) {
+        var n = e.active ? "" : e.name;$(".card-docs-component .section, .lv-hero-item").removeClass(e.name).addClass(n), e.active ? $(".card-docs-component .section, .lv-hero-item").css("background-image", "none") : $(".card-docs-component .section, .lv-hero-item").css("background-image", "url(https://source.unsplash.com/random)");
+      }if ("is-fixed" == e.name) {
+        var i = e.active ? "" : e.name;$(".card-docs-component .section, .lv-hero-item").removeClass(e.name).addClass(i);
+      }
     }
   } }), cardSlider(), launchGallery(), launchSlider(), function (e) {
   "use strict";

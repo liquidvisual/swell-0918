@@ -121,13 +121,13 @@
                                 <li class="">
 
                                     <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/standard-page/">
+                                    <a class="top-parent-anchor" href="/components/">
                                         <span class="text">Components</span>
                                     </a>
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="active has-dropdown">
+                                <li class="active">
 
                                     <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/sections/">
@@ -135,24 +135,8 @@
                                     </a>
 
                                     <!-- SECOND LEVEL -->
-                                    <ul class="dropdown is-nav-included" data-parent="Sections">
-                                        <li class="">
-                                            <a href="/kitchen-sink/">
-                                                <span class="text">Kitchen Sink (old)</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                        <li class="">
-                                            <a href="/sections/">
-                                                <span class="text">Sections (wip)</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                    </ul>
-                                </li>
-                                <li class="has-dropdown is-mega is-right-aligned">
+                                    </li>
+                                <li class="has-dropdown is-right-aligned">
 
                                     <!-- TOP LEVEL -->
                                     <a class="top-parent-anchor" href="/advanced-page/">
@@ -176,29 +160,8 @@
                                             <!-- THIRD LEVEL -->
                                             </li>
                                         <li class="">
-                                            <a href="/blog/">
-                                                <span class="text">Blog</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                        <li class="">
-                                            <a href="/blog/blog-item/">
-                                                <span class="text">Blog Post</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                        <li class="">
                                             <a href="/contact/">
                                                 <span class="text">Contact</span>
-                                            </a>
-
-                                            <!-- THIRD LEVEL -->
-                                            </li>
-                                        <li class="">
-                                            <a href="/404/">
-                                                <span class="text">Search Results</span>
                                             </a>
 
                                             <!-- THIRD LEVEL -->
@@ -367,29 +330,31 @@
                 </div>
             </div>
         </section>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <style>
+        html,
+        body {
+            background: #e3e6eb;
+            /*background: #fbfafa;*/
+        }
+        
+        [v-cloak] {
+            display: none;
+        }
+        
+        @font-face {
+            font-family: 'BLOKK';
+            font-style: normal;
+            font-weight: 300;
+            src: url('/assets/fonts/BLOKKNeue-Regular.eot');
+            src: local('☺'), url('/assets/fonts/BLOKKNeue-Regular.woff') format('woff'), url('/assets/fonts/BLOKKNeue-Regular.tff') format('truetype'), url('/assets/fonts/BLOKKNeue-Regular.svg') format('svg');
+        }
+        </style>
 
         <!-- BODY -->
         <main class="main-body">
-            <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-            <style>
-            html,
-            body {
-                background: #e3e6eb;
-                /*background: #fbfafa;*/
-            }
-            
-            [v-cloak] {
-                display: none;
-            }
-            
-            @font-face {
-                font-family: 'BLOKK';
-                font-style: normal;
-                font-weight: 300;
-                src: url('/assets/fonts/BLOKKNeue-Regular.eot');
-                src: local('☺'), url('/assets/fonts/BLOKKNeue-Regular.woff') format('woff'), url('/assets/fonts/BLOKKNeue-Regular.tff') format('truetype'), url('/assets/fonts/BLOKKNeue-Regular.svg') format('svg');
-            }
-            </style>
+
+            <!-- DOCS APP -->
             <div id="docs-app" v-cloak>
                 <div class="container">
                     <div class="row">
@@ -427,6 +392,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -436,6 +402,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -443,6 +414,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -450,6 +426,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -457,6 +438,11 @@
                                                     <tr>
                                                         <td>Section Footer</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Footer</td> -->
@@ -464,6 +450,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -471,6 +462,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -478,6 +474,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -485,6 +486,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -492,13 +498,38 @@
                                                     <tr>
                                                         <td>Section Columns</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Two: "2"</li>
+                                                                <li class="pl-0">Three: "3"</li>
+                                                            </ul>
+                                                        </td>
                                                         <td>3</td>
 
                                                         <!-- <td>Section Columns</td> -->
                                                         </tr>
                                                     <tr>
+                                                        <td>Section Flat Appearance</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Flat Appearance</td> -->
+                                                        </tr>
+                                                    <tr>
                                                         <td>Component Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Header</td> -->
@@ -506,6 +537,11 @@
                                                     <tr>
                                                         <td>Component Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Body</td> -->
@@ -513,6 +549,11 @@
                                                     <tr>
                                                         <td>Component Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Image</td> -->
@@ -520,6 +561,11 @@
                                                     <tr>
                                                         <td>Component Link</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link</td> -->
@@ -527,6 +573,11 @@
                                                     <tr>
                                                         <td>Component Link Label</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link Label</td> -->
@@ -733,6 +784,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -742,6 +794,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -749,6 +806,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -756,6 +818,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -763,6 +830,11 @@
                                                     <tr>
                                                         <td>Section Footer</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Footer</td> -->
@@ -770,6 +842,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -777,6 +854,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -784,6 +866,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -791,6 +878,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -798,13 +890,38 @@
                                                     <tr>
                                                         <td>Section Columns</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Two: "2"</li>
+                                                                <li class="pl-0">Three: "3"</li>
+                                                            </ul>
+                                                        </td>
                                                         <td>2</td>
 
                                                         <!-- <td>Section Columns</td> -->
                                                         </tr>
                                                     <tr>
+                                                        <td>Section Flat Appearance</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Flat Appearance</td> -->
+                                                        </tr>
+                                                    <tr>
                                                         <td>Component Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Header</td> -->
@@ -812,6 +929,11 @@
                                                     <tr>
                                                         <td>Component Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Body</td> -->
@@ -819,13 +941,47 @@
                                                     <tr>
                                                         <td>Component Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Image</td> -->
                                                         </tr>
                                                     <tr>
+                                                        <td>Component Link</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Link</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Link Label</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Link Label</td> -->
+                                                        </tr>
+                                                    <tr>
                                                         <td>Component Categories</td>
                                                         <td>Relation</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Categories</td> -->
@@ -833,6 +989,11 @@
                                                     <tr>
                                                         <td>Component Date</td>
                                                         <td>Datetime</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Date</td> -->
@@ -840,6 +1001,11 @@
                                                     <tr>
                                                         <td>Component Author</td>
                                                         <td>Relation</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Author</td> -->
@@ -1126,6 +1292,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -1135,6 +1302,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -1142,6 +1314,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -1149,6 +1326,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -1156,6 +1338,11 @@
                                                     <tr>
                                                         <td>Section Footer</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Footer</td> -->
@@ -1163,6 +1350,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -1170,6 +1362,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -1177,6 +1374,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -1184,6 +1386,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -1191,13 +1398,38 @@
                                                     <tr>
                                                         <td>Section Columns</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Two: "2"</li>
+                                                                <li class="pl-0">Three: "3"</li>
+                                                            </ul>
+                                                        </td>
                                                         <td>3</td>
 
                                                         <!-- <td>Section Columns</td> -->
                                                         </tr>
                                                     <tr>
+                                                        <td>Section Flat Appearance</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Flat Appearance</td> -->
+                                                        </tr>
+                                                    <tr>
                                                         <td>Component Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Header</td> -->
@@ -1205,6 +1437,11 @@
                                                     <tr>
                                                         <td>Component Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Body</td> -->
@@ -1212,6 +1449,11 @@
                                                     <tr>
                                                         <td>Component Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Image</td> -->
@@ -1219,6 +1461,11 @@
                                                     <tr>
                                                         <td>Component Link</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link</td> -->
@@ -1226,6 +1473,11 @@
                                                     <tr>
                                                         <td>Component Link Label</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link Label</td> -->
@@ -1669,6 +1921,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -1678,6 +1931,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -1685,6 +1943,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -1692,6 +1955,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -1699,6 +1967,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -1706,6 +1979,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -1713,6 +1991,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -1720,6 +2003,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -1857,6 +2145,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -1866,6 +2155,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -1873,6 +2167,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -1880,6 +2179,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -1887,6 +2191,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -1894,6 +2203,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -1901,6 +2215,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -1908,6 +2227,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -1915,6 +2239,11 @@
                                                     <tr>
                                                         <td>Section Reverse Columns</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Reverse Columns</td> -->
@@ -1922,6 +2251,11 @@
                                                     <tr>
                                                         <td>Component Link</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link</td> -->
@@ -1929,6 +2263,11 @@
                                                     <tr>
                                                         <td>Component Link Label</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>Click me</td>
 
                                                         <!-- <td>Component Link Label</td> -->
@@ -2026,6 +2365,7 @@
                                                     <tr>
                                                         <th>Property</th>
                                                         <th>Field</th>
+                                                        <th>Options</th>
                                                         <th>Default</th>
 
                                                         <!-- <th>Description</th> -->
@@ -2035,6 +2375,11 @@
                                                     <tr>
                                                         <td>Section Id</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Id</td> -->
@@ -2042,6 +2387,11 @@
                                                     <tr>
                                                         <td>Section Header</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Header</td> -->
@@ -2049,6 +2399,11 @@
                                                     <tr>
                                                         <td>Section Body</td>
                                                         <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Body</td> -->
@@ -2056,6 +2411,11 @@
                                                     <tr>
                                                         <td>Section Theme</td>
                                                         <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Theme</td> -->
@@ -2063,6 +2423,11 @@
                                                     <tr>
                                                         <td>Section Background Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Section Background Image</td> -->
@@ -2070,6 +2435,11 @@
                                                     <tr>
                                                         <td>Section Background Image Fixed</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Image Fixed</td> -->
@@ -2077,6 +2447,11 @@
                                                     <tr>
                                                         <td>Section Background Tinted</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Background Tinted</td> -->
@@ -2084,6 +2459,11 @@
                                                     <tr>
                                                         <td>Section Reverse Columns</td>
                                                         <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>false</td>
 
                                                         <!-- <td>Section Reverse Columns</td> -->
@@ -2091,6 +2471,11 @@
                                                     <tr>
                                                         <td>Component Image</td>
                                                         <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Image</td> -->
@@ -2098,6 +2483,11 @@
                                                     <tr>
                                                         <td>Component Image Description</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Image Description</td> -->
@@ -2105,6 +2495,11 @@
                                                     <tr>
                                                         <td>Component Link</td>
                                                         <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
                                                         <td>-</td>
 
                                                         <!-- <td>Component Link</td> -->
@@ -2170,6 +2565,254 @@
                                 </div>
                             </docs>
                             <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/affiliates.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="affiliates" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Affiliates</h2>
+                                                <p>This section is best suited for displaying a single row of small affiliate images - most commonly logos or sponsors. The section will accept any number of images and start stacking once they run out of room.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Options</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Header</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Body</td>
+                                                        <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Body</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Theme</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image</td>
+                                                        <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Image Fixed</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Background Tinted</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Section Background Tinted</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Image</td>
+                                                        <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Image Description</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Image Description</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Link</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Link</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- AFFILIATES -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- IMAGES -->
+                                                            <div class="row no-gutters justify-content-center">
+                                                                <div class="col-4 col-md-2 align-items-center text-center">
+                                                                    <p class="mb-4">
+                                                                        <a href="#" target="_blank">
+                                                                            <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 align-items-center text-center">
+                                                                    <p class="mb-4">
+                                                                        <a href="#" target="_blank">
+                                                                            <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 align-items-center text-center">
+                                                                    <p class="mb-4">
+                                                                        <a href="#" target="_blank">
+                                                                            <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 align-items-center text-center">
+                                                                    <p class="mb-4">
+                                                                        <a href="#" target="_blank">
+                                                                            <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                                <div class="col-4 col-md-2 align-items-center text-center">
+                                                                    <p class="mb-4">
+                                                                        <a href="#" target="_blank">
+                                                                            <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                        </a>
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
                         </div>
                         <div class="col-lg-3 pl-lg-3">
 
@@ -2188,18 +2831,10 @@
 
                                         <!-- MODIFIERS -->
                                         <h5>Modifiers</h5>
-                                        <div class="form-group mb-4" style="opacity: 0.2">
-                                            <label class="custom-control custom-checkbox mb-1">
-                                                <input class="custom-control-input" type="checkbox" name="Tint Background" value="true">
-                                                <p class="custom-control-label">Tint</p>
-                                            </label>
-                                            <label class="custom-control custom-checkbox mb-1">
-                                                <input class="custom-control-input" type="checkbox" name="Image Background" value="true">
-                                                <p class="custom-control-label">Bg Image</p>
-                                            </label>
-                                            <label class="custom-control custom-checkbox mb-1">
-                                                <input class="custom-control-input" type="checkbox" name="Fix Image Background" value="true">
-                                                <p class="custom-control-label">Fixed Image</p>
+                                        <div class="form-group mb-4" style="opacity: 1">
+                                            <label v-for="item in modifiers" class="custom-control custom-checkbox mb-1">
+                                                <input class="custom-control-input" type="checkbox" :name="item.label" :value="item.name" v-model="item.active" @click="selectModifier(item)">
+                                                <p class="custom-control-label" v-text="item.label"></p>
                                             </label>
                                         </div>
 
@@ -2235,7 +2870,11 @@
                                             </li>
                                             <li class="mb-3">
                                                 <h5>Other</h5>
-                                                <ul class="list-unstyled"></ul>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#affiliates">Affiliates</a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </div>
@@ -2260,7 +2899,7 @@
                             <h4 class="mb-3">Quick Links</h4>
                             <ul class="list-unstyled">
                                 <li>
-                                    <a href="/standard-page/">Components</a>
+                                    <a href="/components/">Components</a>
                                 </li>
                                 <li>
                                     <a href="/sections/">Sections</a>
@@ -2471,13 +3110,13 @@
             <li class="">
 
                 <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/standard-page/">
+                <a class="top-parent-anchor" href="/components/">
                     <span class="text">Components</span>
                 </a>
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="active has-dropdown">
+            <li class="active">
 
                 <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/sections/">
@@ -2485,24 +3124,8 @@
                 </a>
 
                 <!-- SECOND LEVEL -->
-                <ul class="dropdown is-nav-included" data-parent="Sections">
-                    <li class="">
-                        <a href="/kitchen-sink/">
-                            <span class="text">Kitchen Sink (old)</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                    <li class="">
-                        <a href="/sections/">
-                            <span class="text">Sections (wip)</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                </ul>
-            </li>
-            <li class="has-dropdown is-mega is-right-aligned">
+                </li>
+            <li class="has-dropdown is-right-aligned">
 
                 <!-- TOP LEVEL -->
                 <a class="top-parent-anchor" href="/advanced-page/">
@@ -2526,29 +3149,8 @@
                         <!-- THIRD LEVEL -->
                         </li>
                     <li class="">
-                        <a href="/blog/">
-                            <span class="text">Blog</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                    <li class="">
-                        <a href="/blog/blog-item/">
-                            <span class="text">Blog Post</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                    <li class="">
                         <a href="/contact/">
                             <span class="text">Contact</span>
-                        </a>
-
-                        <!-- THIRD LEVEL -->
-                        </li>
-                    <li class="">
-                        <a href="/404/">
-                            <span class="text">Search Results</span>
                         </a>
 
                         <!-- THIRD LEVEL -->

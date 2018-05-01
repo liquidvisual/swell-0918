@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Components - Inspire</title>
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <link rel="stylesheet" href="/assets/css/minified.css">
+</head>
+<body>
+
+    <!-- PAGE LOADER -->
+    <div id="lv-page-loader" class="lv-page-loader">
+        <div class="lv-page-loader-spinner">
+            <div class="loader-spinner">
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
+    <script>
+    var loader = document.getElementById('lv-page-loader');
+    loader.style.display = 'flex';
+    // Limit to 2+ seconds of waiting time
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
+    </script>
+    <div class="lv-page">
+
+        <!-- HEADER -->
+        <header class="global-header">
+
+            <!-- HEADER TOP -->
+            <div class="global-header-top hidden-md-down">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+
+                            <!-- PHONE -->
+                            <a href="tel:(05) 555 555">
+                                <i class="fa fa-phone"></i>&nbsp;
+                                <span class="text hidden-sm-down">(05) 555 555</span>
+                            </a>
+
+                            <!-- EMAIL -->
+                            <a class="hidden-sm-down" href="mailto:info@enterprisewide.com.au">
+                                <i class="fa fa-envelope"></i>&nbsp; info@enterprisewide.com.au</a>
+                        </div>
+                        <div class="col-6 text-right">
+
+                            <!-- OTHER LINK(S) -->
+                            
+<!-- <a href="#"><i class="fa fa-user"></i>&nbsp;
+                    <span class="text hidden-sm-down">Link</span>
+                </a> -->
+
+                            <!-- MEMBERS AREA -->
+                            <div class="dropdown d-inline-block mr-2" style="cursor: pointer">
+                                <a id="dropdownMenuButton" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-user"></i>&nbsp;
+                                    <span class="text hidden-sm-down">Members Area
+                                        <i class="fa fa-angle-down"></i>
+                                    </span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-sign-in"></i>&nbsp; Login</a>
+                                    <a class="dropdown-item" href="#">
+                                        <i class="fa fa-star"></i>&nbsp; Favorites</a>
+                                </div>
+                            </div>
+
+                            <!-- SEARCH -->
+                            <a href="#search" data-search-trigger>
+                                <i class="fa fa-search"></i>&nbsp;
+                                <span class="text hidden-sm-down">&nbsp;Search</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEADER BODY -->
+            <div class="global-header-body">
+                <div class="container">
+
+                    <!-- LOGO -->
+                    <a class="logo" href="/" title="Inspire | Enterprise Wide" itemprop="url">
+                        <img src="/assets/img/content/inspire-logo--light.svg" alt="Enterprise Wide" itemprop="logo"> </a>
+
+                    <!-- HAMBURGER -->
+                    <div class="global-header-hamburger hidden-lg-up">
+                        <div class="lv-hamburger" data-menu-toggle>
+                            <span class="lv-hamburger-top"></span>
+                            <span class="lv-hamburger-middle"></span>
+                            <span class="lv-hamburger-bottom"></span>
+                            <span class="lv-hamburger-hit"></span>
+                        </div>
+                    </div>
+
+                    <!-- NAVIGATION -->
+                    <nav class="global-navigation hidden-md-down">
+                        <div class="lv-topbar">
+                            <ul>
+
+                                <!-- PHONE NUMBER (OPTIONAL) -->
+                                <li class="is-off-canvas-only pt-2">
+                                    <p class="text-center">
+                                        <a class="h4 font-weight-normal" href="tel:(05) 555 555">
+                                            <i class="fa fa-phone"></i> (05) 555 555</a>
+                                    </p>
+                                </li>
+                                <li class="">
+
+                                    <!-- TOP LEVEL -->
+                                    <a class="top-parent-anchor" href="/components/">
+                                        <span class="text">Components</span>
+                                    </a>
+
+                                    <!-- SECOND LEVEL -->
+                                    </li>
+                                <li class="">
+
+                                    <!-- TOP LEVEL -->
+                                    <a class="top-parent-anchor" href="/sections/">
+                                        <span class="text">Sections</span>
+                                    </a>
+
+                                    <!-- SECOND LEVEL -->
+                                    </li>
+                                <li class="has-dropdown is-right-aligned">
+
+                                    <!-- TOP LEVEL -->
+                                    <a class="top-parent-anchor" href="/advanced-page/">
+                                        <span class="text">Pages</span>
+                                    </a>
+
+                                    <!-- SECOND LEVEL -->
+                                    <ul class="dropdown is-nav-included" data-parent="Pages">
+                                        <li class="">
+                                            <a href="/advanced-page/">
+                                                <span class="text">Advanced Page</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/standard-page/">
+                                                <span class="text">Standard Page</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/contact/">
+                                                <span class="text">Contact</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/site-map/">
+                                                <span class="text">Site Map</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
+                                            <a href="/404/">
+                                                <span class="text">404</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                    </ul>
+                                </li>
+
+                                <!-- SOCIAL MEDIA (OPTIONAL) -->
+                                <li class="is-off-canvas-only pt-2">
+
+                                    <!-- SOCIAL MEDIA -->
+                                    <div class="social-media">
+                                        <a title="Behance" href="#" target="_blank" class="behance">
+                                            <div class="icon">
+                                                <i class="fa fa-behance"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Codepen" href="#" target="_blank" class="codepen">
+                                            <div class="icon">
+                                                <i class="fa fa-codepen"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Dribbble" href="#" target="_blank" class="dribbble">
+                                            <div class="icon">
+                                                <i class="fa fa-dribbble"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Facebook" href="#" target="_blank" class="facebook">
+                                            <div class="icon">
+                                                <i class="fa fa-facebook"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Flickr" href="#" target="_blank" class="flickr">
+                                            <div class="icon">
+                                                <i class="fa fa-flickr"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Github" href="#" target="_blank" class="github">
+                                            <div class="icon">
+                                                <i class="fa fa-github"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Google Plus" href="#" target="_blank" class="google-plus">
+                                            <div class="icon">
+                                                <i class="fa fa-google-plus"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Instagram" href="#" target="_blank" class="instagram">
+                                            <div class="icon">
+                                                <i class="fa fa-instagram"></i>
+                                            </div>
+                                        </a>
+                                        <a title="LinkedIn" href="#" target="_blank" class="linkedin">
+                                            <div class="icon">
+                                                <i class="fa fa-linkedin"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Pinterest" href="#" target="_blank" class="pinterest">
+                                            <div class="icon">
+                                                <i class="fa fa-pinterest"></i>
+                                            </div>
+                                        </a>
+                                        <a title="RSS" href="#" target="_blank" class="rss">
+                                            <div class="icon">
+                                                <i class="fa fa-rss"></i>
+                                            </div>
+                                        </a>
+                                        <a title="SnapChat" href="#" target="_blank" class="snapchat">
+                                            <div class="icon">
+                                                <i class="fa fa-snapchat"></i>
+                                            </div>
+                                        </a>
+                                        <a title="SoundCloud" href="#" target="_blank" class="soundcloud">
+                                            <div class="icon">
+                                                <i class="fa fa-soundcloud"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Slack" href="#" target="_blank" class="slack">
+                                            <div class="icon">
+                                                <i class="fa fa-slack"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Tumblr" href="#" target="_blank" class="tumblr">
+                                            <div class="icon">
+                                                <i class="fa fa-tumblr"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Twitter" href="#" target="_blank" class="twitter">
+                                            <div class="icon">
+                                                <i class="fa fa-twitter"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Youtube" href="#" target="_blank" class="youtube">
+                                            <div class="icon">
+                                                <i class="fa fa-youtube-play"></i>
+                                            </div>
+                                        </a>
+                                        <a title="Vimeo" href="#" target="_blank" class="vimeo">
+                                            <div class="icon">
+                                                <i class="fa fa-vimeo"></i>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <!-- SEARCH (OPTIONAL) -->
+                                <li class="is-off-canvas-only">
+
+                                    <!-- GLOBAL SEARCH -->
+                                    <div class="global-search is-hidden" data-search>
+                                        <div class="container text-right">
+                                            <div class="global-search-form-wrapper">
+                                                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <form class="global-search-form" action="/search/" method="get" novalidate>
+                                                    <div class="input-group">
+                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                        <div class="input-group-append">
+                                                            <button type="submit" class="btn">
+                                                                <i class="fa fa-search"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- HERO WRAPPER -->
+        <section id="" class="lv-hero-wrapper">
+
+            <!-- HERO -->
+            <div class="lv-hero is-static">
+
+                <!-- HERO ITEM -->
+                <div class="lv-hero-item align-items-end" style="background-image: url('')">
+
+                    <!-- HERO CAPTION -->
+                    <div class="container">
+                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+                            <h1 class="display-1">Components</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <style>
+        html,
+        body {
+            background: #e3e6eb;
+            /*background: #fbfafa;*/
+        }
+        
+        [v-cloak] {
+            display: none;
+        }
+        
+        @font-face {
+            font-family: 'BLOKK';
+            font-style: normal;
+            font-weight: 300;
+            src: url('/assets/fonts/BLOKKNeue-Regular.eot');
+            src: local('☺'), url('/assets/fonts/BLOKKNeue-Regular.woff') format('woff'), url('/assets/fonts/BLOKKNeue-Regular.tff') format('truetype'), url('/assets/fonts/BLOKKNeue-Regular.svg') format('svg');
+        }
+        </style>
+
+        <!-- BODY -->
+        <main class="main-body">
+
+            <!-- DOCS APP -->
+            <div id="docs-app" v-cloak>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-9 pr-lg-4 order-last">
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/hero/hero.html,_includes/components/hero/hero__youtube_plugin.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="hero" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Hero</h2>
+                                                <p>The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Options</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Mode</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Default: "is-default"</li>
+                                                                <li class="pl-0">Medium: "is-medium"</li>
+                                                                <li class="pl-0">Full: "is-full"</li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>is-default</td>
+
+                                                        <!-- <td>Section Mode</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Align</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Left: "left"</li>
+                                                                <li class="pl-0">Center: "center"</li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>center</td>
+
+                                                        <!-- <td>Section Align</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Header</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Header Size</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Display 1: "display-1"</li>
+                                                                <li class="pl-0">Display 2: "display-2"</li>
+                                                                <li class="pl-0">Display 3: "display-3"</li>
+                                                                <li class="pl-0">Display 4: "display-4"</li>
+                                                                <li class="pl-0">Display 5: "display-5"</li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>display-1</td>
+
+                                                        <!-- <td>Component Header Size</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Body</td>
+                                                        <td>Markdown</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Body</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Image</td>
+                                                        <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Scroll Prompt</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>true</td>
+
+                                                        <!-- <td>Component Scroll Prompt</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component YouTube Id</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component YouTube Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Theme</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Image</td>
+                                                        <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Image Fixed</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Component Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Tinted</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Component Background Tinted</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- HERO WRAPPER -->
+                                                <section id="" class="lv-hero-wrapper" data-hero-slider>
+
+                                                    <!-- HERO -->
+                                                    <div class="lv-hero is-default" data-flickity='
+            {
+                "adaptiveHeight": true,
+                "autoPlay": false,
+                "cellAlign": "left",
+                "contain": true,
+                "draggable": false,
+                "dragThreshold": 40,
+                "freeScroll": false,
+                "freeScrollFriction": 0.075,
+                "friction": 0.28,
+                "groupCells": false,
+                "imagesLoaded": true,
+                "pageDots": true,
+                "prevNextButtons": false,
+                "pauseAutoPlayOnHover": false,
+                "selectedAttraction": 0.025,
+                "watchCSS": false,
+                "wrapAround": true
+            }'>
+
+                                                        <!-- HERO ITEMS -->
+                                                        <div class="lv-hero-item theme-skyblue" style="background-image: url('')">
+                                                            <div class="container">
+                                                                <div class="row justify-content-center text-center">
+                                                                    <div class="col-md-11 col-lg-10">
+
+                                                                        <!-- HERO CAPTION -->
+                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                                                            <!-- HEADER -->
+                                                                            <h1 class="display-1">Lorem Ipsum Dolor Sit Amet</h1>
+
+                                                                            <!-- WYSIWYG -->
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- SCROLL PROMPT -->
+                                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
+                                                                <i class="fa fa-angle-down"></i>
+                                                            </a>
+                                                        </div>
+                                                        <div class="lv-hero-item theme-posh is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
+                                                            <div class="container">
+                                                                <div class="row justify-content-center text-center">
+                                                                    <div class="col-md-11 col-lg-10">
+
+                                                                        <!-- HERO CAPTION -->
+                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                                                            <!-- HEADER -->
+                                                                            <h1 class="display-1"></h1>
+
+                                                                            <!-- WYSIWYG -->
+                                                                            <div class="wysiwyg mb-4">
+                                                                                <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
+                                                            <div class="container">
+                                                                <div class="row justify-content-center text-center">
+                                                                    <div class="col-md-11 col-lg-10">
+
+                                                                        <!-- HERO CAPTION -->
+                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                                                            <!-- HEADER -->
+                                                                            <h1 class="display-1">Hero With YouTube Embedded Background</h1>
+
+                                                                            <!-- WYSIWYG -->
+                                                                            <div class="wysiwyg mb-4">
+                                                                                <p class="lead">Although you can embed video across multiple slides, we recommended you only use one for performance reasons.</p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
+                                                            <div class="video-bg">
+                                                                <div class="video-fg">
+                                                                    <iframe class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- YOUTUBE PLAYER INSTANCE - loads *once* async -->
+                                                            <script>
+                                                            var tag = document.createElement('script');
+                                                            tag.src = "https://www.youtube.com/iframe_api";
+                                                            var firstScriptTag = document.getElementsByTagName('script')[0];
+                                                            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                                                            function onYouTubeIframeAPIReady() {
+                                                                document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
+                                                                    new YT.Player(item, {
+                                                                        events: {
+                                                                            'onReady': (event) => {
+                                                                                event.target.playVideo();
+                                                                                event.target.mute();
+                                                                            }
+                                                                        }
+                                                                    })
+                                                                })
+                                                            }
+                                                            </script>
+                                                        </div>
+                                                        <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
+                                                            <div class="container">
+                                                                <div class="row justify-content-center text-center">
+                                                                    <div class="col-md-11 col-lg-10">
+
+                                                                        <!-- HERO CAPTION -->
+                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+
+                                                                            <!-- HEADER -->
+                                                                            <h1 class="display-1">Hero With YouTube Embedded Background</h1>
+
+                                                                            <!-- WYSIWYG -->
+                                                                            <div class="wysiwyg mb-4"></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
+                                                            <div class="video-bg">
+                                                                <div class="video-fg">
+                                                                    <iframe class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- /.lv-hero -->
+                                                    
+<!-- SLIDER CONTROLS --><div class="lv-hero-slider-controls hidden-lg-down">
+                                                        <span class="lv-hero-slider-prev-btn">
+                                                            <i class="fa fa-angle-left"></i>
+                                                        </span>
+                                                        <span class="lv-hero-slider-next-btn">
+                                                            <i class="fa fa-angle-right"></i>
+                                                        </span>
+                                                    </div>
+                                                </section>
+
+                                                <!-- /.lv-hero-wrapper -->
+                                                </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/hero/hero_static.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="hero-static" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Hero Static</h2>
+                                                <p>The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Options</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Section Id</td>
+                                                        <td>String</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Section Id</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Section Mode</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0">
+                                                                <li class="pl-0">Static: "is-static"</li>
+                                                            </ul>
+                                                        </td>
+                                                        <td>is-static</td>
+
+                                                        <!-- <td>Section Mode</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Header</td>
+                                                        <td>Hidden</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>page.title</td>
+
+                                                        <!-- <td>Component Header</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Theme</td>
+                                                        <td>Select</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Theme</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Image</td>
+                                                        <td>Image</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>-</td>
+
+                                                        <!-- <td>Component Background Image</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Image Fixed</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Component Background Image Fixed</td> -->
+                                                        </tr>
+                                                    <tr>
+                                                        <td>Component Background Tinted</td>
+                                                        <td>Boolean</td>
+
+                                                        <!-- Options (for select) -->
+                                                        <td>
+                                                            <ul class="mb-0"></ul>
+                                                        </td>
+                                                        <td>false</td>
+
+                                                        <!-- <td>Component Background Tinted</td> -->
+                                                        </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- HERO WRAPPER -->
+                                                <section id="" class="lv-hero-wrapper">
+
+                                                    <!-- HERO -->
+                                                    <div class="lv-hero is-static">
+
+                                                        <!-- HERO ITEM -->
+                                                        <div class="lv-hero-item align-items-end" style="background-image: url('')">
+
+                                                            <!-- HERO CAPTION -->
+                                                            <div class="container">
+                                                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+                                                                    <h1 class="display-1">Components</h1>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+                        </div>
+                        <div class="col-lg-3 pl-lg-3">
+
+                            <!-- SIDEBAR -->
+                            <aside class="sidebar">
+                                <section class="section">
+                                    <div class="container">
+
+                                        <!-- THEMES -->
+                                        <h5>Themes</h5>
+                                        <div class="d-flex flex-wrap mb-4">
+                                            <button v-for="item in themes" :class="item.name" class="btn-theme" title="item.label" @click="selectTheme(item)">
+                                                <i v-show="item.active" class="fa fa-check"></i>
+                                            </button>
+                                        </div>
+
+                                        <!-- MODIFIERS -->
+                                        <h5>Modifiers</h5>
+                                        <div class="form-group mb-4" style="opacity: 1">
+                                            <label v-for="item in modifiers" class="custom-control custom-checkbox mb-1">
+                                                <input class="custom-control-input" type="checkbox" :name="item.label" :value="item.name" v-model="item.active" @click="selectModifier(item)">
+                                                <p class="custom-control-label" v-text="item.label"></p>
+                                            </label>
+                                        </div>
+
+                                        <!-- NAV -->
+                                        <ul class="nav d-block">
+                                            <li class="mb-3">
+                                                <h5>Hero</h5>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#hero">Hero</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#hero-static">Hero Static</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="global-footer">
+
+            <!-- FOOTER BODY -->
+            <section class="global-footer-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+
+                            <!-- QUICK LINKS -->
+                            <h4 class="mb-3">Quick Links</h4>
+                            <ul class="list-unstyled">
+                                <li>
+                                    <a href="/components/">Components</a>
+                                </li>
+                                <li>
+                                    <a href="/sections/">Sections</a>
+                                </li>
+                                <li>
+                                    <a href="/advanced-page/">Pages</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+
+                            <!-- CONTACT -->
+                            <h4 class="mb-3">Enterprise Wide</h4>
+                            <p>Manly Office
+                                <br>55 North Steyne
+                                <br>Manly NSW
+                                <br>
+                                <a href="mailto:settings.offices[0].email">info@enterprisewide.com.au</a>
+                            </p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+
+                            <!-- SOCIAL MEDIA -->
+                            <h4 class="mb-3">Social Media</h4>
+
+                            <!-- SOCIAL MEDIA -->
+                            <div class="social-media">
+                                <a title="Behance" href="#" target="_blank" class="behance">
+                                    <div class="icon">
+                                        <i class="fa fa-behance"></i>
+                                    </div>
+                                </a>
+                                <a title="Codepen" href="#" target="_blank" class="codepen">
+                                    <div class="icon">
+                                        <i class="fa fa-codepen"></i>
+                                    </div>
+                                </a>
+                                <a title="Dribbble" href="#" target="_blank" class="dribbble">
+                                    <div class="icon">
+                                        <i class="fa fa-dribbble"></i>
+                                    </div>
+                                </a>
+                                <a title="Facebook" href="#" target="_blank" class="facebook">
+                                    <div class="icon">
+                                        <i class="fa fa-facebook"></i>
+                                    </div>
+                                </a>
+                                <a title="Flickr" href="#" target="_blank" class="flickr">
+                                    <div class="icon">
+                                        <i class="fa fa-flickr"></i>
+                                    </div>
+                                </a>
+                                <a title="Github" href="#" target="_blank" class="github">
+                                    <div class="icon">
+                                        <i class="fa fa-github"></i>
+                                    </div>
+                                </a>
+                                <a title="Google Plus" href="#" target="_blank" class="google-plus">
+                                    <div class="icon">
+                                        <i class="fa fa-google-plus"></i>
+                                    </div>
+                                </a>
+                                <a title="Instagram" href="#" target="_blank" class="instagram">
+                                    <div class="icon">
+                                        <i class="fa fa-instagram"></i>
+                                    </div>
+                                </a>
+                                <a title="LinkedIn" href="#" target="_blank" class="linkedin">
+                                    <div class="icon">
+                                        <i class="fa fa-linkedin"></i>
+                                    </div>
+                                </a>
+                                <a title="Pinterest" href="#" target="_blank" class="pinterest">
+                                    <div class="icon">
+                                        <i class="fa fa-pinterest"></i>
+                                    </div>
+                                </a>
+                                <a title="RSS" href="#" target="_blank" class="rss">
+                                    <div class="icon">
+                                        <i class="fa fa-rss"></i>
+                                    </div>
+                                </a>
+                                <a title="SnapChat" href="#" target="_blank" class="snapchat">
+                                    <div class="icon">
+                                        <i class="fa fa-snapchat"></i>
+                                    </div>
+                                </a>
+                                <a title="SoundCloud" href="#" target="_blank" class="soundcloud">
+                                    <div class="icon">
+                                        <i class="fa fa-soundcloud"></i>
+                                    </div>
+                                </a>
+                                <a title="Slack" href="#" target="_blank" class="slack">
+                                    <div class="icon">
+                                        <i class="fa fa-slack"></i>
+                                    </div>
+                                </a>
+                                <a title="Tumblr" href="#" target="_blank" class="tumblr">
+                                    <div class="icon">
+                                        <i class="fa fa-tumblr"></i>
+                                    </div>
+                                </a>
+                                <a title="Twitter" href="#" target="_blank" class="twitter">
+                                    <div class="icon">
+                                        <i class="fa fa-twitter"></i>
+                                    </div>
+                                </a>
+                                <a title="Youtube" href="#" target="_blank" class="youtube">
+                                    <div class="icon">
+                                        <i class="fa fa-youtube-play"></i>
+                                    </div>
+                                </a>
+                                <a title="Vimeo" href="#" target="_blank" class="vimeo">
+                                    <div class="icon">
+                                        <i class="fa fa-vimeo"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="spacer mb-4"></div>
+
+                            <!-- JOIN OUR NEWSLETTER (OPTIONAL) -->
+                            <h4 class="mb-3">Join our Newsletter</h4>
+
+                            <!-- FORM SUBSCRIBE -->
+                            <form id="" name="Subscribe Form" action="/" novalidate>
+                                <div class="form-group d-block has-icon mb-3">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="input-group mb-3">
+                                        <input class="form-control" type="email" placeholder="Email Address">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FOOTER BOTTOM -->
+            <section class="global-footer-bottom">
+                <div class="container">
+
+                    <!-- BACK TO TOP -->
+                    <div class="text-center text-md-right">
+                        <button data-back-top class="btn-back-top">
+                            <div>
+                                <i class="d-block fa fa-angle-up"></i>
+                                <span class="text">TOP</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 col-lg-9 text-center text-md-left">
+
+                            <!-- COPYRIGHT + SITEMAP -->
+                            <small class="mr-2 d-block d-md-inline">&copy;
+                                <date class="mr-2">
+                                    <script>
+                                    document.write(new Date().getFullYear())
+                                    </script>
+                                </date>
+                                <a href="/site-map/">Site Map</a>
+
+                                <!-- <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;<i class="fa fa-angle-down"></i></a> -->
+                                </small>
+
+                            <!-- OPTIONAL LINKS -->
+                            <small class="mr-2">
+                                <a href="#">Your Link Here</a>
+                            </small>
+                            <small class="mr-2">
+                                <a href="#">Your Link Here</a>
+                            </small>
+                            <small class="mr-2">
+                                <a href="/kitchen-sink/">Your Link Here</a>
+                            </small>
+                        </div>
+                        <div class="col-md-5 col-lg-3 text-center text-md-right">
+
+                            <!-- AUTHOR -->
+                            <small>
+                                <a class="author-logo" target="_blank" href="http://enterprisewide.com.au">
+                                    <img width="20" height="20" src="/assets/img/ui/ewide-logo.svg" alt="Powered by Mitch">
+                                    <span class="text">Powered by Enterprise Wide</span>
+                                </a>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
+
+    <!-- /.lv-page -->
+    
+<!-- OFF-CANVAS MENU --><nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
+        <ul>
+
+            <!-- PHONE NUMBER (OPTIONAL) -->
+            <li class="is-off-canvas-only pt-2">
+                <p class="text-center">
+                    <a class="h4 font-weight-normal" href="tel:(05) 555 555">
+                        <i class="fa fa-phone"></i> (05) 555 555</a>
+                </p>
+            </li>
+            <li class="">
+
+                <!-- TOP LEVEL -->
+                <a class="top-parent-anchor" href="/components/">
+                    <span class="text">Components</span>
+                </a>
+
+                <!-- SECOND LEVEL -->
+                </li>
+            <li class="">
+
+                <!-- TOP LEVEL -->
+                <a class="top-parent-anchor" href="/sections/">
+                    <span class="text">Sections</span>
+                </a>
+
+                <!-- SECOND LEVEL -->
+                </li>
+            <li class="has-dropdown is-right-aligned">
+
+                <!-- TOP LEVEL -->
+                <a class="top-parent-anchor" href="/advanced-page/">
+                    <span class="text">Pages</span>
+                </a>
+
+                <!-- SECOND LEVEL -->
+                <ul class="dropdown is-nav-included" data-parent="Pages">
+                    <li class="">
+                        <a href="/advanced-page/">
+                            <span class="text">Advanced Page</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/standard-page/">
+                            <span class="text">Standard Page</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/contact/">
+                            <span class="text">Contact</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/site-map/">
+                            <span class="text">Site Map</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/404/">
+                            <span class="text">404</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                </ul>
+            </li>
+
+            <!-- SOCIAL MEDIA (OPTIONAL) -->
+            <li class="is-off-canvas-only pt-2">
+
+                <!-- SOCIAL MEDIA -->
+                <div class="social-media">
+                    <a title="Behance" href="#" target="_blank" class="behance">
+                        <div class="icon">
+                            <i class="fa fa-behance"></i>
+                        </div>
+                    </a>
+                    <a title="Codepen" href="#" target="_blank" class="codepen">
+                        <div class="icon">
+                            <i class="fa fa-codepen"></i>
+                        </div>
+                    </a>
+                    <a title="Dribbble" href="#" target="_blank" class="dribbble">
+                        <div class="icon">
+                            <i class="fa fa-dribbble"></i>
+                        </div>
+                    </a>
+                    <a title="Facebook" href="#" target="_blank" class="facebook">
+                        <div class="icon">
+                            <i class="fa fa-facebook"></i>
+                        </div>
+                    </a>
+                    <a title="Flickr" href="#" target="_blank" class="flickr">
+                        <div class="icon">
+                            <i class="fa fa-flickr"></i>
+                        </div>
+                    </a>
+                    <a title="Github" href="#" target="_blank" class="github">
+                        <div class="icon">
+                            <i class="fa fa-github"></i>
+                        </div>
+                    </a>
+                    <a title="Google Plus" href="#" target="_blank" class="google-plus">
+                        <div class="icon">
+                            <i class="fa fa-google-plus"></i>
+                        </div>
+                    </a>
+                    <a title="Instagram" href="#" target="_blank" class="instagram">
+                        <div class="icon">
+                            <i class="fa fa-instagram"></i>
+                        </div>
+                    </a>
+                    <a title="LinkedIn" href="#" target="_blank" class="linkedin">
+                        <div class="icon">
+                            <i class="fa fa-linkedin"></i>
+                        </div>
+                    </a>
+                    <a title="Pinterest" href="#" target="_blank" class="pinterest">
+                        <div class="icon">
+                            <i class="fa fa-pinterest"></i>
+                        </div>
+                    </a>
+                    <a title="RSS" href="#" target="_blank" class="rss">
+                        <div class="icon">
+                            <i class="fa fa-rss"></i>
+                        </div>
+                    </a>
+                    <a title="SnapChat" href="#" target="_blank" class="snapchat">
+                        <div class="icon">
+                            <i class="fa fa-snapchat"></i>
+                        </div>
+                    </a>
+                    <a title="SoundCloud" href="#" target="_blank" class="soundcloud">
+                        <div class="icon">
+                            <i class="fa fa-soundcloud"></i>
+                        </div>
+                    </a>
+                    <a title="Slack" href="#" target="_blank" class="slack">
+                        <div class="icon">
+                            <i class="fa fa-slack"></i>
+                        </div>
+                    </a>
+                    <a title="Tumblr" href="#" target="_blank" class="tumblr">
+                        <div class="icon">
+                            <i class="fa fa-tumblr"></i>
+                        </div>
+                    </a>
+                    <a title="Twitter" href="#" target="_blank" class="twitter">
+                        <div class="icon">
+                            <i class="fa fa-twitter"></i>
+                        </div>
+                    </a>
+                    <a title="Youtube" href="#" target="_blank" class="youtube">
+                        <div class="icon">
+                            <i class="fa fa-youtube-play"></i>
+                        </div>
+                    </a>
+                    <a title="Vimeo" href="#" target="_blank" class="vimeo">
+                        <div class="icon">
+                            <i class="fa fa-vimeo"></i>
+                        </div>
+                    </a>
+                </div>
+            </li>
+
+            <!-- SEARCH (OPTIONAL) -->
+            <li class="is-off-canvas-only">
+
+                <!-- GLOBAL SEARCH -->
+                <div class="global-search is-hidden" data-search>
+                    <div class="container text-right">
+                        <div class="global-search-form-wrapper">
+                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <form class="global-search-form" action="/search/" method="get" novalidate>
+                                <div class="input-group">
+                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                    <div class="input-group-append">
+                                        <button type="submit" class="btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- SEARCH -->
+    
+<!-- GLOBAL SEARCH --><div class="global-search is-hidden" data-search>
+        <div class="container text-right">
+            <div class="global-search-form-wrapper">
+                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <form class="global-search-form" action="/search/" method="get" novalidate>
+                    <div class="input-group">
+                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--[if lte IE 9]>
+    <div class="lv-alert-bar">
+        <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
+        <span class="lv-alert-bar-close-btn">&times;</span>
+    </div>
+    <![endif]-->
+
+    <!-- **** JAVASCRIPT **** -->
+    <script src="/assets/scripts/minified.js"></script>
+
+    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
+    
+<!-- NO JAVASCRIPT WARNING --><noscript>
+        <div class="lv-alert-bar">
+            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+        </div>
+    </noscript>
+</body>
+</html>
