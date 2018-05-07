@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Contact - Inspire</title>
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script src="/assets/scripts/vue.js"></script>
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body>
@@ -338,6 +338,9 @@
                     <div class="col-lg-9 pr-lg-4">
                         <div class="section-content card">
 
+                            <!-- GOOGLE RECAPTCHA -->
+                            <script src="https://www.google.com/recaptcha/api.js"></script>
+
                             <!-- CONTACT FORM -->
                             <section id="" class="section" style="background-image: url()">
                                 <div class="container">
@@ -421,10 +424,13 @@
                                                 </fieldset>
 
                                                 <!-- * REQUIRED -->
-                                                <p class="float-right">
+                                                <p class="float-md-right">
                                                     <small class="asterisk">*</small>
                                                     <small class="text-muted" style="position: relative; top: -5px;">required</small>
                                                 </p>
+
+                                                <!-- GOOGLE RECAPTCHA -->
+                                                <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
 
                                                 <!-- SUBMIT -->
                                                 <button type="submit" class="btn btn-primary">Send Message
