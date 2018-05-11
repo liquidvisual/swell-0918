@@ -2371,7 +2371,7 @@
                             <div class="spacer my-4"></div>
 
                             <!-- DOCS -->
-                            <docs files="_includes/components/text/text_media.html" class="docs" inline-template>
+                            <docs files="_includes/components/text/text_media_lightbox.html,_includes/components/media/media_lightbox.html" class="docs" inline-template>
                                 <div>
 
                                     <!-- SECTION CONTENT -->
@@ -2585,7 +2585,7 @@
                                             <!-- CARD DOCS COMPONENT -->
                                             <div class="card-docs-component">
 
-                                                <!-- TEXT MEDIA -->
+                                                <!-- TEXT MEDIA LIGHTBOX -->
                                                 <section id="" class="section" style="background-image: url()">
                                                     <div class="container">
                                                         <div class="row align-items-center">
@@ -2601,7 +2601,7 @@
                                                             </div>
                                                             <div class="col-md-5 pl-lg-5">
 
-                                                                <!-- MEDIA -->
+                                                                <!-- MEDIA LIGHTBOX -->
                                                                 <div class="popup-gallery" data-group-title="">
                                                                     <a class="btn-tile" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
                                                                         <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
@@ -2866,6 +2866,148 @@
                                 </div>
                             </docs>
                             <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/gallery.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="gallery" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Gallery</h2>
+                                                <p>Pending</p>
+                                            </div>
+                                        </div>
+
+                                        <!-- SHOW PROPERTIES -->
+                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
+                                            <b>
+                                                <span v-if="!showProperties">Show Properties
+                                                    <i class="fa fa-angle-down"></i>
+                                                </span>
+                                                <span v-if="showProperties">Hide Properties
+                                                    <i class="fa fa-angle-up"></i>
+                                                </span>
+                                            </b>
+                                        </button>
+
+                                        <!-- SECTION TABLE -->
+                                        <div class="card card-table my-4">
+                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Property</th>
+                                                        <th>Field</th>
+                                                        <th>Options</th>
+                                                        <th>Default</th>
+
+                                                        <!-- <th>Description</th> -->
+                                                        </tr>
+                                                </thead>
+                                                <tbody></tbody>
+                                            </table>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- GALLERY -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- MEDIA LIGHTBOX GALLERY -->
+                                                        <div class="popup-gallery" data-group-title="">
+                                                            <div class="row">
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
                         </div>
                         <div class="col-lg-3 pl-lg-3">
 
@@ -2926,6 +3068,9 @@
                                                 <ul class="list-unstyled">
                                                     <li>
                                                         <a href="#affiliates">Affiliates</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#gallery">Gallery</a>
                                                     </li>
                                                 </ul>
                                             </li>
