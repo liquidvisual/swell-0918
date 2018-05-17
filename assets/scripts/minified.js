@@ -5206,7 +5206,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   methods: {
     fetchDataAXIOS: function fetchDataAXIOS(e) {
       axios.get(e.path).then(function (t) {
-        e.result = t.data;var n = document.createElement("script");n.setAttribute("src", "//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"), document.head.appendChild(n);
+        e.result = t.data;
       });
     },
     enableCode: function enableCode() {

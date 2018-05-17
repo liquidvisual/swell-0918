@@ -1437,75 +1437,6 @@
                             <div class="spacer my-4"></div>
 
                             <!-- DOCS -->
-                            <docs files="_includes/components/text/text.html" class="docs" inline-template>
-                                <div>
-
-                                    <!-- SECTION CONTENT -->
-                                    <section id="text" class="section-content">
-                                        <div class="row">
-                                            <div class="col-md-11">
-                                                <h2>Text</h2>
-                                                <p>The Text Section is the simplest way to add WYSIWYG content to the site.</p>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <section class="card-docs section-content card">
-
-                                        <!-- CARD DOCS HEADER -->
-                                        <header class="card-docs-header">
-                                            <button v-if="!codeEnabled" class="active text">
-                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
-                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
-                                                <i class="fa fa-file-code-o mr-1"></i>
-                                                <span v-text="item.alias"></span>
-                                            </button>
-                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
-                                                <i class="fa fa-code"></i>
-                                            </button>
-                                        </header>
-
-                                        <!-- CARD DOCS BODY -->
-                                        <div class="card-docs-body">
-
-                                            <!-- CARD DOCS CODE -->
-                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
-
-                                            <!-- CARD DOCS COMPONENT -->
-                                            <div class="card-docs-component">
-
-                                                <!-- SECTION LEFT -->
-                                                <section id="" class="section" style="background-image: url()">
-                                                    <div class="container">
-                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
-
-                                                        <!-- WYSIWYG #1 -->
-                                                        <div class="row">
-                                                            <div class="col-md-11 col-lg-10">
-                                                                <div class="wysiwyg mb-4">
-                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- WYSIWYG #2 -->
-                                                        <div class="row">
-                                                            <div class="col-md-8">
-                                                                <div class="wysiwyg mb-4">
-                                                                    <small>
-                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                        </div>
-                                    </section>
-                                </div>
-                            </docs>
-                            <div class="spacer my-4"></div>
-
-                            <!-- DOCS -->
                             <docs files="_includes/components/text/text_button.html" class="docs" inline-template>
                                 <div>
 
@@ -1906,6 +1837,9 @@
                                             <div class="col-md-11">
                                                 <h2>Contact</h2>
                                                 <p>A Vue powered, AJAX driven Contact Form with Vee-Validate. Make sure the wrapping id matches the ‘el’ property in the script below it.</p>
+                                                <div class="mb-4 alert alert-warning" role="alert">
+                                                    <b>Warning:</b> Vue can't work inside of this documentation. See
+                                                    <a href="/contact/">Contact</a> for working example.</div>
                                             </div>
                                         </div>
                                     </section>
@@ -1968,7 +1902,7 @@
                                                             </div>
 
                                                             <!-- FORM CONTACT -->
-                                                            <form name="Contact Form" action="http://liquidvisual.net/form.php" @submit.prevent="validateBeforeSubmit" novalidate>
+                                                            <form name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
                                                                 <fieldset>
 
                                                                     <!-- NAME* -->
@@ -2048,7 +1982,7 @@
                                                                 <!-- * REQUIRED -->
                                                                 <p class="float-md-right">
                                                                     <small class="asterisk">*</small>
-                                                                    <small class="text-muted" style="position: relative; top: -5px;">required</small>
+                                                                    <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
                                                                 </p>
 
                                                                 <!-- GOOGLE RECAPTCHA -->
@@ -2246,9 +2180,6 @@
                                             <li class="mb-3">
                                                 <h5>Text</h5>
                                                 <ul class="list-unstyled">
-                                                    <li>
-                                                        <a href="#text">Text</a>
-                                                    </li>
                                                     <li>
                                                         <a href="#text-button">Text Button</a>
                                                     </li>
