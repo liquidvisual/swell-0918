@@ -172,6 +172,13 @@
                                             <!-- THIRD LEVEL -->
                                             </li>
                                         <li class="">
+                                            <a href="/paypal/">
+                                                <span class="text">Paypal</span>
+                                            </a>
+
+                                            <!-- THIRD LEVEL -->
+                                            </li>
+                                        <li class="">
                                             <a href="/search/">
                                                 <span class="text">Search Results</span>
                                             </a>
@@ -540,6 +547,7 @@
                                                         url: 'http://liquidvisual.net/form.php',
                                                         data: this.dataString
                                                     }).then(response => {
+                                                        // if callerid == 
                                                         this.validateResponse(response.data);
                                                         this.processing = false;
                                                     }).catch(error => {
@@ -727,8 +735,12 @@
                 </div>
             </div>
 
-            <!-- { % include components/widgets/google_map.html id="google-map" %} -->
-            </main>
+            <!-- GOOGLE MAP -->
+            <section id="google-map" class="lv-google-map" onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'" onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">
+                <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
+                <iframe src="https://maps.google.com/maps?hl=en&q=55 North Steyne Manly NSW&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed" width="100%" height="500" frameborder="0" style="pointer-events: none"></iframe>
+            </section>
+        </main>
 
         <!-- FOOTER -->
         <footer class="global-footer">
@@ -997,6 +1009,13 @@
                     <li class="">
                         <a href="/contact/">
                             <span class="text">Contact</span>
+                        </a>
+
+                        <!-- THIRD LEVEL -->
+                        </li>
+                    <li class="">
+                        <a href="/paypal/">
+                            <span class="text">Paypal</span>
                         </a>
 
                         <!-- THIRD LEVEL -->
