@@ -127,15 +127,6 @@
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/sections/">
-                                        <span class="text">Sections</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
                                 <li class="has-dropdown is-mega is-right-aligned">
 
                                     <!-- TOP LEVEL -->
@@ -314,7 +305,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                        <input name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -368,12 +359,10 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Fleet Adventures</h1>
+                                    <h1 class="display-1">Lorem Ipsum Dolor Sit Amet</h1>
 
                                     <!-- WYSIWYG -->
-                                    <div class="wysiwyg mb-4">
-                                        <h3>Come make great memories with us!</h3>
-                                    </div>
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</div>
                                 </div>
                             </div>
                         </div>
@@ -403,6 +392,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- VIMEO PLUGIN - video must be 16:9 -->
+                    <div class="video-bg">
+                        <div class="video-fg">
+                            <iframe data-vimeo class="video" src="https://player.vimeo.com/video/264406454?autoplay=1&title=0&loop=0&color=000000&byline=0&portrait=0&muted=1&background=1" width="640" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                     <div class="container">
@@ -427,7 +423,7 @@
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
                         <div class="video-fg">
-                            <iframe class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
                         </div>
                     </div>
 
@@ -438,7 +434,7 @@
                     var firstScriptTag = document.getElementsByTagName('script')[0];
                     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     function onYouTubeIframeAPIReady() {
-                        document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
+                        document.querySelectorAll('.lv-hero-item iframe[data-youtube]').forEach((item) => {
                             new YT.Player(item, {
                                 events: {
                                     'onReady': (event) => {
@@ -472,7 +468,7 @@
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
                         <div class="video-fg">
-                            <iframe class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
                         </div>
                     </div>
                 </div>
@@ -512,9 +508,6 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/components/">Components</a>
-                                </li>
-                                <li>
-                                    <a href="/sections/">Sections</a>
                                 </li>
                                 <li>
                                     <a href="/advanced-page/">Pages</a>
@@ -728,15 +721,6 @@
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/sections/">
-                    <span class="text">Sections</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
             <li class="has-dropdown is-mega is-right-aligned">
 
                 <!-- TOP LEVEL -->
@@ -915,7 +899,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                    <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -940,7 +924,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                        <input name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -964,6 +948,9 @@
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     
+<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
+<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
+<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>

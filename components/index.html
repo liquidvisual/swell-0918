@@ -127,15 +127,6 @@
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/sections/">
-                                        <span class="text">Sections</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
                                 <li class="has-dropdown is-mega is-right-aligned">
 
                                     <!-- TOP LEVEL -->
@@ -314,7 +305,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                        <input name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -370,6 +361,10 @@
             src: url('/assets/fonts/BLOKKNeue-Regular.eot');
             src: local('☺'), url('/assets/fonts/BLOKKNeue-Regular.woff') format('woff'), url('/assets/fonts/BLOKKNeue-Regular.tff') format('truetype'), url('/assets/fonts/BLOKKNeue-Regular.svg') format('svg');
         }
+        
+        .container {
+            max-width: 1800px;
+        }
         </style>
 
         <!-- BODY -->
@@ -382,215 +377,16 @@
                         <div class="col-lg-9 pr-lg-4 order-last">
 
                             <!-- DOCS -->
-                            <docs files="_includes/components/hero/hero.html,_includes/components/hero/hero__youtube_plugin.html" class="docs" inline-template>
+                            <docs files="_includes/sections/section.html" class="docs" inline-template>
                                 <div>
 
                                     <!-- SECTION CONTENT -->
-                                    <section id="hero" class="section-content">
+                                    <section id="default" class="section-content">
                                         <div class="row">
                                             <div class="col-md-11">
-                                                <h2>Hero</h2>
-                                                <p>The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.</p>
+                                                <h2>Default</h2>
+                                                <p>Section Default</p>
                                             </div>
-                                        </div>
-
-                                        <!-- SHOW PROPERTIES -->
-                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
-                                            <b>
-                                                <span v-if="!showProperties">Show Properties
-                                                    <i class="fa fa-angle-down"></i>
-                                                </span>
-                                                <span v-if="showProperties">Hide Properties
-                                                    <i class="fa fa-angle-up"></i>
-                                                </span>
-                                            </b>
-                                        </button>
-
-                                        <!-- SECTION TABLE -->
-                                        <div class="card card-table my-4">
-                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Property</th>
-                                                        <th>Field</th>
-                                                        <th>Options</th>
-                                                        <th>Default</th>
-
-                                                        <!-- <th>Description</th> -->
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Section Id</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Section Id</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Section Mode</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0">
-                                                                <li class="pl-0">Default: "is-default"</li>
-                                                                <li class="pl-0">Medium: "is-medium"</li>
-                                                                <li class="pl-0">Full: "is-full"</li>
-                                                            </ul>
-                                                        </td>
-                                                        <td>is-default</td>
-
-                                                        <!-- <td>Section Mode</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Section Justify</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0">
-                                                                <li class="pl-0">Left: "left"</li>
-                                                                <li class="pl-0">Center: "center"</li>
-                                                            </ul>
-                                                        </td>
-                                                        <td>center</td>
-
-                                                        <!-- <td>Section Justify</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Header</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Header</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Header Size</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0">
-                                                                <li class="pl-0">Display 1: "display-1"</li>
-                                                                <li class="pl-0">Display 2: "display-2"</li>
-                                                                <li class="pl-0">Display 3: "display-3"</li>
-                                                                <li class="pl-0">Display 4: "display-4"</li>
-                                                                <li class="pl-0">Display 5: "display-5"</li>
-                                                            </ul>
-                                                        </td>
-                                                        <td>display-1</td>
-
-                                                        <!-- <td>Component Header Size</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Body</td>
-                                                        <td>Markdown</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Body</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Image</td>
-                                                        <td>Image</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Image</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Scroll Prompt</td>
-                                                        <td>Boolean</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>true</td>
-
-                                                        <!-- <td>Component Scroll Prompt</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component YouTube Id</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component YouTube Id</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Theme</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Theme</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Image</td>
-                                                        <td>Image</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Background Image</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Image Fixed</td>
-                                                        <td>Boolean</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>false</td>
-
-                                                        <!-- <td>Component Background Image Fixed</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Tinted</td>
-                                                        <td>Boolean</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>false</td>
-
-                                                        <!-- <td>Component Background Tinted</td> -->
-                                                        </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </section>
                                     <section class="card-docs section-content card">
@@ -617,165 +413,32 @@
                                             <!-- CARD DOCS COMPONENT -->
                                             <div class="card-docs-component">
 
-                                                <!-- HERO WRAPPER -->
-                                                <section id="" class="lv-hero-wrapper" data-hero-slider>
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
 
-                                                    <!-- HERO -->
-                                                    <div class="lv-hero is-default" data-flickity='
-            {
-                "adaptiveHeight": true,
-                "autoPlay": false,
-                "cellAlign": "left",
-                "contain": true,
-                "draggable": false,
-                "dragThreshold": 40,
-                "freeScroll": false,
-                "freeScrollFriction": 0.075,
-                "friction": 0.28,
-                "groupCells": false,
-                "imagesLoaded": true,
-                "pageDots": true,
-                "prevNextButtons": false,
-                "pauseAutoPlayOnHover": true,
-                "selectedAttraction": 0.025,
-                "watchCSS": false,
-                "wrapAround": true
-            }'>
-
-                                                        <!-- HERO ITEMS -->
-                                                        <div class="lv-hero-item theme-skyblue" style="background-image: url('')">
-                                                            <div class="container">
-                                                                <div class="row justify-content-center text-center">
-                                                                    <div class="col-md-11 col-lg-10">
-
-                                                                        <!-- HERO CAPTION -->
-                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-
-                                                                            <!-- HEADER -->
-                                                                            <h1 class="display-1">Fleet Adventures</h1>
-
-                                                                            <!-- WYSIWYG -->
-                                                                            <div class="wysiwyg mb-4">
-                                                                                <h3>Come make great memories with us!</h3>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- SCROLL PROMPT -->
-                                                            <a class="lv-hero-scroll-prompt hidden-lg-down">
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </a>
-                                                        </div>
-                                                        <div class="lv-hero-item theme-posh is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.jpg')">
-                                                            <div class="container">
-                                                                <div class="row justify-content-center text-center">
-                                                                    <div class="col-md-11 col-lg-10">
-
-                                                                        <!-- HERO CAPTION -->
-                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-
-                                                                            <!-- HEADER -->
-                                                                            <h1 class="display-1"></h1>
-
-                                                                            <!-- WYSIWYG -->
-                                                                            <div class="wysiwyg mb-4">
-                                                                                <p class="lead">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar. Lorem ipsum dolor sit amet, consectetur adipisicing Melita liquam ut eros ligula, at auctor lorem.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
-                                                            <div class="container">
-                                                                <div class="row justify-content-center text-center">
-                                                                    <div class="col-md-11 col-lg-10">
 
-                                                                        <!-- HERO CAPTION -->
-                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-
-                                                                            <!-- HEADER -->
-                                                                            <h1 class="display-1">Hero With YouTube Embedded Background</h1>
-
-                                                                            <!-- WYSIWYG -->
-                                                                            <div class="wysiwyg mb-4">
-                                                                                <p class="lead">Although you can embed video across multiple slides, we recommended you only use one for performance reasons.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
-                                                            <div class="video-bg">
-                                                                <div class="video-fg">
-                                                                    <iframe class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- YOUTUBE PLAYER INSTANCE - loads *once* async -->
-                                                            <script>
-                                                            var tag = document.createElement('script');
-                                                            tag.src = "https://www.youtube.com/iframe_api";
-                                                            var firstScriptTag = document.getElementsByTagName('script')[0];
-                                                            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                                                            function onYouTubeIframeAPIReady() {
-                                                                document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
-                                                                    new YT.Player(item, {
-                                                                        events: {
-                                                                            'onReady': (event) => {
-                                                                                event.target.playVideo();
-                                                                                event.target.mute();
-                                                                            }
-                                                                        }
-                                                                    })
-                                                                })
-                                                            }
-                                                            </script>
-                                                        </div>
-                                                        <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
-                                                            <div class="container">
-                                                                <div class="row justify-content-center text-center">
-                                                                    <div class="col-md-11 col-lg-10">
-
-                                                                        <!-- HERO CAPTION -->
-                                                                        <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-
-                                                                            <!-- HEADER -->
-                                                                            <h1 class="display-1">Hero With YouTube Embedded Background</h1>
-
-                                                                            <!-- WYSIWYG -->
-                                                                            <div class="wysiwyg mb-4"></div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <!-- YOUTUBE PLUGIN - video must be 16:9 -->
-                                                            <div class="video-bg">
-                                                                <div class="video-fg">
-                                                                    <iframe class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-
-                                                    <!-- /.lv-hero -->
-                                                    
-<!-- SLIDER CONTROLS --><div class="lv-hero-slider-controls hidden-lg-down">
-                                                        <span class="lv-hero-slider-prev-btn">
-                                                            <i class="fa fa-angle-left"></i>
-                                                        </span>
-                                                        <span class="lv-hero-slider-next-btn">
-                                                            <i class="fa fa-angle-right"></i>
-                                                        </span>
                                                     </div>
                                                 </section>
-
-                                                <!-- /.lv-hero-wrapper -->
-                                                </div>
+                                            </div>
                                         </div>
                                     </section>
                                 </div>
@@ -783,132 +446,16 @@
                             <div class="spacer my-4"></div>
 
                             <!-- DOCS -->
-                            <docs files="_includes/components/hero/hero_static.html" class="docs" inline-template>
+                            <docs files="_includes/sections/section_center.html" class="docs" inline-template>
                                 <div>
 
                                     <!-- SECTION CONTENT -->
-                                    <section id="hero-static" class="section-content">
+                                    <section id="center" class="section-content">
                                         <div class="row">
                                             <div class="col-md-11">
-                                                <h2>Hero Static</h2>
-                                                <p>The Hero is the most prominent section of the website above the fold. Each page requires a hero at the top, whether fully featured (carousels, video etc) or short and static.</p>
+                                                <h2>Center</h2>
+                                                <p>Section Centered</p>
                                             </div>
-                                        </div>
-
-                                        <!-- SHOW PROPERTIES -->
-                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
-                                            <b>
-                                                <span v-if="!showProperties">Show Properties
-                                                    <i class="fa fa-angle-down"></i>
-                                                </span>
-                                                <span v-if="showProperties">Hide Properties
-                                                    <i class="fa fa-angle-up"></i>
-                                                </span>
-                                            </b>
-                                        </button>
-
-                                        <!-- SECTION TABLE -->
-                                        <div class="card card-table my-4">
-                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Property</th>
-                                                        <th>Field</th>
-                                                        <th>Options</th>
-                                                        <th>Default</th>
-
-                                                        <!-- <th>Description</th> -->
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Section Id</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Section Id</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Section Mode</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0">
-                                                                <li class="pl-0">Static: "is-static"</li>
-                                                            </ul>
-                                                        </td>
-                                                        <td>is-static</td>
-
-                                                        <!-- <td>Section Mode</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Header</td>
-                                                        <td>Hidden</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>page.title</td>
-
-                                                        <!-- <td>Component Header</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Theme</td>
-                                                        <td>Select</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Theme</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Image</td>
-                                                        <td>Image</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Background Image</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Image Fixed</td>
-                                                        <td>Boolean</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>false</td>
-
-                                                        <!-- <td>Component Background Image Fixed</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Background Tinted</td>
-                                                        <td>Boolean</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>false</td>
-
-                                                        <!-- <td>Component Background Tinted</td> -->
-                                                        </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </section>
                                     <section class="card-docs section-content card">
@@ -935,19 +482,1093 @@
                                             <!-- CARD DOCS COMPONENT -->
                                             <div class="card-docs-component">
 
-                                                <!-- HERO WRAPPER -->
-                                                <section id="" class="lv-hero-wrapper">
+                                                <!-- SECTION CENTER -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
 
-                                                    <!-- HERO -->
-                                                    <div class="lv-hero is-static">
+                                                                <!-- WYSIWYG #1 -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
 
-                                                        <!-- HERO ITEM -->
-                                                        <div class="lv-hero-item align-items-end" style="background-image: url('')">
+                                                                <!-- WYSIWYG #2 -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
 
-                                                            <!-- HERO CAPTION -->
-                                                            <div class="container">
-                                                                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
-                                                                    <h1 class="display-1">Components</h1>
+                            <!-- DOCS -->
+                            <docs files="_includes/sections/section_split.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="split" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Split</h2>
+                                                <p>Section Split</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION SPLIT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6 col-lg-4 offset-lg-1">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG #1 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-11 col-lg-10">
+                                                                        <div class="wysiwyg mb-4">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- CONTENT -->
+                                                            <div class="col-md-6 col-lg-7">
+                                                                <div class="" style="padding-right: 15%; padding-bottom: 10%; padding-left: 15%; padding-top: 10%;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/cards/cards.html,_includes/components/cards/card.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="cards" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Cards</h2>
+                                                <p>The Cards Section is a basic collection of 2-3 card components without any advanced behavior. Content should be kept to short paragraphs rather than length text columns since tall cards will appear too narrow.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- BUTTON -->
+                                                                            <p>
+                                                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">It's the Summer of George</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- BUTTON -->
+                                                                            <p>
+                                                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- BUTTON -->
+                                                                            <p>
+                                                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/cards/cards__slider.html,_includes/components/cards/card.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="cards-slider" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Cards Slider</h2>
+                                                <p>The Cards Slider Section will create a carousel of 2-3 cards.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- CARD SLIDER -->
+                                                        <div class="card-slider mb-4" data-card-slider data-flickity='
+    {
+        "adaptiveHeight": false,
+        "autoPlay": false,
+        "cellAlign": "left",
+        "contain": true,
+        "draggable": ">1",
+        "dragThreshold": 40,
+        "freeScroll": true,
+        "freeScrollFriction": 0.075,
+        "friction": 0.28,
+        "groupCells": true,
+        "imagesLoaded": true,
+        "pageDots": false,
+        "prevNextButtons": true,
+        "pauseAutoPlayOnHover": false,
+        "selectedAttraction": 0.025,
+        "watchCSS": false,
+        "wrapAround": false
+    }'>
+                                                            <div class="card-cell group-by-two">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        <small class="d-block text-uppercase mb-2">
+                                                                            <i class="fa fa-tags text-muted">&nbsp;</i>
+                                                                            <a href="#">SEO</a>
+                                                                        </small>
+
+                                                                        <!-- TITLE -->
+                                                                        <a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- DATE + AUTHOR -->
+                                                                            <small>
+                                                                                <time class="text-muted mr-1" datetime="2016-01-05T00:00:00+11:00">05 January 2016</time>
+                                                                                <a target="_blank" href="#">Joe Bloggs
+                                                                                    <i class="fa fa-external-link"></i>
+                                                                                </a>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-cell group-by-two">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        <small class="d-block text-uppercase mb-2">
+                                                                            <i class="fa fa-tags text-muted">&nbsp;</i>
+                                                                            <a href="#">Technology</a>,
+                                                                            <a href="#">Umbraco CMS</a>
+                                                                        </small>
+
+                                                                        <!-- TITLE -->
+                                                                        <a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- DATE + AUTHOR -->
+                                                                            <small>
+                                                                                <time class="text-muted mr-1" datetime="2016-03-10T00:00:00+11:00">10 March 2016</time>
+                                                                                <a target="_blank" href="#">Joe Bloggs
+                                                                                    <i class="fa fa-external-link"></i>
+                                                                                </a>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-cell group-by-two">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Nothing's Finer Than Being in Your Diner">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">Nothing's Finer Than Being in Your Diner</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- DATE + AUTHOR -->
+                                                                            <small>
+                                                                                <time class="text-muted mr-1" datetime="2016-08-09T00:00:00+10:00">09 August 2016</time>
+                                                                                <a target="_blank" href="#">Joe Bloggs
+                                                                                    <i class="fa fa-external-link"></i>
+                                                                                </a>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-cell group-by-two">
+
+                                                                <!-- CARD -->
+                                                                <div class="card h-100">
+
+                                                                    <!-- IMAGE -->
+                                                                    <a class="btn-tile" href="/blog/blog-item/">
+                                                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Yadda Yadda Yadda">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                    </a>
+
+                                                                    <!-- CARD BODY -->
+                                                                    <div class="card-body d-flex flex-column">
+
+                                                                        <!-- TAGS / CATEGORIES -->
+                                                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                            <h3 class="card-title">Yadda Yadda Yadda</h3>
+                                                                        </a>
+
+                                                                        <!-- TEXT -->
+                                                                        <div class="card-text">
+                                                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                        </div>
+
+                                                                        <!-- CARD FOOTER -->
+                                                                        <div>
+
+                                                                            <!-- DATE + AUTHOR -->
+                                                                            <small>
+                                                                                <time class="text-muted mr-1" datetime="2016-09-11T00:00:00+10:00">11 September 2016</time>
+                                                                                <a target="_blank" href="#">Joe Bloggs
+                                                                                    <i class="fa fa-external-link"></i>
+                                                                                </a>
+                                                                            </small>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/cards/cards__tabs.html,_includes/components/cards/card.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="cards-tabs" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Cards Tabs</h2>
+                                                <p>The Cards Tabs Component will create tabbable cards in groups of 2-3.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- TABS -->
+                                                        <nav class="btn-tabs nav mb-4" role="tablist">
+                                                            <a href="#tab-group-1" class="btn-tab active" data-toggle="tab" role="tab">Tab Group 1</a>
+                                                            <a href="#tab-group-2" class="btn-tab" data-toggle="tab" role="tab">Tab Group 2</a>
+                                                            <a href="#tab-group-3" class="btn-tab" data-toggle="tab" role="tab">Tab Group 3</a>
+                                                        </nav>
+
+                                                        <!-- TAB CONTENT -->
+                                                        <div class="tab-content mb-4">
+                                                            <div id="tab-group-1" class="tab-pane fade active show" role="tabpanel">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">It's the Summer of George</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="tab-group-2" class="tab-pane fade" role="tabpanel">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">It's the Summer of George</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div id="tab-group-3" class="tab-pane fade" role="tabpanel">
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">It's the Summer of George</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-lg-4 mb-4">
+
+                                                                        <!-- CARD -->
+                                                                        <div class="card h-100">
+
+                                                                            <!-- IMAGE -->
+                                                                            <a class="btn-tile" href="/blog/blog-item/">
+                                                                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                                                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                                                            </a>
+
+                                                                            <!-- CARD BODY -->
+                                                                            <div class="card-body d-flex flex-column">
+
+                                                                                <!-- TAGS / CATEGORIES -->
+                                                                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                                                                    <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                                                                </a>
+
+                                                                                <!-- TEXT -->
+                                                                                <div class="card-text">
+                                                                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                                                                </div>
+
+                                                                                <!-- CARD FOOTER -->
+                                                                                <div>
+
+                                                                                    <!-- BUTTON -->
+                                                                                    <p>
+                                                                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                                                                    </p>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/text/text.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="text" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Text</h2>
+                                                <p>The Text Section is the simplest way to add WYSIWYG content to the site.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/text/text_button.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="text-button" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Text Button</h2>
+                                                <p>This section contains a single WYSIWYG field and a button. It’s best suited for a simple call to action.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION SPLIT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6 col-lg-4 offset-lg-1">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG #1 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-11 col-lg-10">
+                                                                        <div class="wysiwyg mb-4">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- CONTENT -->
+                                                            <div class="col-md-6 col-lg-7">
+                                                                <div class="" style="padding-right: 15%; padding-bottom: 10%; padding-left: 15%; padding-top: 10%;">
+
+                                                                    <!-- WYSIWYG (NON-USER WYSIWYG) -->
+                                                                    <div class="wysiwyg">
+                                                                        <p>
+                                                                            <a class="btn btn-block btn-primary" href="#">Click me</a>
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -965,78 +1586,12 @@
                                 <div>
 
                                     <!-- SECTION CONTENT -->
-                                    <section id="media-lightbox" class="section-content">
+                                    <section id="text-media" class="section-content">
                                         <div class="row">
                                             <div class="col-md-11">
-                                                <h2>Media Lightbox</h2>
-                                                <p>This component is a clickable thumbnail that opens a lightbox to display the media from the ‘Component Link’ at a larger size. This media can be an image, link to a Google Map iframe or a video from YouTube or Vimeo. If no thumbnail is supplied it will be generated by those services.</p>
+                                                <h2>Text Media</h2>
+                                                <p>This section provides a WYSIWYG field accompanied with an image, video (YouTube or Vimeo) or Google Map. Media will automatically open inside a lightbox when clicked. If no image is specified for video, the template will default to a still from that video.</p>
                                             </div>
-                                        </div>
-
-                                        <!-- SHOW PROPERTIES -->
-                                        <button class="p-0 btn btn-link" @click="showProperties = !showProperties">
-                                            <b>
-                                                <span v-if="!showProperties">Show Properties
-                                                    <i class="fa fa-angle-down"></i>
-                                                </span>
-                                                <span v-if="showProperties">Hide Properties
-                                                    <i class="fa fa-angle-up"></i>
-                                                </span>
-                                            </b>
-                                        </button>
-
-                                        <!-- SECTION TABLE -->
-                                        <div class="card card-table my-4">
-                                            <table v-if="showProperties" class="table table-bordered table-sm mb-0">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Property</th>
-                                                        <th>Field</th>
-                                                        <th>Options</th>
-                                                        <th>Default</th>
-
-                                                        <!-- <th>Description</th> -->
-                                                        </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Component Image</td>
-                                                        <td>Image</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Image</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Image Description</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>-</td>
-
-                                                        <!-- <td>Component Image Description</td> -->
-                                                        </tr>
-                                                    <tr>
-                                                        <td>Component Link</td>
-                                                        <td>String</td>
-
-                                                        <!-- Options (for select) -->
-                                                        <td>
-                                                            <ul class="mb-0"></ul>
-                                                        </td>
-                                                        <td>Component Image Path</td>
-
-                                                        <!-- <td>Component Link</td> -->
-                                                        </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </section>
                                     <section class="card-docs section-content card">
@@ -1063,13 +1618,570 @@
                                             <!-- CARD DOCS COMPONENT -->
                                             <div class="card-docs-component">
 
-                                                <!-- MEDIA LIGHTBOX -->
-                                                <div class="popup-gallery" data-group-title="">
-                                                    <a class="btn-tile" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
-                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
-                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
-                                                    </a>
-                                                </div>
+                                                <!-- SECTION SPLIT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-6 col-lg-4 offset-lg-1">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG #1 -->
+                                                                <div class="row">
+                                                                    <div class="col-md-11 col-lg-10">
+                                                                        <div class="wysiwyg mb-4">
+                                                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                            <!-- CONTENT -->
+                                                            <div class="col-md-6 col-lg-7">
+                                                                <div class="" style="padding-right: 15%; padding-bottom: 10%; padding-left: 15%; padding-top: 10%;">
+
+                                                                    <!-- MEDIA LIGHTBOX -->
+                                                                    <div class="popup-gallery" data-group-title="">
+                                                                        <a class="btn-tile" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                            <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                            <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/affiliates.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="affiliates" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Affiliates</h2>
+                                                <p>This section is best suited for displaying a single row of small affiliate images - most commonly logos or sponsors. The section will accept any number of images and start stacking once they run out of room.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION CENTER -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
+                                                                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                                <!-- WYSIWYG #1 -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- IMAGES -->
+                                                        <div class="row no-gutters justify-content-center">
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                            <div class="col-4 col-md-2 align-items-center text-center">
+                                                                <p class="mb-4">
+                                                                    <a href="#" target="_blank">
+                                                                        <img width="70%" src="http://placehold.it/500x400" alt="...">
+                                                                    </a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row justify-content-center">
+                                                            <div class="col-lg-9 text-center">
+
+                                                                <!-- WYSIWYG #2 -->
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/gallery.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="gallery" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Gallery</h2>
+                                                <p>Pending</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- MEDIA LIGHTBOX GALLERY -->
+                                                        <div class="popup-gallery mb-4" data-group-title="">
+                                                            <div class="row">
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-12 col-md-3">
+                                                                    <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                                                        <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
+                            <docs files="_includes/components/forms/form_contact.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="contact" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Contact</h2>
+                                                <p>A Vue powered, AJAX driven Contact Form with Vee-Validate. Make sure the wrapping id matches the ‘el’ property in the script below it.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+
+                                                <!-- SECTION LEFT -->
+                                                <section id="" class="section" style="background-image: url()">
+                                                    <div class="container">
+                                                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                                        <!-- WYSIWYG #1 -->
+                                                        <div class="row">
+                                                            <div class="col-md-11 col-lg-10">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <script src="https://www.google.com/recaptcha/api.js"></script>
+                                                        <div id="app" v-cloak>
+
+                                                            <!-- IF SUCCESS -->
+                                                            <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <strong>Success!</strong>
+                                                                <br>Thanks for that. We'll get back to you soon.</div>
+
+                                                            <!-- IF FAILURE -->
+                                                            <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <strong>Oops!</strong>
+                                                                <br>
+                                                                <span v-html="errorText"></span>
+                                                            </div>
+
+                                                            <!-- FORM CONTACT -->
+                                                            <form name="Contact Form" action="http://liquidvisual.net/form.php" @submit.prevent="validateBeforeSubmit" novalidate>
+                                                                <fieldset>
+
+                                                                    <!-- NAME* -->
+                                                                    <label class="form-group d-block">
+                                                                        <p class="mb-2">Full Name
+                                                                            <small class="asterisk">*</small>
+                                                                        </p>
+                                                                        <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="name" v-validate="'required|alpha'" required>
+                                                                        <small v-show="errors.has('name')" class="error shake animated">
+                                                                            <i class="fa fa-warning"></i>&nbsp;
+                                                                            <span v-text="errors.first('name')"></span>
+                                                                        </small>
+                                                                    </label>
+
+                                                                    <!-- EMAIL* -->
+                                                                    <label class="form-group d-block">
+                                                                        <p class="mb-2">Email
+                                                                            <small class="asterisk">*</small>
+                                                                        </p>
+                                                                        <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="email" v-validate="'required|email'" type="email" required>
+                                                                        <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
+                                                                            <i class="fa fa-warning"></i>&nbsp;
+                                                                            <span v-text="errors.first('email')"></span>
+                                                                        </small>
+                                                                    </label>
+
+                                                                    <!-- PHONE -->
+                                                                    <label class="form-group d-block">
+                                                                        <p class="mb-2">Phone</p>
+                                                                        <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="phone" v-validate="'numeric'">
+                                                                        <small v-show="errors.has('phone')" class="error shake animated">
+                                                                            <i class="fa fa-warning"></i>&nbsp;
+                                                                            <span v-text="errors.first('phone')"></span>
+                                                                        </small>
+                                                                    </label>
+                                                                </fieldset>
+                                                                <fieldset>
+
+                                                                    <!-- MESSAGE -->
+                                                                    <label class="form-group d-block">
+                                                                        <p>Your Message
+                                                                            <small class="asterisk">*</small>
+                                                                        </p>
+                                                                        <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
+                                                                        <small v-show="errors.has('message')" class="error shake animated">
+                                                                            <i class="fa fa-warning"></i>&nbsp;
+                                                                            <span v-text="errors.first('message')"></span>
+                                                                        </small>
+                                                                    </label>
+                                                                </fieldset>
+                                                                <fieldset>
+
+                                                                    <!-- REFERRAL -->
+                                                                    <label class="form-group d-block">
+                                                                        <p>How did you hear about us?</p>
+                                                                        <select class="custom-select" name="Referral" v-model="referral">
+                                                                            <option disabled selected value="">Choose one</option>
+                                                                            <option value="Google">Google</option>
+                                                                            <option value="Twitter">Twitter</option>
+                                                                            <option value="Facebook">Facebook</option>
+                                                                            <option value="Friend">Word of mouth</option>
+                                                                            <option value="Other">Other</option>
+                                                                        </select>
+                                                                    </label>
+                                                                </fieldset>
+                                                                <fieldset>
+
+                                                                    <!-- SIGN UP TO OUR NEWSLETTER -->
+                                                                    <div class="form-group">
+                                                                        <label class="custom-control custom-checkbox">
+                                                                            <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
+                                                                            <p class="custom-control-label">Sign me up to the newsletter</p>
+                                                                        </label>
+                                                                    </div>
+                                                                </fieldset>
+
+                                                                <!-- * REQUIRED -->
+                                                                <p class="float-md-right">
+                                                                    <small class="asterisk">*</small>
+                                                                    <small class="text-muted" style="position: relative; top: -5px;">required</small>
+                                                                </p>
+
+                                                                <!-- GOOGLE RECAPTCHA -->
+                                                                <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
+
+                                                                <!-- SUBMIT -->
+                                                                <button :disabled="(errors.any() && !failures) || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                                                    <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                                    <span v-show="processing" class="text">Sending Message</span>
+                                                                    <span v-show="!processing" class="text">Send Message</span>
+                                                                </button>
+
+                                                                <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
+                                                                </form>
+                                                        </div>
+                                                        <script>
+                                                        //-----------------------------------------------------------------
+                                                        //
+                                                        //-----------------------------------------------------------------
+                                                        Vue.use(VeeValidate, {
+                                                            events: 'input' // 'change' or 'blur'
+                                                        });
+                                                        new Vue({
+                                                            el: '#app', // <---- this needs to match the wrapper id
+                                                            data() {
+                                                                return {
+                                                                    errorText: '',
+                                                                    processing: false,
+                                                                    success: false,
+                                                                    failures: 0,
+                                                                    name: '',
+                                                                    email: '',
+                                                                    phone: '',
+                                                                    referral: '',
+                                                                    message: '',
+                                                                    newsletter: false,
+                                                                }
+                                                            },
+                                                            //-----------------------------------------------------------------
+                                                            // COMPUTED
+                                                            //-----------------------------------------------------------------
+                                                            computed: {
+                                                                isComplete() { // * required fields
+                                                                        return this.name && this.email && this.message;
+                                                                    },
+                                                                    dataString() {
+                                                                        return 'name=' + this.name + '&' + 'email=' + this.email + '&' + 'phone=' + this.phone + '&' + 'message=' + this.message + '&' + 'referral=' + this.referral + '&' + 'newsletter=' + this.newsletter; // ADD EXTRA HERE
+                                                                    }
+                                                            },
+                                                            //-----------------------------------------------------------------
+                                                            // METHODS
+                                                            //-----------------------------------------------------------------
+                                                            methods: {
+                                                                validateBeforeSubmit() {
+                                                                        this.processing = true;
+                                                                        this.$validator.validateAll().then((result) => {
+                                                                            if (result) {
+                                                                                this.postData();
+                                                                            } else {
+                                                                                this.failures++; // used for returning with server errors
+                                                                                this.success = false;
+                                                                                this.processing = false;
+                                                                            }
+                                                                        });
+                                                                    },
+                                                                    //==================================================
+                                                                    // POST DATA
+                                                                    //==================================================
+                                                                    postData() {
+                                                                        axios({
+                                                                            method: 'POST',
+                                                                            url: 'http://liquidvisual.net/form.php',
+                                                                            data: this.dataString
+                                                                        }).then(response => {
+                                                                            this.validateResponse(response.data);
+                                                                            this.processing = false;
+                                                                        }).catch(error => {
+                                                                            this.processing = false;
+                                                                            this.failures++;
+                                                                            window.scrollTo(0, 0);
+                                                                            this.errorText = 'There was an error with the server. Please try again later.';
+                                                                        });
+                                                                    },
+                                                                    //==================================================
+                                                                    // VALIDATE RESPONSE
+                                                                    //==================================================
+                                                                    validateResponse(data) {
+                                                                        if (data.success === true) {
+                                                                            this.success = true;
+                                                                            this.reset(true);
+                                                                            window.scrollTo(0, 0);
+                                                                        } else {
+                                                                            this.failures++;
+                                                                            this.success = false;
+                                                                            window.scrollTo(0, 0);
+                                                                            for (var error in data.errors) {
+                                                                                var field = error.split('.')[1];
+                                                                                var messages = data.errors[error]; // array
+                                                                                if (field) { // cannot be undefined
+                                                                                    this.errorText = 'Please check the following errors: <br>';
+                                                                                    for (var i = 0; i < messages.length; i++) {
+                                                                                        // this.errors.add(field, messages[i]);
+                                                                                        // console.log('field: '+messages[i]);
+                                                                                        this.errorText += messages[i] + '<br>';
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    //==================================================
+                                                                    // RESET (for success or clear)
+                                                                    //==================================================
+                                                                    reset(success) {
+                                                                        // https://github.com/baianat/vee-validate/issues/209
+                                                                        Object.assign(this.$data, this.$options.data.call(this));
+                                                                        this.success = success === true; // t/f
+                                                                        this.$validator.reset();
+                                                                    },
+                                                            }
+                                                        })
+                                                        </script>
+
+                                                        <!-- WYSIWYG #2 -->
+                                                        <div class="row">
+                                                            <div class="col-md-8">
+                                                                <div class="wysiwyg mb-4">
+                                                                    <small>
+                                                                        <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </section>
                                             </div>
                                         </div>
                                     </section>
@@ -1104,16 +2216,63 @@
                                         <!-- NAV -->
                                         <ul class="nav d-block">
                                             <li class="mb-3">
-                                                <h5>Hero</h5>
+                                                <h5>Sections</h5>
                                                 <ul class="list-unstyled">
                                                     <li>
-                                                        <a href="#hero">Hero</a>
+                                                        <a href="#default">Default</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#hero-static">Hero Static</a>
+                                                        <a href="#center">Center</a>
                                                     </li>
                                                     <li>
-                                                        <a href="#media-lightbox">Media Lightbox</a>
+                                                        <a href="#split">Split</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mb-3">
+                                                <h5>Cards</h5>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#cards">Cards</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#cards-slider">Cards Slider</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#cards-tabs">Cards Tabs</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mb-3">
+                                                <h5>Text</h5>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#text">Text</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#text-button">Text Button</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#text-media">Text Media</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mb-3">
+                                                <h5>Other</h5>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#affiliates">Affiliates</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#gallery">Gallery</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="mb-3">
+                                                <h5>Forms</h5>
+                                                <ul class="list-unstyled">
+                                                    <li>
+                                                        <a href="#contact">Contact</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -1141,9 +2300,6 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/components/">Components</a>
-                                </li>
-                                <li>
-                                    <a href="/sections/">Sections</a>
                                 </li>
                                 <li>
                                     <a href="/advanced-page/">Pages</a>
@@ -1357,15 +2513,6 @@
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/sections/">
-                    <span class="text">Sections</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
             <li class="has-dropdown is-mega is-right-aligned">
 
                 <!-- TOP LEVEL -->
@@ -1544,7 +2691,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                    <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -1569,7 +2716,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                        <input name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -1593,6 +2740,9 @@
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     
+<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
+<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
+<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>

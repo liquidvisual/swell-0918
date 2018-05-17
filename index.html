@@ -127,15 +127,6 @@
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/sections/">
-                                        <span class="text">Sections</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
                                 <li class="has-dropdown is-mega is-right-aligned">
 
                                     <!-- TOP LEVEL -->
@@ -314,7 +305,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                        <input name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -368,12 +359,10 @@
                                 <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
 
                                     <!-- HEADER -->
-                                    <h1 class="display-1">Fleet Adventures</h1>
+                                    <h1 class="display-1">Lorem Ipsum Dolor Sit Amet</h1>
 
                                     <!-- WYSIWYG -->
-                                    <div class="wysiwyg mb-4">
-                                        <h3>Come make great memories with us!</h3>
-                                    </div>
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetuer lorem ipsum. Melita liquam ut eros ligula, at auctor lorem. Ut nunc urna, fringilla nec blandit et, accumsan vitae nibh. Praesent pharetra pellentesque pulvinar.</div>
                                 </div>
                             </div>
                         </div>
@@ -403,6 +392,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- VIMEO PLUGIN - video must be 16:9 -->
+                    <div class="video-bg">
+                        <div class="video-fg">
+                            <iframe data-vimeo class="video" src="https://player.vimeo.com/video/264406454?autoplay=1&title=0&loop=0&color=000000&byline=0&portrait=0&muted=1&background=1" width="640" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                     <div class="container">
@@ -427,7 +423,7 @@
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
                         <div class="video-fg">
-                            <iframe class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
                         </div>
                     </div>
 
@@ -438,7 +434,7 @@
                     var firstScriptTag = document.getElementsByTagName('script')[0];
                     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
                     function onYouTubeIframeAPIReady() {
-                        document.querySelectorAll('.lv-hero-item .video').forEach((item) => {
+                        document.querySelectorAll('.lv-hero-item iframe[data-youtube]').forEach((item) => {
                             new YT.Player(item, {
                                 events: {
                                     'onReady': (event) => {
@@ -472,7 +468,7 @@
                     <!-- YOUTUBE PLUGIN - video must be 16:9 -->
                     <div class="video-bg">
                         <div class="video-fg">
-                            <iframe class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
+                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
                         </div>
                     </div>
                 </div>
@@ -498,9 +494,925 @@
             </h3>
         </main>
 
-        <!-- { % include components/gallery.html %} -->
+        <!-- GALLERY -->
         
-<!-- FOOTER --><footer class="global-footer">
+<!-- SECTION LEFT --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                <!-- WYSIWYG #1 -->
+                <div class="row">
+                    <div class="col-md-11 col-lg-10">
+                        <div class="wysiwyg mb-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MEDIA LIGHTBOX GALLERY -->
+                <div class="popup-gallery mb-4" data-group-title="">
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-3">
+                            <a class="btn-tile mb-4" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WYSIWYG #2 -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="wysiwyg mb-4">
+                            <small>
+                                <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDS -->
+        
+<!-- SECTION LEFT --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                <!-- WYSIWYG #1 -->
+                <div class="row">
+                    <div class="col-md-11 col-lg-10">
+                        <div class="wysiwyg mb-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-4 mb-4">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- BUTTON -->
+                                    <p>
+                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">It's the Summer of George</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- BUTTON -->
+                                    <p>
+                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-4">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- BUTTON -->
+                                    <p>
+                                        <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WYSIWYG #2 -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="wysiwyg mb-4">
+                            <small>
+                                <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDS SLIDER -->
+        
+<!-- SECTION LEFT --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                <!-- WYSIWYG #1 -->
+                <div class="row">
+                    <div class="col-md-11 col-lg-10">
+                        <div class="wysiwyg mb-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD SLIDER -->
+                <div class="card-slider mb-4" data-card-slider data-flickity='
+    {
+        "adaptiveHeight": false,
+        "autoPlay": false,
+        "cellAlign": "left",
+        "contain": true,
+        "draggable": ">1",
+        "dragThreshold": 40,
+        "freeScroll": true,
+        "freeScrollFriction": 0.075,
+        "friction": 0.28,
+        "groupCells": true,
+        "imagesLoaded": true,
+        "pageDots": false,
+        "prevNextButtons": true,
+        "pauseAutoPlayOnHover": false,
+        "selectedAttraction": 0.025,
+        "watchCSS": false,
+        "wrapAround": false
+    }'>
+                    <div class="card-cell group-by-two">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="That's Pie Country. They Do a Lot of Baking Up There.">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                <small class="d-block text-uppercase mb-2">
+                                    <i class="fa fa-tags text-muted">&nbsp;</i>
+                                    <a href="#">SEO</a>
+                                </small>
+
+                                <!-- TITLE -->
+                                <a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">That's Pie Country. They Do a Lot of Baking Up There.</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- DATE + AUTHOR -->
+                                    <small>
+                                        <time class="text-muted mr-1" datetime="2016-01-05T00:00:00+11:00">05 January 2016</time>
+                                        <a target="_blank" href="#">Joe Bloggs
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-cell group-by-two">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="What's the Deal with Airline Peanuts?">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                <small class="d-block text-uppercase mb-2">
+                                    <i class="fa fa-tags text-muted">&nbsp;</i>
+                                    <a href="#">Technology</a>,
+                                    <a href="#">Umbraco CMS</a>
+                                </small>
+
+                                <!-- TITLE -->
+                                <a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">What's the Deal with Airline Peanuts?</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- DATE + AUTHOR -->
+                                    <small>
+                                        <time class="text-muted mr-1" datetime="2016-03-10T00:00:00+11:00">10 March 2016</time>
+                                        <a target="_blank" href="#">Joe Bloggs
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-cell group-by-two">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Nothing's Finer Than Being in Your Diner">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">Nothing's Finer Than Being in Your Diner</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- DATE + AUTHOR -->
+                                    <small>
+                                        <time class="text-muted mr-1" datetime="2016-08-09T00:00:00+10:00">09 August 2016</time>
+                                        <a target="_blank" href="#">Joe Bloggs
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-cell group-by-two">
+
+                        <!-- CARD -->
+                        <div class="card h-100">
+
+                            <!-- IMAGE -->
+                            <a class="btn-tile" href="/blog/blog-item/">
+                                <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="Yadda Yadda Yadda">
+                                <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                            </a>
+
+                            <!-- CARD BODY -->
+                            <div class="card-body d-flex flex-column">
+
+                                <!-- TAGS / CATEGORIES -->
+                                
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                    <h3 class="card-title">Yadda Yadda Yadda</h3>
+                                </a>
+
+                                <!-- TEXT -->
+                                <div class="card-text">
+                                    <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                </div>
+
+                                <!-- CARD FOOTER -->
+                                <div>
+
+                                    <!-- DATE + AUTHOR -->
+                                    <small>
+                                        <time class="text-muted mr-1" datetime="2016-09-11T00:00:00+10:00">11 September 2016</time>
+                                        <a target="_blank" href="#">Joe Bloggs
+                                            <i class="fa fa-external-link"></i>
+                                        </a>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WYSIWYG #2 -->
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="wysiwyg mb-4">
+                            <small>
+                                <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARDS SLIDER -->
+        
+<!-- SECTION CENTER --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                        <!-- WYSIWYG #1 -->
+                        <div class="wysiwyg mb-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABS -->
+                <nav class="btn-tabs nav mb-4" role="tablist">
+                    <a href="#tab-group-1" class="btn-tab active" data-toggle="tab" role="tab">Tab Group 1</a>
+                    <a href="#tab-group-2" class="btn-tab" data-toggle="tab" role="tab">Tab Group 2</a>
+                    <a href="#tab-group-3" class="btn-tab" data-toggle="tab" role="tab">Tab Group 3</a>
+                </nav>
+
+                <!-- TAB CONTENT -->
+                <div class="tab-content mb-4">
+                    <div id="tab-group-1" class="tab-pane fade active show" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">It's the Summer of George</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-group-2" class="tab-pane fade" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">It's the Summer of George</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tab-group-3" class="tab-pane fade" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="I Always Wanted to Pretend I Was an Architect">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">I Always Wanted to Pretend I Was an Architect</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="It's the Summer of George">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">It's the Summer of George</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 mb-4">
+
+                                <!-- CARD -->
+                                <div class="card h-100">
+
+                                    <!-- IMAGE -->
+                                    <a class="btn-tile" href="/blog/blog-item/">
+                                        <img width="100%" class="card-img-top" src="/assets/img/layout/card-sizer--570x1000.svg" alt="When You Look Annoyed All the Time, People Think That You're Busy">
+                                        <span class="btn-tile-bg" style="background-image: url(http://placehold.it/570x400)"></span>
+                                    </a>
+
+                                    <!-- CARD BODY -->
+                                    <div class="card-body d-flex flex-column">
+
+                                        <!-- TAGS / CATEGORIES -->
+                                        
+<!-- TITLE --><a class="text-dark" href="/blog/blog-item/">
+                                            <h3 class="card-title">When You Look Annoyed All the Time, People Think That You're Busy</h3>
+                                        </a>
+
+                                        <!-- TEXT -->
+                                        <div class="card-text">
+                                            <div class="wysiwyg mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Optio repellat, nihil fuga provident ab delectus ex hic odit, eum ipsam a commodi impedit...</div>
+                                        </div>
+
+                                        <!-- CARD FOOTER -->
+                                        <div>
+
+                                            <!-- BUTTON -->
+                                            <p>
+                                                <a href="/blog/blog-item/" class="btn btn-primary">Read more</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+
+                        <!-- WYSIWYG #2 -->
+                        <div class="wysiwyg mb-4">
+                            <small>
+                                <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AFFILIATES -->
+        
+<!-- SECTION CENTER --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                        <!-- WYSIWYG #1 -->
+                        <div class="wysiwyg mb-4">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMAGES -->
+                <div class="row no-gutters justify-content-center">
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                    <div class="col-4 col-md-2 align-items-center text-center">
+                        <p class="mb-4">
+                            <a href="#" target="_blank">
+                                <img width="70%" src="http://placehold.it/500x400" alt="...">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-9 text-center">
+
+                        <!-- WYSIWYG #2 -->
+                        <div class="wysiwyg mb-4">
+                            <small>
+                                <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MEDIA LIGHTBOX -->
+        
+<!-- SECTION SPLIT --><section id="" class="section" style="background-image: url()">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6 col-lg-4 offset-lg-1">
+                        <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                        <!-- WYSIWYG #1 -->
+                        <div class="row">
+                            <div class="col-md-11 col-lg-10">
+                                <div class="wysiwyg mb-4">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CONTENT -->
+                    <div class="col-md-6 col-lg-7">
+                        <div class="" style="padding-right: 15%; padding-bottom: 10%; padding-left: 15%; padding-top: 10%;">
+
+                            <!-- MEDIA LIGHTBOX -->
+                            <div class="popup-gallery" data-group-title="">
+                                <a class="btn-tile" href="http://www.youtube.com/watch?v=ScMzIvxBSi4" title="Brief description here, longer text if required.">
+                                    <img width="100%" src="http://placehold.it/400x300" alt="Brief description here, longer text if required.">
+                                    <span class="btn-tile-bg" style="background-image: url(http://placehold.it/400x300)"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="global-footer">
 
             <!-- FOOTER BODY -->
             <section class="global-footer-body">
@@ -513,9 +1425,6 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/components/">Components</a>
-                                </li>
-                                <li>
-                                    <a href="/sections/">Sections</a>
                                 </li>
                                 <li>
                                     <a href="/advanced-page/">Pages</a>
@@ -729,15 +1638,6 @@
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/sections/">
-                    <span class="text">Sections</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
             <li class="has-dropdown is-mega is-right-aligned">
 
                 <!-- TOP LEVEL -->
@@ -916,7 +1816,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                    <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -941,7 +1841,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                        <input name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -965,6 +1865,9 @@
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     
+<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
+<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
+<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>

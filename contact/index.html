@@ -127,15 +127,6 @@
 
                                     <!-- SECOND LEVEL -->
                                     </li>
-                                <li class="">
-
-                                    <!-- TOP LEVEL -->
-                                    <a class="top-parent-anchor" href="/sections/">
-                                        <span class="text">Sections</span>
-                                    </a>
-
-                                    <!-- SECOND LEVEL -->
-                                    </li>
                                 <li class="has-dropdown is-mega is-right-aligned">
 
                                     <!-- TOP LEVEL -->
@@ -314,7 +305,7 @@
                                                 </button>
                                                 <form class="global-search-form" action="/search/" method="get" novalidate>
                                                     <div class="input-group">
-                                                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                                        <input name="q" type="text" class="form-control" placeholder="Search">
                                                         <div class="input-group-append">
                                                             <button type="submit" class="btn">
                                                                 <i class="fa fa-search"></i>
@@ -359,105 +350,251 @@
                     <div class="col-lg-9 pr-lg-4">
                         <div class="section-content card">
 
-                            <!-- GOOGLE RECAPTCHA -->
-                            <script src="https://www.google.com/recaptcha/api.js"></script>
-
-                            <!-- CONTACT FORM -->
-                            <section id="" class="section" style="background-image: url()">
+                            <!-- SECTION LEFT -->
+                            <section id="contact-form" class="section" style="background-image: url()">
                                 <div class="container">
+                                    <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                                    <!-- WYSIWYG #1 -->
                                     <div class="row">
-                                        <div class="col-lg-11">
-                                            <h2>Get in Touch</h2>
-
-                                            <!-- WYSIWYG -->
+                                        <div class="col-md-11 col-lg-10">
                                             <div class="wysiwyg mb-4">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <script src="https://www.google.com/recaptcha/api.js"></script>
+                                    <div id="app" v-cloak>
 
-                                            <!-- FORM CONTACT -->
-                                            <form id="contact-form" name="Contact Form" action="/contact/" data-toggle="validator" novalidate netlify>
-                                                <fieldset>
+                                        <!-- IF SUCCESS -->
+                                        <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Success!</strong>
+                                            <br>Thanks for that. We'll get back to you soon.</div>
 
-                                                    <!-- NAME* -->
-                                                    <label class="form-group d-block">
-                                                        <p class="mb-2">Full Name
-                                                            <small class="asterisk">*</small>
-                                                        </p>
-                                                        <input class="form-control" name="Name" type="text" placeholder="" required>
-                                                        <small class="error shake animated">
-                                                            <i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+                                        <!-- IF FAILURE -->
+                                        <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <strong>Oops!</strong>
+                                            <br>
+                                            <span v-html="errorText"></span>
+                                        </div>
+
+                                        <!-- FORM CONTACT -->
+                                        <form name="Contact Form" action="http://liquidvisual.net/form.php" @submit.prevent="validateBeforeSubmit" novalidate>
+                                            <fieldset>
+
+                                                <!-- NAME* -->
+                                                <label class="form-group d-block">
+                                                    <p class="mb-2">Full Name
+                                                        <small class="asterisk">*</small>
+                                                    </p>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="name" v-validate="'required|alpha'" required>
+                                                    <small v-show="errors.has('name')" class="error shake animated">
+                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                        <span v-text="errors.first('name')"></span>
+                                                    </small>
+                                                </label>
+
+                                                <!-- EMAIL* -->
+                                                <label class="form-group d-block">
+                                                    <p class="mb-2">Email
+                                                        <small class="asterisk">*</small>
+                                                    </p>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="email" v-validate="'required|email'" type="email" required>
+                                                    <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
+                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                        <span v-text="errors.first('email')"></span>
+                                                    </small>
+                                                </label>
+
+                                                <!-- PHONE -->
+                                                <label class="form-group d-block">
+                                                    <p class="mb-2">Phone</p>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="phone" v-validate="'numeric'">
+                                                    <small v-show="errors.has('phone')" class="error shake animated">
+                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                        <span v-text="errors.first('phone')"></span>
+                                                    </small>
+                                                </label>
+                                            </fieldset>
+                                            <fieldset>
+
+                                                <!-- MESSAGE -->
+                                                <label class="form-group d-block">
+                                                    <p>Your Message
+                                                        <small class="asterisk">*</small>
+                                                    </p>
+                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
+                                                    <small v-show="errors.has('message')" class="error shake animated">
+                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                        <span v-text="errors.first('message')"></span>
+                                                    </small>
+                                                </label>
+                                            </fieldset>
+                                            <fieldset>
+
+                                                <!-- REFERRAL -->
+                                                <label class="form-group d-block">
+                                                    <p>How did you hear about us?</p>
+                                                    <select class="custom-select" name="Referral" v-model="referral">
+                                                        <option disabled selected value="">Choose one</option>
+                                                        <option value="Google">Google</option>
+                                                        <option value="Twitter">Twitter</option>
+                                                        <option value="Facebook">Facebook</option>
+                                                        <option value="Friend">Word of mouth</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
+                                                </label>
+                                            </fieldset>
+                                            <fieldset>
+
+                                                <!-- SIGN UP TO OUR NEWSLETTER -->
+                                                <div class="form-group">
+                                                    <label class="custom-control custom-checkbox">
+                                                        <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
+                                                        <p class="custom-control-label">Sign me up to the newsletter</p>
                                                     </label>
+                                                </div>
+                                            </fieldset>
 
-                                                    <!-- EMAIL* -->
-                                                    <label class="form-group d-block">
-                                                        <p class="mb-2">Email
-                                                            <small class="asterisk">*</small>
-                                                        </p>
-                                                        <input class="form-control" name="Email" type="email" placeholder="" required>
-                                                        <small class="error shake animated">
-                                                            <i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
-                                                    </label>
+                                            <!-- * REQUIRED -->
+                                            <p class="float-md-right">
+                                                <small class="asterisk">*</small>
+                                                <small class="text-muted" style="position: relative; top: -5px;">required</small>
+                                            </p>
 
-                                                    <!-- PHONE -->
-                                                    <label class="form-group d-block">
-                                                        <p class="mb-2">Phone</p>
-                                                        <input class="form-control" name="Phone" type="phone" placeholder="">
-                                                        <small class="error shake animated">
-                                                            <i class="fa fa-warning"></i>&nbsp; A valid phone number is required.</small>
-                                                    </label>
-                                                </fieldset>
-                                                <fieldset>
+                                            <!-- GOOGLE RECAPTCHA -->
+                                            <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
 
-                                                    <!-- MESSAGE -->
-                                                    <label class="form-group d-block">
-                                                        <p>Your Message
-                                                            <small class="asterisk">*</small>
-                                                        </p>
-                                                        <textarea class="form-control" name="Message" rows="6" placeholder="" required></textarea>
-                                                        <small class="error shake animated">
-                                                            <i class="fa fa-warning"></i>&nbsp; Please leave a message.</small>
-                                                    </label>
-                                                </fieldset>
-                                                <fieldset>
+                                            <!-- SUBMIT -->
+                                            <button :disabled="(errors.any() && !failures) || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                                <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                <span v-show="processing" class="text">Sending Message</span>
+                                                <span v-show="!processing" class="text">Send Message</span>
+                                            </button>
 
-                                                    <!-- REFERRAL -->
-                                                    <label class="form-group d-block">
-                                                        <p>How did you hear about us?</p>
-                                                        <select class="custom-select" name="Referral">
-                                                            <option disabled selected>Choose one</option>
-                                                            <option value="Google">Google</option>
-                                                            <option value="Twitter">Twitter</option>
-                                                            <option value="Facebook">Facebook</option>
-                                                            <option value="Friend">Word of mouth</option>
-                                                            <option value="Other">Other</option>
-                                                        </select>
-                                                    </label>
-                                                </fieldset>
-                                                <fieldset>
-
-                                                    <!-- SIGN UP TO OUR NEWSLETTER -->
-                                                    <div class="form-group">
-                                                        <label class="custom-control custom-checkbox">
-                                                            <input class="custom-control-input" type="checkbox" name="Newsletter" value="true">
-                                                            <p class="custom-control-label">Sign me up to the newsletter</p>
-                                                        </label>
-                                                    </div>
-                                                </fieldset>
-
-                                                <!-- * REQUIRED -->
-                                                <p class="float-md-right">
-                                                    <small class="asterisk">*</small>
-                                                    <small class="text-muted" style="position: relative; top: -5px;">required</small>
-                                                </p>
-
-                                                <!-- GOOGLE RECAPTCHA -->
-                                                <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
-
-                                                <!-- SUBMIT -->
-                                                <button type="submit" class="btn btn-primary">Send Message
-                                                    <i class="fa fa-angle-right"></i>
-                                                </button>
+                                            <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
                                             </form>
+                                    </div>
+                                    <script>
+                                    //-----------------------------------------------------------------
+                                    //
+                                    //-----------------------------------------------------------------
+                                    Vue.use(VeeValidate, {
+                                        events: 'input' // 'change' or 'blur'
+                                    });
+                                    new Vue({
+                                        el: '#app', // <---- this needs to match the wrapper id
+                                        data() {
+                                            return {
+                                                errorText: '',
+                                                processing: false,
+                                                success: false,
+                                                failures: 0,
+                                                name: '',
+                                                email: '',
+                                                phone: '',
+                                                referral: '',
+                                                message: '',
+                                                newsletter: false,
+                                            }
+                                        },
+                                        //-----------------------------------------------------------------
+                                        // COMPUTED
+                                        //-----------------------------------------------------------------
+                                        computed: {
+                                            isComplete() { // * required fields
+                                                    return this.name && this.email && this.message;
+                                                },
+                                                dataString() {
+                                                    return 'name=' + this.name + '&' + 'email=' + this.email + '&' + 'phone=' + this.phone + '&' + 'message=' + this.message + '&' + 'referral=' + this.referral + '&' + 'newsletter=' + this.newsletter; // ADD EXTRA HERE
+                                                }
+                                        },
+                                        //-----------------------------------------------------------------
+                                        // METHODS
+                                        //-----------------------------------------------------------------
+                                        methods: {
+                                            validateBeforeSubmit() {
+                                                    this.processing = true;
+                                                    this.$validator.validateAll().then((result) => {
+                                                        if (result) {
+                                                            this.postData();
+                                                        } else {
+                                                            this.failures++; // used for returning with server errors
+                                                            this.success = false;
+                                                            this.processing = false;
+                                                        }
+                                                    });
+                                                },
+                                                //==================================================
+                                                // POST DATA
+                                                //==================================================
+                                                postData() {
+                                                    axios({
+                                                        method: 'POST',
+                                                        url: 'http://liquidvisual.net/form.php',
+                                                        data: this.dataString
+                                                    }).then(response => {
+                                                        this.validateResponse(response.data);
+                                                        this.processing = false;
+                                                    }).catch(error => {
+                                                        this.processing = false;
+                                                        this.failures++;
+                                                        window.scrollTo(0, 0);
+                                                        this.errorText = 'There was an error with the server. Please try again later.';
+                                                    });
+                                                },
+                                                //==================================================
+                                                // VALIDATE RESPONSE
+                                                //==================================================
+                                                validateResponse(data) {
+                                                    if (data.success === true) {
+                                                        this.success = true;
+                                                        this.reset(true);
+                                                        window.scrollTo(0, 0);
+                                                    } else {
+                                                        this.failures++;
+                                                        this.success = false;
+                                                        window.scrollTo(0, 0);
+                                                        for (var error in data.errors) {
+                                                            var field = error.split('.')[1];
+                                                            var messages = data.errors[error]; // array
+                                                            if (field) { // cannot be undefined
+                                                                this.errorText = 'Please check the following errors: <br>';
+                                                                for (var i = 0; i < messages.length; i++) {
+                                                                    // this.errors.add(field, messages[i]);
+                                                                    // console.log('field: '+messages[i]);
+                                                                    this.errorText += messages[i] + '<br>';
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                //==================================================
+                                                // RESET (for success or clear)
+                                                //==================================================
+                                                reset(success) {
+                                                    // https://github.com/baianat/vee-validate/issues/209
+                                                    Object.assign(this.$data, this.$options.data.call(this));
+                                                    this.success = success === true; // t/f
+                                                    this.$validator.reset();
+                                                },
+                                        }
+                                    })
+                                    </script>
+
+                                    <!-- WYSIWYG #2 -->
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="wysiwyg mb-4">
+                                                <small>
+                                                    <sup>2</sup> Yael Zarhy-Levo, The theatrical critic as cultural agent: constructing Pinter, Orton and Stoppard as absurdist playwrights (New York: Peter Lang, 2001).</small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -590,12 +727,8 @@
                 </div>
             </div>
 
-            <!-- GOOGLE MAP -->
-            <section id="google-map" class="lv-google-map" onclick="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: auto'" onmouseleave="event.target.getElementsByTagName('iframe')[0].style = 'pointer-events: none'">
-                <i class="fa fa-circle-o-notch fa-spin fa-fw"></i>
-                <iframe src="https://maps.google.com/maps?hl=en&q=55 North Steyne Manly NSW&z=21&ie=UTF8&t=roadmap&z=16&iwloc=A&output=embed" width="100%" height="500" frameborder="0" style="pointer-events: none"></iframe>
-            </section>
-        </main>
+            <!-- { % include components/widgets/google_map.html id="google-map" %} -->
+            </main>
 
         <!-- FOOTER -->
         <footer class="global-footer">
@@ -611,9 +744,6 @@
                             <ul class="list-unstyled">
                                 <li>
                                     <a href="/components/">Components</a>
-                                </li>
-                                <li>
-                                    <a href="/sections/">Sections</a>
                                 </li>
                                 <li>
                                     <a href="/advanced-page/">Pages</a>
@@ -827,15 +957,6 @@
 
                 <!-- SECOND LEVEL -->
                 </li>
-            <li class="">
-
-                <!-- TOP LEVEL -->
-                <a class="top-parent-anchor" href="/sections/">
-                    <span class="text">Sections</span>
-                </a>
-
-                <!-- SECOND LEVEL -->
-                </li>
             <li class="has-dropdown is-mega is-right-aligned">
 
                 <!-- TOP LEVEL -->
@@ -1014,7 +1135,7 @@
                             </button>
                             <form class="global-search-form" action="/search/" method="get" novalidate>
                                 <div class="input-group">
-                                    <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                                    <input name="q" type="text" class="form-control" placeholder="Search">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn">
                                             <i class="fa fa-search"></i>
@@ -1039,7 +1160,7 @@
                 </button>
                 <form class="global-search-form" action="/search/" method="get" novalidate>
                     <div class="input-group">
-                        <input id="global-search" name="q" type="text" class="form-control" placeholder="Search">
+                        <input name="q" type="text" class="form-control" placeholder="Search">
                         <div class="input-group-append">
                             <button type="submit" class="btn">
                                 <i class="fa fa-search"></i>
@@ -1063,6 +1184,9 @@
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     
+<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
+<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
+<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
 <!-- NO JAVASCRIPT WARNING --><noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
