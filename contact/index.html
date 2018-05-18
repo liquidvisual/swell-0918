@@ -377,8 +377,9 @@
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
-                                            <strong>Success!</strong>
-                                            <br>Thanks for that. We'll get back to you soon.</div>
+                                            <strong>Thanks
+                                                <span v-text="form.firstName"></span>!</strong>
+                                            <br>We've received your message and we'll get back to you soon.</div>
 
                                         <!-- IF FAILURE -->
                                         <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
@@ -399,7 +400,7 @@
                                                     <p class="mb-2">Full Name
                                                         <small class="asterisk">*</small>
                                                     </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.name" v-validate="'required|alpha'" required>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'" required>
                                                     <small v-show="errors.has('name')" class="error shake animated">
                                                         <i class="fa fa-warning"></i>&nbsp;
                                                         <span v-text="errors.first('name')"></span>
@@ -503,7 +504,8 @@
                                                 success: false,
                                                 failures: 0,
                                                 form: {
-                                                    name: '',
+                                                    firstName: null, // computed on success
+                                                    fullName: '',
                                                     email: '',
                                                     phone: '',
                                                     referral: '',
@@ -527,8 +529,11 @@
                                                 },
                                                 dataString() { // to be send via Axios
                                                     var dataString = '';
+                                                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
                                                     for (var item in this.form) {
-                                                        dataString += item + '=' + this.form[item] + '&';
+                                                        if (item != 'firstName') { // firstName is special case
+                                                            dataString += item + '=' + this.form[item] + '&';
+                                                        }
                                                     }
                                                     return dataString;
                                                 }
@@ -602,7 +607,12 @@
                                                 //==================================================
                                                 reset(success) {
                                                     // https://github.com/baianat/vee-validate/issues/209
-                                                    Object.assign(this.$data, this.$options.data.call(this));
+                                                    // Object.assign(this.$data, this.$options.data.call(this));
+                                                    var firstNameTemp = this.form.fullName.split(' ')[0]; // store before wipe
+                                                    for (var item in this.form) {
+                                                        this.form[item] = ''; // clear all
+                                                    }
+                                                    if (success) this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
                                                     this.success = success === true; // t/f
                                                     this.$validator.reset();
                                                 }
