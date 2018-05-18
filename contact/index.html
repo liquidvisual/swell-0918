@@ -358,7 +358,7 @@
                         <div class="section-content card">
 
                             <!-- SECTION LEFT -->
-                            <section id="contact-form" class="section" style="background-image: url()">
+                            <section id="" class="section" style="background-image: url()">
                                 <div class="container">
                                     <h2>Lorem Ipsum Dolor Sit Amet</h2>
 
@@ -370,8 +370,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <script src="https://www.google.com/recaptcha/api.js"></script>
-                                    <div id="app" v-cloak>
+                                    <div id="contact-form" v-cloak>
 
                                         <!-- IF SUCCESS -->
                                         <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
@@ -400,7 +399,7 @@
                                                     <p class="mb-2">Full Name
                                                         <small class="asterisk">*</small>
                                                     </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="name" v-validate="'required|alpha'" required>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.name" v-validate="'required|alpha'" required>
                                                     <small v-show="errors.has('name')" class="error shake animated">
                                                         <i class="fa fa-warning"></i>&nbsp;
                                                         <span v-text="errors.first('name')"></span>
@@ -412,7 +411,7 @@
                                                     <p class="mb-2">Email
                                                         <small class="asterisk">*</small>
                                                     </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="email" v-validate="'required|email'" type="email" required>
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="form.email" v-validate="'required|email'" type="email" required>
                                                     <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
                                                         <i class="fa fa-warning"></i>&nbsp;
                                                         <span v-text="errors.first('email')"></span>
@@ -422,7 +421,7 @@
                                                 <!-- PHONE -->
                                                 <label class="form-group d-block">
                                                     <p class="mb-2">Phone</p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="phone" v-validate="'numeric'">
+                                                    <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="form.phone" v-validate="'numeric'">
                                                     <small v-show="errors.has('phone')" class="error shake animated">
                                                         <i class="fa fa-warning"></i>&nbsp;
                                                         <span v-text="errors.first('phone')"></span>
@@ -436,7 +435,7 @@
                                                     <p>Your Message
                                                         <small class="asterisk">*</small>
                                                     </p>
-                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="message" placeholder="" v-validate="'required|max:2000'" required></textarea>
+                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="form.message" placeholder="" v-validate="'required|max:2000'" required></textarea>
                                                     <small v-show="errors.has('message')" class="error shake animated">
                                                         <i class="fa fa-warning"></i>&nbsp;
                                                         <span v-text="errors.first('message')"></span>
@@ -448,7 +447,7 @@
                                                 <!-- REFERRAL -->
                                                 <label class="form-group d-block">
                                                     <p>How did you hear about us?</p>
-                                                    <select class="custom-select" name="Referral" v-model="referral">
+                                                    <select class="custom-select" name="Referral" v-model="form.referral">
                                                         <option disabled selected value="">Choose one</option>
                                                         <option value="Google">Google</option>
                                                         <option value="Twitter">Twitter</option>
@@ -463,7 +462,7 @@
                                                 <!-- SIGN UP TO OUR NEWSLETTER -->
                                                 <div class="form-group">
                                                     <label class="custom-control custom-checkbox">
-                                                        <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="newsletter">
+                                                        <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="form.newsletter">
                                                         <p class="custom-control-label">Sign me up to the newsletter</p>
                                                     </label>
                                                 </div>
@@ -478,8 +477,8 @@
                                             <!-- GOOGLE RECAPTCHA -->
                                             <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
 
-                                            <!-- SUBMIT -->
-                                            <button :disabled="(errors.any() && !failures) || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                            <!-- SUBMIT - old: (errors.any() && !failures) -->
+                                            <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
                                                 <div v-show="processing" class="spinner-border text-primary">Loading...</div>
                                                 <span v-show="processing" class="text">Sending Message</span>
                                                 <span v-show="!processing" class="text">Send Message</span>
@@ -496,30 +495,42 @@
                                         events: 'input' // 'change' or 'blur'
                                     });
                                     new Vue({
-                                        el: '#app', // <---- this needs to match the wrapper id
+                                        el: '#contact-form', // <---- this needs to match the parent id
                                         data() {
                                             return {
                                                 errorText: '',
                                                 processing: false,
                                                 success: false,
                                                 failures: 0,
-                                                name: '',
-                                                email: '',
-                                                phone: '',
-                                                referral: '',
-                                                message: '',
-                                                newsletter: false,
+                                                form: {
+                                                    name: '',
+                                                    email: '',
+                                                    phone: '',
+                                                    referral: '',
+                                                    message: '',
+                                                    newsletter: false
+                                                }
                                             }
                                         },
                                         //-----------------------------------------------------------------
                                         // COMPUTED
                                         //-----------------------------------------------------------------
                                         computed: {
-                                            isComplete() { // * required fields
-                                                    return this.name && this.email && this.message;
+                                            isComplete() { // * required fields - loop through vee-validate objects
+                                                    var emptyRequiredFields = 0;
+                                                    for (var item in this.fields) {
+                                                        if (this.fields[item].required) {
+                                                            if (this.form[item] == '') emptyRequiredFields++;
+                                                        }
+                                                    }
+                                                    return !emptyRequiredFields;
                                                 },
-                                                dataString() {
-                                                    return 'name=' + this.name + '&' + 'email=' + this.email + '&' + 'phone=' + this.phone + '&' + 'message=' + this.message + '&' + 'referral=' + this.referral + '&' + 'newsletter=' + this.newsletter; // ADD EXTRA HERE
+                                                dataString() { // to be send via Axios
+                                                    var dataString = '';
+                                                    for (var item in this.form) {
+                                                        dataString += item + '=' + this.form[item] + '&';
+                                                    }
+                                                    return dataString;
                                                 }
                                         },
                                         //-----------------------------------------------------------------
@@ -535,6 +546,7 @@
                                                             this.failures++; // used for returning with server errors
                                                             this.success = false;
                                                             this.processing = false;
+                                                            // flash failures here?
                                                         }
                                                     });
                                                 },
@@ -547,14 +559,13 @@
                                                         url: 'http://liquidvisual.net/form.php',
                                                         data: this.dataString
                                                     }).then(response => {
-                                                        // if callerid == 
                                                         this.validateResponse(response.data);
                                                         this.processing = false;
                                                     }).catch(error => {
                                                         this.processing = false;
                                                         this.failures++;
-                                                        window.scrollTo(0, 0);
                                                         this.errorText = 'There was an error with the server. Please try again later.';
+                                                        window.scrollTo(0, 0);
                                                     });
                                                 },
                                                 //==================================================
@@ -575,6 +586,9 @@
                                                             if (field) { // cannot be undefined
                                                                 this.errorText = 'Please check the following errors: <br>';
                                                                 for (var i = 0; i < messages.length; i++) {
+                                                                    // don't add these unless:
+                                                                    // 1. backend is aware of 'rules'
+                                                                    // 2. email etc is validated
                                                                     // this.errors.add(field, messages[i]);
                                                                     // console.log('field: '+messages[i]);
                                                                     this.errorText += messages[i] + '<br>';
@@ -591,7 +605,7 @@
                                                     Object.assign(this.$data, this.$options.data.call(this));
                                                     this.success = success === true; // t/f
                                                     this.$validator.reset();
-                                                },
+                                                }
                                         }
                                     })
                                     </script>
@@ -1200,6 +1214,7 @@
 
     <!-- **** JAVASCRIPT **** -->
     <script src="/assets/scripts/minified.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 
     <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     
