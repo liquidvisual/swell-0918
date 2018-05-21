@@ -382,7 +382,7 @@
                                             <br>We've received your message and we'll get back to you soon.</div>
 
                                         <!-- IF FAILURE -->
-                                        <div v-if="failures" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                                        <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -392,7 +392,7 @@
                                         </div>
 
                                         <!-- FORM CONTACT -->
-                                        <form name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                        <form class="contact-form" name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
                                             <fieldset>
 
                                                 <!-- NAME* -->
@@ -488,6 +488,12 @@
                                             <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
                                             </form>
                                     </div>
+                                    <style>
+                                    .contact-form .btn[disabled="disabled"] {
+                                        /*opacity: 1;*/
+                                        cursor: not-allowed;
+                                    }
+                                    </style>
                                     <script>
                                     //-----------------------------------------------------------------
                                     //
@@ -901,17 +907,180 @@
                             <h4 class="mb-3">Join our Newsletter</h4>
 
                             <!-- FORM SUBSCRIBE -->
-                            <form name="Subscribe Form" action="/" novalidate>
-                                <div class="form-group d-block has-icon mb-3">
-                                    <i class="fa fa-envelope"></i>
-                                    <div class="input-group mb-3">
-                                        <input class="form-control" type="email" placeholder="Email Address">
-                                        <div class="input-group-append">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </div>
+                            <div id="subscribe-form" v-cloak>
+
+                                <!-- IF SUCCESS -->
+                                <div v-if="success" class="mb-2 alert alert-success alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Thanks for subscribing!</strong>
                                 </div>
-                            </form>
+
+                                <!-- IF FAILURE -->
+                                <div v-if="failures && !success" class="mb-2 alert alert-danger alert-dismissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    <strong>Oops! Please try again.</strong>
+                                </div>
+                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                    <div class="form-group d-block has-icon mb-3">
+                                        <i class="fa fa-envelope"></i>
+                                        <div class="input-group">
+                                            <input name="email" type="email" class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" v-model="form.email" v-validate="'required|email'" placeholder="Email Address" required>
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-primary" :disabled="errors.any() || !isComplete || processing">
+                                                    <div v-show="processing" class="mx-2 spinner-border text-primary">Loading...</div>
+                                                    <span v-show="!processing" class="text">Submit</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
+                                            <i class="fa fa-warning"></i>&nbsp;
+                                            <span v-text="errors.first('email')"></span>
+                                        </small>
+                                    </div>
+                                </form>
+                            </div>
+                            <style>
+                            .subscribe-form .btn[disabled="disabled"] {
+                                opacity: 1;
+                                cursor: not-allowed;
+                            }
+                            </style>
+                            <script>
+                            //-----------------------------------------------------------------
+                            // This code is resused from /contact - could use refactoring to
+                            // avoid duplication.
+                            //-----------------------------------------------------------------
+                            Vue.use(VeeValidate, {
+                                events: 'input' // 'change' or 'blur'
+                            });
+                            new Vue({
+                                el: '#subscribe-form', // <---- this needs to match the parent id
+                                data() {
+                                    return {
+                                        errorText: '',
+                                        processing: false,
+                                        success: false,
+                                        failures: 0,
+                                        form: {
+                                            firstName: null, // computed on success
+                                            fullName: '',
+                                            email: '',
+                                            phone: '',
+                                            referral: '',
+                                            message: '',
+                                            newsletter: false
+                                        }
+                                    }
+                                },
+                                //-----------------------------------------------------------------
+                                // COMPUTED
+                                //-----------------------------------------------------------------
+                                computed: {
+                                    isComplete() { // * required fields - loop through vee-validate objects
+                                            var emptyRequiredFields = 0;
+                                            for (var item in this.fields) {
+                                                if (this.fields[item].required) {
+                                                    if (this.form[item] == '') emptyRequiredFields++;
+                                                }
+                                            }
+                                            return !emptyRequiredFields;
+                                        },
+                                        dataString() { // to be send via Axios
+                                            var dataString = '';
+                                            // dataString += 'firstName='+ this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
+                                            for (var item in this.form) {
+                                                // if (item != 'firstName') { // firstName is special case
+                                                dataString += item + '=' + this.form[item] + '&';
+                                                // }
+                                            }
+                                            return dataString;
+                                        }
+                                },
+                                //-----------------------------------------------------------------
+                                // METHODS
+                                //-----------------------------------------------------------------
+                                methods: {
+                                    validateBeforeSubmit() {
+                                            this.processing = true;
+                                            this.$validator.validateAll().then((result) => {
+                                                if (result) {
+                                                    this.postData();
+                                                } else {
+                                                    this.failures++; // used for returning with server errors
+                                                    this.success = false;
+                                                    this.processing = false;
+                                                    // flash failures here?
+                                                }
+                                            });
+                                        },
+                                        //==================================================
+                                        // POST DATA
+                                        //==================================================
+                                        postData() {
+                                            axios({
+                                                method: 'POST',
+                                                url: 'http://liquidvisual.net/form.php',
+                                                data: this.dataString
+                                            }).then(response => {
+                                                this.validateResponse(response.data);
+                                                this.processing = false;
+                                            }).catch(error => {
+                                                this.processing = false;
+                                                this.failures++;
+                                                this.errorText = 'There was an error with the server. Please try again later.';
+                                                // window.scrollTo(0,0);
+                                            });
+                                        },
+                                        //==================================================
+                                        // VALIDATE RESPONSE
+                                        //==================================================
+                                        validateResponse(data) {
+                                            if (data.success === true) {
+                                                this.success = true;
+                                                this.reset(true);
+                                                // window.scrollTo(0,0);
+                                            } else {
+                                                this.failures++;
+                                                this.success = false;
+                                                // window.scrollTo(0,0);
+                                                for (var error in data.errors) {
+                                                    var field = error.split('.')[1];
+                                                    var messages = data.errors[error]; // array
+                                                    if (field) { // cannot be undefined
+                                                        this.errorText = 'Please check the following errors: <br>';
+                                                        for (var i = 0; i < messages.length; i++) {
+                                                            // don't add these unless:
+                                                            // 1. backend is aware of 'rules'
+                                                            // 2. email etc is validated
+                                                            // this.errors.add(field, messages[i]);
+                                                            // console.log('field: '+messages[i]);
+                                                            this.errorText += messages[i] + '<br>';
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        //==================================================
+                                        // RESET (for success or clear)
+                                        //==================================================
+                                        reset(success) {
+                                            // https://github.com/baianat/vee-validate/issues/209
+                                            // Object.assign(this.$data, this.$options.data.call(this));
+                                            // var firstNameTemp = this.form.fullName.split(' ')[0]; // store before wipe
+                                            for (var item in this.form) {
+                                                this.form[item] = ''; // clear all
+                                            }
+                                            // if (success) this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                                            this.success = success === true; // t/f
+                                            this.$validator.reset();
+                                        }
+                                }
+                            })
+                            </script>
                         </div>
                     </div>
                 </div>
