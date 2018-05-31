@@ -5169,9 +5169,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     this.element.classList.remove("flickity-resize"), e.call(this), this.element.classList.add("flickity-resize");
   };
 }function launchGallery() {
-  $(".popup-gallery").each(function () {
+  $("[data-lightbox-group]").each(function () {
     var e = $(this),
-        t = e.attr("data-group-title");e.magnificPopup({ delegate: "a", type: "image", tLoading: "Loading image #%curr%...", mainClass: "mfp-img-mobile", gallery: { enabled: !0, navigateByImgClick: !0, preload: [0, 1] }, image: { tError: '<a href="%url%">The image #%curr%</a> could not be loaded.', titleSrc: function titleSrc(e) {
+        t = e.attr("data-lightbox-group");e.magnificPopup({ delegate: "a", type: "image", tLoading: "Loading image #%curr%...", mainClass: "mfp-img-mobile", gallery: { enabled: !0, navigateByImgClick: !0, preload: [0, 1] }, image: { tError: '<a href="%url%">The image #%curr%</a> could not be loaded.', titleSrc: function titleSrc(e) {
           return '<div class="mb-1">' + e.el.attr("title") + "</div><small>" + t + "</small>";
         } }, callbacks: { elementParse: function elementParse(e) {
           (-1 != e.src.indexOf("youtube") || -1 != e.src.indexOf("vimeo") || -1 != e.src.indexOf("maps")) && (e.type = "iframe");
