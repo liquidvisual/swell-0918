@@ -5228,7 +5228,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         return !0 === e.active;
       });
     }
-  }, methods: {
+  }, created: function created() {
+    var e = document.createElement("script");e.setAttribute("src", "//cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"), document.head.appendChild(e);
+  },
+  methods: {
     selectTheme: function selectTheme(e) {
       for (var _t3 in this.themes) {
         this.themes[_t3] !== e && (this.themes[_t3].active = !1);
