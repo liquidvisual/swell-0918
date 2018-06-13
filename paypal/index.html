@@ -659,6 +659,10 @@
                                                     description: null,
                                                     message: '',
                                                     termsAndConditions: false,
+                                                    paypal: {
+                                                        paymentAuthorized: {},
+                                                        paymentCompleted: {}
+                                                    }
                                                 }
                                             }
                                         },
@@ -686,10 +690,12 @@
                                                     var dataString = '';
                                                     dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
                                                     for (var item in this.form) {
-                                                        if (item != 'firstName' && item != 'description') { // firstName is special case
+                                                        if (item != 'firstName' && item != 'description' && item != 'paypal') { // firstName is special case
                                                             dataString += item + '=' + this.form[item] + '&';
                                                         }
                                                     }
+                                                    // Finally - add paypal stuff to the end
+                                                    dataString += 'paypal=' + JSON.stringify(this.form.paypal);
                                                     return dataString;
                                                 }
                                         },
@@ -729,14 +735,18 @@
                                                     console.log(event);
                                                     this.processingPaypal = true; // prevent interaction until axios returns
                                                     this.processing = true; // trigger spinner on other button
+                                                    // store Paypal for computed dataString
+                                                    this.form.paypal.paymentAuthorized = event;
                                                 },
                                                 paymentCompleted(event) {
                                                     console.log(event);
+                                                    // store Paypal for computed dataString
+                                                    this.form.paypal.paymentCompleted = event;
                                                     this.postData();
                                                 },
                                                 paymentCancelled(event) {
                                                     console.log(event);
-                                                    this.processingPaypal = false;
+                                                    this.throwError(event);
                                                 },
                                                 //==================================================
                                                 // CHANGE PRODUCT
@@ -772,11 +782,18 @@
                                                         this.processingPaypal = false;
                                                         window.scrollTo(0, 0);
                                                     }).catch(error => {
-                                                        this.processing = false;
-                                                        this.failures++;
-                                                        this.errorText = 'There was an error with the server. Please try again later.';
-                                                        window.scrollTo(0, 0);
+                                                        this.throwError();
                                                     });
+                                                },
+                                                //==================================================
+                                                // THROW ERROR
+                                                //==================================================
+                                                throwError(errorText) {
+                                                    this.processing = false;
+                                                    this.processingPaypal = false;
+                                                    this.failures++;
+                                                    this.errorText = errorText ? errorText : 'There was an error with the server. Please try again later.';
+                                                    window.scrollTo(0, 0);
                                                 },
                                                 //==================================================
                                                 // VALIDATE RESPONSE
