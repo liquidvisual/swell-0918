@@ -394,6 +394,9 @@
 
                                         <!-- FORM CONTACT -->
                                         <form class="contact-form" name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
+
+                                            <!-- DISABLED MASK - for when PayPal returns and Axios is sending to server -->
+                                            <div class="disabled-mask" v-if="processingPaypal"></div>
                                             <fieldset>
 
                                                 <!-- NAME* -->
@@ -431,15 +434,6 @@
                                                 </label>
                                             </fieldset>
                                             <fieldset>
-
-                                                <!-- MESSAGE -->
-                                                
-<!-- <label class="form-group d-block"><p>Your Message<small class="asterisk">*</small></p>
-                <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="form.message" placeholder="" v-validate="'required|max:2000'" required></textarea>
-                <small v-show="errors.has('message')" class="error shake animated"><i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('message')"></span></small>
-            </label> -->
-                                            </fieldset>
-                                            <fieldset>
                                                 <div class="row">
                                                     <div class="col-md-6">
 
@@ -461,13 +455,35 @@
                                                             <p>Quantity
                                                                 <small class="asterisk">*</small>
                                                             </p>
-                                                            <select class="custom-select" name="quantity" v-validate="'required'" v-model="form.quantity" :disabled="!form.product">
+                                                            <select class="custom-select" name="quantity" v-validate="'required'" v-model="form.quantity" :disabled="!form.product" @change="updateQuantity()">
                                                                 <option disabled selected value="">Choose one</option>
                                                                 <option v-for="(item, index) in pricesArray" :key="index" :value="item.id" v-text="item.name"></option>
                                                             </select>
                                                         </label>
                                                     </div>
+
+                                                    <!-- PRODUCT INFO -->
+                                                    <div v-if="form.description" class="col">
+                                                        <p>
+                                                            <small class="text-muted">
+                                                                <i class="fa fa-info-circle"></i>
+                                                                <span v-text="form.description"></span>
+                                                            </small>
+                                                        </p>
+                                                    </div>
                                                 </div>
+                                            </fieldset>
+                                            <fieldset>
+
+                                                <!-- MESSAGE -->
+                                                <label class="form-group d-block">
+                                                    <p>Comments</p>
+                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="4" v-model="form.message" placeholder="" v-validate="'max:2000'"></textarea>
+                                                    <small v-show="errors.has('message')" class="error shake animated">
+                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                        <span v-text="errors.first('message')"></span>
+                                                    </small>
+                                                </label>
                                             </fieldset>
                                             <fieldset>
 
@@ -496,26 +512,51 @@
                                             <!-- GOOGLE RECAPTCHA -->
                                             
 <!-- <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div> -->
-<!-- SUBMIT - old: (errors.any() && !failures) --><button v-if="errors.any() || !isComplete" :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
-
-                                                <!-- <div v-show="processing" class="spinner-border text-primary">Loading...</div> -->
-                                                
-<!-- <span v-show="processing" class="text">Sending</span> --><span v-show="!processing" class="text">Continue</span>
+<!-- SUBMIT - old: (errors.any() && !failures) v-if="errors.any() || !isComplete" --><button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                                <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                <span v-show="processing" class="text">Sending</span>
+                                                <span v-show="!processing" class="text">Make Enquiry</span>
                                             </button>
 
-                                            <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
-                                            <paypal-checkout v-if="!errors.any() && isComplete" class="mb-4" env="sandbox" amount="10.00" currency="AUD" locale="en_AU" :button-style="paypalStyle" :client="paypal">
+                                            <!-- OR -->
+                                            <b class="or-text text-muted mx-2">
+                                                <span class="font-weight-light">-</span> OR
+                                                <span class="font-weight-light">-</span>
+                                            </b>
 
-                                                <!-- @payment-authorized="paymentAuthorized" -->
-                                                
-<!-- @payment-completed="paymentCompleted" -->
-<!-- @payment-cancelled="paymentCancelled" --></paypal-checkout>
+                                            <!-- PAYPAL BUTTON -->
+                                            <div class="d-inline-block position-relative" style="width: 200px">
+                                                <div class="disabled-mask" v-if="errors.any() || !isComplete || processing"></div>
+                                                <paypal-checkout env="sandbox" :amount="form.price" currency="AUD" locale="en_AU" :button-style="paypalStyle" :client="paypal" @payment-authorized="paymentAuthorized" @payment-completed="paymentCompleted" @payment-cancelled="paymentCancelled"></paypal-checkout>
+                                            </div>
                                         </form>
                                     </div>
                                     <style>
+                                    [v-cloak] {
+                                        visibility: hidden;
+                                    }
+                                    
                                     .contact-form .btn[disabled="disabled"] {
                                         /*opacity: 1;*/
                                         cursor: not-allowed;
+                                    }
+                                    
+                                    .or-text {
+                                        position: relative;
+                                        top: -12px;
+                                    }
+                                    
+                                    .disabled-mask {
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        width: 100%;
+                                        height: 100%;
+                                        background: white;
+                                        opacity: 0.6;
+                                        cursor: not-allowed;
+                                        pointer-event: none;
+                                        z-index: 200;
                                     }
                                     </style>
                                     <script>
@@ -531,6 +572,7 @@
                                             return {
                                                 errorText: '',
                                                 processing: false,
+                                                processingPaypal: false, // triggers after Paypal and Axios begins
                                                 success: false,
                                                 failures: 0,
                                                 paypal: {
@@ -539,7 +581,7 @@
                                                 },
                                                 paypalStyle: {
                                                     label: 'checkout',
-                                                    size: 'medium', // small | medium | large | responsive
+                                                    size: 'responsive', // small | medium | large | responsive
                                                     shape: 'rect', // pill | rect
                                                     color: 'gold', // gold | blue | silver | black,
                                                     tagline: false
@@ -550,31 +592,49 @@
                                                         active: false,
                                                         prices: [{
                                                             id: '3864',
-                                                            name: '1 - $395'
+                                                            name: '1 - $395',
+                                                            price: '395',
+                                                            description: 'Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348'
                                                         }, {
                                                             id: '3865',
-                                                            name: '2 - $700'
+                                                            name: '2 - $700',
+                                                            price: '700',
+                                                            description: 'Please contact Fleet Adventures for discounts on more than one adventure. 02 67722348'
                                                         }, {
                                                             id: '3866',
-                                                            name: '3 - $750'
+                                                            name: '3 - $750',
+                                                            price: '750',
+                                                            description: 'Description text 3'
                                                         }, {
                                                             id: '3867',
-                                                            name: '4 - $1,000'
+                                                            name: '4 - $1,000',
+                                                            price: '1000',
+                                                            description: 'Description text 4'
                                                         }, {
                                                             id: '3868',
-                                                            name: '5 - $1,250'
+                                                            name: '5 - $1,250',
+                                                            price: '1250',
+                                                            description: 'Description text 5'
                                                         }, {
                                                             id: '3869',
-                                                            name: '6 - $1,500'
+                                                            name: '6 - $1,500',
+                                                            price: '1500',
+                                                            description: 'Description text 6'
                                                         }, {
                                                             id: '3870',
-                                                            name: '7 - $1,750'
+                                                            name: '7 - $1,750',
+                                                            price: '1750',
+                                                            description: 'Description text 7'
                                                         }, {
                                                             id: '3871',
-                                                            name: '8 - $2,000'
+                                                            name: '8 - $2,000',
+                                                            price: '2000',
+                                                            description: 'Description text 8'
                                                         }, {
                                                             id: '3872',
-                                                            name: '9 - $2,250'
+                                                            name: '9 - $2,250',
+                                                            price: '2250',
+                                                            description: 'Description text 9'
                                                         }]
                                                     },
                                                     '4411': {
@@ -582,7 +642,9 @@
                                                         active: false,
                                                         prices: [{
                                                             id: '6666',
-                                                            name: '2 - $850'
+                                                            name: '2 - $850',
+                                                            price: '850',
+                                                            description: 'Description text 10'
                                                         }]
                                                     },
                                                 },
@@ -592,7 +654,9 @@
                                                     email: '',
                                                     phone: '',
                                                     product: '', // woo
+                                                    price: '',
                                                     quantity: '',
+                                                    description: null,
                                                     message: '',
                                                     termsAndConditions: false,
                                                 }
@@ -622,7 +686,7 @@
                                                     var dataString = '';
                                                     dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
                                                     for (var item in this.form) {
-                                                        if (item != 'firstName') { // firstName is special case
+                                                        if (item != 'firstName' && item != 'description') { // firstName is special case
                                                             dataString += item + '=' + this.form[item] + '&';
                                                         }
                                                     }
@@ -653,13 +717,46 @@
                                                             // failures will show the error box which is for server errors only
                                                             this.success = false;
                                                             this.processing = false;
+                                                            this.processingPaypal = false;
                                                             // flash failures here?
                                                         }
                                                     });
                                                 },
+                                                //==================================================
+                                                // PAYPAL CALLBACK
+                                                //==================================================
+                                                paymentAuthorized(event) {
+                                                    console.log(event);
+                                                    this.processingPaypal = true; // prevent interaction until axios returns
+                                                    this.processing = true; // trigger spinner on other button
+                                                },
+                                                paymentCompleted(event) {
+                                                    console.log(event);
+                                                    this.postData();
+                                                },
+                                                paymentCancelled(event) {
+                                                    console.log(event);
+                                                    this.processingPaypal = false;
+                                                },
+                                                //==================================================
+                                                // CHANGE PRODUCT
+                                                //==================================================
                                                 changeProduct() {
                                                     this.form.quantity = '';
+                                                    this.form.description = '';
                                                     window.location.hash = '#/' + this.form.product; // map hash
+                                                },
+                                                //==================================================
+                                                // UPDATE QUANTITY
+                                                //==================================================
+                                                updateQuantity() {
+                                                    var self = this;
+                                                    this.products[this.form.product].prices.forEach(function(item) {
+                                                        if (item.id == self.form.quantity) {
+                                                            self.form.description = item.description;
+                                                            self.form.price = item.price;
+                                                        }
+                                                    })
                                                 },
                                                 //==================================================
                                                 // POST DATA
@@ -672,6 +769,8 @@
                                                     }).then(response => {
                                                         this.validateResponse(response.data);
                                                         this.processing = false;
+                                                        this.processingPaypal = false;
+                                                        window.scrollTo(0, 0);
                                                     }).catch(error => {
                                                         this.processing = false;
                                                         this.failures++;
