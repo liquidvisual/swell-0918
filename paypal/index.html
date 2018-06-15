@@ -561,7 +561,7 @@
                                     </style>
                                     <script>
                                     //-----------------------------------------------------------------
-                                    //
+                                    // VUE INSTANCE
                                     //-----------------------------------------------------------------
                                     Vue.use(VeeValidate, {
                                         events: 'input' // 'change' or 'blur'
@@ -577,7 +577,7 @@
                                                 failures: 0,
                                                 paypal: {
                                                     sandbox: 'AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL',
-                                                    production: ''
+                                                    production: '' // INSERT URL HERE
                                                 },
                                                 paypalStyle: {
                                                     label: 'checkout',
@@ -653,7 +653,7 @@
                                                     fullName: '',
                                                     email: '',
                                                     phone: '',
-                                                    product: '', // woo
+                                                    product: '',
                                                     price: '',
                                                     quantity: '',
                                                     description: null,
@@ -686,7 +686,7 @@
                                                         return '';
                                                     }
                                                 },
-                                                dataString() { // to be send via Axios
+                                                dataString() { // to be sent via Axios
                                                     var dataString = '';
                                                     dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
                                                     for (var item in this.form) {
@@ -732,20 +732,18 @@
                                                 // PAYPAL CALLBACK
                                                 //==================================================
                                                 paymentAuthorized(event) {
-                                                    console.log(event);
+                                                    // console.log(event);
                                                     this.processingPaypal = true; // prevent interaction until axios returns
                                                     this.processing = true; // trigger spinner on other button
-                                                    // store Paypal for computed dataString
-                                                    this.form.paypal.paymentAuthorized = event;
+                                                    this.form.paypal.paymentAuthorized = event; // store Paypal for computed dataString
                                                 },
                                                 paymentCompleted(event) {
-                                                    console.log(event);
-                                                    // store Paypal for computed dataString
-                                                    this.form.paypal.paymentCompleted = event;
+                                                    // console.log(event);
+                                                    this.form.paypal.paymentCompleted = event; // store Paypal for computed dataString
                                                     this.postData();
                                                 },
                                                 paymentCancelled(event) {
-                                                    console.log(event);
+                                                    // console.log(event);
                                                     this.throwError(event);
                                                 },
                                                 //==================================================
@@ -774,7 +772,7 @@
                                                 postData() {
                                                     axios({
                                                         method: 'POST',
-                                                        url: 'http://liquidvisual.net/form.php',
+                                                        url: 'http://liquidvisual.net/form.php', // <-- Jekyll variable
                                                         data: this.dataString
                                                     }).then(response => {
                                                         this.validateResponse(response.data);
@@ -1490,15 +1488,12 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-    <script src="/assets/scripts/minified.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="/assets/scripts/minified.js"></script>
 
-    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
-    
-<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
-<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
-<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
-<!-- NO JAVASCRIPT WARNING --><noscript>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>

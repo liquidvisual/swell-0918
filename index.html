@@ -500,6 +500,40 @@
                 <a href="/sections/">Sections</a>
             </h3>
 
+            <!-- AUDIO -->
+            
+<!-- SECTION SPLIT --><section id="" class="section" style="background-image: url()">
+                <div class="container">
+                    <div class="row align-items-center">
+
+                        <!-- COMPONENT -->
+                        <div class="col-md-6 col-lg-5 offset-lg-1 order-2">
+
+                            <!-- AUDIO PLAYER -->
+                            <div class="audio-player mb-4">
+                                <audio crossorigin playsinline>
+                                    <source src="https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3" type="audio/mp3">
+                                </audio>
+                            </div>
+                        </div>
+
+                        <!-- CONTENT -->
+                        <div class="col-md-6 col-lg-4 offset-lg-1 order-1">
+                            <h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+                            <!-- WYSIWYG #1 -->
+                            <div class="row">
+                                <div class="col-md-11 col-lg-10">
+                                    <div class="wysiwyg mb-4">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <!-- GALLERY -->
             
 <!-- SECTION LEFT --><section id="" class="section" style="background-image: url()">
@@ -1715,15 +1749,12 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-    <script src="/assets/scripts/minified.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="/assets/scripts/minified.js"></script>
 
-    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
-    
-<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
-<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
-<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
-<!-- NO JAVASCRIPT WARNING --><noscript>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>

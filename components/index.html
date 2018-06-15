@@ -2123,6 +2123,59 @@
                             <div class="spacer my-4"></div>
 
                             <!-- DOCS -->
+                            <docs files="_includes/components/media/audio_player.html" class="docs" inline-template>
+                                <div>
+
+                                    <!-- SECTION CONTENT -->
+                                    <section id="audio-player" class="section-content">
+                                        <div class="row">
+                                            <div class="col-md-11">
+                                                <h2>Audio Player</h2>
+                                                <p>This component utilizes the
+                                                    <a href="https://github.com/sampotts/plyr">Plyr library</a> for the display and control of mp3 audio. It aso uses the <code class="highlighter-rouge">primary</code> colour.</p>
+                                            </div>
+                                        </div>
+                                    </section>
+                                    <section class="card-docs section-content card">
+
+                                        <!-- CARD DOCS HEADER -->
+                                        <header class="card-docs-header">
+                                            <button v-if="!codeEnabled" class="active text">
+                                                <i class="fa fa-eye"></i>&nbsp; Preview</button>
+                                            <button v-for="item in filesArray" v-if="codeEnabled" :class="{ active: item.active }" class="text" @click="selectFile(item)">
+                                                <i class="fa fa-file-code-o mr-1"></i>
+                                                <span v-text="item.alias"></span>
+                                            </button>
+                                            <button @click="enableCode" :class="{ active: codeEnabled }" class="card-docs-header-btn-tool ml-auto">
+                                                <i class="fa fa-code"></i>
+                                            </button>
+                                        </header>
+
+                                        <!-- CARD DOCS BODY -->
+                                        <div class="card-docs-body">
+
+                                            <!-- CARD DOCS CODE -->
+                                            <div v-show="codeEnabled && item.active" v-for="item in filesArray" class="card-docs-code"><pre class="lang-liquid prettyprint linenums" :class="{ 'line-numbers': item.result }"><code class="prettyprint" v-text="item.result"></code></pre></div>
+
+                                            <!-- CARD DOCS COMPONENT -->
+                                            <div class="card-docs-component">
+                                                <div class="m-4">
+
+                                                    <!-- AUDIO PLAYER -->
+                                                    <div class="audio-player mb-4">
+                                                        <audio crossorigin playsinline>
+                                                            <source src="https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3" type="audio/mp3">
+                                                        </audio>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </docs>
+                            <div class="spacer my-4"></div>
+
+                            <!-- DOCS -->
                             <docs files="_includes/components/forms/form_contact.html" class="docs" inline-template>
                                 <div>
 
@@ -2754,6 +2807,9 @@
                                                     </li>
                                                     <li>
                                                         <a href="#media-lightbox">Media Lightbox</a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#audio-player">Audio Player</a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -3406,15 +3462,12 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-    <script src="/assets/scripts/minified.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
+    <script src="/assets/scripts/minified.js"></script>
 
-    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
-    
-<!-- <script src="/node_modules/jquery-validation/dist/jquery.validate.js"></script> -->
-<!-- <script src="/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.js"></script> -->
-<!-- <script src="/node_modules/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script> -->
-<!-- NO JAVASCRIPT WARNING --><noscript>
+    <!-- NO JAVASCRIPT WARNING -->
+    <noscript>
         <div class="lv-alert-bar">
             <p>Your browser has Javascript disabled. Some features may be limited.</p>
         </div>
