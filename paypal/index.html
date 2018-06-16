@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
     <title>Paypal - Inspire</title>
+
+    <!-- CDN POLYFILL -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="/assets/scripts/vue.js"></script>
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
@@ -370,350 +373,316 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <script src="https://unpkg.com/vue-paypal-checkout/dist/vue-paypal-checkout.min.js"></script>
+                                    <!--
+    FORM_PAYPAL.HTML
+    updated: 16.06.18
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/axios/dist/axios.min.js
+        https://unpkg.com/vue-paypal-checkout/dist/vue-paypal-checkout.min.js
+        https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
+-->
+                                    <script>
+                                    var products = [{
+                                        "id": "1234",
+                                        "name": "Gorge Estate",
+                                        "prices": [{
+                                            "id": "3865",
+                                            "name": "2 - $700",
+                                            "price": 700,
+                                            "quantity": 2,
+                                            "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                                        }, ]
+                                    }, {
+                                        "id": "5678",
+                                        "name": "Something",
+                                        "prices": [{
+                                            "id": "3865",
+                                            "name": "2 - $1000,00",
+                                            "price": 700,
+                                            "quantity": 2,
+                                            "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                                        }, {
+                                            "id": "386523",
+                                            "name": "20 - $2000,00",
+                                            "price": 700,
+                                            "quantity": 2,
+                                            "description": "Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348"
+                                        }, ]
+                                    }];
+                                    </script>
+
+                                    <!-- VUE INSTANCE -->
                                     <div id="paypal-form" v-cloak>
 
-                                        <!-- IF SUCCESS -->
-                                        <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Thanks
-                                                <span v-text="form.firstName"></span>!</strong>
-                                            <br>We've received your message and we'll get back to you soon.</div>
+                                        <!-- VUE PAYMENT FORM COMPONENT -->
+                                        <vue-paypal-form env="sandbox" endpoint="http://liquidvisual.net/form.php" paypal-production-path="YOUR_PATH_HERE" paypal-sandbox-path="AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL" inline-template>
+                                            <div>
 
-                                        <!-- IF FAILURE -->
-                                        <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Oops!</strong>
-                                            <br>
-                                            <span v-html="errorText"></span>
-                                        </div>
+                                                <!-- IF SUCCESS -->
+                                                <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <strong>Thanks
+                                                        <span v-text="form.firstName"></span>!</strong>
+                                                    <br>We've received your message and we'll get back to you soon.</div>
 
-                                        <!-- FORM CONTACT -->
-                                        <form class="contact-form" name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                                <!-- IF FAILURE -->
+                                                <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <strong>Oops!</strong>
+                                                    <br>
+                                                    <span v-html="errorText"></span>
+                                                </div>
 
-                                            <!-- DISABLED MASK - for when PayPal returns and Axios is sending to server -->
-                                            <div class="disabled-mask" v-if="processingPaypal"></div>
-                                            <fieldset>
+                                                <!-- FORM -->
+                                                <form class="contact-form" name="Paypal Form" novalidate @submit.prevent="validateBeforeSubmit">
 
-                                                <!-- NAME* -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Full Name
-                                                        <small class="asterisk">*</small>
-                                                    </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'" required>
-                                                    <small v-show="errors.has('name')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('name')"></span>
-                                                    </small>
-                                                </label>
+                                                    <!-- DISABLED MASK - for when PayPal returns and Axios is sending to server -->
+                                                    <div v-if="paypal.processing" class="disabled-mask"></div>
+                                                    <fieldset>
 
-                                                <!-- EMAIL* -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Email
-                                                        <small class="asterisk">*</small>
-                                                    </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="form.email" v-validate="'required|email'" type="email" required>
-                                                    <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('email')"></span>
-                                                    </small>
-                                                </label>
-
-                                                <!-- PHONE -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Phone</p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="form.phone" v-validate="'numeric'">
-                                                    <small v-show="errors.has('phone')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('phone')"></span>
-                                                    </small>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-
-                                                        <!-- PRODUCT -->
+                                                        <!-- NAME* -->
                                                         <label class="form-group d-block">
-                                                            <p>Product
+                                                            <p class="mb-2">Full Name
                                                                 <small class="asterisk">*</small>
                                                             </p>
-                                                            <select class="custom-select" name="product" v-validate="'required'" v-model="form.product" @change="changeProduct">
-                                                                <option disabled selected value="">Choose one</option>
-                                                                <option v-for="(item, key) in products" :key="key" :value="key" v-text="item.name"></option>
-                                                            </select>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-md-6">
-
-                                                        <!-- QUANTITY -->
-                                                        <label class="form-group d-block">
-                                                            <p>Quantity
-                                                                <small class="asterisk">*</small>
-                                                            </p>
-                                                            <select class="custom-select" name="quantity" v-validate="'required'" v-model="form.quantity" :disabled="!form.product" @change="updateQuantity()">
-                                                                <option disabled selected value="">Choose one</option>
-                                                                <option v-for="(item, index) in pricesArray" :key="index" :value="item.id" v-text="item.name"></option>
-                                                            </select>
-                                                        </label>
-                                                    </div>
-
-                                                    <!-- PRODUCT INFO -->
-                                                    <div v-if="form.description" class="col">
-                                                        <p>
-                                                            <small class="text-muted">
-                                                                <i class="fa fa-info-circle"></i>
-                                                                <span v-text="form.description"></span>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'">
+                                                            <small v-show="errors.has('name')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('name')"></span>
                                                             </small>
-                                                        </p>
+                                                        </label>
+
+                                                        <!-- EMAIL* -->
+                                                        <label class="form-group d-block">
+                                                            <p class="mb-2">Email
+                                                                <small class="asterisk">*</small>
+                                                            </p>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="form.email" v-validate="'required|email'" type="email">
+                                                            <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('email')"></span>
+                                                            </small>
+                                                        </label>
+
+                                                        <!-- PHONE -->
+                                                        <label class="form-group d-block">
+                                                            <p class="mb-2">Phone
+                                                                <small class="asterisk">*</small>
+                                                            </p>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="form.phone" v-validate="'required|numeric'">
+                                                            <small v-show="errors.has('phone')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('phone')"></span>
+                                                            </small>
+                                                        </label>
+                                                    </fieldset>
+                                                    <fieldset>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+
+                                                                <!-- PRODUCT -->
+                                                                <label class="form-group d-block">
+                                                                    <p>Product
+                                                                        <small class="asterisk">*</small>
+                                                                    </p>
+                                                                    <select class="custom-select" name="product" v-validate="'required'" v-model="form.product" @change="setProduct(form.product)">
+                                                                        <option disabled selected value="">Choose one</option>
+                                                                        <option v-for="(item, key) in products" :key="item.id" :value="item" v-text="item.name"></option>
+                                                                    </select>
+                                                                </label>
+                                                            </div>
+                                                            <div class="col-md-6">
+
+                                                                <!-- QUANTITY -->
+                                                                <label class="form-group d-block">
+                                                                    <p>Quantity
+                                                                        <small class="asterisk">*</small>
+                                                                    </p>
+                                                                    <select class="custom-select" name="quantity" v-validate="'required'" v-model="form.quantity" :disabled="!form.product">
+                                                                        <option disabled selected value="">Choose one</option>
+                                                                        <option v-for="(item, index) in form.product.prices" :key="item.id" :value="item" v-text="item.name"></option>
+                                                                    </select>
+                                                                </label>
+                                                            </div>
+
+                                                            <!-- PRODUCT INFO -->
+                                                            <div v-if="form.quantity.description" class="col mb-3">
+                                                                <small class="text-muted">
+                                                                    <i class="fa fa-info-circle"></i>
+                                                                    <span v-text="form.quantity.description"></span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                    <fieldset>
+
+                                                        <!-- MESSAGE -->
+                                                        <label class="form-group d-block">
+                                                            <p>Comments</p>
+                                                            <textarea class="form-control" name="message" rows="4" placeholder="" :class="{'is-invalid': errors.has('message') }" v-model="form.message" v-validate="'max:2000'"> </textarea>
+                                                            <small v-show="errors.has('message')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('message')"></span>
+                                                            </small>
+                                                        </label>
+                                                    </fieldset>
+                                                    <fieldset>
+
+                                                        <!-- TERMS & CONDITIONS -->
+                                                        <div class="form-group">
+                                                            <label class="custom-control custom-checkbox mb-0">
+                                                                <input class="custom-control-input" name="Terms and Conditions" type="checkbox" value="true" v-validate="'required'" v-model="form.termsAndConditionsAccepted">
+                                                                <p class="custom-control-label mb-0">I agree to the
+                                                                    <a href="#" target="_blank">terms &amp; conditions.</a>
+                                                                    <small class="asterisk">*</small>
+                                                                </p>
+                                                            </label>
+                                                            <small v-show="errors.has('Terms and Conditions')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('Terms and Conditions')"></span>
+                                                            </small>
+                                                        </div>
+                                                    </fieldset>
+
+                                                    <!-- * REQUIRED -->
+                                                    <p class="float-md-right">
+                                                        <small class="asterisk">*</small>
+                                                        <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
+                                                    </p>
+
+                                                    <!-- SUBMIT -->
+                                                    <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                        <span v-show="processing" class="text">Sending</span>
+                                                        <span v-show="!processing" class="text">Make Enquiry</span>
+                                                    </button>
+
+                                                    <!-- OR -->
+                                                    <b class="or-text text-muted mx-2">
+                                                        <span class="font-weight-light">-</span> OR
+                                                        <span class="font-weight-light">-</span>
+                                                    </b>
+
+                                                    <!-- PAYPAL BUTTON WRAPPER -->
+                                                    <div class="d-inline-block position-relative" style="width: 200px">
+
+                                                        <!-- BUTTON MASK -->
+                                                        <div v-if="errors.any() || !isComplete || processing" class="disabled-mask"></div>
+
+                                                        <!-- PAYPAL CHECKOUT BUTTON -->
+                                                        <paypal-checkout currency="AUD" locale="en_AU" :amount="String(form.quantity ? form.quantity.price : '')" :button-style="paypal.buttonStyle" :client="paypal" :env="env" @payment-authorized="paymentAuthorized" @payment-completed="paymentCompleted" @payment-cancelled="paymentCancelled"></paypal-checkout>
                                                     </div>
-                                                </div>
-                                            </fieldset>
-                                            <fieldset>
-
-                                                <!-- MESSAGE -->
-                                                <label class="form-group d-block">
-                                                    <p>Comments</p>
-                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="4" v-model="form.message" placeholder="" v-validate="'max:2000'"></textarea>
-                                                    <small v-show="errors.has('message')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('message')"></span>
-                                                    </small>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset>
-
-                                                <!-- TERMS & CONDITIONS -->
-                                                <div class="form-group">
-                                                    <label class="custom-control custom-checkbox mb-0">
-                                                        <input class="custom-control-input" name="Terms and Conditions" type="checkbox" value="true" v-validate="'required'" v-model="form.termsAndConditions">
-                                                        <p class="custom-control-label mb-0">I agree to the
-                                                            <a href="#" target="_blank">terms &amp; conditions.</a>
-                                                            <small class="asterisk">*</small>
-                                                        </p>
-                                                    </label>
-                                                    <small v-show="errors.has('Terms and Conditions')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('Terms and Conditions')"></span>
-                                                    </small>
-                                                </div>
-                                            </fieldset>
-
-                                            <!-- * REQUIRED -->
-                                            <p class="float-md-right">
-                                                <small class="asterisk">*</small>
-                                                <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
-                                            </p>
-
-                                            <!-- GOOGLE RECAPTCHA -->
-                                            
-<!-- <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div> -->
-<!-- SUBMIT - old: (errors.any() && !failures) v-if="errors.any() || !isComplete" --><button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
-                                                <div v-show="processing" class="spinner-border text-primary">Loading...</div>
-                                                <span v-show="processing" class="text">Sending</span>
-                                                <span v-show="!processing" class="text">Make Enquiry</span>
-                                            </button>
-
-                                            <!-- OR -->
-                                            <b class="or-text text-muted mx-2">
-                                                <span class="font-weight-light">-</span> OR
-                                                <span class="font-weight-light">-</span>
-                                            </b>
-
-                                            <!-- PAYPAL BUTTON -->
-                                            <div class="d-inline-block position-relative" style="width: 200px">
-                                                <div class="disabled-mask" v-if="errors.any() || !isComplete || processing"></div>
-                                                <paypal-checkout env="sandbox" :amount="form.price" currency="AUD" locale="en_AU" :button-style="paypalStyle" :client="paypal" @payment-authorized="paymentAuthorized" @payment-completed="paymentCompleted" @payment-cancelled="paymentCancelled"></paypal-checkout>
+                                                </form>
                                             </div>
-                                        </form>
+                                        </vue-paypal-form>
                                     </div>
-                                    <style>
-                                    [v-cloak] {
-                                        visibility: hidden;
-                                    }
-                                    
-                                    .contact-form .btn[disabled="disabled"] {
-                                        /*opacity: 1;*/
-                                        cursor: not-allowed;
-                                    }
-                                    
-                                    .or-text {
-                                        position: relative;
-                                        top: -12px;
-                                    }
-                                    
-                                    .disabled-mask {
-                                        position: absolute;
-                                        top: 0;
-                                        left: 0;
-                                        width: 100%;
-                                        height: 100%;
-                                        background: white;
-                                        opacity: 0.6;
-                                        cursor: not-allowed;
-                                        pointer-event: none;
-                                        z-index: 200;
-                                    }
-                                    </style>
                                     <script>
                                     //-----------------------------------------------------------------
-                                    // VUE INSTANCE
+                                    // VUE PAYPAL FORM COMPONENT
                                     //-----------------------------------------------------------------
-                                    Vue.use(VeeValidate, {
-                                        events: 'input' // 'change' or 'blur'
-                                    });
-                                    new Vue({
-                                        el: '#paypal-form', // <---- this needs to match the parent id
+                                    Vue.component('vue-paypal-form', {
+                                        props: {
+                                            endpoint: {
+                                                type: String,
+                                                required: true
+                                            },
+                                            env: {
+                                                type: String,
+                                                required: false,
+                                                default: 'sandbox'
+                                            },
+                                            paypalProductionPath: {
+                                                type: String,
+                                                required: false
+                                            },
+                                            paypalSandboxPath: {
+                                                type: String,
+                                                required: false
+                                            },
+                                        },
                                         data() {
                                             return {
                                                 errorText: '',
-                                                processing: false,
-                                                processingPaypal: false, // triggers after Paypal and Axios begins
-                                                success: false,
                                                 failures: 0,
+                                                processing: false,
+                                                products: products,
+                                                success: false,
                                                 paypal: {
-                                                    sandbox: 'AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL',
-                                                    production: '' // INSERT URL HERE
-                                                },
-                                                paypalStyle: {
-                                                    label: 'checkout',
-                                                    size: 'responsive', // small | medium | large | responsive
-                                                    shape: 'rect', // pill | rect
-                                                    color: 'gold', // gold | blue | silver | black,
-                                                    tagline: false
-                                                },
-                                                products: {
-                                                    '3860': {
-                                                        name: 'Gorge Discovery Flight',
-                                                        active: false,
-                                                        prices: [{
-                                                            id: '3864',
-                                                            name: '1 - $395',
-                                                            price: '395',
-                                                            description: 'Scenic flight - Passengers must average 93kg. Please call Fleet Adventures for details on 02 67722348'
-                                                        }, {
-                                                            id: '3865',
-                                                            name: '2 - $700',
-                                                            price: '700',
-                                                            description: 'Please contact Fleet Adventures for discounts on more than one adventure. 02 67722348'
-                                                        }, {
-                                                            id: '3866',
-                                                            name: '3 - $750',
-                                                            price: '750',
-                                                            description: 'Description text 3'
-                                                        }, {
-                                                            id: '3867',
-                                                            name: '4 - $1,000',
-                                                            price: '1000',
-                                                            description: 'Description text 4'
-                                                        }, {
-                                                            id: '3868',
-                                                            name: '5 - $1,250',
-                                                            price: '1250',
-                                                            description: 'Description text 5'
-                                                        }, {
-                                                            id: '3869',
-                                                            name: '6 - $1,500',
-                                                            price: '1500',
-                                                            description: 'Description text 6'
-                                                        }, {
-                                                            id: '3870',
-                                                            name: '7 - $1,750',
-                                                            price: '1750',
-                                                            description: 'Description text 7'
-                                                        }, {
-                                                            id: '3871',
-                                                            name: '8 - $2,000',
-                                                            price: '2000',
-                                                            description: 'Description text 8'
-                                                        }, {
-                                                            id: '3872',
-                                                            name: '9 - $2,250',
-                                                            price: '2250',
-                                                            description: 'Description text 9'
-                                                        }]
-                                                    },
-                                                    '4411': {
-                                                        name: 'Great Escarpment Tour',
-                                                        active: false,
-                                                        prices: [{
-                                                            id: '6666',
-                                                            name: '2 - $850',
-                                                            price: '850',
-                                                            description: 'Description text 10'
-                                                        }]
+                                                    processing: false, // triggers after Paypal and Axios begins
+                                                    production: this.paypalProductionPath, // set on the component
+                                                    sandbox: this.paypalSandboxPath,
+                                                    buttonStyle: {
+                                                        color: 'gold', // gold | blue | silver | black,
+                                                        label: 'checkout',
+                                                        shape: 'rect', // pill | rect
+                                                        size: 'responsive', // small | medium | large | responsive
+                                                        tagline: false
                                                     },
                                                 },
                                                 form: {
-                                                    firstName: null, // computed on success
-                                                    fullName: '',
                                                     email: '',
+                                                    firstName: null, // Computed - stored for Thank you message
+                                                    fullName: '',
                                                     phone: '',
-                                                    product: '',
-                                                    price: '',
-                                                    quantity: '',
-                                                    description: null,
+                                                    payerId: '', // Set by Paypal response
+                                                    paymentId: '', // Set by Paypal response
+                                                    paypalResponse: '', // Paypal 'paymentCompleted' response
+                                                    product: '', // Object - not sent
+                                                    quantity: '', // Object - not sent
                                                     message: '',
-                                                    termsAndConditions: false,
-                                                    paypal: {
-                                                        paymentAuthorized: {},
-                                                        paymentCompleted: {}
-                                                    }
-                                                }
+                                                    termsAndConditionsAccepted: false,
+                                                },
                                             }
                                         },
                                         //-----------------------------------------------------------------
                                         // COMPUTED
                                         //-----------------------------------------------------------------
                                         computed: {
-                                            isComplete() { // * required fields - loop through vee-validate objects
-                                                    var emptyRequiredFields = 0;
-                                                    for (var item in this.fields) {
-                                                        if (this.fields[item].required) {
-                                                            if (this.form[item] == '' || !this.form.termsAndConditions) emptyRequiredFields++; //|| !this.form.termsAndConditions
+                                            isComplete() { // * Required Fields - loop through vee-validate object properties
+                                                var emptyRequiredFields = 0;
+                                                for (let item in this.fields) {
+                                                    if (this.fields[item].required) {
+                                                        if (this.form[item] == '' || !this.form.termsAndConditionsAccepted) {
+                                                            emptyRequiredFields++;
                                                         }
                                                     }
-                                                    return !emptyRequiredFields;
-                                                },
-                                                pricesArray() {
-                                                    if (this.form.product) {
-                                                        return this.products[this.form.product].prices;
-                                                    } else {
-                                                        return '';
-                                                    }
-                                                },
-                                                dataString() { // to be sent via Axios
-                                                    var dataString = '';
-                                                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
-                                                    for (var item in this.form) {
-                                                        if (item != 'firstName' && item != 'description' && item != 'paypal') { // firstName is special case
-                                                            dataString += item + '=' + this.form[item] + '&';
-                                                        }
-                                                    }
-                                                    // Finally - add paypal stuff to the end
-                                                    dataString += 'paypal=' + JSON.stringify(this.form.paypal);
-                                                    return dataString;
                                                 }
+                                                return !emptyRequiredFields;
+                                            }
                                         },
                                         //-----------------------------------------------------------------
                                         // CREATED
                                         //-----------------------------------------------------------------
                                         created() {
-                                            var hashBang_arr = window.location.hash.split('/'); // EG. domain.com/#/3801 <-- product id
-                                            if (hashBang_arr.length > 1) {
-                                                var productId = hashBang_arr[1];
-                                                this.form.product = productId;
-                                            }
+                                            // var hashBang_arr = window.location.hash.split('/'); // EG. domain.com/#/3801 <-- product id
+                                            // if (hashBang_arr.length > 1) {
+                                            //     var productId = hashBang_arr[1];
+                                            //     this.form.product = productId;
+                                            // }
                                         },
                                         //-----------------------------------------------------------------
                                         // METHODS
                                         //-----------------------------------------------------------------
                                         methods: {
-                                            validateBeforeSubmit() {
+                                            setProduct(product) {
+                                                    this.form.quantity = ''; // reset
+                                                    // window.location.hash = '#/'+this.form.product.id; // map hash
+                                                },
+                                                // getProductFromId(id) {
+                                                //     this.products.find((item) => {
+                                                //         if (item.id == id)
+                                                //             return item;
+                                                //     })
+                                                // },
+                                                //==================================================
+                                                // VALIDATE BEFORE SUBMIT
+                                                //==================================================
+                                                validateBeforeSubmit() {
                                                     this.processing = true;
                                                     this.$validator.validateAll().then((result) => {
                                                         if (result) {
@@ -723,48 +692,10 @@
                                                             // failures will show the error box which is for server errors only
                                                             this.success = false;
                                                             this.processing = false;
-                                                            this.processingPaypal = false;
+                                                            this.paypal.processing = false;
                                                             // flash failures here?
                                                         }
                                                     });
-                                                },
-                                                //==================================================
-                                                // PAYPAL CALLBACK
-                                                //==================================================
-                                                paymentAuthorized(event) {
-                                                    // console.log(event);
-                                                    this.processingPaypal = true; // prevent interaction until axios returns
-                                                    this.processing = true; // trigger spinner on other button
-                                                    this.form.paypal.paymentAuthorized = event; // store Paypal for computed dataString
-                                                },
-                                                paymentCompleted(event) {
-                                                    // console.log(event);
-                                                    this.form.paypal.paymentCompleted = event; // store Paypal for computed dataString
-                                                    this.postData();
-                                                },
-                                                paymentCancelled(event) {
-                                                    // console.log(event);
-                                                    this.throwError(event);
-                                                },
-                                                //==================================================
-                                                // CHANGE PRODUCT
-                                                //==================================================
-                                                changeProduct() {
-                                                    this.form.quantity = '';
-                                                    this.form.description = '';
-                                                    window.location.hash = '#/' + this.form.product; // map hash
-                                                },
-                                                //==================================================
-                                                // UPDATE QUANTITY
-                                                //==================================================
-                                                updateQuantity() {
-                                                    var self = this;
-                                                    this.products[this.form.product].prices.forEach(function(item) {
-                                                        if (item.id == self.form.quantity) {
-                                                            self.form.description = item.description;
-                                                            self.form.price = item.price;
-                                                        }
-                                                    })
                                                 },
                                                 //==================================================
                                                 // POST DATA
@@ -772,23 +703,42 @@
                                                 postData() {
                                                     axios({
                                                         method: 'POST',
-                                                        url: 'http://liquidvisual.net/form.php', // <-- Jekyll variable
-                                                        data: this.dataString
+                                                        url: this.endpoint,
+                                                        data: this.getDataString()
                                                     }).then(response => {
                                                         this.validateResponse(response.data);
                                                         this.processing = false;
-                                                        this.processingPaypal = false;
+                                                        this.paypal.processing = false;
                                                         window.scrollTo(0, 0);
                                                     }).catch(error => {
                                                         this.throwError();
                                                     });
                                                 },
                                                 //==================================================
+                                                // getDataString
+                                                //==================================================
+                                                getDataString() { // to be sent via Axios
+                                                    var dataString = '';
+                                                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&';
+                                                    dataString += 'lastName=' + (this.form.fullName.split(' ')[1] ? this.form.fullName.split(' ').splice(-1, 1) : '') + '&';
+                                                    dataString += 'productId=' + this.form.product.id + '&';
+                                                    dataString += 'quantity=' + this.form.quantity.quantity + '&';
+                                                    dataString += 'quantityId=' + this.form.quantity.id + '&';
+                                                    dataString += 'price=' + this.form.quantity.price + '&';
+                                                    for (let item in this.form) {
+                                                        var excluded = item == 'product' || item == 'quantity' || item == 'firstName' || item == 'lastName' || item == 'description' || item == 'paypal' || item == 'price'
+                                                        if (!excluded) {
+                                                            dataString += item + '=' + this.form[item] + '&';
+                                                        }
+                                                    }
+                                                    return dataString;
+                                                },
+                                                //==================================================
                                                 // THROW ERROR
                                                 //==================================================
                                                 throwError(errorText) {
                                                     this.processing = false;
-                                                    this.processingPaypal = false;
+                                                    this.paypal.processing = false;
                                                     this.failures++;
                                                     this.errorText = errorText ? errorText : 'There was an error with the server. Please try again later.';
                                                     window.scrollTo(0, 0);
@@ -823,10 +773,26 @@
                                                     }
                                                 },
                                                 //==================================================
+                                                // PAYPAL CALLBACKS
+                                                //==================================================
+                                                paymentAuthorized(event) {
+                                                    this.paypal.processing = true; // prevent interaction until axios returns
+                                                    this.processing = true; // trigger spinner on other button
+                                                    this.form.payerId = event.payerID;
+                                                    this.form.paymentId = event.paymentID;
+                                                },
+                                                paymentCompleted(event) {
+                                                    this.form.paypalResponse = JSON.stringify(event); // store Paypal for computed dataString
+                                                    this.postData();
+                                                },
+                                                paymentCancelled(event) {
+                                                    this.throwError(event);
+                                                },
+                                                //==================================================
                                                 // RESET (for success or clear)
                                                 //==================================================
                                                 reset(success) {
-                                                    // https://github.com/baianat/vee-validate/issues/209
+                                                    // github.com/baianat/vee-validate/issues/209
                                                     // Object.assign(this.$data, this.$options.data.call(this));
                                                     var firstNameTemp = this.form.fullName.split(' ')[0]; // store before wipe
                                                     for (var item in this.form) {
@@ -837,7 +803,19 @@
                                                     this.$validator.reset();
                                                 }
                                         }
-                                    })
+                                    });
+                                    //-----------------------------------------------------------------
+                                    // VEE VALIDATE
+                                    //-----------------------------------------------------------------
+                                    Vue.use(VeeValidate, {
+                                        events: 'input' // 'change' or 'blur'
+                                    });
+                                    //-----------------------------------------------------------------
+                                    // VUE INSTANCE
+                                    //-----------------------------------------------------------------
+                                    new Vue({
+                                        el: '#paypal-form', // <--- Template variable, set by Jekyll (template)
+                                    });
                                     </script>
 
                                     <!-- WYSIWYG #2 -->
@@ -1488,7 +1466,6 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
