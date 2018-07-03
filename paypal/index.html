@@ -416,7 +416,7 @@
                                     <div id="paypal-form" v-cloak>
 
                                         <!-- VUE PAYMENT FORM COMPONENT -->
-                                        <vue-paypal-form env="sandbox" endpoint="http://liquidvisual.net/form.php" paypal-production-path="YOUR_PATH_HERE" paypal-sandbox-path="AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL" inline-template>
+                                        <vue-paypal-form env="sandbox" endpoint="http://liquidvisual.net/hotlinking/inspire/form.php" paypal-production-path="YOUR_PATH_HERE" paypal-sandbox-path="AWi18rxt26-hrueMoPZ0tpGEOJnNT4QkiMQst9pYgaQNAfS1FLFxkxQuiaqRBj1vV5PmgHX_jA_c1ncL" inline-template>
                                             <div>
 
                                                 <!-- IF SUCCESS -->
@@ -536,15 +536,15 @@
                                                         <!-- TERMS & CONDITIONS -->
                                                         <div class="form-group">
                                                             <label class="custom-control custom-checkbox mb-0">
-                                                                <input class="custom-control-input" name="Terms and Conditions" type="checkbox" value="true" v-validate="'required'" v-model="form.termsAndConditionsAccepted">
+                                                                <input class="custom-control-input" name="termsAndConditionsAccepted" type="checkbox" value="true" v-validate="'required'" v-model="form.termsAndConditionsAccepted">
                                                                 <p class="custom-control-label mb-0">I agree to the
                                                                     <a href="#" target="_blank">terms &amp; conditions.</a>
                                                                     <small class="asterisk">*</small>
                                                                 </p>
                                                             </label>
-                                                            <small v-show="errors.has('Terms and Conditions')" class="error shake animated">
+                                                            <small v-show="errors.has('termsAndConditionsAccepted')" class="error shake animated">
                                                                 <i class="fa fa-warning"></i>&nbsp;
-                                                                <span v-text="errors.first('Terms and Conditions')"></span>
+                                                                <span v-text="errors.first('termsAndConditionsAccepted')"></span>
                                                             </small>
                                                         </div>
                                                     </fieldset>
@@ -780,9 +780,28 @@
                                                                     // don't add these unless:
                                                                     // 1. backend is aware of 'rules'
                                                                     // 2. email etc is validated
+                                                                    // if (field.toLowerCase() != 'email') {
+                                                                    // this.errors.add(field.toLowerCase(), messages[i])
+                                                                    // }
                                                                     // this.errors.add(field, messages[i]);
                                                                     // console.log('field: '+messages[i]);
                                                                     this.errorText += messages[i] + '<br>';
+                                                                    // ----------
+                                                                    // {
+                                                                    //     "callerid": null,
+                                                                    //     "success": false,
+                                                                    //     "message": "",
+                                                                    //     "errors": {
+                                                                    //         "model.CurrentNodeID": [
+                                                                    //             "The CurrentNodeID property is required."
+                                                                    //         ],
+                                                                    //         "model.Email": [
+                                                                    //             "The Product field is required."
+                                                                    //         ]
+                                                                    //     },
+                                                                    //     "data": null
+                                                                    // }
+                                                                    // ----------
                                                                 }
                                                             }
                                                         }
@@ -802,7 +821,7 @@
                                                     this.postData();
                                                 },
                                                 paymentCancelled(event) {
-                                                    this.throwError(event);
+                                                    this.throwError('The Paypal transaction was cancelled. Please try again.');
                                                 },
                                                 //==================================================
                                                 // RESET (for success or clear)
