@@ -406,13 +406,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- VIMEO PLUGIN - video must be 16:9 -->
-                    <div class="video-bg">
-                        <div class="video-fg">
-                            <iframe data-vimeo class="video" src="https://player.vimeo.com/video/264406454?autoplay=1&title=0&loop=0&color=000000&byline=0&portrait=0&muted=1&background=1" width="640" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
-                        </div>
-                    </div>
                 </div>
                 <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                     <div class="container">
@@ -433,33 +426,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- YOUTUBE PLUGIN - video must be 16:9 -->
-                    <div class="video-bg">
-                        <div class="video-fg">
-                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/ScMzIvxBSi4?playlist=ScMzIvxBSi4&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
-                        </div>
-                    </div>
-
-                    <!-- YOUTUBE PLAYER INSTANCE - loads *once* async -->
-                    <script>
-                    var tag = document.createElement('script');
-                    tag.src = "https://www.youtube.com/iframe_api";
-                    var firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-                    function onYouTubeIframeAPIReady() {
-                        document.querySelectorAll('.lv-hero-item iframe[data-youtube]').forEach((item) => {
-                            new YT.Player(item, {
-                                events: {
-                                    'onReady': (event) => {
-                                        event.target.playVideo();
-                                        event.target.mute();
-                                    }
-                                }
-                            })
-                        })
-                    }
-                    </script>
                 </div>
                 <div class="lv-hero-item is-tinted" style="background-image: url('/assets/img/content/hero/hero-3.png')">
                     <div class="container">
@@ -476,13 +442,6 @@
                                     <div class="wysiwyg mb-4"></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- YOUTUBE PLUGIN - video must be 16:9 -->
-                    <div class="video-bg">
-                        <div class="video-fg">
-                            <iframe data-youtube class="video" src="https://www.youtube.com/embed/3xUfCUFPL-8?playlist=3xUfCUFPL-8&autoplay=1&controls=0&loop=1&modestbranding=1&showinfo=0&rel=0&showinfo=0&enablejsapi=1" frameborder="0" type="text/html" style="pointer-events: false"></iframe>
                         </div>
                     </div>
                 </div>
