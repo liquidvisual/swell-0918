@@ -83,7 +83,7 @@
 
                             <!-- SEARCH -->
                             <a href="#search" data-search-trigger>
-                                <i class="fa fa-search"></i>&nbsp;
+                                <i class="fa fa-search"></i>
                                 <span class="text hidden-sm-down">&nbsp;Search</span>
                             </a>
                         </div>
@@ -307,23 +307,27 @@
                                 <li class="is-off-canvas-only">
 
                                     <!-- GLOBAL SEARCH -->
-                                    <div class="global-search is-hidden" data-search>
-                                        <div class="container text-right">
-                                            <div class="global-search-form-wrapper">
-                                                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <form class="global-search-form" action="/search/" method="get" novalidate>
-                                                    <div class="input-group">
-                                                        <input name="q" type="text" class="form-control" placeholder="Search">
-                                                        <div class="input-group-append">
-                                                            <button type="submit" class="btn">
-                                                                <i class="fa fa-search"></i>
-                                                            </button>
-                                                        </div>
+                                    <div class="global-search" data-global-search>
+                                        <div class="container">
+
+                                            <!-- CLOSE -->
+                                            <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                                                <i class="fa fa-times-circle"></i>
+                                                <span class="text">esc</span>
+                                            </button>
+
+                                            <!-- FORM -->
+                                            <form class="global-search-form" action="/search/" method="get" novalidate>
+                                                <div class="input-group">
+                                                    <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                                                    <span class="global-search-info">Hit enter to search or ESC to close</span>
+                                                    <div class="input-group-append">
+                                                        <button type="submit" class="btn">
+                                                            <i class="fa fa-search"></i>
+                                                        </button>
                                                     </div>
-                                                </form>
-                                            </div>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </li>
@@ -931,23 +935,27 @@
             <li class="is-off-canvas-only">
 
                 <!-- GLOBAL SEARCH -->
-                <div class="global-search is-hidden" data-search>
-                    <div class="container text-right">
-                        <div class="global-search-form-wrapper">
-                            <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <form class="global-search-form" action="/search/" method="get" novalidate>
-                                <div class="input-group">
-                                    <input name="q" type="text" class="form-control" placeholder="Search">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </div>
+                <div class="global-search" data-global-search>
+                    <div class="container">
+
+                        <!-- CLOSE -->
+                        <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                            <i class="fa fa-times-circle"></i>
+                            <span class="text">esc</span>
+                        </button>
+
+                        <!-- FORM -->
+                        <form class="global-search-form" action="/search/" method="get" novalidate>
+                            <div class="input-group">
+                                <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                                <span class="global-search-info">Hit enter to search or ESC to close</span>
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn">
+                                        <i class="fa fa-search"></i>
+                                    </button>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </li>
@@ -956,23 +964,27 @@
 
     <!-- SEARCH -->
     
-<!-- GLOBAL SEARCH --><div class="global-search is-hidden" data-search>
-        <div class="container text-right">
-            <div class="global-search-form-wrapper">
-                <button type="btn" class="close" data-dismiss="alert" aria-label="Close" title="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                <form class="global-search-form" action="/search/" method="get" novalidate>
-                    <div class="input-group">
-                        <input name="q" type="text" class="form-control" placeholder="Search">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn">
-                                <i class="fa fa-search"></i>
-                            </button>
-                        </div>
+<!-- GLOBAL SEARCH --><div class="global-search" data-global-search>
+        <div class="container">
+
+            <!-- CLOSE -->
+            <button class="btn btn-close" data-dismiss="alert" aria-label="Close" title="Close">
+                <i class="fa fa-times-circle"></i>
+                <span class="text">esc</span>
+            </button>
+
+            <!-- FORM -->
+            <form class="global-search-form" action="/search/" method="get" novalidate>
+                <div class="input-group">
+                    <input class="form-control" name="q" type="search" placeholder="Search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+                    <span class="global-search-info">Hit enter to search or ESC to close</span>
+                    <div class="input-group-append">
+                        <button type="submit" class="btn">
+                            <i class="fa fa-search"></i>
+                        </button>
                     </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 

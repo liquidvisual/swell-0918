@@ -6798,6 +6798,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }, 500));
     }));
   });
+}function closeSearch() {
+  $("[data-global-search]").removeClass("active"), document.activeElement.blur();
 }Vue.config.productionTip = !1, Vue.component("docs", { props: { files: String }, data: function data() {
     return { filesArray: [], url: "https://raw.githubusercontent.com/liquidvisual/inspire-0118/master/src/", codeEnabled: !1, showProperties: !1 };
   }, created: function created() {
@@ -6873,11 +6875,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     e(this).removeClass("is-open"), t.stopPropagation();
   }), e(".lv-off-canvas .has-dropdown > a").append(s);
 }(jQuery), $("[data-search-trigger]").click(function (e) {
-  var t = $("[data-search]");return t.removeClass("is-hidden"), $(document).on("scroll", function () {
-    t.addClass("is-hidden"), document.activeElement.blur();
-  }), !1;
-}), $("[data-search] .close").on("click", function () {
-  $("[data-search]").addClass("is-hidden"), document.activeElement.blur();
+  return $("[data-global-search]").addClass("active"), $("[data-global-search] input").focus(), !1;
+}), $("[data-global-search]").on("mousedown", function () {
+  closeSearch();
+}), $("[data-global-search] input").on("mousedown", function (e) {
+  e.stopPropagation();
+}), $(document).keyup(function (e) {
+  27 === e.keyCode && closeSearch();
 }), $(window).on("load", function () {
   $("html").addClass("has-loaded");
 });var player = new Plyr("audio", {});window.player = player, $(function () {
