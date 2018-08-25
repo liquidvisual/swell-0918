@@ -377,149 +377,161 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <!--
+    FORM_CONTACT.HTML
+    updated: 25.08.18
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/axios/dist/axios.min.js
+        https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
+-->
+
+                                    <!-- VUE INSTANCE -->
                                     <div id="contact-form" v-cloak>
 
-                                        <!-- IF SUCCESS -->
-                                        <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Thanks
-                                                <span v-text="form.firstName"></span>!</strong>
-                                            <br>We've received your message and we'll get back to you soon.</div>
+                                        <!-- VUE CONTACT FORM COMPONENT -->
+                                        <vue-contact-form endpoint="http://liquidvisual.net/hotlinking/inspire/form.php" inline-template>
+                                            <div>
 
-                                        <!-- IF FAILURE -->
-                                        <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
-                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                            <strong>Oops!</strong>
-                                            <br>
-                                            <span v-html="errorText"></span>
-                                        </div>
+                                                <!-- IF SUCCESS -->
+                                                <div v-if="success" class="mb-4 alert alert-success alert-dismissible fade show" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <strong>Thanks
+                                                        <span v-text="form.firstName"></span>!</strong>
+                                                    <br>We've received your message and we'll get back to you soon.</div>
 
-                                        <!-- FORM CONTACT -->
-                                        <form class="contact-form" name="Contact Form" @submit.prevent="validateBeforeSubmit" novalidate>
-                                            <fieldset>
-
-                                                <!-- NAME* -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Full Name
-                                                        <small class="asterisk">*</small>
-                                                    </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'" required>
-                                                    <small v-show="errors.has('name')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('name')"></span>
-                                                    </small>
-                                                </label>
-
-                                                <!-- EMAIL* -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Email
-                                                        <small class="asterisk">*</small>
-                                                    </p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="form.email" v-validate="'required|email'" type="email" required>
-                                                    <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('email')"></span>
-                                                    </small>
-                                                </label>
-
-                                                <!-- PHONE -->
-                                                <label class="form-group d-block">
-                                                    <p class="mb-2">Phone</p>
-                                                    <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="form.phone" v-validate="'numeric'">
-                                                    <small v-show="errors.has('phone')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('phone')"></span>
-                                                    </small>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset>
-
-                                                <!-- MESSAGE -->
-                                                <label class="form-group d-block">
-                                                    <p>Your Message
-                                                        <small class="asterisk">*</small>
-                                                    </p>
-                                                    <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" v-model="form.message" placeholder="" v-validate="'required|max:2000'" required></textarea>
-                                                    <small v-show="errors.has('message')" class="error shake animated">
-                                                        <i class="fa fa-warning"></i>&nbsp;
-                                                        <span v-text="errors.first('message')"></span>
-                                                    </small>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset>
-
-                                                <!-- REFERRAL -->
-                                                <label class="form-group d-block">
-                                                    <p>How did you hear about us?</p>
-                                                    <select class="custom-select" name="Referral" v-model="form.referral">
-                                                        <option disabled selected value="">Choose one</option>
-                                                        <option value="Google">Google</option>
-                                                        <option value="Twitter">Twitter</option>
-                                                        <option value="Facebook">Facebook</option>
-                                                        <option value="Friend">Word of mouth</option>
-                                                        <option value="Other">Other</option>
-                                                    </select>
-                                                </label>
-                                            </fieldset>
-                                            <fieldset>
-
-                                                <!-- SIGN UP TO OUR NEWSLETTER -->
-                                                <div class="form-group">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input class="custom-control-input" type="checkbox" name="Newsletter" value="true" v-model="form.newsletter">
-                                                        <p class="custom-control-label">Sign me up to the newsletter</p>
-                                                    </label>
+                                                <!-- IF FAILURE -->
+                                                <div v-if="failures && !success" class="mb-4 alert alert-danger alert-dismissible fade show" role="alert">
+                                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <strong>Oops!</strong>
+                                                    <br>
+                                                    <span v-html="errorText"></span>
                                                 </div>
-                                            </fieldset>
 
-                                            <!-- * REQUIRED -->
-                                            <p class="float-md-right">
-                                                <small class="asterisk">*</small>
-                                                <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
-                                            </p>
+                                                <!-- FORM -->
+                                                <form class="contact-form" name="Contact Form" novalidate @submit.prevent="validateBeforeSubmit">
+                                                    <fieldset>
 
-                                            <!-- GOOGLE RECAPTCHA -->
-                                            <div class="g-recaptcha mb-4" data-sitekey="## PUBLIC KEY GOES HERE ##"></div>
+                                                        <!-- NAME* -->
+                                                        <label class="form-group d-block">
+                                                            <p class="mb-2">Full Name
+                                                                <small class="asterisk">*</small>
+                                                            </p>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'">
+                                                            <small v-show="errors.has('name')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('name')"></span>
+                                                            </small>
+                                                        </label>
 
-                                            <!-- SUBMIT - old: (errors.any() && !failures) -->
-                                            <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
-                                                <div v-show="processing" class="spinner-border text-primary">Loading...</div>
-                                                <span v-show="processing" class="text">Sending Message</span>
-                                                <span v-show="!processing" class="text">Send Message</span>
-                                            </button>
+                                                        <!-- EMAIL* -->
+                                                        <label class="form-group d-block">
+                                                            <p class="mb-2">Email
+                                                                <small class="asterisk">*</small>
+                                                            </p>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('email') && fields.email.touched }" name="email" v-model="form.email" v-validate="'required|email'" type="email">
+                                                            <small v-show="errors.has('email') && fields.email.touched" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('email')"></span>
+                                                            </small>
+                                                        </label>
 
-                                            <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
-                                            </form>
+                                                        <!-- PHONE -->
+                                                        <label class="form-group d-block">
+                                                            <p class="mb-2">Phone</p>
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('phone') }" name="phone" type="tel" v-model="form.phone" v-validate="'numeric'">
+                                                            <small v-show="errors.has('phone')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('phone')"></span>
+                                                            </small>
+                                                        </label>
+                                                    </fieldset>
+                                                    <fieldset>
+
+                                                        <!-- MESSAGE -->
+                                                        <label class="form-group d-block">
+                                                            <p>Your Message
+                                                                <small class="asterisk">*</small>
+                                                            </p>
+                                                            <textarea class="form-control" :class="{'is-invalid': errors.has('message') }" name="message" rows="6" placeholder="" v-model="form.message" v-validate="'required|max:2000'" required> </textarea>
+                                                            <small v-show="errors.has('message')" class="error shake animated">
+                                                                <i class="fa fa-warning"></i>&nbsp;
+                                                                <span v-text="errors.first('message')"></span>
+                                                            </small>
+                                                        </label>
+                                                    </fieldset>
+                                                    <fieldset>
+
+                                                        <!-- REFERRAL -->
+                                                        <label class="form-group d-block">
+                                                            <p>How did you hear about us?</p>
+                                                            <select class="custom-select" name="referral" v-model="form.referral">
+                                                                <option disabled selected value="">Choose one</option>
+                                                                <option value="Google">Google</option>
+                                                                <option value="Twitter">Twitter</option>
+                                                                <option value="Facebook">Facebook</option>
+                                                                <option value="Friend">Word of mouth</option>
+                                                                <option value="Other">Other</option>
+                                                            </select>
+                                                        </label>
+                                                    </fieldset>
+                                                    <fieldset>
+
+                                                        <!-- SIGN UP TO OUR NEWSLETTER -->
+                                                        <div class="form-group">
+                                                            <label class="custom-control custom-checkbox">
+                                                                <input class="custom-control-input" type="checkbox" name="newsletter" value="true" v-model="form.newsletter">
+                                                                <p class="custom-control-label">Sign me up to the newsletter</p>
+                                                            </label>
+                                                        </div>
+                                                    </fieldset>
+
+                                                    <!-- * REQUIRED -->
+                                                    <p class="float-md-right">
+                                                        <small class="asterisk">*</small>
+                                                        <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
+                                                    </p>
+
+                                                    <!-- SUBMIT -->
+                                                    <button :disabled="errors.any() || processing" type="submit" class="btn btn-primary mb-4">
+                                                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                        <span v-show="processing" class="text">Sending Message</span>
+                                                        <span v-show="!processing" class="text">Send Message</span>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </vue-contact-form>
                                     </div>
                                     <style>
                                     .contact-form .btn[disabled="disabled"] {
-                                        /*opacity: 1;*/
                                         cursor: not-allowed;
                                     }
                                     </style>
                                     <script>
                                     //-----------------------------------------------------------------
-                                    //
+                                    // VUE CONTACT FORM COMPONENT
                                     //-----------------------------------------------------------------
-                                    Vue.use(VeeValidate, {
-                                        events: 'input' // 'change' or 'blur'
-                                    });
-                                    new Vue({
-                                        el: '#contact-form', // <---- this needs to match the parent id
+                                    Vue.component('vue-contact-form', {
+                                        props: {
+                                            endpoint: {
+                                                type: String,
+                                                required: true
+                                            },
+                                        },
                                         data() {
                                             return {
                                                 errorText: '',
+                                                failures: 0,
                                                 processing: false,
                                                 success: false,
-                                                failures: 0,
                                                 form: {
-                                                    firstName: null, // computed on success
-                                                    fullName: '',
                                                     email: '',
+                                                    firstName: null, // Computed - stored for Thank you message
+                                                    fullName: '',
                                                     phone: '',
                                                     referral: '',
                                                     message: '',
@@ -532,36 +544,31 @@
                                         //-----------------------------------------------------------------
                                         computed: {
                                             isComplete() { // * required fields - loop through vee-validate objects
-                                                    var emptyRequiredFields = 0;
-                                                    for (var item in this.fields) {
-                                                        if (this.fields[item].required) {
-                                                            if (this.form[item] == '') emptyRequiredFields++;
-                                                        }
+                                                var emptyRequiredFields = 0;
+                                                for (var item in this.fields) {
+                                                    if (this.fields[item].required) {
+                                                        if (this.form[item] == '') emptyRequiredFields++;
                                                     }
-                                                    return !emptyRequiredFields;
-                                                },
-                                                dataString() { // to be send via Axios
-                                                    var dataString = '';
-                                                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&'; // add firstName to form data
-                                                    for (var item in this.form) {
-                                                        if (item != 'firstName') { // firstName is special case
-                                                            dataString += item + '=' + this.form[item] + '&';
-                                                        }
-                                                    }
-                                                    return dataString;
                                                 }
+                                                return !emptyRequiredFields;
+                                            }
                                         },
                                         //-----------------------------------------------------------------
                                         // METHODS
                                         //-----------------------------------------------------------------
                                         methods: {
+                                            //==================================================
+                                            // VALIDATE BEFORE SUBMIT
+                                            //==================================================
                                             validateBeforeSubmit() {
                                                     this.processing = true;
+                                                    this.fields.email.touched = true; // this allows submitting to trigger email (which checks error once touched)
                                                     this.$validator.validateAll().then((result) => {
                                                         if (result) {
                                                             this.postData();
                                                         } else {
-                                                            this.failures++; // used for returning with server errors
+                                                            //this.failures++; // used for returning with server errors // update: this works better I think
+                                                            // failures will show the error box which is for server errors only
                                                             this.success = false;
                                                             this.processing = false;
                                                             // flash failures here?
@@ -574,17 +581,39 @@
                                                 postData() {
                                                     axios({
                                                         method: 'POST',
-                                                        url: 'http://liquidvisual.net/hotlinking/inspire/form.php',
-                                                        data: this.dataString
+                                                        url: this.endpoint,
+                                                        data: this.getDataString()
                                                     }).then(response => {
                                                         this.validateResponse(response.data);
                                                         this.processing = false;
-                                                    }).catch(error => {
-                                                        this.processing = false;
-                                                        this.failures++;
-                                                        this.errorText = 'There was an error with the server. Please try again later.';
                                                         window.scrollTo(0, 0);
+                                                    }).catch(error => {
+                                                        this.throwError();
                                                     });
+                                                },
+                                                //==================================================
+                                                // getDataString
+                                                //==================================================
+                                                getDataString() { // to be sent via Axios
+                                                    var dataString = '';
+                                                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&';
+                                                    dataString += 'lastName=' + (this.form.fullName.split(' ')[1] ? this.form.fullName.split(' ').splice(-1, 1) : '') + '&';
+                                                    for (let item in this.form) {
+                                                        var excluded = (item == 'firstName' || item == 'lastName');
+                                                        if (!excluded) {
+                                                            dataString += item + '=' + this.form[item] + '&';
+                                                        }
+                                                    }
+                                                    return dataString;
+                                                },
+                                                //==================================================
+                                                // THROW ERROR
+                                                //==================================================
+                                                throwError(errorText) {
+                                                    this.processing = false;
+                                                    this.failures++;
+                                                    this.errorText = errorText ? errorText : 'There was an error with the server. Please try again later.';
+                                                    window.scrollTo(0, 0);
                                                 },
                                                 //==================================================
                                                 // VALIDATE RESPONSE
@@ -599,17 +628,37 @@
                                                         this.success = false;
                                                         window.scrollTo(0, 0);
                                                         for (var error in data.errors) {
-                                                            var field = error.split('.')[1];
+                                                            var field = error.split('.')[1]; // Eg. CurrentNodeId, Email
+                                                            field = field.charAt(0).toLowerCase() + field.slice(1); // camelCase
                                                             var messages = data.errors[error]; // array
                                                             if (field) { // cannot be undefined
                                                                 this.errorText = 'Please check the following errors: <br>';
                                                                 for (var i = 0; i < messages.length; i++) {
-                                                                    // don't add these unless:
-                                                                    // 1. backend is aware of 'rules'
-                                                                    // 2. email etc is validated
+                                                                    // WARNING:
+                                                                    // Don't use unless backend is
+                                                                    // aware of 'rules' and can mirror
+                                                                    // VeeValidate rules - eg. 'required', 'email'
+                                                                    // otherwise those errors cannot correct without rules
+                                                                    // telling them what to look for.
                                                                     // this.errors.add(field, messages[i]);
                                                                     // console.log('field: '+messages[i]);
-                                                                    this.errorText += messages[i] + '<br>';
+                                                                    this.errorText += messages[i] + '<br>'; // display errors as string
+                                                                    // SERVER ERROR EXAMPLE ----------
+                                                                    // {
+                                                                    //     "callerid": null,
+                                                                    //     "success": false,
+                                                                    //     "message": "",
+                                                                    //     "errors": {
+                                                                    //         "model.CurrentNodeID": [
+                                                                    //             "The CurrentNodeID property is required."
+                                                                    //         ],
+                                                                    //         "model.Email": [
+                                                                    //             "The Product field is required."
+                                                                    //         ]
+                                                                    //     },
+                                                                    //     "data": null
+                                                                    // }
+                                                                    // -------------------------------
                                                                 }
                                                             }
                                                         }
@@ -630,7 +679,19 @@
                                                     this.$validator.reset();
                                                 }
                                         }
-                                    })
+                                    });
+                                    //-----------------------------------------------------------------
+                                    // VEE VALIDATE
+                                    //-----------------------------------------------------------------
+                                    Vue.use(VeeValidate, {
+                                        events: 'input' // 'change' or 'blur'
+                                    });
+                                    //-----------------------------------------------------------------
+                                    // VUE INSTANCE
+                                    //-----------------------------------------------------------------
+                                    new Vue({
+                                        el: '#contact-form', // <--- Template variable, set by Jekyll (template)
+                                    });
                                     </script>
 
                                     <!-- WYSIWYG #2 -->
@@ -931,7 +992,7 @@
                                     </button>
                                     <strong>Oops! Please try again.</strong>
                                 </div>
-                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" novalidate @submit.prevent="validateBeforeSubmit">
                                     <div class="form-group d-block has-icon mb-3">
                                         <i class="fa fa-envelope"></i>
                                         <div class="input-group">
@@ -976,10 +1037,7 @@
                                             // firstName: null, // computed on success
                                             // fullName: '',
                                             email: '',
-                                            // phone: '',
-                                            // referral: '',
-                                            // message: '',
-                                            newsletter: false
+                                            newsletter: true
                                         }
                                     }
                                 },
@@ -1030,7 +1088,7 @@
                                         postData() {
                                             axios({
                                                 method: 'POST',
-                                                url: 'http://liquidvisual.net/form.php',
+                                                url: 'http://liquidvisual.net/hotlinking/inspire/form.php',
                                                 data: this.dataString
                                             }).then(response => {
                                                 this.validateResponse(response.data);

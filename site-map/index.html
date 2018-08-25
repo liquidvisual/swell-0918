@@ -741,7 +741,7 @@
                                     </button>
                                     <strong>Oops! Please try again.</strong>
                                 </div>
-                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" novalidate @submit.prevent="validateBeforeSubmit">
                                     <div class="form-group d-block has-icon mb-3">
                                         <i class="fa fa-envelope"></i>
                                         <div class="input-group">
@@ -786,10 +786,7 @@
                                             // firstName: null, // computed on success
                                             // fullName: '',
                                             email: '',
-                                            // phone: '',
-                                            // referral: '',
-                                            // message: '',
-                                            newsletter: false
+                                            newsletter: true
                                         }
                                     }
                                 },
@@ -840,7 +837,7 @@
                                         postData() {
                                             axios({
                                                 method: 'POST',
-                                                url: 'http://liquidvisual.net/form.php',
+                                                url: 'http://liquidvisual.net/hotlinking/inspire/form.php',
                                                 data: this.dataString
                                             }).then(response => {
                                                 this.validateResponse(response.data);

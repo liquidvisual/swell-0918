@@ -379,7 +379,7 @@
                                     </div>
                                     <!--
     FORM_PAYPAL.HTML
-    updated: 16.06.18
+    updated: 25.08.18
     DEPENDENCIES
         https://unpkg.com/vue/dist/vue.js
         https://unpkg.com/axios/dist/axios.min.js
@@ -454,7 +454,7 @@
                                                             <p class="mb-2">Full Name
                                                                 <small class="asterisk">*</small>
                                                             </p>
-                                                            <input class="form-control" :class="{'is-invalid': errors.has('name') }" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'">
+                                                            <input class="form-control" :class="{'is-invalid': errors.has('name')}" name="name" type="text" v-model="form.fullName" v-validate="'required|alpha_spaces'">
                                                             <small v-show="errors.has('name')" class="error shake animated">
                                                                 <i class="fa fa-warning"></i>&nbsp;
                                                                 <span v-text="errors.first('name')"></span>
@@ -498,6 +498,10 @@
                                                                         <option disabled selected value="">Choose one</option>
                                                                         <option v-for="(item, key) in products" :key="item.id" :value="item" v-text="item.name"></option>
                                                                     </select>
+                                                                    <small v-show="errors.has('product')" class="error shake animated">
+                                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                                        <span v-text="errors.first('product')"></span>
+                                                                    </small>
                                                                 </label>
                                                             </div>
                                                             <div class="col-md-6">
@@ -511,6 +515,10 @@
                                                                         <option disabled selected value="">Choose one</option>
                                                                         <option v-for="(item, index) in form.product.prices" :key="item.id" :value="item" v-text="item.name"></option>
                                                                     </select>
+                                                                    <small v-show="errors.has('quantity')" class="error shake animated">
+                                                                        <i class="fa fa-warning"></i>&nbsp;
+                                                                        <span v-text="errors.first('quantity')"></span>
+                                                                    </small>
                                                                 </label>
                                                             </div>
 
@@ -548,7 +556,7 @@
                                                             </label>
                                                             <small v-show="errors.has('termsAndConditionsAccepted')" class="error shake animated">
                                                                 <i class="fa fa-warning"></i>&nbsp;
-                                                                <span v-text="errors.first('termsAndConditionsAccepted')"></span>
+                                                                <span v-text="'You must agree to the terms & conditions.'"></span>
                                                             </small>
                                                         </div>
                                                     </fieldset>
@@ -560,7 +568,8 @@
                                                     </p>
 
                                                     <!-- SUBMIT -->
-                                                    <button :disabled="errors.any() || !isComplete || processing" type="submit" class="btn btn-primary mb-4">
+                                                    
+<!-- :disabled="errors.any() || !isComplete || processing" --><button :disabled="errors.any() || processing" type="submit" class="btn btn-primary mb-4">
                                                         <div v-show="processing" class="spinner-border text-primary">Loading...</div>
                                                         <span v-show="processing" class="text">Sending</span>
                                                         <span v-show="!processing" class="text">Make Enquiry</span>
@@ -640,7 +649,7 @@
                                                     quantity: '', // Object - not sent
                                                     message: '',
                                                     termsAndConditionsAccepted: false,
-                                                },
+                                                }
                                             }
                                         },
                                         //-----------------------------------------------------------------
@@ -704,6 +713,7 @@
                                                 //==================================================
                                                 validateBeforeSubmit() {
                                                     this.processing = true;
+                                                    this.fields.email.touched = true; // this allows submitting to trigger email (which checks error once touched)
                                                     this.$validator.validateAll().then((result) => {
                                                         if (result) {
                                                             this.postData();
@@ -781,16 +791,16 @@
                                                             if (field) { // cannot be undefined
                                                                 this.errorText = 'Please check the following errors: <br>';
                                                                 for (var i = 0; i < messages.length; i++) {
-                                                                    // don't add these unless:
-                                                                    // 1. backend is aware of 'rules'
-                                                                    // 2. email etc is validated
-                                                                    // if (field.toLowerCase() != 'email') {
-                                                                    // this.errors.add(field.toLowerCase(), messages[i])
-                                                                    // }
+                                                                    // WARNING:
+                                                                    // Don't use unless backend is
+                                                                    // aware of 'rules' and can mirror
+                                                                    // VeeValidate rules - eg. 'required', 'email'
+                                                                    // otherwise those errors cannot correct without rules
+                                                                    // telling them what to look for.
                                                                     // this.errors.add(field, messages[i]);
                                                                     // console.log('field: '+messages[i]);
                                                                     this.errorText += messages[i] + '<br>';
-                                                                    // ----------
+                                                                    // SERVER ERROR EXAMPLE ----------
                                                                     // {
                                                                     //     "callerid": null,
                                                                     //     "success": false,
@@ -805,7 +815,7 @@
                                                                     //     },
                                                                     //     "data": null
                                                                     // }
-                                                                    // ----------
+                                                                    // -------------------------------
                                                                 }
                                                             }
                                                         }
@@ -1029,7 +1039,7 @@
                                     </button>
                                     <strong>Oops! Please try again.</strong>
                                 </div>
-                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" @submit.prevent="validateBeforeSubmit" novalidate>
+                                <form v-show="!success" name="Subscribe Form" class="subscribe-form" novalidate @submit.prevent="validateBeforeSubmit">
                                     <div class="form-group d-block has-icon mb-3">
                                         <i class="fa fa-envelope"></i>
                                         <div class="input-group">
@@ -1074,10 +1084,7 @@
                                             // firstName: null, // computed on success
                                             // fullName: '',
                                             email: '',
-                                            // phone: '',
-                                            // referral: '',
-                                            // message: '',
-                                            newsletter: false
+                                            newsletter: true
                                         }
                                     }
                                 },
@@ -1128,7 +1135,7 @@
                                         postData() {
                                             axios({
                                                 method: 'POST',
-                                                url: 'http://liquidvisual.net/form.php',
+                                                url: 'http://liquidvisual.net/hotlinking/inspire/form.php',
                                                 data: this.dataString
                                             }).then(response => {
                                                 this.validateResponse(response.data);
