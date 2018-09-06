@@ -1728,6 +1728,8 @@
         https://unpkg.com/axios/dist/axios.min.js
         https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
 -->
+                                    <script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+                                    <script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
 
                                     <!-- VUE INSTANCE -->
                                     <div id="contact-form" v-cloak>
@@ -1756,7 +1758,7 @@
                                                 </div>
 
                                                 <!-- FORM -->
-                                                <form class="contact-form" name="Contact Form" novalidate @submit.prevent="validateBeforeSubmit">
+                                                <form class="contact-form" name="Contact Form" novalidate>
                                                     <fieldset>
 
                                                         <!-- NAME* -->
@@ -1839,12 +1841,16 @@
                                                         <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
                                                     </p>
 
-                                                    <!-- SUBMIT -->
-                                                    <button :disabled="errors.any() || processing" type="submit" class="btn btn-primary mb-4">
-                                                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
-                                                        <span v-show="processing" class="text">Sending Message</span>
-                                                        <span v-show="!processing" class="text">Send Message</span>
-                                                    </button>
+                                                    <!-- INVISIBLE RECAPTCHA -->
+                                                    <vue-recaptcha class="mb-4" ref="recaptcha" sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" @verify="reCaptchaResponse = $event" @expired="reCaptchaResponse = 'expired'">
+
+                                                        <!-- SUBMIT -->
+                                                        <button :disabled="errors.any() || processing" type="submit" class="btn btn-primary mb-4" @click.prevent="validateBeforeSubmit">
+                                                            <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                                                            <span v-show="processing" class="text">Sending Message</span>
+                                                            <span v-show="!processing" class="text">Send Message</span>
+                                                        </button>
+                                                    </vue-recaptcha>
                                                 </form>
                                             </div>
                                         </vue-contact-form>
@@ -1859,6 +1865,9 @@
                                     // VUE CONTACT FORM COMPONENT
                                     //-----------------------------------------------------------------
                                     Vue.component('vue-contact-form', {
+                                        components: {
+                                            VueRecaptcha
+                                        },
                                         props: {
                                             endpoint: {
                                                 type: String,
@@ -1869,6 +1878,7 @@
                                             return {
                                                 errorText: '',
                                                 failures: 0,
+                                                reCaptchaResponse: null,
                                                 processing: false,
                                                 success: false,
                                                 form: {
@@ -1908,12 +1918,37 @@
                                                     this.fields.email.touched = true; // this allows submitting to trigger email (which checks error once touched)
                                                     this.$validator.validateAll().then((result) => {
                                                         if (result) {
-                                                            this.postData();
+                                                            this.verifyBeforeSubmit();
                                                         } else {
                                                             this.success = false;
                                                             this.processing = false;
                                                         }
                                                     });
+                                                },
+                                                //==================================================
+                                                // VERIFY BEFORE SUBMIT
+                                                // begin timeout-loop check to proceed only when verification succeeds
+                                                //==================================================
+                                                verifyBeforeSubmit() {
+                                                    (function verify(self) {
+                                                        if (!self.reCaptchaResponse) {
+                                                            setTimeout(() => {
+                                                                verify(self);
+                                                            }, 100)
+                                                        } else {
+                                                            // success - analyse response
+                                                            // if expired, reset and try again
+                                                            if (self.reCaptchaResponse == 'expired') {
+                                                                self.reCaptchaResponse = null;
+                                                                self.$refs.recaptcha.reset();
+                                                                self.$refs.recaptcha.execute();
+                                                                verify(self); // reset timeout
+                                                            } else {
+                                                                // All checks cleared, post data to server
+                                                                self.postData();
+                                                            }
+                                                        }
+                                                    })(this);
                                                 },
                                                 //==================================================
                                                 // POST DATA
@@ -1944,6 +1979,7 @@
                                                             dataString += item + '=' + this.form[item] + '&';
                                                         }
                                                     }
+                                                    dataString += 'grecaptcharesponse=' + this.reCaptchaResponse;
                                                     return dataString;
                                                 },
                                                 //==================================================
@@ -2014,7 +2050,10 @@
                                                     for (var item in this.form) {
                                                         this.form[item] = ''; // clear all
                                                     }
-                                                    if (success) this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                                                    if (success) {
+                                                        this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                                                        // grecaptcha.reset(); ?
+                                                    }
                                                     this.success = success === true; // t/f
                                                     this.$validator.reset();
                                                 }
@@ -2687,7 +2726,6 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
-    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->
