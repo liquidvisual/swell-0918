@@ -6753,8 +6753,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var t = {},
       i = ["xs", "sm", "md", "lg", "xl", "xxl"];function n() {
     var i = e("body");1 != e(".lv-screen-data").length && i.append('<div class="lv-screen-data"></div>');var n,
-        r = e(window).width(),
-        o = e(window).height();r < t.sm && (n = "xs"), r >= t.sm && r < t.md && (n = "sm"), r >= t.md && r < t.lg && (n = "md"), r >= t.lg && r < t.xl && (n = "lg"), r >= t.xl && (n = "xl"), e(".lv-screen-data").html(r + " x " + o + "<br>" + n).css({ position: "fixed", top: 0, padding: "10px 20px", background: "rgba(0,0,0,0.5)", "font-family": "Helvetica Neue", "font-size": "14px", color: "white", "z-index": 2147483646 }).click(function () {
+        r,
+        o = window.innerWidth,
+        s = window.innerHeight,
+        a = e(window).width(),
+        l = e(window).height();o < t.sm && (n = "xs"), o >= t.sm && o < t.md && (n = "sm"), o >= t.md && o < t.lg && (n = "md"), o >= t.lg && o < t.xl && (n = "lg"), o >= t.xl && (n = "xl"), a < t.sm && (r = "xs"), a >= t.sm && a < t.md && (r = "sm"), a >= t.md && a < t.lg && (r = "md"), a >= t.lg && a < t.xl && (r = "lg"), a >= t.xl && (r = "xl"), e(".lv-screen-data").html(a + " x " + l + "<br><small>" + o + " x " + s + "</small><br>" + n + "  [" + r + "]").css({ position: "fixed", top: 0, padding: "5px 10px", background: "rgba(0,0,0,0.5)", "font-family": "Helvetica Neue", "font-size": "14px", color: "white", "z-index": 2147483646 }).click(function () {
       i.toggleClass("developer");
     });
   }!function () {
