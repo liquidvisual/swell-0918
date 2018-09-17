@@ -7054,7 +7054,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       r = e(".lv-off-canvas"),
       o = e('a[href*="#"]:not([href="#"])', r),
       s = e('<span class="submenu-trigger"><i class="fa fa-angle-right"></i></span>');e("[data-menu-toggle]").click(function (n) {
-    e(".has-open-menu").length || (t.removeClass("has-closed-menu").addClass("has-open-menu"), setTimeout(function () {
+    n.preventDefault(), e(".has-open-menu").length || (t.removeClass("has-closed-menu").addClass("has-open-menu"), setTimeout(function () {
       i.click(function (n) {
         n.stopPropagation(), e(".has-open-menu").length && (t.removeClass("has-open-menu").addClass("has-closed-menu"), e(this).unbind("click"));
       });
