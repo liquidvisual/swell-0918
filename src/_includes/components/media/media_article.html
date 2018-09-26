@@ -1,0 +1,35 @@
+{% assign data = include.data | default: site.data.media_articles %}
+
+{% for item in data %}
+
+	{% capture row_classes %}
+		{% if item.reverse_columns %}
+			flex-row-reverse
+		{% endif %}
+	{% endcapture %}
+
+	<!-- MEDIA ARTICLE -->
+	<article class="mb-4">
+
+		<!-- BADGE -->
+		<span class="mb-3 badge badge-primary">Swellnet Dispatch</span>
+
+		<div class="row {{ row_classes }}">
+			<div class="col-md-8 col-xl-8 pr-lg-4">
+
+				<h4>{{ item.title }}</h4>
+
+				<p class="text-muted">{{ item.date }}</p>
+
+				<!-- WYSIWYG -->
+				<div class="wysiwyg">
+					{{ item.body | markdownify }}
+				</div>
+
+			</div>
+			<div class="col-md-4 col-xl-4">
+				<p><img width="100%" src="{{ item.image }}" alt="{{ item.image_alt }}"></p>
+			</div>
+		</div>
+	</article>
+{% endfor %}

@@ -1,0 +1,138 @@
+{% comment %}
+{% assign id = include.id %}
+{% assign bg_image = include.bg_image %}
+{% assign options = include.options %}
+{% assign settings = site.data.settings %}
+
+<!-- BASIC FORM -->
+<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
+    <div class="container">
+
+        <!-- IF SUCCESS -->
+        <div class="alert alert-success alert-dismissible fade show" role="alert" hidden>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Success!</strong><br> Thanks for that. You've been added to the mailing list.
+        </div>
+
+        <!-- IF FAILURE -->
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" hidden>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Oops!</strong><br> Something went wrong. Please try again.
+        </div>
+
+        <h2>Make A Booking</h2>
+
+        <!-- WYSIWYG -->
+        <div class="wysiwyg mb-4">
+            <p>If you're a project manager, lead or developer working at a digital agency, tell me what you need coded.</p>
+        </div>
+
+        <!-- FORM CONTACT -->
+        <form id="contact-digital-agency" name="Digital Agency Form" action="/hire/thanks/" data-toggle="validator" novalidate netlify>
+            <fieldset>
+
+               <!-- NAME* -->
+               <label class="form-group d-block">
+                   <p class="mb-2">Full Name<small class="asterisk">*</small></p>
+                   <input class="form-control" name="Name" type="text" placeholder="" required>
+                   <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+               </label>
+
+                <!-- EMAIL* -->
+                <label class="form-group d-block">
+                    <p class="mb-2">Email<small class="asterisk">*</small></p>
+                    <input class="form-control" name="Email" type="email" placeholder="" required>
+                    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+                </label>
+
+                <!-- COMPANY -->
+                <label class="form-group d-block">
+                    <p class="mb-2">Company</p>
+                    <input class="form-control" name="Company" type="text" placeholder="">
+                </label>
+
+            </fieldset>
+            <fieldset>
+
+                <!-- BUDGET -->
+                <div class="form-group" hidden>
+                    <label class="h5 mb-4">What's the budget for this work?</label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="Less than $500">
+                      <p class="custom-control-label">Less than $500</p>
+                    </label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="$500 - $1K">
+                      <p class="custom-control-label">$500 - $1K</p>
+                    </label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="$1K - $3K">
+                      <p class="custom-control-label">$1K - $3K</p>
+                    </label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="$3K - $5K">
+                      <p class="custom-control-label">$3K - $5K</p>
+                    </label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="$5K - $10K">
+                      <p class="custom-control-label">$5K - $10K</p>
+                    </label>
+
+                    <label class="custom-control custom-radio">
+                      <input class="custom-control-input" type="radio" name="Budget" value="More than $10K">
+                      <p class="custom-control-label">More than $10K</p>
+                    </label>
+                </div>
+
+            </fieldset>
+            <fieldset>
+
+                <!-- MESSAGE -->
+                <label class="form-group d-block">
+                    <h5>What's the brief?<small class="asterisk">*</small></h5>
+                    <p class="mb-3">Include the brief, notes, links to files, or anything else that will help me to quickly understand your job.</p>
+                    <textarea class="form-control" name="Message" rows="6" placeholder="" required></textarea>
+                    <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Please tell me more.</small>
+                </label>
+
+            </fieldset>
+            <fieldset>
+
+                <!-- REFERRAL -->
+                <label class="form-group d-block">
+                    <h5>Finally, how did you find me?</h5>
+                    <select class="custom-select" name="Referral">
+                        <option disabled selected>Choose one</option>
+                        <option value="Client">I'm an existing client</option>
+                        <option value="Google">Google</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Friend">Word of mouth</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </label>
+
+            </fieldset>
+
+            <!-- * REQUIRED -->
+            <p class="float-right">
+                <small class="asterisk">*</small>
+                <small class="text-muted" style="position: relative; top: -5px;">required</small>
+            </p>
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn btn-primary">Make Booking <i class="fa fa-angle-right"></i></button>
+
+        </form>
+    </div>
+</section>
+{% endcomment %}

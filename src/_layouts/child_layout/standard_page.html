@@ -1,0 +1,37 @@
+---
+layout: base__page_sidebar
+---
+
+<!-- <h3 class="text-center my-5">Everything has moved to <a href="/sections/">Sections</a></h3> -->
+
+<!-- MEDIA ARTICLE -->
+{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}
+
+<!-- GALLERY -->
+{% capture item %}{% include components/media/gallery.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}
+
+<!-- CARDS -->
+{% capture item %}{% include components/cards/cards.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}
+
+<!-- CARDS SLIDER -->
+{% capture item %}{% include components/cards/cards__slider.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}
+
+<!-- CARDS SLIDER -->
+{% capture item %}{% include components/cards/cards__tabs.html %}{% endcapture %}
+{% include sections/section_center.html content_block=item %}
+
+<!-- AFFILIATES -->
+{% capture item %}{% include components/media/affiliates.html %}{% endcapture %}
+{% include sections/section_center.html content_block=item %}
+
+<!-- MEDIA LIGHTBOX -->
+{% capture item %}{% include components/media/media_lightbox.html %}{% endcapture %}
+{% include sections/section_split.html content_block=item %}
+
+<!-- CONTACT FORM -->
+{% capture item %}{% include components/forms/form_contact.html %}{% endcapture %}
+{% include sections/section.html content_block=item %}

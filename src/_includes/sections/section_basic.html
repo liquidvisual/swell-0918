@@ -1,0 +1,9 @@
+{% assign id = include.id %}
+{% assign options = include.options %}
+{% assign content_block = include.content_block %}
+
+<section id="{{ id }}" class="section {{ options }}">
+	<div class="container">
+		{{ content_block }}
+	</div>
+</section>

@@ -1,0 +1,107 @@
+/*
+    SECTIONS.CSS
+
+    - updated: 15.09.18
+    - liquidvisual.com
+
+    GLOSSARY:
+
+        .section
+            &.has-image-bg
+                &.is-fixed
+                &.is-tinted
+                &.is-parallax
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SECTION CONTENT
+// used in the main-body 2-column layout
+//-----------------------------------------------------------------
+
+.section-content {
+	margin: $spacer * 2.5 0;
+
+	// REMOVE CARD PROPERTIES
+	@include media-breakpoint-down(md) {
+		margin: 0;
+		padding-left: 0;
+		padding-right: 0;
+		background: none;
+		box-shadow: none;
+	}
+}
+
+//-----------------------------------------------------------------
+// SECTION
+//-----------------------------------------------------------------
+
+.section {
+    position: relative;
+    padding: ($spacer * 2.5) 0;
+
+    @include media-breakpoint-up(md) {
+        padding: ($spacer * 3) 0;
+    }
+}
+
+//-----------------------------------------------------------------
+// HAS IMAGE BG
+//-----------------------------------------------------------------
+
+.has-image-bg,
+.section[style~=background-image] {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    //=========================================
+    // IS FIXED
+    //=========================================
+
+	&.is-fixed {
+		@include media-breakpoint-up(xl) {
+	    	background-attachment: fixed;
+		}
+	}
+
+    //=========================================
+    // IS TINTED
+    //=========================================
+
+    &.is-tinted {
+        > .container {
+            position: relative;
+            z-index: 1; // [LOCKED]
+        }
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(black, 0.6); //rgba(#222, 0.6);
+            z-index: 1; // [LOCKED] - for tint over parallax
+        }
+    }
+
+    //=========================================
+    // IS PARALLAX
+    //=========================================
+
+    &.is-parallax {
+        > .container {
+            position: relative; // allow parallax to slink behind
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

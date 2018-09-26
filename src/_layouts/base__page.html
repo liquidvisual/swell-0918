@@ -1,0 +1,14 @@
+---
+layout: base
+---
+
+{% include {{ page.hero | default: 'components/hero/hero_static.html' }} align_caption=page.hero_caption_align options=page.hero_options data=page.hero_data %}
+
+{% if page.breadcrumbs %}
+	{% include components/navigation/breadcrumbs.html %}
+{% endif %}
+
+<!-- BODY -->
+<main class="main-body">
+	{{ content }}
+</main>

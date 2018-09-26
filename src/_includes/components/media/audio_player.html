@@ -1,0 +1,8 @@
+{% assign data = include.data | default: "https://cdn.plyr.io/static/demo/Kishi_Bashi_-_It_All_Began_With_a_Burst.mp3" %}
+
+<!-- AUDIO PLAYER -->
+<div class="audio-player mb-4">
+	<audio crossorigin playsinline>
+		<source src="{{ data }}" type="audio/mp3">
+	</audio>
+</div>

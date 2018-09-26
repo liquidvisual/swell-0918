@@ -1,0 +1,94 @@
+---
+layout: base__page_sidebar
+---
+
+{% assign categories = site.categories | sort %}
+{% assign blog_posts = site.data.lorem_ipsum %}
+{% assign item = blog_posts[0] %}
+
+<!-- SECTION -->
+<section class="section pb-0 pb-lg-5">
+    <div class="container">
+
+        <!-- TITLE -->
+        <h1 class="h2">{{ item.title }}</h1>
+
+        <!-- DATE / AUTHOR -->
+        <p class="text-muted mb-4">
+            <i class="fa fa-clock-o"></i>
+            <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %B %Y" }}</time><span class="px-2">|</span>
+            <i class="fa fa-user"></i> &nbsp;<a href="{{ item.author.url }}">{{ item.author.name }}</a>
+        </p>
+
+        <!-- IMAGE -->
+        <p class="image-right mb-4">
+            <img width="100%" src="{{ item.image }}" alt="{{ item.image.title }}">
+        </p>
+
+        <!-- WYSIWYG -->
+        <div class="wysiwyg mb-5">
+            {{ item.body | markdownify }}
+        </div>
+
+        {% include components/navigation/pagination.html %}
+    </div>
+</section>
+
+{% contentfor sidebar %}
+    <!-- SIDEBAR CONTENT -->
+    <section class="section">
+        <div class="container">
+
+            <!-- CATEGORIES -->
+            <h3 class="mb-4">Categories</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">Technology</a>
+                    <ul>
+                        <li><a href="#">Item One</a></li>
+                        <li><a href="#">Item Two</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">SEO</a></li>
+            </ul>
+
+            <div class="spacer mb-4"></div>
+
+            <!-- RECENT POSTS -->
+            <h3 class="mb-4">Recent Posts</h3>
+            {% for item in blog_posts limit: 3 %}
+                <a class="d-block mb-3" href="{{ item.url }}">
+                    <h4 class="h6 mb-0">{{ item.title }}</h4>
+                    <small class="text-uppercase text-muted">
+                        <time datetime="{{ item.date | date_to_xmlschema }}">{{ item.date | date: "%d %B %Y" }}</time>
+                    </small>
+                </a>
+            {% endfor %}
+
+            <div class="spacer mb-4"></div>
+
+            <!-- ALL POSTS -->
+            <h3 class="mb-4">All Posts</h3>
+            <ul class="list-unstyled">
+                <li><a href="#">2018</a></li>
+                <li><a href="#">2017</a></li>
+            </ul>
+
+        </div>
+    </section>
+{% endcontentfor %}
+
+{% contentfor content_additional %}
+    <!-- COMMENTS ENABLED -->
+    {% unless page.comments == false %}
+        <section class="section theme-silverfox">
+            <div class="container">
+                <h2 class="mb-4">Comments</h2>
+                <div class="row">
+                    <div class="col-lg-9 pr-lg-4">
+                        {% include components/widgets/disqus_comments.html %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endunless %}
+{% endcontentfor %}

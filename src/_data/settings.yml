@@ -1,0 +1,32 @@
+# GLOBAL SETTINGS
+cname: swellnet-2018.yourwebvisual.com
+allow_robots: false
+
+# META
+title: Inspire
+title_homepage: Swellnet
+company:
+description:
+
+# DEVELOPER
+github_repo_owner: liquidvisual
+github_repo_path: https://github.com/liquidvisual/swell-0918
+github_repo_name: swell-0918
+jekyll_version: 3.7.0
+
+# OFFICES
+offices:
+  - title:
+    address:
+    phone:
+    email:
+
+# GOOGLE
+google_analytics: #UA-XXXXXXXX-X
+
+# AUTHOR
+author:
+  title:
+  url:
+  logo:
+  description:

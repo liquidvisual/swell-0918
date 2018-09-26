@@ -1,0 +1,39 @@
+---
+layout: base__page_sidebar
+---
+
+{% assign settings = site.data.settings %}
+
+{% capture component %}{% include components/forms/form_contact.html %}{% endcapture %}
+{% include sections/section.html content_block=component %}
+
+{% contentfor sidebar %}
+
+    <!-- CONTACT DETAILS -->
+    <section class="section">
+        <div class="container">
+            <h4>{{ settings.company }}</h4>
+            <p>
+                {{ settings.offices[0].title }}<br>
+                {{ settings.offices[0].address }}<br>
+                <a href="mailto:settings.offices[0].email">{{ settings.offices[0].email }}</a>
+            </p>
+            <br>
+            <p><a href="#google-map" class="btn btn-primary">Directions&nbsp; <i class="fa fa-external-link"></i></a></p>
+            <br>
+
+            <!-- WYSIWYG -->
+            <div class="wysiwyg mb-4">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+
+            {% include components/social_media.html %}
+        </div>
+    </section>
+
+{% endcontentfor %}
+
+{% contentfor content_additional %}
+    {% include components/widgets/google_map.html id="google-map" %}
+{% endcontentfor %}

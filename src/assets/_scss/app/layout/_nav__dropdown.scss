@@ -1,0 +1,153 @@
+/*
+    NAV__DROPDOWN.CSS
+
+    - updated: 25.09.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// GENERIC DROPDOWNS
+//-----------------------------------------------------------------
+
+.lv-nav .dropdown {
+    visibility: hidden; // [LOCKED] - allows for transitions
+}
+
+//-----------------------------------------------------------------
+// TOP MOST DROPDOWNS
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li > ul.dropdown {
+    position: absolute;
+    left: 0;
+    min-width: rem-calc(240); // [LOCKED] - default
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2); // same as bootstrap dropdown in header
+    background: white;
+    overflow: hidden; // [LOCKED] - dropdowns will set their own size
+}
+
+//-----------------------------------------------------------------
+// IS MEGA (GENERIC)
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li.has-dropdown.is-mega {
+    position: static; // [OVERRIDE] - rel is full width
+
+    > .dropdown {
+        display: flex; // [LOCKED]
+        width: calc(100% - #{rem-calc(20 * 2)}); // [LOCKED] - design
+        margin: rem-calc(0 20); // [LOCKED] - design
+
+        // max-height: 600px; // not a good experience!
+        // overflow-y: auto;
+    }
+}
+
+//-----------------------------------------------------------------
+// GENERIC DROPDOWN LI, ANCHORS
+//-----------------------------------------------------------------
+
+.lv-nav .dropdown li {
+    position: relative; // [LOCKED] - for nests
+    border-bottom: 1px solid rgba(black, 0.05);
+
+    a {
+        display: flex; // [LOCKED] - for arrows
+        padding: rem-calc(0 24); // [LOCKED] - design
+        font-weight: 600;
+        line-height: rem-calc(38); // [LOCKED] - design
+        font-size: rem-calc(15); // [LOCKED] - opinionated - design is 16
+        color: #5d5d5d; // [LOCKED] - design
+        transition: none; // [LOCKED]
+    }
+}
+
+//-----------------------------------------------------------------
+// HOVERS
+//-----------------------------------------------------------------
+
+.lv-nav .dropdown li a:hover {
+    background: rgba(black, 0.02); // [LOCKED] - sensible
+}
+
+.lv-nav .dropdown li.active > a {
+    background: rgba(black, 0.039); // [LOCKED] - sensible
+
+    &:after {
+        color: rgba(black, 0.4) !important;
+    }
+}
+
+//-----------------------------------------------------------------
+// BEHIND MEGA FILL (DESIGN)
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li.has-dropdown.is-mega > a {
+    transform: translateX(0); // [LOCKED] - 'fixed-relative' hack, brilliant
+
+    &:after {
+        content: "";
+        position: fixed;
+        top: 100%;
+        left: -100vw;
+        width: 200vw;
+        height: 200vh;
+        background: rgba($primary, 0.91); // [LOCKED] - following psd
+        pointer-events: none; // [LOCKED] - brilliant
+        visibility: hidden;
+    }
+}
+
+//-----------------------------------------------------------------
+// DROPDOWN STATE (new positioning context)
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li > ul.dropdown {
+    // transform: translateY(0);
+    transform: translateY(-10px);
+    transition: transform 200ms ease;
+}
+
+// Cleans up mess of hiding nav when dropdown is showing
+// .lv-page.headroom--not-top.headroom--unpinned {
+//     .lv-nav > ul > li.is-mega .dropdown {
+//         visibility: hidden;
+//         opacity: 0;
+//         transition: opacity 150ms ease 800ms,
+//                     visibility 151ms ease 800ms;
+//     }
+// }
+
+// override if hovering menu
+// .headroom--unpinned.headroom--not-top .global-header:hover {
+//     transform: translateY(0);
+// }
+
+//-----------------------------------------------------------------
+// DROPDOWN TRIGGERS (ANCHOR HOVERS)
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li.has-dropdown:hover {
+
+    > a {
+        background: white; // [LOCKED] - dropdown triggers the 'triggering' nav button on hover
+    }
+
+    .dropdown,
+    > a:after {
+        visibility: visible; // [LOCKED] - all dropdowns and the mega fill are visible
+    }
+
+    > .dropdown {
+        transform: translateY(0); // [LOCKED] - animation
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

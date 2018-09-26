@@ -1,0 +1,146 @@
+/*
+    NAV__MODIFIERS.CSS
+
+    - updated: 25.09.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// HAS FLAT CHILDREN DROPDOWNS
+// Only the first is absolute for positioning
+//-----------------------------------------------------------------
+
+.has-open-menu {
+    .lv-nav li.is-concealed-menu .dropdown {
+        visibility: visible; // [LOCKED]
+        z-index: -1; // [LOCKED] - fixes hidden nav items showing over megas
+    }
+}
+
+//-----------------------------------------------------------------
+// IS-CONCEALED-MENU
+//-----------------------------------------------------------------
+
+.lv-nav li.is-concealed-menu {
+    position: static; // [OVERRIDE]
+
+    > a { // hide group titles
+        // color: blue !important; // [HINT]
+        display: none; // [LOCKED] - no need for group titles
+    }
+
+    ul.dropdown {
+        display: flex;
+        position: absolute;
+        top: 100%; // [LOCKED]
+        right: rem-calc(40); // [LOCKED]
+        left: auto; // [LOCKED]
+        width: auto; // [OVERRIDE]
+        height: rem-calc(47);
+        background: none; // [OVERRIDE]
+        visibility: hidden; // [LOCKED]
+        box-shadow: none; // [OVERRIDE]
+
+        // NESTED - needs to butt up left
+        li.is-concealed-menu .dropdown {
+            position: static;
+        }
+
+        a {
+            padding: rem-calc(0 15); // [LOCKED]
+            line-height: rem-calc(47); // [LOCKED] - design
+            color: white;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// IS-CONCEALED-MENU -- ANIMATION
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li.is-concealed-menu > .dropdown {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: transform 300ms 80ms ease, opacity 150ms 80ms ease;
+    will-change: transform, opacity;
+}
+
+.has-open-menu .lv-nav > ul > li.is-concealed-menu > .dropdown {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+//-----------------------------------------------------------------
+// IS-USER-GROUP
+//-----------------------------------------------------------------
+
+.lv-nav .is-user-group {
+    margin-left: 20px; // [LOCKED]
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 22px/2); // [LOCKED]
+        // left: -11px; // [LOCKED]
+        width: 2px; // [LOCKED]
+        height: 22px; // [LOCKED]
+        margin-left: -11px; // [HOTFIX]
+        background: rgba(white, 0.2); // [LOCKED]
+        pointer-events: none; // [LOCKED]
+    }
+}
+
+//-----------------------------------------------------------------
+// IS-PREMIUM, IS-OBSERVED
+//-----------------------------------------------------------------
+
+.lv-nav ul li.is-observed > a,
+.lv-nav ul li.is-premium > a {
+    display: flex; // [LOCKED] - in case it's not
+    color: $secondary;
+
+    .obs-icon {
+        height: 16px;
+        margin: auto -9px auto auto;
+    }
+
+    .premium-icon {
+        height: 16px;
+        margin: auto -9px auto auto;
+    }
+}
+
+//=========================================
+// BOOTSTRAP TOOLTIP
+//=========================================
+
+.tooltip {
+    pointer-events: none; // [LOCKED] stop hover from closing menu
+}
+
+//-----------------------------------------------------------------
+// EXCLUDE DROPDOWNS IN NAV
+//-----------------------------------------------------------------
+
+.lv-nav li.has-children-excluded-from-nav .dropdown {
+    display: none; // [LOCKED]
+}
+
+//-----------------------------------------------------------------
+// IS RIGHT ALIGNED
+//-----------------------------------------------------------------
+
+// Prevent far-right dropdown from exceeding page width
+// .lv-nav .is-right-aligned .dropdown {
+    // right: 0;
+    // left: auto;
+// }
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

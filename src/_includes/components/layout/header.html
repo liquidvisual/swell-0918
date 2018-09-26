@@ -1,0 +1,56 @@
+{% assign settings = site.data.settings %}
+{% assign logo = page.logo | default: "/assets/img/content/swellnet-logo--dark.svg" %}
+
+<!-- HEADER TOP -->
+<div class="global-header-top">
+
+    <!-- HEADER ALERT -->
+    <div class="global-header-alert">
+        <div class="container">
+            <a href="#/sign-up/">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts... <strong>Get Swellnet PRO for $8.95 per month</strong></a>
+        </div>
+    </div>
+
+    <!-- HEADER SPONSOR -->
+    <div class="global-header-sponsor">
+        <div class="container text-center">
+            <!-- AD IFRAME GOES HERE -->
+            <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
+            <!-- AD IFRAME GOES HERE -->
+        </div>
+    </div>
+
+</div>
+
+<!-- HEADER BODY -->
+<div class="global-header-body">
+    <div class="container position-relative">
+
+        <!-- LOGO -->
+        <a class="logo" href="/" title="{{ settings.title_homepage }}" itemprop="url">
+            <img src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
+        </a>
+
+        <!-- NAVIGATION -->
+        <nav class="global-navigation hidden-lg-down">
+            <div class="lv-nav">
+                {% include components/navigation/nav.html %}
+            </div>
+        </nav>
+
+        <!-- HAMBURGER -->
+        <div class="global-header-hamburger">
+            <div class="lv-hamburger" data-menu-toggle>
+                <span class="lv-hamburger-top"></span>
+                <span class="lv-hamburger-middle"></span>
+                <span class="lv-hamburger-bottom"></span>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- HEADER BOTTOM -->
+<div class="global-header-bottom hidden-lg-down">
+    <div class="global-header-bottom-strip"></div>
+</div>

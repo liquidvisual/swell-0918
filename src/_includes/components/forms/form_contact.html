@@ -1,0 +1,495 @@
+<!--
+    FORM_CONTACT.HTML
+    updated: 25.08.18
+
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/axios/dist/axios.min.js
+        https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
+-->
+
+{% assign id = include.id | default: 'contact-form' %}
+
+<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
+
+<!-- VUE INSTANCE -->
+<div id="{{ id }}" v-cloak>
+
+    <!-- VUE CONTACT FORM COMPONENT -->
+    <vue-contact-form
+        endpoint="http://liquidvisual.net/hotlinking/inspire/form.php"
+        inline-template>
+
+        <div>
+
+            <!-- IF SUCCESS -->
+            <div
+                v-if="success"
+                class="mb-4 alert alert-success alert-dismissible fade show"
+                role="alert">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <strong>Thanks <span v-text="form.firstName"></span>!</strong><br> We've received your message and we'll get back to you soon.
+            </div>
+
+            <!-- IF FAILURE -->
+            <div
+                v-if="failures && !success"
+                class="mb-4 alert alert-danger alert-dismissible fade show"
+                role="alert">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <strong>Oops!</strong><br> <span v-html="errorText"></span>
+            </div>
+
+            <!-- FORM -->
+            <form
+                class="contact-form"
+                name="Contact Form"
+                novalidate>
+
+                <fieldset>
+
+                    <!-- NAME* -->
+                    <label class="form-group d-block">
+                        <p class="mb-2">Full Name<small class="asterisk">*</small></p>
+
+                        <input
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('name') }"
+                            name="name"
+                            type="text"
+                            v-model="form.fullName"
+                            v-validate="'required|alpha_spaces'">
+
+                        <small
+                            v-show="errors.has('name')"
+                            class="error shake animated">
+
+                            <i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('name')"></span>
+                        </small>
+                    </label>
+
+                    <!-- EMAIL* -->
+                    <label class="form-group d-block">
+                        <p class="mb-2">Email<small class="asterisk">*</small></p>
+
+                        <input
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('email') && fields.email.touched }"
+                            name="email"
+                            v-model="form.email"
+                            v-validate="'required|email'"
+                            type="email">
+
+                        <small
+                            v-show="errors.has('email') && fields.email.touched"
+                            class="error shake animated">
+
+                                <i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('email')"></span>
+                        </small>
+                    </label>
+
+                    <!-- PHONE -->
+                    <label class="form-group d-block">
+
+                        <p class="mb-2">Phone</p>
+
+                        <input
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('phone') }"
+                            name="phone"
+                            type="tel"
+                            v-model="form.phone"
+                            v-validate="'numeric'">
+
+                        <small
+                            v-show="errors.has('phone')"
+                            class="error shake animated">
+
+                            <i class="fa fa-warning"></i>&nbsp; <span v-text="errors.first('phone')"></span>
+                        </small>
+                    </label>
+
+                </fieldset>
+                <fieldset>
+
+                    <!-- MESSAGE -->
+                    <label class="form-group d-block">
+
+                        <p>Your Message<small class="asterisk">*</small></p>
+
+                        <textarea
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('message') }"
+                            name="message"
+                            rows="6"
+                            placeholder=""
+                            v-model="form.message"
+                            v-validate="'required|max:2000'"
+                            required>
+                        </textarea>
+
+                        <small
+                            v-show="errors.has('message')"
+                            class="error shake animated">
+
+                            <i class="fa fa-warning"></i>&nbsp;
+                            <span v-text="errors.first('message')"></span>
+                        </small>
+                    </label>
+
+                </fieldset>
+                <fieldset>
+
+                    <!-- REFERRAL -->
+                    <label class="form-group d-block">
+
+                        <p>How did you hear about us?</p>
+
+                        <select
+                            class="custom-select"
+                            name="referral"
+                            v-model="form.referral">
+
+                            <option disabled selected value="">Choose one</option>
+                            <option value="Google">Google</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Friend">Word of mouth</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </label>
+
+                </fieldset>
+                <fieldset>
+
+                    <!-- SIGN UP TO OUR NEWSLETTER -->
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input
+                                class="custom-control-input"
+                                type="checkbox"
+                                name="newsletter"
+                                value="true"
+                                v-model="form.newsletter">
+
+                            <p class="custom-control-label">Sign me up to the newsletter</p>
+
+                        </label>
+                    </div>
+
+                </fieldset>
+
+                <!-- * REQUIRED -->
+                <p class="float-md-right">
+                    <small class="asterisk">*</small>
+                    <small class="text-muted" style="position: relative; top: -5px;">required to send</small>
+                </p>
+
+                <!-- INVISIBLE RECAPTCHA -->
+                <vue-recaptcha
+                    class="mb-4"
+                    ref="recaptcha"
+                    sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                    @verify="reCaptchaResponse = $event"
+                    @expired="reCaptchaResponse = 'expired'">
+
+                    <!-- SUBMIT -->
+                    <button
+                        :disabled="errors.any() || processing"
+                        type="submit"
+                        class="btn btn-primary mb-4"
+                        @click.prevent="validateBeforeSubmit">
+
+                        <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                        <span v-show="processing" class="text">Sending Message</span>
+                        <span v-show="!processing" class="text">Send Message</span>
+                    </button>
+
+                </vue-recaptcha>
+
+                {% comment %}
+                    <!-- <button @click="reset" type="button" class="btn btn-primary">Reset</button> -->
+                {% endcomment %}
+
+            </form>
+        </div>
+    </vue-contact-form>
+</div>
+
+<style>
+    .contact-form .btn[disabled="disabled"] {
+        cursor: not-allowed;
+    }
+</style>
+
+<script>
+    //-----------------------------------------------------------------
+    // VUE CONTACT FORM COMPONENT
+    //-----------------------------------------------------------------
+
+    Vue.component('vue-contact-form', {
+        components: {
+            VueRecaptcha
+        },
+        props: {
+            endpoint: {
+                type: String,
+                required: true
+            },
+        },
+        data() {
+            return {
+                errorText: '',
+                failures: 0,
+                reCaptchaResponse: null,
+                processing: false,
+                success: false,
+
+                form: {
+                    email: '',
+                    firstName: null, // Computed - stored for Thank you message
+                    fullName: '',
+                    phone: '',
+                    referral: '',
+                    message: '',
+                    newsletter: false
+                }
+            }
+        },
+
+        //-----------------------------------------------------------------
+        // COMPUTED
+        //-----------------------------------------------------------------
+
+        computed: {
+            isComplete() { // * required fields - loop through vee-validate objects
+                var emptyRequiredFields = 0;
+                for (var item in this.fields) {
+                    if (this.fields[item].required) {
+                        if (this.form[item] == '') emptyRequiredFields++;
+                    }
+                }
+                return !emptyRequiredFields;
+            }
+        },
+
+        //-----------------------------------------------------------------
+        // METHODS
+        //-----------------------------------------------------------------
+
+        methods: {
+
+            //==================================================
+            // VALIDATE BEFORE SUBMIT
+            //==================================================
+
+            validateBeforeSubmit() {
+
+                // prevent button spamming
+                if (this.processing) return;
+
+                this.processing = true;
+                this.fields.email.touched = true; // this allows submitting to trigger email (which checks error once touched)
+
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        this.verifyBeforeSubmit();
+                    } else {
+                        this.success = false;
+                        this.processing = false;
+                    }
+                });
+            },
+
+            //==================================================
+            // VERIFY BEFORE SUBMIT
+            // begin timeout-loop check to proceed only when verification succeeds
+            //==================================================
+
+            verifyBeforeSubmit() {
+                (function verify(self) {
+                    if (!self.reCaptchaResponse) {
+                        setTimeout(() => {
+                            verify(self);
+                        }, 100)
+                    } else {
+                        // success - analyse response
+                        // if expired, reset and try again
+                        if (self.reCaptchaResponse == 'expired') {
+                            self.reCaptchaResponse = null;
+                            self.$refs.recaptcha.reset();
+                            self.$refs.recaptcha.execute();
+                            verify(self); // reset timeout
+                        } else {
+                            // All checks cleared, post data to server
+                            self.postData();
+                        }
+                    }
+                })(this);
+            },
+
+            //==================================================
+            // POST DATA
+            //==================================================
+
+            postData() {
+                axios({
+                    method: 'POST',
+                    url: this.endpoint,
+                    data: this.getDataString()
+                })
+                .then(response => {
+                    this.validateResponse(response.data);
+                    this.processing = false;
+                    window.scrollTo(0,0);
+                })
+                .catch(error => {
+                    this.throwError();
+                });
+            },
+
+            //==================================================
+            // getDataString
+            //==================================================
+
+            getDataString() { // to be sent via Axios
+                var dataString = '';
+                    dataString += 'firstName=' + this.form.fullName.split(' ')[0] + '&';
+                    dataString += 'lastName='  + (this.form.fullName.split(' ')[1] ? this.form.fullName.split(' ').splice(-1,1) : '') + '&';
+
+                for (let item in this.form) {
+                    var excluded = (item == 'firstName' || item == 'lastName');
+
+                    if (!excluded) {
+                        dataString += item + '=' + this.form[item] + '&';
+                    }
+                }
+
+                dataString += 'grecaptcharesponse=' + this.reCaptchaResponse;
+
+                return dataString;
+            },
+
+            //==================================================
+            // THROW ERROR
+            //==================================================
+
+            throwError(errorText) {
+                this.processing = false;
+                this.failures++;
+                this.errorText = errorText ? errorText : 'There was an error with the server. Please try again later.';
+                window.scrollTo(0,0);
+            },
+
+            //==================================================
+            // VALIDATE RESPONSE
+            //==================================================
+
+            validateResponse(data) {
+                if (data.success === true) {
+                    this.success = true;
+                    this.reset(true);
+                    window.scrollTo(0,0);
+                }
+                else {
+                    this.failures++;
+                    this.success = false;
+                    window.scrollTo(0,0);
+
+                    for (var error in data.errors) {
+
+                        var field = error.split('.')[1]; // Eg. CurrentNodeId, Email
+                            field = field.charAt(0).toLowerCase() + field.slice(1); // camelCase
+
+                        var messages = data.errors[error]; // array
+
+                        if (field) { // cannot be undefined
+                            this.errorText = 'Please check the following errors: <br>';
+
+                            for (var i = 0; i < messages.length; i++) {
+
+                                // WARNING:
+                                // Don't use unless backend is
+                                // aware of 'rules' and can mirror
+                                // VeeValidate rules - eg. 'required', 'email'
+                                // otherwise those errors cannot correct without rules
+                                // telling them what to look for.
+
+                                // this.errors.add(field, messages[i]);
+                                // console.log('field: '+messages[i]);
+
+                                this.errorText += messages[i] + '<br>'; // display errors as string
+
+                                // SERVER ERROR EXAMPLE ----------
+                                // {
+                                //     "callerid": null,
+                                //     "success": false,
+                                //     "message": "",
+                                //     "errors": {
+                                //         "model.CurrentNodeID": [
+                                //             "The CurrentNodeID property is required."
+                                //         ],
+                                //         "model.Email": [
+                                //             "The Product field is required."
+                                //         ]
+                                //     },
+                                //     "data": null
+                                // }
+                                // -------------------------------
+                            }
+                        }
+                    }
+                }
+            },
+
+            //==================================================
+            // RESET (for success or clear)
+            //==================================================
+
+            reset(success) {
+                // https://github.com/baianat/vee-validate/issues/209
+                // Object.assign(this.$data, this.$options.data.call(this));
+
+                var firstNameTemp = this.form.fullName.split(' ')[0]; // store before wipe
+
+                for (var item in this.form) {
+                    this.form[item] = ''; // clear all
+                }
+
+                if (success) {
+                    this.form.firstName = firstNameTemp.charAt(0).toUpperCase() + firstNameTemp.slice(1); // capitalize
+                    // grecaptcha.reset(); ?
+                }
+
+                this.success = success === true; // t/f
+                this.$validator.reset();
+            }
+        }
+    });
+
+    //-----------------------------------------------------------------
+    // VEE VALIDATE
+    //-----------------------------------------------------------------
+
+    Vue.use(VeeValidate, {
+        events: 'input' // 'change' or 'blur'
+    });
+
+    //-----------------------------------------------------------------
+    // VUE INSTANCE
+    //-----------------------------------------------------------------
+
+    new Vue({
+        el: '#{{id}}', // <--- Template variable, set by Jekyll (template)
+    });
+
+</script>

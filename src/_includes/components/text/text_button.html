@@ -1,0 +1,65 @@
+{% assign id = include.id %}
+{% assign bg_image = include.bg_image %}
+{% assign options = include.options %}
+{% assign reverse_columns = include.reverse_columns | default: false %}
+{% assign align_columns = include.align_columns | default: 'center' %}
+
+{% assign link = include.link | default: "#" %}
+{% assign link_label = include.link | default: "Click me" %}
+
+{% capture column_classes %}
+	{% if reverse_columns %}
+		order-md-last
+	{% endif %}
+{% endcapture %}
+
+{% capture row_classes %}
+	{% if align_columns == 'top' %}
+		align-items-start
+	{% endif %}
+	{% if align_columns == 'center' %}
+		align-items-center
+	{% endif %}
+	{% if align_columns == 'bottom' %}
+		align-items-end
+	{% endif %}
+{% endcapture %}
+
+{% comment %}
+
+
+<!-- TEXT BUTTON -->
+<section id="{{ id }}" class="section {{ options }}" style="background-image: url({{ bg_image }})">
+	<div class="container">
+		<div class="row {{ row_classes }}">
+			<div class="col-md-8 {{ column_classes }}">
+				<div>
+					<h2>Lorem Ipsum Dolor Sit Amet</h2>
+
+					<!-- WYSIWYG -->
+					<div class="wysiwyg mb-4">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-md-4 pl-lg-5">
+{% endcomment %}
+
+
+
+				<!-- WYSIWYG (NON-USER WYSIWYG) -->
+				<div class="wysiwyg">
+					<p><a class="btn btn-block btn-primary" href="{{ link }}">{{ link_label }}</a></p>
+				</div>
+{% comment %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endcomment %}

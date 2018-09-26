@@ -1,0 +1,103 @@
+/*
+    NAV.CSS
+
+    - updated: 25.09.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// GLOBAL WRAPPER
+//-----------------------------------------------------------------
+
+.global-navigation {
+    height: 100%; // [LOCKED] - for hovers
+    margin-right: rem-calc(20); // [LOCKED] - perfecto
+    // position: relative; // [NO]
+}
+
+//-----------------------------------------------------------------
+// LV NAV
+//-----------------------------------------------------------------
+
+.lv-nav {
+    height: 100%; // [LOCKED]
+}
+
+//-----------------------------------------------------------------
+// GENERAL UL
+//-----------------------------------------------------------------
+
+.lv-nav ul {
+    padding: 0; // [RESET]
+    margin: 0;  // [RESET]
+    list-style: none; // [RESET]
+}
+
+//=========================================
+// TOP PARENT UL
+//=========================================
+
+.lv-nav > ul {
+    display: flex; // [LOCKED] - replace float
+    height: 100%; // [LOCKED]
+
+    > li {
+        position: relative; // [LOCKED] - dropdowns relative to list parent
+    }
+}
+
+//-----------------------------------------------------------------
+// ALL ANCHORS (INCL. DROPDOWN CHILDREN)
+//-----------------------------------------------------------------
+
+.lv-nav a {
+    display: block; // [LOCKED]
+    text-decoration: none; // [LOCKED]
+    font-family: $headings-font-family; // [LOCKED] - design
+    font-size: rem-calc(16); // [LOCKED] - design
+    font-weight: 700; //$font-weight-semibold; // [LOCKED]
+    color: $body-color;
+}
+
+//-----------------------------------------------------------------
+// TOP PARENT ANCHORS (FIRST VISIBLE)
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li > a {
+    display: flex; // [LOCKED]
+    align-items: center; // [LOCKED]
+    height: 100%; // [LOCKED]
+    padding: rem-calc(0 18); // design
+    transition: background-color 150ms ease;
+}
+
+//-----------------------------------------------------------------
+// HOVERS
+//-----------------------------------------------------------------
+
+.lv-nav > ul > li > a:hover {
+    background: white;
+
+    // .text {
+        // border-bottom: 0;
+        // border-color: transparent;
+    // }
+}
+
+//=========================================
+// ACTIVE
+//=========================================
+
+.lv-nav > ul > li.active > a { // TODO: is this right?
+    background: white; //rgba(white, 0.15);
+
+    // .text {
+        // border-bottom: 2px solid white;
+    // }
+}
+
+//=========================================
+//
+//=========================================

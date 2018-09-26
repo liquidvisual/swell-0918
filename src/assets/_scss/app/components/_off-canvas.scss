@@ -1,0 +1,391 @@
+/*
+    OFF-CANVAS.CSS
+
+    - Last updated: 18.04.18
+    - liquidvisual.com
+
+    - latest update removes 'off-canvas' effect and transforms.
+      Runs jankier, but will handle deep menus
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$body-bg: white !default;
+$menu-bg-color: #feffff;
+$menu-width-xs: 280px;
+$menu-width-md: 312px;
+$hamburger-width: 28px;
+$hamburger-height: $hamburger-width - $hamburger-width/5;
+$hamburger-slit-height: 3px;
+
+//-----------------------------------------------------------------
+// OFF-CANVAS
+//-----------------------------------------------------------------
+
+.lv-off-canvas {
+	position: fixed;
+	top: -200%; // [LOCKED - fix chrome on touch scroll
+	right: -10%; // [LOCKED] - illusion of speed
+	width: $menu-width-xs;
+	height: 100%;
+	background: #40b4c2; // TODO: variable //$menu-bg-color;
+	z-index: 9999;
+	transition: opacity ease 230ms, right cubic-bezier(0.250, 0.460, 0.450, 0.940) 230ms;
+	will-change: right;
+
+	box-shadow: -1px 0 2px 1px rgba(0,0,0,0.1); // good?
+
+	@include media-breakpoint-up(md) {
+	    width: $menu-width-md;
+	}
+
+	@include media-breakpoint-up(xl) {
+	    display: none; // mobile and tablets only
+	}
+}
+
+//-----------------------------------------------------------------
+// ULS
+//-----------------------------------------------------------------
+
+.lv-off-canvas ul {
+	list-style: none;
+	height: 100%;
+	padding: 0 0 50px 0; // [LOCKED] - safety
+	margin: 0;
+	font-size: 15px;  // [LOCKED]
+	font-family: $headings-font-family;
+	overflow: hidden; // [LOCKED]
+	overflow-y: auto; // [LOCKED] - no bars, but works
+	-webkit-overflow-scrolling: touch;
+
+	// &:first-child {
+		// padding-top: 10px;
+	// }
+}
+
+//-----------------------------------------------------------------
+// DROPDOWNS (UL)
+//-----------------------------------------------------------------
+
+.lv-off-canvas .dropdown {
+	position: fixed;
+	// visibility: hidden; // THIS WILL SOLVE IT <------
+	top: 0;
+	right: -90%;
+	width: $menu-width-xs; // [required]
+	height: 100%;
+	background: $menu-bg-color; // [LOCKED] - must cover beneath
+	// border-left: 2px solid red;
+	box-shadow: -1px 0 2px 1px rgba(0,0,0,0.1);
+	// transform: translateX(100%);
+	// transition: transform 300ms ease;
+	transition: right cubic-bezier(0.250, 0.460, 0.450, 0.940) 300ms;
+	// z-index: 10000; // ?
+	z-index: 1;
+
+	@include media-breakpoint-up(md) {
+	    width: $menu-width-md; // [LOCKED]
+	}
+
+	//=========================================
+	// BACK BUTTON
+	// http://fatopng.com/fontawesome-to-base64
+	//=========================================
+
+	&:before {
+		content: attr(data-parent);
+		display: block;
+		position: -webkit-sticky;
+		position: sticky; // need to test on Android
+		top: 0;
+		// padding: 26px 20px 15px 40px;
+		padding-left: 40px; // also used in ul li
+		background: lighten(black, 92%) url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAACiUlEQVR4nO3cT2oUQRSA8S8iIh4gRxCPIIIwIrhR8Aziwi7EY7jxAtVkYXCZXSK4cWXAE4grjyDiUtzFhWnIOCZM91Cv3r9vOfTA40d1MV0DvXfGGVn7rvUeIEoJLVRCC5XQQiW0UAktVEILldBCJbRQCS3U9d4DtK4MZR94B9wD3gMv6lh/Sc+x5/ms4xz5FLhz4eNPwGNpbLdbxyXIACvgQxnKLcl5XEJfgTy1QhjbHfQWyFMroDYf6DxX0DOQp540HGctN9ALkAE+NxpnIxfQC5G/AM/aTLSZeegdkB/Wsf5sM9VmpqF3RP7RZqr/ZxbaEjIYhbaGDAahLSKDsbOOhchfgQc9kcHQiraMDEagrSODAWgPyKAc2gsyKIb2hAxKob0hg0Joj8igDNorMiiC9owMSqC9I4MC6AjI0Bk6CjJ0hI6EDJ2goyFDB+iIyCAMHRUZBKEjI4MQdHRkkFvRhwRGBjnouzOvf+UJGeSgj2def1SGMucOUJ8U9Evg44zr94FTT9gi0HWsv4GnBMYW+3kXHVv0gSUytvgjeFTsLodKEbG7HZNGw+568B8Ju/tfWVGwu0NDDGwV0OAfWw00+MZWBQ1+sdVBg09sldDgD1stNPjCVg0NfrDVQ4MPbBPQYB/bDDTYxjYFDXaxzUGDTWyT0GAP2yw02MI29XaDyypDuQmcAI9mfO07cL+O9VubqdYzvaKndljZh20m2swFNCzGvt1onI3cQMMi7IOG46zlYo/+ty337Ld1rM+FRvK1oqe2WNmiyOAUGq7EFkcGp1vHxcpQbgCv+ftG9JM61jc95nAPrSW3W4e2ElqohBYqoYVKaKESWqiEFiqhhUpooRJaqIQW6g/MUoF549GZugAAAABJRU5ErkJggg==) no-repeat 15px 50%; // 15px 27px
+		background-size: 18px;
+		// text-transform: uppercase;
+		// z-index: 1000;
+		z-index: 1;
+	}
+}
+
+//-----------------------------------------------------------------
+// NO SCROLLBARS
+//-----------------------------------------------------------------
+
+.lv-off-canvas .dropdown::-webkit-scrollbar,
+.lv-off-canvas ul::-webkit-scrollbar {
+	display: none;
+}
+
+//-----------------------------------------------------------------
+// LISTS
+//-----------------------------------------------------------------
+
+.lv-off-canvas > ul > li:first-child {
+	border-bottom: 1px solid rgba(black, 0.05); // TODO: quick patch
+}
+
+.lv-off-canvas > ul > li.has-dropdown.is-concealed-menu {
+	border-bottom: 0;
+}
+
+
+
+.lv-off-canvas ul {
+
+	li {
+		border-bottom: 1px solid rgba(black, 0.05);
+		// margin-left: 20px; // TAKEN OUT
+		padding-left: 20px; // also used in dropdown trigger
+		background-color: white;
+	}
+
+	// li.active > a {
+	// 	color: $primary;
+	// }
+
+	//=========================================
+	// LIST SPECIAL
+	//=========================================
+
+	li.is-special {
+		border: 0;
+
+		ul {
+			position: static;
+			padding: 0;
+
+			li {
+				margin-left: 0;
+				border: 0;
+			}
+		}
+	}
+
+	//=========================================
+	// NEXT ARROW .has-dropdown > a > .text::after
+	//=========================================
+
+	.has-dropdown > a > .submenu-trigger {
+		content: "\f105";
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 44px;
+		height: 100%;
+		// background: $menu-bg-color;
+		font-family: "FontAwesome";
+		font-size: 25px;
+		font-weight: normal;
+		color: rgba(black, 0.45);
+		text-align: center;
+		cursor: pointer;
+	}
+}
+
+//-----------------------------------------------------------------
+// ANCHORS
+//-----------------------------------------------------------------
+
+.lv-off-canvas a {
+	position: relative;
+	display: block;
+
+	//=========================================
+	// TRUNCATE TEXT
+	//=========================================
+
+	.text {
+		display: inline-block;
+		width: $menu-width-xs - 80px;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+
+		@include media-breakpoint-up(md) {
+		    width: $menu-width-md - 80px;
+		}
+	}
+}
+
+//=========================================
+// ANCHORS + TOP TRIGGER
+//=========================================
+
+.lv-off-canvas .dropdown:before,
+.lv-off-canvas a {
+	height: 44px;
+	line-height: 44px;
+	font-weight: 600;
+	color: $body-color;
+	padding-right: 40px; // increment this
+}
+
+//*****************************************************************
+// HAS OPEN MENU - STATE
+//*****************************************************************
+
+.has-open-menu {
+	@include media-breakpoint-down(lg) {
+	    overflow: hidden; // [LOCK HTML SCROLL]
+	}
+
+
+	.lv-off-canvas,
+	.lv-off-canvas .dropdown.is-open {
+		// transform: translateX(0);
+		top: 0;
+		// top: 300px;
+		// right: 800px;
+		right: 0;
+
+		opacity: 1;
+	}
+}
+
+
+
+
+
+.has-open-menu .lv-off-canvas {
+
+	li ul.dropdown.is-open {
+		right: -6px;
+		li { padding-right: 6px; }
+
+		li ul.dropdown.is-open {
+			right: -12px;
+			li { padding-right: 12px; }
+
+			li ul.dropdown.is-open {
+				right: -18px;
+				li { padding-right: 18px; }
+
+				li ul.dropdown.is-open {
+					right: -24px;
+					li { padding-right: 24px; }
+				}
+			}
+		}
+	}
+}
+
+// @for $i from 1 through 20 {
+// 	li:first-child:nth-last-child( #{$i} ),
+// 	li:first-child:nth-last-child( #{$i} ) ~ li {
+// 		width: calc(100% / #{$i} - 10px);
+// 	}
+// }
+
+//-----------------------------------------------------------------
+// HAS MENU OPEN - STATE
+//-----------------------------------------------------------------
+
+.has-open-menu {
+	.mobile-icon-menu {
+		position: fixed;
+		top: 0;
+		left: -20px;
+		width: 100%;
+		height: 130vh; // savior
+		background: black;
+		opacity: 0.6;
+		z-index: 10;
+		transition: none;
+
+		i {
+			display: none;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// HAS FLAT CHILDREN
+//-----------------------------------------------------------------
+
+.lv-off-canvas .is-concealed-menu {
+	padding-left: 0;
+
+	> a { display: none; } // don't show the nest name
+
+	a { color: white; }
+
+	li {
+		background: #4cc3d1; // TODO: primary color - is blue etc
+	}
+
+	.dropdown {
+		padding-bottom: 0;
+		box-shadow: none;
+	}
+
+	.dropdown:before {
+		display: none;
+	}
+
+	ul {
+		position: static;
+	}
+}
+
+.lv-off-canvas .is-concealed-menu:last-of-type {
+	li {
+		background: #40b4c2; // TODO: primary color - is blue etc
+	}
+}
+
+// refactor
+
+.lv-off-canvas .is-more-group > ul > li {
+	background: #4cc3d1 !important;
+}
+
+.lv-off-canvas .is-user-group > ul {
+	margin-top: -1px;
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.lv-off-canvas ul li.is-observed > a,
+.lv-off-canvas ul li.is-premium > a {
+    display: flex; // [LOCKED] - in case it's not
+    color: $secondary;
+
+    .obs-icon {
+        height: 16px;
+        margin: auto -20px auto auto;
+    }
+
+    .premium-icon {
+        height: 16px;
+        margin: auto -20px auto auto;
+    }
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.is-off-canvas-only {
+    display: none;
+}
+
+.lv-off-canvas .is-off-canvas-only {
+    display: block;
+    border: 0;
+}
+
+//-----------------------------------------------------------------
+// SPECIAL CASES - has dropdowns aren't links
+//-----------------------------------------------------------------
+
+.lv-off-canvas .is-mega.has-dropdown .submenu-trigger {
+	left: -20px;
+	width: calc(100% + 20px);
+	padding-right: 18px;
+	text-align: right;
+}

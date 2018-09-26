@@ -1,0 +1,337 @@
+<!--
+    FORM_LOGIN.HTML
+    updated: 13.09.18
+
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/vee-validate@2.1.0-beta.1/dist/vee-validate.js
+-->
+
+{% assign id = include.id | default: 'login-form' %}
+
+<!-- VUE INSTANCE -->
+<div id="{{ id }}" v-cloak>
+
+    <!-- VUE LOGIN FORM COMPONENT -->
+    <vue-login-form
+        endpoint="http://liquidvisual.net/hotlinking/inspire/form.php"
+        action="/#members-area-here/"
+        inline-template>
+
+        <div>
+
+            <!-- IF FAILURE -->
+            <div
+                v-if="failures && !success"
+                class="mb-4 alert alert-danger alert-dismissible fade show"
+                role="alert">
+
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+                <strong>Oops!</strong><br> <span v-html="errorText"></span>
+            </div>
+
+            <!-- FORM -->
+            <form
+                class="login-form"
+                name="Login Form"
+                novalidate>
+
+                <fieldset>
+
+                    <!-- USERNAME* -->
+                    <label class="form-group d-block">
+                        <p class="mb-2">Username<small class="asterisk">*</small></p>
+
+                        <input
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('username') }"
+                            name="username"
+                            type="text"
+                            v-model="form.username"
+                            v-validate="'required'">
+
+                        <small
+                            v-show="errors.has('username')"
+                            class="error shake animated">
+
+                            <i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('username')"></span>
+                        </small>
+                    </label>
+
+                    <!-- PASSWORD* -->
+                    <label class="form-group d-block">
+                        <p class="mb-2">Password<small class="asterisk">*</small></p>
+
+                        <input
+                            class="form-control"
+                            :class="{'is-invalid': errors.has('password') }"
+                            name="password"
+                            type="text"
+                            v-model="form.password"
+                            v-validate="'required'">
+
+                        <small
+                            v-show="errors.has('password')"
+                            class="error shake animated">
+
+                            <i class="fa fa-warning"></i>&nbsp;<span v-text="errors.first('password')"></span>
+                        </small>
+                    </label>
+
+                    <!-- REMEMBER ME -->
+                    <div class="form-group">
+                        <label class="custom-control custom-checkbox">
+                            <input
+                                class="custom-control-input"
+                                type="checkbox"
+                                name="remember-me"
+                                value="true"
+                                v-model="form.rememberMe">
+
+                            <p class="custom-control-label">Remember me</p>
+
+                        </label>
+                    </div>
+
+                </fieldset>
+
+                <!-- * REQUIRED -->
+                <p class="float-md-right">
+                    <small class="asterisk">*</small>
+                    <small class="text-muted" style="position: relative; top: -5px;">required</small>
+                </p>
+
+                <!-- SUBMIT -->
+                <button
+                    :disabled="errors.any() || processing"
+                    type="submit"
+                    class="btn btn-primary mb-4"
+                    @click.prevent="validateBeforeSubmit">
+
+                    <div v-show="processing" class="spinner-border text-primary">Loading...</div>
+                    <span v-show="processing" class="text">Verifying...</span>
+                    <span v-show="!processing" class="text">Login</span>
+                </button>
+
+            </form>
+        </div>
+    </vue-login-form>
+</div>
+
+<style>
+    .login-form .btn[disabled="disabled"] {
+        cursor: not-allowed;
+    }
+</style>
+
+<script>
+    //-----------------------------------------------------------------
+    // VUE LOGIN FORM COMPONENT
+    //-----------------------------------------------------------------
+
+    Vue.component('vue-login-form', {
+        props: {
+            action: {
+                type: String,
+                required: true
+            },
+            endpoint: {
+                type: String,
+                required: true
+            },
+        },
+        data() {
+            return {
+                errorText: '',
+                failures: 0,
+                processing: false,
+                success: false,
+
+                form: {
+                    username: '',
+                    password: '',
+                    rememberMe: false
+                }
+            }
+        },
+
+        //-----------------------------------------------------------------
+        // COMPUTED
+        //-----------------------------------------------------------------
+
+        computed: {
+            isComplete() { // * required fields - loop through vee-validate objects
+                var emptyRequiredFields = 0;
+                for (var item in this.fields) {
+                    if (this.fields[item].required) {
+                        if (this.form[item] == '') emptyRequiredFields++;
+                    }
+                }
+                return !emptyRequiredFields;
+            }
+        },
+
+        //-----------------------------------------------------------------
+        // METHODS
+        //-----------------------------------------------------------------
+
+        methods: {
+
+            //==================================================
+            // VALIDATE BEFORE SUBMIT
+            //==================================================
+
+            validateBeforeSubmit() {
+
+                // prevent button spamming
+                if (this.processing) return;
+
+                this.processing = true;
+
+                this.$validator.validateAll().then((result) => {
+                    if (result) {
+                        this.postData();
+                    } else {
+                        this.success = false;
+                        this.processing = false;
+                    }
+                });
+            },
+
+            //==================================================
+            // POST DATA
+            //==================================================
+
+            postData() {
+                axios({
+                    method: 'POST',
+                    url: this.endpoint,
+                    data: this.getDataString()
+                })
+                .then(response => {
+                    this.validateResponse(response.data);
+                    this.processing = false;
+                    window.scrollTo(0,0);
+                })
+                .catch(error => {
+                    this.throwError();
+                });
+            },
+
+            //==================================================
+            // getDataString
+            //==================================================
+
+            getDataString() { // to be sent via Axios
+                var dataString = '';
+
+                for (let item in this.form) {
+                    dataString += item + '=' + this.form[item] + '&';
+                }
+                return dataString;
+            },
+
+            //==================================================
+            // THROW ERROR
+            //==================================================
+
+            throwError(errorText) {
+                this.processing = false;
+                this.failures++;
+                this.errorText = errorText ? errorText : 'There was an error with the server. Please try again later.';
+                window.scrollTo(0,0);
+            },
+
+            //==================================================
+            // VALIDATE RESPONSE
+            //==================================================
+
+            validateResponse(data) {
+                if (data.success === true) {
+                    this.success = true;
+                    this.reset(true);
+
+                    // *** SUCCESS ***
+
+                    // set cookie here?
+                    window.location = this.action; // redirect
+                }
+                else {
+                    this.failures++;
+                    this.success = false;
+                    window.scrollTo(0,0);
+
+                    for (var error in data.errors) {
+
+                        var field = error.split('.')[1]; // Eg. CurrentNodeId, Email
+                            field = field.charAt(0).toLowerCase() + field.slice(1); // camelCase
+
+                        var messages = data.errors[error]; // array
+
+                        if (field) { // cannot be undefined
+                            this.errorText = 'Please check the following errors: <br>';
+
+                            for (var i = 0; i < messages.length; i++) {
+
+                                this.errorText += messages[i] + '<br>'; // display errors as string
+
+                                // SERVER ERROR EXAMPLE ----------
+                                // {
+                                //     "callerid": null,
+                                //     "success": false,
+                                //     "message": "",
+                                //     "errors": {
+                                //         "model.CurrentNodeID": [
+                                //             "The CurrentNodeID property is required."
+                                //         ],
+                                //         "model.Email": [
+                                //             "The Product field is required."
+                                //         ]
+                                //     },
+                                //     "data": null
+                                // }
+                                // -------------------------------
+                            }
+                        }
+                    }
+                }
+            },
+
+            //==================================================
+            // RESET (for success or clear)
+            //==================================================
+
+            reset(success) {
+                // https://github.com/baianat/vee-validate/issues/209
+                // Object.assign(this.$data, this.$options.data.call(this));
+
+                for (var item in this.form) {
+                    this.form[item] = ''; // clear all
+                }
+
+                this.success = success === true; // t/f
+                this.$validator.reset();
+            }
+        }
+    });
+
+    //-----------------------------------------------------------------
+    // VEE VALIDATE
+    //-----------------------------------------------------------------
+
+    Vue.use(VeeValidate, {
+        events: 'input' // 'change' or 'blur'
+    });
+
+    //-----------------------------------------------------------------
+    // VUE INSTANCE
+    //-----------------------------------------------------------------
+
+    new Vue({
+        el: '#{{id}}', // <--- Template variable, set by Jekyll (template)
+    });
+
+</script>

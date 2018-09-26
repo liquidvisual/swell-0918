@@ -1,0 +1,39 @@
+{% comment %}
+<!--
+    HERO STATIC
+
+    - Updated: 15.09.18
+    - Static banner, no carousel functionality, commonly used on internal pages
+      to display page headers
+-->
+{% endcomment %}
+
+{% assign id = include.id %}
+{% assign options = include.options %}
+{% assign bg_image = include.bg_image %}
+
+<!-- HERO WRAPPER -->
+<section id="{{ id }}" class="lv-hero-wrapper">
+
+    {% include components/hero/hero__parallax_plugin.html image=bg_image %}
+
+    <!-- HERO -->
+    <div class="lv-hero is-static">
+
+        <!-- HERO ITEM -->
+        <div class="lv-hero-item align-items-end {{ options }}" style="background-image: url('{{ bg_image }}')">
+
+            <!-- HERO CAPTION -->
+            <div class="container">
+                <div class="lv-hero-item-caption animated fadeInLeftSubtle fadeInUpSubtleX">
+                    {% if page.title_override %}
+                        <h2 class="display-1">{{ page.title_override }}</h2>
+                    {% else %}
+                        <h1 class="display-1">{{ page.title }}</h1>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,67 @@
+/*
+    TEXT-EDITOR.CSS
+
+    - updated: 07.15.18
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+
+$spacer: rem-calc(20) !default;
+$font-family-sans-serif: inherit !default;
+$font-family-serif: inherit !default;
+
+//-----------------------------------------------------------------
+// IMAGES
+//-----------------------------------------------------------------
+
+.wysiwyg img {
+	max-width: 100%;
+}
+
+//-----------------------------------------------------------------
+// IMAGE ALIGNMENT
+//-----------------------------------------------------------------
+
+.img-left {
+	margin-bottom: $spacer;
+
+	@include media-breakpoint-down(sm) {
+	    width: 100%;
+	}
+
+	@include media-breakpoint-up(md) {
+	    float: left;
+	    margin: $spacer $spacer 0 0;
+	}
+}
+
+.img-right {
+	margin-bottom: $spacer;
+
+	@include media-breakpoint-down(sm) {
+	    width: 100%;
+	}
+
+	@include media-breakpoint-up(md) {
+	    float: right;
+	    margin: 0 0 $spacer $spacer;
+	}
+}
+
+//-----------------------------------------------------------------
+// FONTS
+//-----------------------------------------------------------------
+
+.font-family-serif {
+	font-family: $font-family-serif;
+}
+
+.font-family-sans-serif {
+	font-family: $font-family-sans-serif;
+}
+
+//=========================================
+//
+//=========================================

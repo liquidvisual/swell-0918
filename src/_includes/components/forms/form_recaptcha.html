@@ -1,0 +1,60 @@
+<!--
+    FORM_RECAPTCHA.HTML
+    updated: 06.09.18
+
+    DEPENDENCIES
+        https://unpkg.com/vue/dist/vue.js
+        https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js
+        https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit
+
+    NOTES
+        https://github.com/DanSnow/vue-recaptcha/blob/master/example/index.html
+        https://codepen.io/airwall/pen/NvwBgY?editors=1011
+        https://github.com/google/google-api-javascript-client/issues/397
+-->
+
+{% comment %}
+
+<script src="https://unpkg.com/vue-recaptcha@latest/dist/vue-recaptcha.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?onload=vueRecaptchaApiLoaded&render=explicit" async defer></script>
+
+<div id="google-recaptcha">
+    <div>
+        <vue-recaptcha
+            ref="recaptcha"
+            @verify="onVerify"
+            @expired="onExpired"
+            :sitekey="sitekey">
+        </vue-recaptcha>
+
+        <button @click="resetRecaptcha">Reset ReCAPTCHA</button>
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#google-recaptcha',
+        data: {
+            sitekey: '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'
+        },
+        components: {
+            VueRecaptcha
+        },
+        methods: {
+            onSubmit() {
+                this.$refs.invisibleRecaptcha.execute()
+            },
+            onVerify(response) {
+                console.log('Verify: ' + response)
+            },
+            onExpired() {
+                console.log('Expired')
+            },
+            resetRecaptcha() {
+                this.$refs.recaptcha.reset() // Direct call reset method
+            }
+        }
+    })
+</script>
+
+{% endcomment %}
