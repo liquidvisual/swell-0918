@@ -4,16 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Login - Inspire</title>
+    <title>Login - Swellnet</title>
 
     <!-- { % include components/widgets/google_analytics.html %} -->
     
-<!-- CDN --><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600|Montserrat:600,700,800">
+<!-- CDN --><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
     <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body class="">
 
-    <!-- { % include components/layout/loader.html %} -->
+    <!-- PAGE LOADER -->
+    <div id="lv-page-loader" class="lv-page-loader">
+        <div class="lv-page-loader-spinner">
+            <div class="loader-spinner">
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+                <div class="loader-component">
+                    <div class="half-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
+    <script>
+    var loader = document.getElementById('lv-page-loader');
+    loader.style.display = 'flex';
+    // Limit to 2+ seconds of waiting time
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
+    </script>
     <div class="lv-page">
 
         <!-- HEADER -->
@@ -49,7 +71,7 @@
 
                     <!-- LOGO -->
                     <a class="logo" href="/" title="Swellnet" itemprop="url">
-                        <img src="/assets/img/content/swellnet-logo--dark.svg" alt="" itemprop="logo"> </a>
+                        <img src="/assets/img/content/swellnet-logo--dark.svg" alt="Swellnet Pty Ltd" itemprop="logo"> </a>
 
                     <!-- NAVIGATION -->
                     <nav class="global-navigation hidden-lg-down">
@@ -14672,7 +14694,7 @@
                                                 <li class="is-premium">
 
                                                     <!-- ANCHOR -->
-                                                    <a href="/surfcams/sunshine-beach" data-alias="">
+                                                    <a href="/surfcams/sunshine-beach/" data-alias="">
 
                                                         <!-- TEXT -->
                                                         <span class="text">Sunshine Beach</span>
@@ -30024,7 +30046,7 @@
                             <li class="is-premium">
 
                                 <!-- ANCHOR -->
-                                <a href="/surfcams/sunshine-beach" data-alias="">
+                                <a href="/surfcams/sunshine-beach/" data-alias="">
 
                                     <!-- TEXT -->
                                     <span class="text">Sunshine Beach</span>
@@ -30724,13 +30746,15 @@
 
     <!--[if lte IE 9]>
     <div class="lv-alert-bar">
-        <p>You're using an outdated browser. Please <a title="Click me, you know you want to." href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
+        <p>You're using an outdated browser. Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
         <span class="lv-alert-bar-close-btn">&times;</span>
     </div>
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
     
+<!-- HLS -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
 <!-- IE11 ES6 (Plyr) --><script>
     window.Promise || document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"><\/script>');
     </script>
