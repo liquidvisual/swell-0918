@@ -1,23 +1,23 @@
 /*
     HEADER.CSS
 
-    - Last updated: 17.09.18
+    - Last updated: 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 
-$header-top-sm-height: 46px !default;
-$header-top-md-height: 46px !default;
-$header-top-lg-height: 46px !default;
+// $header-top-sm-height: 46px !default;
+// $header-top-md-height: 46px !default;
+// $header-top-lg-height: 46px !default;
 
-$header-body-sm-height: 57px !default; // 50
+$header-body-sm-height: 57px !default;
 $header-body-md-height: 74px !default;
 // $header-body-lg-height: 100px !default;
 
-$header-bottom-sm-height: 50px !default;
-$header-bottom-md-height: 50px !default;
+// $header-bottom-sm-height: 50px !default;
+// $header-bottom-md-height: 50px !default;
 $header-bottom-lg-height: 47px !default; // 50
 
 //-----------------------------------------------------------------
@@ -27,11 +27,6 @@ $header-bottom-lg-height: 47px !default; // 50
 .lv-page {
 	transition: margin ease 250ms;
 	will-change: margin;
-
-	@include media-breakpoint-up(md) {
-	    padding-top: 170px + $header-body-md-height + 40px;
-		// padding-top: 40px;
-	}
 }
 
 // // push NAV down
@@ -39,10 +34,6 @@ $header-bottom-lg-height: 47px !default; // 50
 	@include media-breakpoint-up(xl) {
 	    margin-top: $header-bottom-lg-height; // to accomodate the bottom strip
 	}
-}
-
-.headroom--not-top.headroom--unpinned.lv-page {
-	// padding-top: 240px + 40px !important; //$header-body-md-height + 40px;
 }
 
 //-----------------------------------------------------------------
@@ -63,7 +54,7 @@ $header-bottom-lg-height: 47px !default; // 50
 
 .headroom--unpinned.headroom--not-top .global-header {
    	transform: translateY(-100%);
-    transition-delay: 800ms; // delay for UX
+    transition-delay: 600ms; // delay for UX
 }
 
 // override if hovering menu
@@ -98,7 +89,7 @@ $header-bottom-lg-height: 47px !default; // 50
 //-----------------------------------------------------------------
 
 .global-header {
-	position: absolute; //fixed
+	position: absolute; // fixed
 	top: 0;
 	width: 100%;
 	will-change: transform;
@@ -136,7 +127,8 @@ $header-bottom-lg-height: 47px !default; // 50
 .global-header-alert {
 	display: flex;
 	align-items: center;
-	height: $header-top-lg-height;
+	// height: $header-top-lg-height;
+	padding: rem-calc(12 0);
 	background: $secondary;
 	font-family: $headings-font-family;
 	font-size: rem-calc(12);
@@ -152,9 +144,7 @@ $header-bottom-lg-height: 47px !default; // 50
 	}
 
 	a {
-		// margin-right: rem-calc(15);
 		color: white; // [THEMEABLE]
-		// transition: opacity 200ms ease;
 
 		&:hover {
 			opacity: 1 !important; // override
@@ -162,11 +152,8 @@ $header-bottom-lg-height: 47px !default; // 50
 	}
 
 	strong {
+		display: inline-block; // [LOCKED] - let it fall to a new line
 		font-weight: bold;
-	}
-
-	a:last-of-type {
-		// margin-right: 0;
 	}
 }
 
@@ -175,7 +162,7 @@ $header-bottom-lg-height: 47px !default; // 50
 //-----------------------------------------------------------------
 
 .global-header-sponsor {
-	padding: rem-calc(17);
+	padding: rem-calc(17 0);
 	background: #e8e8e9; // need this as var
 }
 
@@ -238,6 +225,7 @@ $header-bottom-lg-height: 47px !default; // 50
 	//=========================================
 
 	> .container {
+		position: relative; // [LOCKED] - for hidden nav
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;

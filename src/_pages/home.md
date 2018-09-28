@@ -3,8 +3,27 @@ layout: base__homepage
 title: Home
 permalink: /
 regenerate: true
-hero_options: is-default is-parallax
+theme:
 ---
+
+<form class="page-state-switcher">
+	<label>
+		<input type="checkbox" name="is-logged-in" value="theme-logged-in"> User is Logged in &nbsp;
+	</label>
+	<label>
+		<input type="checkbox" name="is-paid" value="theme-paid"> User is Paid
+	</label>
+</form>
+
+<style>
+	.page-state-switcher {
+		color: #b1f22d;
+	}
+</style>
+
+<div class="mb-4"></div>
+<div class="mb-4"></div>
+<div class="mb-5"></div>
 
 # H1. This Is a Header One
 ## H2. This Is a Header Two
@@ -13,11 +32,11 @@ hero_options: is-default is-parallax
 ##### H5. This Is a Header Five
 ###### H6. This Is a Header Six
 
-<h2 class="subheader">H2. Subheader</h2>
+<!-- <h2 class="subheader">H2. Subheader</h2>
 <h3 class="subheader">H3. Subheader</h3>
 <h4 class="subheader">H4. Subheader</h4>
 <h5 class="subheader">H5. Subheader</h5>
-<h6 class="subheader">H6. Subheader</h6>
+<h6 class="subheader">H6. Subheader</h6> -->
 
 <hr>
 
@@ -30,14 +49,7 @@ Elaine: He took it out. Kramer: El Paso. I spent a month there, one night! Jerry
 
 Jerry: The whole reason you watch a TV show is because it ends. If I wanted a long, boring story with no point to it, I've got my life. George: Frolf, frisbee golf, Jerry. Golf with a frisbee. George: I'd rather be dating the blind. A good looking blind woman doesn't even know you're not good enough for her. Kramer: Boxers! How do you wear these things? Look at that–they’re bagging up, they’re rising in, and there’s nothing holding me in place. Elaine: I am going to sidle the sidler. Jerry: You sidle? You stomp around like a Clydesdale. Mr. Ross: It's a terrible tragedy when parents outlive their children. George: Yes, I agree. I hope my parents go long before I do. Jerry: Women go after doctors like men go after models. They want someone with knowledge of the body. We just want the body. Jerry: Is it possible they're just having babies to get people to visit them? George: My father was a quitter, my grandfather was a quitter, I was raised to give up. It's one of the few things I do well. George: You know what I love? How there's two nuts named after people: Hazel and Filbert. Estelle Costanza: You're not giving away our waterpik!, Jerry : I'll tell you what the big advantage of homosexuality is. If you're going out with someone your size, you double your wardrobe.
 
-
-
-{% comment %}
 Jerry: We were in the garage. You know how garages are. They're conducive to sex talk. It's a high testosterone area. George: You could do your taxes in the time it takes me to have an orgasm.
-
-
-
-
 
 George: Was he on his death bed? Jerry: No, he was on his regular bed. Elaine: No, I don't have a square to spare. I can't spare a square."
 
@@ -49,10 +61,6 @@ Kramer: Now let's push this giant ball of oil out the window. : George: If it wa
 
 Kramer [in the sauna]: It's like a sauna in here. , "George: She's got a little Marissa Tomei thing goin' on. Jerry: Ah, too bad you've got a little George Costanza thing goin' on." George: My mother had a Glamour magazine, I started leafing through it. So, one thing lead to another. George: This is gonna be my time. Time to taste the fruits and let the juices drip down my chin. I proclaim this: The Summer of George. Jerry: Ah well, if it isn't Shakey the Mohel.
 
-{% endcomment %}
-
-<h2 id="scroll-down">Scroll To</h2>
-
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
@@ -66,3 +74,6 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+{% include sections/section_basic.html content_block=item %}

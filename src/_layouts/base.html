@@ -15,13 +15,13 @@
     <!-- { % include components/widgets/google_analytics.html %} -->
 
     <!-- CDN -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600|Montserrat:400,500,600,700,800,900|Source+Code+Pro:500,600">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600|Montserrat:600,700,800">
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
 </head>
-<body>
+<body class="{{ page.theme }}">
     <!-- { % include components/layout/loader.html %} -->
 
     <div class="lv-page">
@@ -33,19 +33,19 @@
 
         {{ content }}
 
+        {% comment %}
         <!-- FOOTER -->
         <footer class="global-footer">
             {% include components/layout/footer.html %}
         </footer>
+        {% endcomment %}
 
     </div> <!-- /.lv-page -->
 
-    {% comment %}
     <!-- OFF-CANVAS MENU -->
     <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
         {% include components/navigation/nav.html %}
     </nav>
-    {% endcomment %}
 
     <!--[if lte IE 9]>
     <div class="lv-alert-bar">
@@ -55,6 +55,11 @@
     <![endif]-->
 
     <!-- **** JAVASCRIPT **** -->
+
+    <!-- IE11 ES6 (Plyr) -->
+    <script>
+        window.Promise || document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"><\/script>');
+    </script>
 
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
@@ -66,7 +71,6 @@
     <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
     <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="/node_modules/plyr/dist/plyr.js"></script>
-    <script src="/assets/scripts/liquidvisual/utilities.js"></script>
     <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
 
     <script src="/assets/scripts/off-canvas.js"></script>

@@ -191,7 +191,7 @@ $grid-breakpoints: (
   sm: 375px, // [LOCKED] - near iPhone 6+ (was 576px)
   md: 768px,
   lg: 992px,
-  xl: 1140px + ($container-gutter * 1.5) * 2
+  xl: 1050px //1140px + ($container-gutter * 1.5) * 2
 ) !default;
 
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");

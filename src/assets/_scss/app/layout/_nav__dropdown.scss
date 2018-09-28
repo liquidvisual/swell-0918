@@ -1,7 +1,7 @@
 /*
     NAV__DROPDOWN.CSS
 
-    - updated: 25.09.18
+    - updated: 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -40,6 +40,7 @@
         width: calc(100% - #{rem-calc(20 * 2)}); // [LOCKED] - design
         margin: rem-calc(0 20); // [LOCKED] - design
 
+        // SCROLLBARS
         // max-height: 600px; // not a good experience!
         // overflow-y: auto;
     }
@@ -61,6 +62,14 @@
         font-size: rem-calc(15); // [LOCKED] - opinionated - design is 16
         color: #5d5d5d; // [LOCKED] - design
         transition: none; // [LOCKED]
+
+        .text {
+            display: inline-block;
+            width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
     }
 }
 
@@ -101,7 +110,7 @@
 }
 
 //-----------------------------------------------------------------
-// DROPDOWN STATE (new positioning context)
+// DROPDOWN STATE (Hint: new positioning context for fixed)
 //-----------------------------------------------------------------
 
 .lv-nav > ul > li > ul.dropdown {
@@ -109,21 +118,6 @@
     transform: translateY(-10px);
     transition: transform 200ms ease;
 }
-
-// Cleans up mess of hiding nav when dropdown is showing
-// .lv-page.headroom--not-top.headroom--unpinned {
-//     .lv-nav > ul > li.is-mega .dropdown {
-//         visibility: hidden;
-//         opacity: 0;
-//         transition: opacity 150ms ease 800ms,
-//                     visibility 151ms ease 800ms;
-//     }
-// }
-
-// override if hovering menu
-// .headroom--unpinned.headroom--not-top .global-header:hover {
-//     transform: translateY(0);
-// }
 
 //-----------------------------------------------------------------
 // DROPDOWN TRIGGERS (ANCHOR HOVERS)

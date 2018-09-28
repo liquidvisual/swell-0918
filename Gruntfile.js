@@ -44,7 +44,7 @@ module.exports = function (grunt) {
       dist: 'dist',
       assets: 'dist/assets',
       port: '9000',
-      git: 'https://github.com/liquidvisual/inspire-0118.git',
+      git: 'https://github.com/liquidvisual/swell-0918.git',
     },
 
     //-----------------------------------------------------

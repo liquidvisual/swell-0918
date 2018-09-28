@@ -1,7 +1,7 @@
 /*
     NAV__DROPDOWN_REPORTS.CSS
 
-    - updated: 26.09.18
+    - updated: 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -30,7 +30,7 @@ $countries: 11;
 
     > .dropdown {
         flex-direction: column;
-        // height: rem-calc(562); // **TODO: needs to be JS driven, gah
+        // height: rem-calc(562); // [NOTE] - is JS driven | auto by default
         padding: rem-calc(28 0 26 0); // [LOCKED] - accomodate header/footer strips
         padding-bottom: rem-calc(102); // [LOCKED?] - extend auto height to two beyond max 1st col items
     }
@@ -110,47 +110,33 @@ $countries: 11;
     }
 
     //-----------------------------------------------------------------
-    // STRIPE ALL THE WAY DOWN
+    // STRIPE ALL THE WAY DOWN (GREAT HACK)
     //-----------------------------------------------------------------
 
-    .dropdown .dropdown {
-        &:before { // [LOCKED] - omg clever
-            content: "";
-            position: fixed;
-            top: 0;
-            height: 100%;
-            width: 25%; // [LOCKED] - inherit not work
-            background: inherit;
-            z-index: -1; // [LOCKED]
-        }
-    }
-
-    @media all and (-ms-high-contrast:none) {
-        .dropdown .dropdown:before {
-            display: none;
-        }
-
-        > .dropdown {
-            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTE5MHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDExOTAgNSI+PGRlZnM+PGcgaWQ9IkxheWVyMV8wX0ZJTEwiPjxwYXRoIGZpbGw9IiNFMkUzRTQiIHN0cm9rZT0ibm9uZSIgZD0iTSAxMTkwIC0yMy4xTCAwIC0yMy4xIDAgNDIuNiAxMTkwIDQyLjYgMTE5MCAtMjMuMSBaIi8+PC9nPjxnIGlkPSJMYXllcjFfMV9GSUxMIj48cGF0aCBmaWxsPSIjRjlGOUZBIiBzdHJva2U9Im5vbmUiIGQ9Ik0gMjk3LjUgLTIzLjFMIDAgLTIzLjEgMCA0Mi42IDI5Ny41IDQyLjYgMjk3LjUgLTIzLjEgWiIvPjwvZz48ZyBpZD0iTGF5ZXIxXzJfRklMTCI+PHBhdGggZmlsbD0iI0YzRjRGNSIgc3Ryb2tlPSJub25lIiBkPSJNIDI5Ny41IC04OC44TCAyOTcuNSAtMjMuMSA1OTUgLTIzLjEgNTk1IC04OC44IDI5Ny41IC04OC44IFoiLz48L2c+PGcgaWQ9IkxheWVyMV8zX0ZJTEwiPjxwYXRoIGZpbGw9IiNFQUVCRUMiIHN0cm9rZT0ibm9uZSIgZD0iTSA4OTIuNSAtNDAuMUwgODkyLjUgLTEwNS44IDU5NSAtMTA1LjggNTk1IC00MC4xIDg5Mi41IC00MC4xIFoiLz48L2c+PC9kZWZzPjxnIHRyYW5zZm9ybT0ibWF0cml4KCAxLCAwLCAwLCAxLCAwLDApICI+PHVzZSB4bGluazpocmVmPSIjTGF5ZXIxXzBfRklMTCIvPjwvZz48ZyB0cmFuc2Zvcm09Im1hdHJpeCggMSwgMCwgMCwgMSwgMCwwKSAiPjx1c2UgeGxpbms6aHJlZj0iI0xheWVyMV8xX0ZJTEwiLz48L2c+PGcgdHJhbnNmb3JtPSJtYXRyaXgoIDEsIDAsIDAsIDEsIDAsNjUuNykgIj48dXNlIHhsaW5rOmhyZWY9IiNMYXllcjFfMl9GSUxMIi8+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KCAxLCAwLCAwLCAxLCAwLDgyLjcpICI+PHVzZSB4bGluazpocmVmPSIjTGF5ZXIxXzNfRklMTCIvPjwvZz48L3N2Zz4=);
-        }
-    }
-
-    //-----------------------------------------------------------------
-    // SECOND LAST ROW - RIGHT BORDER
-    // visual trickery to create border on end last
-    // due to z-index - will only show when last col is absent
-    //-----------------------------------------------------------------
-
-    > .dropdown > li > ul.dropdown > li > ul.dropdown {
-        &:after {
+    > .dropdown .dropdown {
+        &:before {
             content: "";
             position: absolute;
             top: 0;
-            right: -1px;
-            height: 100vh; // is this safe?
-            width: 1px;
-            background: rgba(black, 0.04);
+            right: 0;
+            height: 100vh;
+            width: 100%;
+            background: inherit;
             z-index: -2; // [LOCKED] - clever
+        }
+    }
+
+    //=========================================
+    // SECOND LAST ROW - RIGHT BORDER
+    // visual trickery to create border on end last
+    // due to z-index - will only show when last col is absent
+    //=========================================
+
+    > .dropdown > li > ul.dropdown > li > ul.dropdown {
+        &:before {
+            box-sizing: content-box; // [LOCKED] - boom
+            right: -1px;
+            border-right: 1px solid rgba(black, 0.05);
         }
     }
 
@@ -201,15 +187,16 @@ $countries: 11;
     //-----------------------------------------------------------------
 
     > .dropdown .dropdown {
-        // visibility: hidden; // click to enable (active)
         display: none;
     }
 
     > .dropdown li.has-dropdown.active > .dropdown {
-        // visibility: visible;
-        // transform: translateY(0px);
         display: block;
     }
+
+    //-----------------------------------------------------------------
+    // SHOW ON HOVER
+    //-----------------------------------------------------------------
 
     // > .dropdown li:nth-child(2) > .dropdown {
     // > .dropdown li:hover > .dropdown {

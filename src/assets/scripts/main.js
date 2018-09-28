@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 15.08.18
+    MAIN.JS - Last updated: 27.08.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -19,10 +19,10 @@ $(window).on('load', function() {
 
 // Change "{}" to your options:
 // https://github.com/sampotts/plyr/#options
-const player = new Plyr('audio', {});
+// const player = new Plyr('audio', {});
 
 // Expose player so it can be used from the console
-window.player = player;
+// window.player = player;
 
 //-----------------------------------------------------------------
 // ONLOAD - TOOLTIP
@@ -31,6 +31,7 @@ window.player = player;
 $(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
+    setPagePaddingTop();
     initHeadroom();
 })
 
@@ -39,15 +40,31 @@ $(function() {
 // Exclude empty links, sitemap and tabs
 //-----------------------------------------------------------------
 
-$('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(function() {
-    var id = $(this).attr('href');
-    var endPos = $(id);
+// $('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(function() {
+//     var id = $(this).attr('href');
+//     var endPos = $(id);
 
-    if (endPos.length) {
-        $.scrollTo(endPos.offset().top - 50, 500);
-        // return false;
+//     if (endPos.length) {
+//         $.scrollTo(endPos.offset().top - 50, 500);
+//         // return false;
+//     }
+// });
+
+
+
+$('.page-state-switcher input').click(function(event){
+    var $body = $('body');
+    var $this = $(this);
+    var val = $this.attr('value');
+
+    if ($this.is(':checked')) {
+        $body.addClass(val);
+    } else {
+        $body.removeClass(val);
     }
-});
+    setPagePaddingTop();
+    initHeadroom();
+})
 
 //-----------------------------------------------------------------
 // SCROLL TOP
@@ -71,6 +88,19 @@ $('[data-back-top]').click(function() {
 //         }, 300);
 //     });
 // }
+
+//-----------------------------------------------------------------
+// ADJUST PAGE FOR STICKY HEADER
+//-----------------------------------------------------------------
+
+var $lvPage = $('.lv-page');
+var $globalHeader = $('.global-header');
+
+$(window).on('resize', setPagePaddingTop);
+
+function setPagePaddingTop() {
+    $lvPage.css('paddingTop', $globalHeader.height() + 40); // 40 is the top gutter
+}
 
 //-----------------------------------------------------------------
 // HEADROOM.js
@@ -114,7 +144,7 @@ function initHeadroom() {
         // callback when unpinned, `this` is headroom object
         onUnpin : function() {},
         // callback when above offset, `this` is headroom object
-        onTop : function() {},
+        onTop : setPagePaddingTop,
         // callback when below offset, `this` is headroom object
         onNotTop : function() {},
         // callback when at bottom of page, `this` is headroom object

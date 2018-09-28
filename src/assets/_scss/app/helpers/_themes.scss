@@ -1,13 +1,52 @@
 /*
     THEMES.CSS
 
-    - updated: 00.00.18
+    - updated: 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
-// THEMES
+// DEFAULTS
 //-----------------------------------------------------------------
 
+.lv-off-canvas .is-user-group {
+	display: none;
+}
+
+//-----------------------------------------------------------------
+// THEME LOGGED IN
+//-----------------------------------------------------------------
+
+.theme-logged-in {
+
+	// USER BTNS
+	.lv-nav .is-user-group,
+	.lv-off-canvas .is-user-group {
+		display: block; // [LOCKED] - show the user menu
+	}
+
+	// LOGIN BTN
+	.lv-nav .is-login,
+	.lv-off-canvas .is-login {
+		display: none;
+	}
+}
+
+//-----------------------------------------------------------------
+// THEME PAID
+// user is premium and paid
+//-----------------------------------------------------------------
+
+.theme-paid {
+
+	.global-header {
+		position: fixed; // quick fix with toggle thing
+	}
+
+	.global-header-top {
+		display: none; // [LOCKED] - hide the ads
+		height: 0px; // [LOCKED] - for jQuery headroom
+	}
+}
 
 //=========================================
 //

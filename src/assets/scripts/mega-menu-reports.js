@@ -12,6 +12,7 @@
     // VARIABLES
     //-----------------------------------------------------------------
 
+    var $mainAnchors = $('a[href="/reports/"], a[href="/surfcams/"]');
     var $reportsMegaMenu = $('.lv-nav .is-reports-mega-menu > .dropdown');
     var $listItems = $('li', $reportsMegaMenu);
     var currentURL = window.location.pathname.split('/')[1];
@@ -21,9 +22,16 @@
     //-----------------------------------------------------------------
 
     // if (currentURL != 'reports') { // because trailing links are not in json
-        // var $topSelection = $reportsMegaMenu.find('> li:first-child');
-        // setActive($topSelection);
+        var $topSelection = $reportsMegaMenu.find('> li:first-child');
+        setActive($topSelection);
     // }
+
+    // Ignore clicks from /reports and /surfcams
+    $mainAnchors.each(function(){
+        $(this).click(function(e){
+            e.preventDefault();
+        })
+    })
 
     //-----------------------------------------------------------------
     // CLICK
@@ -99,7 +107,8 @@
             activeDropdownHeights.push($(this).height());
         })
 
-        var largestHeight = Math.max(...activeDropdownHeights);
+        // var largestHeight = Math.max(...activeDropdownHeights); // ES6
+        var largestHeight = Math.max.apply(Math, activeDropdownHeights);
         var finalHeight = largestHeight > 429 ? largestHeight : 429;
 
         $reportsMegaMenu.height(finalHeight);

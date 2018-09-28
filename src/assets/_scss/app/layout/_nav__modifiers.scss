@@ -16,6 +16,10 @@
     .lv-nav li.is-concealed-menu .dropdown {
         visibility: visible; // [LOCKED]
         z-index: -1; // [LOCKED] - fixes hidden nav items showing over megas
+
+        li {
+            border: 0; // [OVERRIDE]
+        }
     }
 }
 
@@ -29,13 +33,15 @@
     > a { // hide group titles
         // color: blue !important; // [HINT]
         display: none; // [LOCKED] - no need for group titles
+
+
     }
 
     ul.dropdown {
         display: flex;
         position: absolute;
         top: 100%; // [LOCKED]
-        right: rem-calc(40); // [LOCKED]
+        right: rem-calc(38); // [LOCKED] - magic design
         left: auto; // [LOCKED]
         width: auto; // [OVERRIDE]
         height: rem-calc(47);
@@ -52,6 +58,11 @@
             padding: rem-calc(0 15); // [LOCKED]
             line-height: rem-calc(47); // [LOCKED] - design
             color: white;
+            transition: background-color 150ms ease;
+
+            &:hover {
+                background: rgba(black, 0.04); // [OVERRIDE] - sensible
+            }
         }
     }
 }
@@ -77,6 +88,7 @@
 //-----------------------------------------------------------------
 
 .lv-nav .is-user-group {
+    display: none; // disabled by default, unlocked by theme
     margin-left: 20px; // [LOCKED]
 
     &:before {
@@ -129,7 +141,7 @@
 }
 
 //-----------------------------------------------------------------
-// IS RIGHT ALIGNED
+// IS-RIGHT-ALIGNED
 //-----------------------------------------------------------------
 
 // Prevent far-right dropdown from exceeding page width

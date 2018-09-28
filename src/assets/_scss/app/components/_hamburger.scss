@@ -1,7 +1,7 @@
 /*
     HAMBURGER.CSS
 
-    - Last updated: 19.09.18
+    - Last updated: 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -66,10 +66,6 @@ $hamburger-bar-height: 4px;
 
 .has-open-menu {
 
-    // .lv-hamburger {
-        // transform: rotate(90deg);
-    // }
-
     .lv-hamburger-top {
         transform: rotate(45deg);
         top: calc(50% - #{$hamburger-bar-height/2});
@@ -81,11 +77,6 @@ $hamburger-bar-height: 4px;
     }
 
     .lv-hamburger-middle {
-        @include media-breakpoint-up(xl) {
-            transform: rotate(-45deg);
-            // opacity: 0;
-        }
-
         @include media-breakpoint-down(lg) {
             position: fixed;
             top: 0;
@@ -95,6 +86,10 @@ $hamburger-bar-height: 4px;
             background: rgba(black, 0.5);
             z-index: 1;
             cursor: not-allowed;
+        }
+
+        @include media-breakpoint-up(xl) {
+            opacity: 0;
         }
     }
 }

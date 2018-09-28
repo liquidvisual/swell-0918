@@ -5619,7 +5619,7 @@
    {
       "name":"Log In",
       "url":"/user/login/",
-      "classes":"",
+      "classes":"is-login",
       "children":false
    },
    {
@@ -5671,7 +5671,7 @@
             {
               "name":"Log Out",
               "url":"/user/logout/",
-              "classes":"",
+              "classes":"is-logout",
               "children":false
             }
           ]

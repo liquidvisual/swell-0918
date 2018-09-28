@@ -1,7 +1,7 @@
 /*
     OFF-CANVAS.CSS
 
-    - Last updated: 18.04.18
+    - Last updated: 27.04.18
     - liquidvisual.com
 
     - latest update removes 'off-canvas' effect and transforms.
@@ -71,7 +71,7 @@ $hamburger-slit-height: 3px;
 
 .lv-off-canvas .dropdown {
 	position: fixed;
-	// visibility: hidden; // THIS WILL SOLVE IT <------
+	visibility: hidden; // THIS WILL SOLVE IT <------
 	top: 0;
 	right: -90%;
 	width: $menu-width-xs; // [required]
@@ -168,7 +168,7 @@ $hamburger-slit-height: 3px;
 	// NEXT ARROW .has-dropdown > a > .text::after
 	//=========================================
 
-	.has-dropdown > a > .submenu-trigger {
+	.has-dropdown > a > .submenu-arrow {
 		content: "\f105";
 		position: absolute;
 		top: 0;
@@ -176,6 +176,7 @@ $hamburger-slit-height: 3px;
 		width: 44px;
 		height: 100%;
 		// background: $menu-bg-color;
+		// background: pink;
 		font-family: "FontAwesome";
 		font-size: 25px;
 		font-weight: normal;
@@ -240,8 +241,9 @@ $hamburger-slit-height: 3px;
 		// top: 300px;
 		// right: 800px;
 		right: 0;
-
 		opacity: 1;
+
+		visibility: visible;
 	}
 }
 
@@ -308,6 +310,7 @@ $hamburger-slit-height: 3px;
 .lv-off-canvas .is-concealed-menu {
 	padding-left: 0;
 
+
 	> a { display: none; } // don't show the nest name
 
 	a { color: white; }
@@ -319,6 +322,7 @@ $hamburger-slit-height: 3px;
 	.dropdown {
 		padding-bottom: 0;
 		box-shadow: none;
+		visibility: visible; //refactor
 	}
 
 	.dropdown:before {
@@ -383,7 +387,7 @@ $hamburger-slit-height: 3px;
 // SPECIAL CASES - has dropdowns aren't links
 //-----------------------------------------------------------------
 
-.lv-off-canvas .is-mega.has-dropdown .submenu-trigger {
+.lv-off-canvas .is-mega.has-dropdown .submenu-arrow {
 	left: -20px;
 	width: calc(100% + 20px);
 	padding-right: 18px;

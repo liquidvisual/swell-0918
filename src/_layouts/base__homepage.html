@@ -2,101 +2,21 @@
 layout: base
 ---
 
-<div class="container">
-	<!-- <img width="100%" src="/assets/img/content/content-test-delete-me.png"> -->
-	<div class="row">
-		<div class="col-md-9">
-
-			{% comment %}
-			{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
-			{% include sections/section_basic.html content_block=item %}
-			{% endcomment %}
-
-			{% for i in (1..10) %}
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				<br>
-			{% endfor %}
-		</div>
-	</div>
-</div>
-
-{% comment %}
-
-{% include components/hero/hero.html align_caption="center" options=page.hero_options data=page.hero_data %}
-
 <!-- BODY -->
 <main class="main-body">
-	<h3 class="text-center my-5">For more see <a href="/components/">Docs</a></h3>
+	<div class="container">
+		<!-- <img width="100%" src="/assets/img/content/content-test-delete-me.png"> -->
+	    <div class="row">
+	        <div class="col-lg-8 pr-lg-4">
+	        	{{ content }}
+	        </div>
+	        <div class="col-lg-4 pl-lg-3">
+				<aside class="sidebar">
+					{% contentblock sidebar no-convert %}
+				</aside>
+	        </div>
+	    </div>
+	</div>
 
-	<!-- MEDIA ARTICLE -->
-	{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- CARDS -->
-	{% capture item %}{% include components/cards/cards.html columns=4 %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- CARDS SLIDER -->
-	{% capture item %}{% include components/cards/cards__slider.html columns=4 %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- CARDS TABS -->
-	{% capture item %}{% include components/cards/cards__tabs.html columns=4 %}{% endcapture %}
-	{% include sections/section_center.html content_block=item %}
-
-	<!-- ACCORDION -->
-	{% capture item %}{% include components/content/accordion.html uid="faq" data=site.data.faq %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- AUDIO -->
-	{% capture item %}{% include components/media/audio_player.html %}{% endcapture %}
-	{% include sections/section_split.html content_block=item %}
-
-	<!-- GALLERY -->
-	{% capture item %}{% include components/media/gallery.html data=site.data.gallery %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- GALLERY CONDENSED -->
-	{% capture item %}{% include components/media/gallery.html options="is-condensed" data=site.data.gallery %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- GALLERY -->
-	{% capture item %}{% include components/media/gallery.html data=site.data.gallery %}{% endcapture %}
-	{% include sections/section_full.html content_block=item %}
-
-	<!-- GALLERY GAPLESS -->
-	{% capture item %}{% include components/media/gallery.html options="is-gapless" data=site.data.gallery %}{% endcapture %}
-	{% include sections/section_full.html content_block=item %}
-
-	<!-- MEDIA LIGHTBOX -->
-	{% capture item %}{% include components/media/media_lightbox.html data=site.data.gallery_single %}{% endcapture %}
-	{% include sections/section_split.html content_block=item %}
-
-	<!-- MEDIA LIGHTBOX -->
-	{% capture item %}{% include components/media/media_lightbox.html data=site.data.gallery_single %}{% endcapture %}
-	{% include sections/section_split_reversed.html content_block=item %}
-
-	<!-- CARDS -->
-	{% capture item %}{% include components/cards/cards.html %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- CARDS SLIDER -->
-	{% capture item %}{% include components/cards/cards__slider.html %}{% endcapture %}
-	{% include sections/section.html content_block=item %}
-
-	<!-- CARDS TABS -->
-	{% capture item %}{% include components/cards/cards__tabs.html %}{% endcapture %}
-	{% include sections/section_center.html content_block=item %}
-
-	<!-- AFFILIATES -->
-	{% capture item %}{% include components/media/affiliates.html %}{% endcapture %}
-	{% include sections/section_center.html content_block=item %}
-
+	{% contentblock content_additional no-convert %}
 </main>
-
-{% endcomment %}
