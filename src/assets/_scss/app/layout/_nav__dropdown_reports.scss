@@ -21,7 +21,7 @@ $countries: 11;
     //-----------------------------------------------------------------
 
     .dropdown {
-        // visibility: visible; // [DEV]
+        visibility: visible; // [DEV]
     }
 
     //-----------------------------------------------------------------
@@ -33,6 +33,9 @@ $countries: 11;
         // height: rem-calc(562); // [NOTE] - is JS driven | auto by default
         padding: rem-calc(28 0 26 0); // [LOCKED] - accomodate header/footer strips
         padding-bottom: rem-calc(102); // [LOCKED?] - extend auto height to two beyond max 1st col items
+
+        // border-top: rem-calc(28) solid white;
+        // border-bottom: rem-calc(28) solid ;
     }
 
     //-----------------------------------------------------------------
@@ -119,7 +122,7 @@ $countries: 11;
             position: absolute;
             top: 0;
             right: 0;
-            height: 100vh;
+            height: 200vh; //100vh
             width: 100%;
             background: inherit;
             z-index: -2; // [LOCKED] - clever

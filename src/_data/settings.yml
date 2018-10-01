@@ -3,9 +3,9 @@ cname: swellnet-2018.yourwebvisual.com
 allow_robots: false
 
 # META
-title: Inspire
+title: Swellnet
 title_homepage: Swellnet
-company:
+company: Swellnet Pty Ltd
 description:
 
 # DEVELOPER
@@ -16,10 +16,10 @@ jekyll_version: 3.7.0
 
 # OFFICES
 offices:
-  - title:
-    address:
-    phone:
-    email:
+  - title: Sydney
+    address: Level 5, 8 West Street<br> North Sydney, NSW, 2060
+    phone: 1800 793 556
+    email: privacy@swellnet.com
 
 # GOOGLE
 google_analytics: #UA-XXXXXXXX-X

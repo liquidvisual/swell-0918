@@ -1,5 +1,5 @@
 ---
-layout: base__homepage
+layout: child_layout/multicam
 title: Multi-cam
 permalink: /multi-cam/
 ---

@@ -11,18 +11,31 @@
 // LISTS
 //-----------------------------------------------------------------
 
-.block-list {
-    list-style: none;
-    padding: 0;
+// .block-list {
+//     list-style: none;
+//     padding: 0;
 
-    li {
-        border-bottom: 1px solid #ccc;
-        padding: rem-calc(30 0);
-    }
+//     li {
+//         border-bottom: 1px solid #ccc;
+//         padding: rem-calc(30 0);
+//     }
 
-    // Prevent gaps eg. News
-    li:first-child {
-        padding-top: 0;
+//     // Prevent gaps eg. News
+//     li:first-child {
+//         padding-top: 0;
+//     }
+// }
+
+//-----------------------------------------------------------------
+// BLOCK GRID CONDENSED
+//-----------------------------------------------------------------
+
+.block-grid-condensed {
+    margin: rem-calc(-20);
+
+    > li,
+    > .block-grid-item {
+        padding: rem-calc(20);
     }
 }
 
@@ -30,19 +43,27 @@
 // BLOCK GRID CONDENSED
 //-----------------------------------------------------------------
 
-[class*="block-grid-"].is-condensed {
-    margin: rem-calc(-5);
+.block-grid-condensed-more {
+    margin: rem-calc(-15) !important;
 
-    li {
-        padding: rem-calc(5);
+    > li,
+    > .block-grid-item {
+        padding: rem-calc(15) !important;
     }
 }
 
-[class*="block-grid-"].is-gapless {
-    margin: 0;
+//-----------------------------------------------------------------
+// SMALL ONLY
+//-----------------------------------------------------------------
 
-    li {
-        padding: 0;
+.block-grid-condensed-sm-down {
+    @include media-breakpoint-down(sm) {
+        margin: rem-calc(-15);
+
+        > li,
+        > .block-grid-item {
+            padding: rem-calc(15);
+        }
     }
 }
 
@@ -50,21 +71,87 @@
 // LIST MASONRY
 //-----------------------------------------------------------------
 
-.list-masonry {
-    column-gap: 10px;
-    padding: 0;
-    margin: 0;
-    list-style: none;
+// .list-masonry {
+//     column-gap: 10px;
+//     padding: 0;
+//     margin: 0;
+//     list-style: none;
 
-    @include media-breakpoint-up(md) {
-        column-count: 2;
+//     @include media-breakpoint-up(md) {
+//         column-count: 2;
+//     }
+
+//     @include media-breakpoint-up(xl) {
+//         column-count: 3;
+//     }
+// }
+
+//-----------------------------------------------------------------
+// BLOCK GRID SCROLLER
+//-----------------------------------------------------------------
+/*
+.list-scroller-wrapper {
+    position: relative;
+
+    &:before,
+    &:after {
+        @include media-breakpoint-down(sm) {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            content: "\f105";
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 27px;
+            height: calc(100% - 10px);
+            background: $brand-primary;
+            font-family: 'FontAwesome';
+            font-size: rem-calc(40);
+            color: white;
+            z-index: 1;
+        }
     }
 
-    @include media-breakpoint-up(xl) {
-        column-count: 3;
+    &:after {
+        @include media-breakpoint-down(sm) {
+            left: auto;
+            right: 0;
+        }
     }
 }
 
+.list-scroller {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 0 10px 0;
+    margin: 0;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    li {
+        // flex: 0 0 220px;
+        flex: 0 0 140px;
+        margin-right: 5px;
+    }
+}
+
+.list-scroller.has-wrap-md {
+    @include media-breakpoint-up(md) {
+        flex-wrap: wrap;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    li {
+        @include media-breakpoint-up(md) {
+            flex: 0 0 calc(50% - 12px);
+            margin: 0 0 24px 0;
+        }
+    }
+}
+*/
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------

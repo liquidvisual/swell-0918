@@ -2,7 +2,7 @@
 /*
     MAIN.CSS
 
-    - Last updated: 06.09.18
+    - Last updated: 28.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -13,30 +13,10 @@
 @import "liquidvisual/components/rem-calc";
 
 //-----------------------------------------------------------------
-// BOOTSTRAP VARIABLES
+// BOOTSTRAP
 //-----------------------------------------------------------------
 
 @import "bootstrap/settings";
-
-//*****************************************************************
-// USER EDITABLE
-//*****************************************************************
-
-// FONT-WEIGHT START
-$font-weight-light:    300;
-$font-weight-normal:   400;
-$font-weight-semibold: 500;
-$font-weight-bold:     600;
-// FONT-WEIGHT END
-
-// HEADINGS-FONT-WEIGHT START
-$headings-font-weight: $font-weight-bold;
-// HEADINGS-FONT-WEIGHT END
-
-//-----------------------------------------------------------------
-// BOOTSTRAP CORE
-//-----------------------------------------------------------------
-
 @import "bootstrap/bootstrap";
 
 //-----------------------------------------------------------------
@@ -70,7 +50,7 @@ $headings-font-weight: $font-weight-bold;
 
 // @import "app/helpers/fonts";
 @import "app/helpers/special";
-@import "app/helpers/text-editor";
+// @import "app/helpers/text-editor";
 @import "app/helpers/themes";
 
 //-----------------------------------------------------------------
@@ -81,15 +61,26 @@ $headings-font-weight: $font-weight-bold;
 @import "liquidvisual/components/block-grid";
 @import "liquidvisual/components/custom";
 @import "liquidvisual/components/toolbox";
-@import "liquidvisual/vendor/magnific-popup/main";
+// @import "liquidvisual/vendor/magnific-popup/main";
 // @import "liquidvisual/vendor/syntax-highlighting";
 
 //-----------------------------------------------------------------
 // NODE DEPENDENCIES
 //-----------------------------------------------------------------
 
-$plyr-color-main: $primary;
-@import "plyr/src/sass/plyr";
 @import "font-awesome/scss/font-awesome";
-@import "animate.css/animate";
-@import "flickity/dist/flickity";
+// @import "animate.css/animate"; // CSS is deprecated in Sass
+// @import "flickity/dist/flickity"; // CSS is deprecated in Sass
+// @import "social-feed/css/jquery.socialfeed"; // CSS is deprecated in Sass
+
+//-----------------------------------------------------------------
+// PLYR SETTINGS
+//-----------------------------------------------------------------
+
+$plyr-color-main: #333; //lighten($brand-primary, 20%);
+// $plyr-color-gunmetal: #2f343d;
+// $plyr-color-fiord: #4f5b5f;
+// $plyr-color-lynch: #6b7d85;
+// $plyr-color-heather: #b7c5cd;
+
+@import "plyr/src/sass/plyr";

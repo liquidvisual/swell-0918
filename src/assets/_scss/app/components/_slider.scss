@@ -1,0 +1,178 @@
+/*
+    SLIDER.CSS
+
+    - Last updated: 11.08.17
+    - liquidvisual.com
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// THUMB SLIDER WRAPPER
+//-----------------------------------------------------------------
+
+.thumb-slider-wrapper {
+	position: relative;
+
+	.thumb-slider-track	{
+		position: relative;
+		background: #f6f4f5;
+		border-top: 15px solid #f6f4f5;
+		border-bottom: 15px solid #f6f4f5;
+
+		@include media-breakpoint-up(md) {
+			padding: 10px 0;
+		    // border: 0;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+// 1. Video appears directly above, slot it in
+// 2. Sidebar remove track on desktop
+//-----------------------------------------------------------------
+
+.panel-right .thumb-slider-wrapper {
+	.thumb-slider-track	{
+		@include media-breakpoint-up(md) {
+		    padding: 0;
+		    border: 0;
+		    background: none;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// THUMB SLIDER
+//-----------------------------------------------------------------
+
+.thumb-slider {
+	margin-left: 19px;
+
+	//=========================================
+	// FLICKITY ON BY DEFAULT
+	//=========================================
+
+	&:after {
+	  content: 'flickity';
+	  display: none;
+	}
+
+	//=========================================
+	// MAKE WAY FOR ARROWS
+	//=========================================
+
+	@include media-breakpoint-up(md) {
+	    margin-left: 31px;
+	}
+
+	//=========================================
+	// IS STACKED FOR DESKTOP
+	//=========================================
+
+	&.is-stacked-for-desktop {
+
+		&:after {
+			@include media-breakpoint-up(md) {
+			    content: '';
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+		    display: flex;
+		    flex-wrap: wrap;
+		    justify-content: space-between;
+		    margin: 0;
+		}
+
+		.thumb-slider-item {
+			@include media-breakpoint-up(md) {
+				flex: 0 0 calc(50% - 12px);
+			    padding: 0;
+			    margin: 0 0 24px 0;
+			}
+		}
+	}
+
+	//=========================================
+	// SLIDER ITEM
+	//=========================================
+
+	.thumb-slider-item {
+		outline: none;
+		margin: 5px 2px;
+
+		@include media-breakpoint-up(lg) {
+		    min-width: 140px; // hacky
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// CONTEXT
+//-----------------------------------------------------------------
+
+.section-replays {
+	.thumb-slider .thumb-slider-item {
+		@include media-breakpoint-up(md) {
+		    margin: 15px 2px;
+		}
+	}
+}
+
+//-----------------------------------------------------------------
+// CONTROLS
+//-----------------------------------------------------------------
+
+.thumb-slider-prev-btn,
+.thumb-slider-next-btn {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 100%;
+	padding: 0;
+	border: 0;
+	border-radius: 0;
+	box-shadow: 2px 0px 2px rgba(black, 0.2);
+	font-size: rem-calc(40);
+	color: white;
+	background: $primary;
+	z-index: 1;
+	transition: background 200ms ease;
+
+	@include media-breakpoint-up(sm) {
+	    width: 27px;
+	}
+
+	&:hover {
+		@include media-breakpoint-up(lg) {
+		    background: lighten($primary, 5);
+		}
+	}
+}
+
+.thumb-slider-next-btn {
+	left: auto;
+	right: 0;
+	box-shadow: -2px 0px 2px rgba(black, 0.2);
+}
+
+//-----------------------------------------------------------------
+// STACKED FOR DESKTOP REMOVES BUTTONS
+//-----------------------------------------------------------------
+
+.thumb-slider.is-stacked-for-desktop ~ .thumb-slider-prev-btn,
+.thumb-slider.is-stacked-for-desktop ~ .thumb-slider-next-btn {
+	@include media-breakpoint-up(md) {
+	    display: none;
+	}
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

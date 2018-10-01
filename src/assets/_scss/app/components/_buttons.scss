@@ -8,14 +8,6 @@
 // VARIABLES
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
-// BOOTSTRAP OVERRIDE
-//-----------------------------------------------------------------
-
-b, strong {
-    font-weight: $font-weight-bold;
-}
-
-//-----------------------------------------------------------------
 // BACK TO TOP
 //-----------------------------------------------------------------
 
@@ -70,23 +62,97 @@ b, strong {
 }
 
 //-----------------------------------------------------------------
-// BUTTON TAB
+// BTN CTA (with arrow)
 //-----------------------------------------------------------------
 
-.btn-tab {
-    padding: rem-calc(8 15);
-    color: $body-color;
+.btn-cta {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: 0;
+    background: $primary;
+    font-size: rem-calc(32);
+    text-align: left;
+    color: white;
 
-    &.active {
-        background: $gray-200;
-        color: $body-color;
+    .fa-angle-right {
+        margin-left: auto;
+        font-size: rem-calc(44);
+    }
+
+    &:hover {
+        color: white;
+        background: darken($primary, 5%);
     }
 }
 
 //-----------------------------------------------------------------
-// BUTTON TILE
+// BTN TABS
 //-----------------------------------------------------------------
 
+.btn-tabs {
+    overflow: hidden;
+    border-bottom: 10px solid #e4e2e3;
+    margin-top: -20px;
+
+    .btn-tiny {
+        position: relative;
+        left: 15px;
+        font-size: rem-calc(30);
+
+        @include media-breakpoint-up(md) {
+            top: 12px;
+            left: 0;
+        }
+    }
+
+    .btn-tab {
+        display: block;
+        padding: rem-calc(15 30);
+        float: right;
+        background: #f5f3f4;
+
+        font-weight: 600;
+        color: #666;
+        text-transform: uppercase;
+
+        @include media-breakpoint-up(md) {
+            font-size: rem-calc(30);
+        }
+
+        &.active {
+            background: #e4e2e3;
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// BTN TINY (FAVORITE) - phase out for BS class
+//-----------------------------------------------------------------
+
+.btn.btn-tiny {
+    background: $secondary;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: rem-calc(20);
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 5px 10px;
+    border: 0;
+    // float: left;
+    // margin-bottom: rem-calc(15);
+
+    &:hover {
+        @include media-breakpoint-up(lg) {
+            background: lighten($secondary, 5%);
+        }
+    }
+}
+
+//-----------------------------------------------------------------
+// BUTTON TILE (better version) - reinstate once below is refactored
+//-----------------------------------------------------------------
+/*
 .btn-tile {
     display: block;
     position: relative;
@@ -194,6 +260,120 @@ b, strong {
 
             .btn-tile-overlay {
                 opacity: 1;
+            }
+        }
+    }
+}
+*/
+
+//-----------------------------------------------------------------
+// BUTTONS - phase out in favor of above
+//-----------------------------------------------------------------
+
+.btn-tile {
+    display: block;
+    position: relative;
+    // height: rem-calc(150);
+    overflow: hidden;
+    // box-shadow: none !important;
+
+    @include media-breakpoint-up(md) {
+        height: auto;
+    }
+
+    //=========================================
+    //
+    //=========================================
+
+    &.is-slim {
+        height: rem-calc(100);
+
+        @include media-breakpoint-up(md) {
+            height: rem-calc(220);
+        }
+    }
+
+    //=========================================
+    // PLACEHOLDER IMAGE TO SET DIMENSIONS
+    //=========================================
+
+    img {
+        // visibility: hidden;
+    }
+
+    //=========================================
+    //
+    //=========================================
+
+    .btn-tile-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-position: center center;
+        background-size: cover;
+        background-repeat: none;
+        transition: transform 300ms ease, opacity 300ms ease;
+    }
+
+    .btn-tile-overlay {
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+        padding: rem-calc(10);
+        background: #2f2f2f; //rgba(black, 0.5);
+        transition: opacity 300ms ease, background-color 300ms ease;
+
+        .btn-tile-header {
+            padding: 0;
+            margin: 0;
+            font-size: rem-calc(26);
+            line-height: 1;
+            color: white;
+        }
+    }
+
+    &.active .btn-tile-overlay .btn-tile-header:before {
+        content: "";
+        position: relative;
+        top: -3px;
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        margin-right: 5px;
+        border-radius: 100%;
+        background: lighten($primary, 10%);
+        color: $primary;
+
+        animation-name: blink;
+        animation-timing-function: linear;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+
+        @keyframes blink {
+          50% {
+            opacity: 0.4;
+          }
+        }
+    }
+
+    //=========================================
+    // HOVERS
+    //=========================================
+
+    &:hover {
+        @include media-breakpoint-up(xl) {
+            .btn-tile-bg {
+                opacity: 0.85;
+                // transform: scale(1.05);
+            }
+
+            .btn-title-header {
+                color: white !important;
             }
         }
     }

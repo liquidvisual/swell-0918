@@ -22,7 +22,7 @@
 -->
 {% endcomment %}
 
-{% assign data = include.data | default: site.data.sitemap_json %}
+{% assign data = include.data | default: site.data.sitemap %}
 
 {% capture ul_classes %}
     {% if forloop %} dropdown {% endif %}
