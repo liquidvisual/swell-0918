@@ -9427,9 +9427,11 @@ function launchSlider() {
       var t = [];e(".lv-nav .is-mega .dropdown > li.active > .dropdown").each(function () {
         t.push(e(this).height());
       });var i = Math.max.apply(Math, t),
-          r = i > 429 ? i : 429;n.height(r);
+          r = i > 429 ? i : 429;n.height(r);e(window).height(), e(".global-header").height(), n.outerHeight();window.ps && (window.ps.destroy(), window.ps = null);window.ps = new PerfectScrollbar(".lv-nav li.has-dropdown.is-reports-mega-menu > .dropdown");
     }(), !1;
-  }r(n.find("> li:first-child")), t.each(function () {
+  }e(function () {
+    r(n.find("> li:first-child"));
+  }), t.each(function () {
     e(this).click(function (e) {
       e.preventDefault();
     });
@@ -9452,5 +9454,5 @@ function launchSlider() {
 }function initHeadroom() {
   var _$$headroom;
 
-  $(".lv-page, .btn-back-top").headroom((_$$headroom = { offset: $(".global-header-top").height(), tolerance: 0 }, _defineProperty(_$$headroom, "tolerance", { up: 5, down: 0 }), _defineProperty(_$$headroom, "classes", { initial: "headroom", pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", bottom: "headroom--bottom", notBottom: "headroom--not-bottom" }), _defineProperty(_$$headroom, "onPin", function onPin() {}), _defineProperty(_$$headroom, "onUnpin", function onUnpin() {}), _defineProperty(_$$headroom, "onTop", setPagePaddingTop), _defineProperty(_$$headroom, "onNotTop", function onNotTop() {}), _defineProperty(_$$headroom, "onBottom", function onBottom() {}), _defineProperty(_$$headroom, "onNotBottom", function onNotBottom() {}), _$$headroom));
+  $(".lv-page, .btn-back-top").headroom((_$$headroom = { offset: $(".global-header-top").height() - 10, tolerance: 0 }, _defineProperty(_$$headroom, "tolerance", { up: 5, down: 0 }), _defineProperty(_$$headroom, "classes", { initial: "headroom", pinned: "headroom--pinned", unpinned: "headroom--unpinned", top: "headroom--top", notTop: "headroom--not-top", bottom: "headroom--bottom", notBottom: "headroom--not-bottom" }), _defineProperty(_$$headroom, "onPin", function onPin() {}), _defineProperty(_$$headroom, "onUnpin", function onUnpin() {}), _defineProperty(_$$headroom, "onTop", setPagePaddingTop), _defineProperty(_$$headroom, "onNotTop", function onNotTop() {}), _defineProperty(_$$headroom, "onBottom", function onBottom() {}), _defineProperty(_$$headroom, "onNotBottom", function onNotBottom() {}), _$$headroom));
 }$(window).on("resize", setPagePaddingTop);
