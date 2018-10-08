@@ -12,14 +12,16 @@
         {%- endif -%}
     </title>
 
-    <!-- { % include components/widgets/google_analytics.html %} -->
-
     <!-- CDN -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
+
+    <!-- LEGACY -->
+    {% include legacy_head.html %}
+
 </head>
 <body class="{{ page.theme }}">
 
@@ -55,42 +57,29 @@
 
     <!-- **** JAVASCRIPT **** -->
 
-    <!-- HLS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
-
     <!-- IE11 ES6 (Plyr) -->
-    <script>
+    <!-- <script>
         window.Promise || document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"><\/script>');
-    </script>
+    </script> -->
+
+    <!-- build:js({src,.}) /assets/scripts/minified-hls.js -->
+    <script src="/node_modules/hls.js/dist/hls.js"></script>
+    <!-- endbuild -->
 
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
-    <script src="/node_modules/axios/dist/axios.js"></script>
     <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/node_modules/bootstrap/js/dist/util.js"></script>
+    <script src="/node_modules/bootstrap/js/dist/tooltip.js"></script>
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/flickity-bg-lazyload/bg-lazyload.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
-    <script src="/node_modules/headroom.js/dist/jQuery.headroom.js"></script>
-    <script src="/node_modules/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="/node_modules/moment/min/moment.min.js"></script>
     <script src="/node_modules/moment/locale/en-au.js"></script>
+    <script src="/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
     <script src="/node_modules/plyr/dist/plyr.polyfilled.js"></script>
-    <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
-    <script src="/assets/scripts/off-canvas.js"></script>
-    <script src="/assets/scripts/mega-menu-reports.js"></script>
-    <script src="/assets/scripts/flickity.js"></script>
-    <script src="/assets/scripts/main.js"></script>
-    <!-- endbuild -->
-
-    <!-- build:js({src,.}) /assets/scripts/minified-vue.js -->
-    {% if site.environment == 'data-dev-mode' %}
-        <script src="/node_modules/vue/dist/vue.js"></script>
-    {% else %}
-        <script src="/node_modules/vue/dist/vue.min.js"></script>
-    {% endif %}
-
+    <script src="/node_modules/axios/dist/axios.js"></script>
+    <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     <script src="/node_modules/vue-multiselect/dist/vue-multiselect.min.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/Index.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/DateSelect.js"></script>
@@ -103,13 +92,21 @@
     <script src="/assets/scripts/vue-components/Multicam/Multicam.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/MulticamPlayerPlyr.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/MulticamSelect.js"></script>
-    <script src="/assets/scripts/vue-components/main.js"></script>
+    <script src="/assets/scripts/vue-components/app.js"></script>
+    <script src="/assets/scripts/off-canvas.js"></script>
+    <script src="/assets/scripts/mega-menu-reports.js"></script>
+    <script src="/assets/scripts/flickity.js"></script>
+    <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->
+
+    {% if site.environment == 'development' %}
+        <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
+    {% endif %}
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
         <div class="lv-alert-bar">
-            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+            <p>Your browser has JavaScript disabled. Please enable it to continue.</p>
         </div>
     </noscript>
 

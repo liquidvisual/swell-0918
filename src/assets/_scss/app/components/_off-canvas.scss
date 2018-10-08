@@ -393,3 +393,9 @@ $hamburger-slit-height: 3px;
 	padding-right: 18px;
 	text-align: right;
 }
+
+.lv-off-canvas li.is-concealed-menu {
+	.dropdown {
+		overflow: hidden;
+	}
+}

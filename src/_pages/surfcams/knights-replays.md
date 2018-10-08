@@ -1,7 +1,7 @@
 ---
 layout: child_layout/surfcams
-title: Sunshine Beach
-permalink: /surfcams/sunshine-beach/
+title: Knights Surfcam Replays
+permalink: /surfcams/knights/replays/
 user_type: public
 theme: theme-public
 ---

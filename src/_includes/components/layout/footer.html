@@ -65,9 +65,27 @@
 <section class="global-footer-bottom">
     <div class="container">
 
+		<!-- ******* DEMO PURPOSES ONLY (REMOVE) ******* -->
+    	<form class="page-state-switcher mb-4">
+    		<label>
+    			<input type="checkbox" name="is-logged-in" value="theme-logged-in"> User is Logged in &nbsp;
+    		</label>
+    		<label>
+    			<input type="checkbox" name="is-paid" value="theme-paid"> User is Paid
+    		</label>
+    	</form>
+
+    	<style>
+    		.page-state-switcher {
+    			color: black;
+    			font-weight: bold;
+    		}
+    	</style>
+    	<!-- ******* / DEMO PURPOSES ONLY (REMOVE) ******* -->
+
     	<!-- BACK TO TOP -->
     	<div class="text-center text-md-right">
-    		<button data-back-top class="btn-back-top">
+    		<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-back-top">
     			<div>
     				<i class="d-block fa fa-angle-up"></i>
     				<span class="text">TOP</span>

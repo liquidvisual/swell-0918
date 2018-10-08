@@ -1,105 +1,60 @@
 /*
-    MAIN.JS - Last updated: 27.08.18
+    MAIN.JS - Last updated: 08.10.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
-//-----------------------------------------------------------------
-// ON LOAD
-//-----------------------------------------------------------------
 
-$(window).on('load', function() {
-    $('html').addClass('has-loaded');
-});
-
-//-----------------------------------------------------------------
-// AUDIO PLAYER
-// https://codepen.io/pen
-//-----------------------------------------------------------------
-
-// Change "{}" to your options:
-// https://github.com/sampotts/plyr/#options
-// const player = new Plyr('audio', {});
-
-// Expose player so it can be used from the console
-// window.player = player;
-
-//-----------------------------------------------------------------
-// ONLOAD - TOOLTIP
-//-----------------------------------------------------------------
-
-$(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-
-    setPagePaddingTop();
-    initHeadroom();
-})
-
-//-----------------------------------------------------------------
-// SCROLL TO
-// Exclude empty links, sitemap and tabs
-//-----------------------------------------------------------------
-
-// $('a[href*="#"]:not([href="#"], [href="#sitemap"], [data-toggle="tab"])').click(function() {
-//     var id = $(this).attr('href');
-//     var endPos = $(id);
-
-//     if (endPos.length) {
-//         $.scrollTo(endPos.offset().top - 50, 500);
-//         // return false;
-//     }
-// });
-
-
-
-$('.page-state-switcher input').click(function(event){
-    var $body = $('body');
-    var $this = $(this);
-    var val = $this.attr('value');
-
-    if ($this.is(':checked')) {
-        $body.addClass(val);
-    } else {
-        $body.removeClass(val);
-    }
-    setPagePaddingTop();
-    initHeadroom();
-})
-
-//-----------------------------------------------------------------
-// SCROLL TOP
-//-----------------------------------------------------------------
-
-$('[data-back-top]').click(function() {
-    $.scrollTo(0, 500);
-});
-
-//-----------------------------------------------------------------
-// OPEN SITEMAP (OPTIONAL)
-//-----------------------------------------------------------------
-
-// if ($('a[href="#sitemap"]').length) {
-//     $('a[href="#sitemap"]').click(function() {
-//         var id = $(this).attr('href');
-//         var endPos = $(id);
-//         $('.fa-angle-down').toggleClass('is-active');
-//         setTimeout(function(){
-//             $.scrollTo(endPos.offset().top, 300);
-//         }, 300);
-//     });
-// }
-
-//-----------------------------------------------------------------
-// ADJUST PAGE FOR STICKY HEADER
-//-----------------------------------------------------------------
+var headroom = null;
+var lvPage = document.querySelector(".lv-page");
+var resizeTimer;
 
 var $lvPage = $('.lv-page');
 var $globalHeader = $('.global-header');
+var $html = $('html');
 
-$(window).on('resize', setPagePaddingTop);
+//-----------------------------------------------------------------
+// ON READY
+//-----------------------------------------------------------------
+
+$(document).ready(function() {
+
+    // Tooltips
+    $('[data-toggle="tooltip"]').tooltip();
+
+    // onResize
+    $(window).on('resize', setPagePaddingTop);
+
+    // Set the page padding based on header
+    setPagePaddingTop();
+
+    // Headroom
+    initHeadroom();
+
+    // Remove page loader
+    if (!$html.hasClass('has-loaded')) {
+        $html.addClass('has-loaded');
+    }
+});
+
+//-----------------------------------------------------------------
+// ADJUST PAGE FOR STICKY HEADER (REFACTOR)
+//-----------------------------------------------------------------
 
 function setPagePaddingTop() {
-    $lvPage.css('paddingTop', $globalHeader.height() + 40); // 40 is the top gutter
+    clearTimeout(resizeTimer);
+
+    resizeTimer = setTimeout(function(){
+        $lvPage.css({
+            'paddingTop': $globalHeader.height() + 40, // 40 is the top gutter.
+            'visibility': 'visible'
+        });
+
+        // If headroom has init - set offsets
+        if (headroom) {
+            setHeadroomOffset();
+        }
+    }, 250)
 }
 
 //-----------------------------------------------------------------
@@ -108,11 +63,9 @@ function setPagePaddingTop() {
 
 function initHeadroom() {
 
-    // console.log($('.global-header-top').height())
-
-    $(".lv-page, .btn-back-top").headroom({
+    var headroomOptions = {
         // vertical offset in px before element is first unpinned
-        offset : $('.global-header-top').height(),
+        offset : 50,
         // scroll tolerance in px before state changes
         tolerance : 0,
         // or you can specify tolerance individually for up/down scroll
@@ -151,9 +104,53 @@ function initHeadroom() {
         onBottom : function() {},
         // callback when moving away from bottom of page, `this` is headroom object
         onNotBottom : function() {}
-    });
+    };
+
+    // Init only if no headroom and return
+    if (!headroom) {
+        headroom = new Headroom(lvPage, headroomOptions);
+        setHeadroomOffset(); // here?
+        headroom.init();
+        return;
+    }
 }
 
+//-----------------------------------------------------------------
+// SET HEADROOM OFFSET
+// 1050px is where the header is fixed by default
+// Mobile and tablet, the header is dynamic with scroll
+//-----------------------------------------------------------------
+
+function setHeadroomOffset() {
+    if ($(window).width() >= 1050) {
+        headroom.offset = $('.global-header-top').height();
+    }
+    else {
+        headroom.offset = $('.global-header').height();
+    }
+}
+
+//-----------------------------------------------------------------
+// PAGE SWITCHER (DEV ONLY)
+//-----------------------------------------------------------------
+
+$('.page-state-switcher input').click(function(event) {
+    var $body = $('body');
+    var $this = $(this);
+    var val = $this.attr('value');
+
+    if ($this.is(':checked')) {
+        $body.addClass(val);
+    } else {
+        $body.removeClass(val);
+    }
+    setPagePaddingTop();
+    setHeadroomOffset();
+});
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
 //==================================================
 //
 //==================================================

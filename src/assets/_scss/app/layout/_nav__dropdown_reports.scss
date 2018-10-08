@@ -21,7 +21,7 @@ $countries: 11;
     //-----------------------------------------------------------------
 
     .dropdown {
-        visibility: visible; // [DEV]
+        // visibility: visible; // [DEV]
     }
 
     //-----------------------------------------------------------------
@@ -31,11 +31,11 @@ $countries: 11;
     > .dropdown {
         flex-direction: column;
         // height: rem-calc(562); // [NOTE] - is JS driven | auto by default
-        padding: rem-calc(28 0 26 0); // [LOCKED] - accomodate header/footer strips
-        padding-bottom: rem-calc(102); // [LOCKED?] - extend auto height to two beyond max 1st col items
+        // padding: rem-calc(28 0 26 0); // [LOCKED] - accomodate header/footer strips
+        // padding-bottom: rem-calc(102); // [LOCKED?] - extend auto height to two beyond max 1st col items
 
-        // border-top: rem-calc(28) solid white;
-        // border-bottom: rem-calc(28) solid ;
+        border-top: rem-calc(28) solid white;
+        border-bottom: rem-calc(28) solid white;
     }
 
     //-----------------------------------------------------------------
@@ -92,9 +92,11 @@ $countries: 11;
 
     > .dropdown {
         background-color: #f9f9fa; // trick for coloring one column without affecting the others when last column is absent
-        background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTE5MHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDExOTAgNSI+PGRlZnM+PGcgaWQ9IkxheWVyMV8wX0ZJTEwiPjxwYXRoIGZpbGw9IiNFMkUzRTQiIHN0cm9rZT0ibm9uZSIgZD0iTSAwIC0yMy4xTCAwIDQyLjYgMTE5MCA0Mi42IDExOTAgLTIzLjEgMCAtMjMuMSBaIi8+PC9nPjxnIGlkPSJMYXllcjFfMV9GSUxMIj48cGF0aCBmaWxsPSIjRjlGOUZBIiBzdHJva2U9Im5vbmUiIGQ9Ik0gMjk3LjUgLTIzLjFMIDAgLTIzLjEgMCA0Mi42IDI5Ny41IDQyLjYgMjk3LjUgLTIzLjEgWiIvPjwvZz48L2RlZnM+PGcgdHJhbnNmb3JtPSJtYXRyaXgoIDEsIDAsIDAsIDEsIDAsMCkgIj48dXNlIHhsaW5rOmhyZWY9IiNMYXllcjFfMF9GSUxMIi8+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KCAxLCAwLCAwLCAxLCAwLDApICI+PHVzZSB4bGluazpocmVmPSIjTGF5ZXIxXzFfRklMTCIvPjwvZz48L3N2Zz4=);
+        // background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEuMSIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iMTE5MHB4IiBoZWlnaHQ9IjVweCIgdmlld0JveD0iMCAwIDExOTAgNSI+PGRlZnM+PGcgaWQ9IkxheWVyMV8wX0ZJTEwiPjxwYXRoIGZpbGw9IiNFMkUzRTQiIHN0cm9rZT0ibm9uZSIgZD0iTSAwIC0yMy4xTCAwIDQyLjYgMTE5MCA0Mi42IDExOTAgLTIzLjEgMCAtMjMuMSBaIi8+PC9nPjxnIGlkPSJMYXllcjFfMV9GSUxMIj48cGF0aCBmaWxsPSIjRjlGOUZBIiBzdHJva2U9Im5vbmUiIGQ9Ik0gMjk3LjUgLTIzLjFMIDAgLTIzLjEgMCA0Mi42IDI5Ny41IDQyLjYgMjk3LjUgLTIzLjEgWiIvPjwvZz48L2RlZnM+PGcgdHJhbnNmb3JtPSJtYXRyaXgoIDEsIDAsIDAsIDEsIDAsMCkgIj48dXNlIHhsaW5rOmhyZWY9IiNMYXllcjFfMF9GSUxMIi8+PC9nPjxnIHRyYW5zZm9ybT0ibWF0cml4KCAxLCAwLCAwLCAxLCAwLDApICI+PHVzZSB4bGluazpocmVmPSIjTGF5ZXIxXzFfRklMTCIvPjwvZz48L3N2Zz4=);
         background-repeat: repeat-y;
         background-size: contain; // [LOCKED] - best with Safari non-retina
+
+        background-image: url(/assets/img/layout/reports-mega-menu-bg@2x.png);
     }
 
     // COLUMN #2
@@ -118,7 +120,7 @@ $countries: 11;
 
     > .dropdown .dropdown {
         &:before {
-            content: "";
+            // content: "";
             position: absolute;
             top: 0;
             right: 0;
@@ -165,7 +167,7 @@ $countries: 11;
 
     > .dropdown:before,
     > .dropdown:after {
-        content: "";
+        // content: "";
         position: absolute;
         top: 0;
         left: 0;

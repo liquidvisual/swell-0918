@@ -11,7 +11,8 @@
 // SURFCAMS MEGA MENU
 //-----------------------------------------------------------------
 
-.lv-nav li.has-dropdown.is-surfcams-mega-menu {
+// .lv-nav li.has-dropdown.is-surfcams-mega-menu {
+    .lv-nav > ul > li.has-dropdown.is-mega.is-surfcams-mega-menu {
 
     //-----------------------------------------------------------------
     // ALL DROPDOWNS
@@ -19,6 +20,17 @@
 
     .dropdown {
         // visibility: visible; // [DEV]
+    }
+
+    //-----------------------------------------------------------------
+    // THIS ONE
+    //-----------------------------------------------------------------
+
+    > .dropdown {
+        overflow: hidden;
+        max-height: none;
+        // border-top: rem-calc(28) solid white;
+        // border-bottom: rem-calc(28) solid white;
     }
 
     //-----------------------------------------------------------------
@@ -38,6 +50,7 @@
         border-bottom: 1px solid rgba(black, 0.06);
         background-color: white;
         font-weight: 800 !important; // err
+
         text-transform: uppercase;
         pointer-events: none; // [LOCKED] - no clicking necessary
 
@@ -46,7 +59,11 @@
         //=========================================
 
         .text { display: none; }
-        &:after { content: attr(data-alias); }
+
+        &:after {
+            content: attr(data-alias);
+            color: $headings-color !important;
+        }
     }
 
     //-----------------------------------------------------------------

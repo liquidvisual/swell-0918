@@ -246,22 +246,19 @@
 
 .btn-tabs .flag-wrapper {
 	position: relative;
-	left: 18px;
-	top: 8px;
-
-	@include media-breakpoint-up(md) {
-	    top: 13px;
-	    left: 0;
-	}
+	top: rem-calc(10);
 
 	a {
 		display: inline-block;
+		padding: rem-calc(6 8);
 		border-radius: 0;
-		font-size: rem-calc(20);
-		font-weight: bold;
+		font-family: $headings-font-family;
+		font-size: rem-calc(11);
+		font-weight: 700;
 		line-height: 1.2;
 		text-transform: uppercase;
 		color: white;
+		background: $primary; // NEW
 
 		&:before {
 			content: "\f005";
@@ -270,7 +267,7 @@
 		}
 
 		&:hover {
-			background: lighten($secondary, 5%);
+			background: lighten($primary, 5%);
 		}
 	}
 
@@ -317,7 +314,7 @@
 h2 .fa,
 h3 .fa {
     color: #777777;
-    font-size: rem-calc(42);
+    // font-size: rem-calc(42);
 }
 
 //-----------------------------------------------------------------

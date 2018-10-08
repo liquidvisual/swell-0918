@@ -1,5 +1,5 @@
 /*
-    MEGA-MENU-REPORTS.JS - Last updated: 25.09.18
+    MEGA-MENU-REPORTS.JS - Last updated: 08.10.18
 */
 //-----------------------------------------------------------------
 //
@@ -12,42 +12,88 @@
     // VARIABLES
     //-----------------------------------------------------------------
 
-    var $mainAnchors = $('a[href="/reports/"], a[href="/surfcams/"]');
+    var perfectScrollbar;
+    var $mainBody = $('.main-body');
     var $reportsMegaMenu = $('.lv-nav .is-reports-mega-menu > .dropdown');
+    var $megaListItems = $('.lv-nav li.is-mega');
+    var $megaListItemAnchors = $('> a', $megaListItems);
+    var $topSelection = $reportsMegaMenu.find('> li:first-child');
     var $listItems = $('li', $reportsMegaMenu);
-    var currentURL = window.location.pathname.split('/')[1];
 
     //-----------------------------------------------------------------
-    // INIT
+    // INIT ON READY
     //-----------------------------------------------------------------
 
-    // if (currentURL != 'reports') { // because trailing links are not in json
-        var $topSelection = $reportsMegaMenu.find('> li:first-child');
-        setActive($topSelection);
-    // }
+    $(function() {
+        // var currentURL = window.location.pathname.split('/')[1];
 
-    // Ignore clicks from /reports and /surfcams
-    $mainAnchors.each(function(){
-        $(this).click(function(e){
-            e.preventDefault();
-        })
+        // if (currentURL != 'reports') { // because trailing links are not in json
+            if ($topSelection.length) {
+                setActive($topSelection);
+            }
+        // }
+    });
+
+    //-----------------------------------------------------------------
+    // IS-MEGA ANCHORS OPEN MEGA MENUS
+    //-----------------------------------------------------------------
+
+    $megaListItemAnchors.click(function(e) {
+
+        // Target only list items
+        var $target = $(this).parent();
+
+        // Store temporary state
+        var bool = Boolean($target.hasClass('is-open'));
+
+        // Reset all states
+        $megaListItems.removeClass('is-open');
+
+        // Apply state for mega menu
+        $target.toggleClass('is-open', !bool);
+
+        // Handles use case of toggling and menu height getting stuck
+        setDropdownHeight();
+
+        // Set up a conditional exit click
+        enableExit(!bool);
+
+        // Prevent default on anchors
+        return false;
     })
+
+    //-----------------------------------------------------------------
+    // ENABLE EXIT
+    //-----------------------------------------------------------------
+
+    function enableExit(enabled) {
+        if (enabled) {
+            // Create exit clicker for mega menu (once only)
+            $mainBody.one('click', function(event) {
+                // Reset all states
+                $megaListItems.removeClass('is-open');
+            });
+        }
+    }
 
     //-----------------------------------------------------------------
     // CLICK
     //-----------------------------------------------------------------
 
     $listItems.on('click', function(event) {
-
         var $this = $(this); // list item
 
+        // End of the line, launch url
         if (!$this.hasClass('has-dropdown')) {
             var url = $this.find('a').attr('href');
             window.location = url;
             return;
         }
 
+        // Otherwise continue drilling
         setActive($this);
+
+        // Prevent Default
         return false;
     });
 
@@ -57,18 +103,23 @@
 
     function setActive($target) {
 
-        $listItems.removeClass('active'); // remove active
-        $target.addClass('active'); // apply active
+        // Remove all actives
+        $listItems.removeClass('active');
 
-        //==================================================
-        // APPLY ACTIVE TO ANY DESCENDANTS
-        //==================================================
+        // Apply current active
+        $target.addClass('active');
 
+        // Drill left
         getActiveDescendant($target);
+
+        // Drill right
         setActiveAscendant($target);
+
+        // Set Dropdown height based on largest column
         setDropdownHeight();
 
-        return false; // prevent clicks
+        // Prevent default
+        return false;
     }
 
     //-----------------------------------------------------------------
@@ -79,19 +130,23 @@
         if ($target.hasClass('has-dropdown')) {
             var $nextDropdownListItem = $('> .dropdown > li.has-dropdown:first-child', $target);
             $nextDropdownListItem.addClass('active');
-            getActiveDescendant($nextDropdownListItem); // recursive
+
+            // Recursively apply active to decendant until none
+            getActiveDescendant($nextDropdownListItem);
         }
     }
 
     //-----------------------------------------------------------------
-    // SET ACTIVE DESCENDANTS
+    // SET ACTIVE ASCENDANTS
     //-----------------------------------------------------------------
 
     function setActiveAscendant($target) {
         if (!$target.parent().parent().hasClass('is-mega')) {
             var $prevDropdownListItem = $target.parent().parent();
             $prevDropdownListItem.addClass('active');
-            setActiveAscendant($prevDropdownListItem); // recursive
+
+            // Recursively apply active to ascendant until none
+            setActiveAscendant($prevDropdownListItem);
         }
     }
 
@@ -100,18 +155,42 @@
     //-----------------------------------------------------------------
 
     function setDropdownHeight() {
-        var activeDropdowns = $('.lv-nav .is-mega .dropdown > li.active > .dropdown');
         var activeDropdownHeights = [];
+        var activeDropdowns = $('.lv-nav .is-mega .dropdown > li.active > .dropdown');
 
+        // Vars for calculation of available height between header and viewport bottom
+        var windowHeight = $(window).height();
+        var globalHeaderHeight = $('.global-header').height();
+        var megaMenuHeight = $reportsMegaMenu.outerHeight();
+        var maxAvailableHeight = windowHeight - globalHeaderHeight - 100; // 100 magic, stops hitting flush bottom
+
+        // Push all heights into array to analyze
         activeDropdowns.each(function() {
             activeDropdownHeights.push($(this).height());
         })
 
-        // var largestHeight = Math.max(...activeDropdownHeights); // ES6
+        // Find the largest height of the dropdown
         var largestHeight = Math.max.apply(Math, activeDropdownHeights);
-        var finalHeight = largestHeight > 429 ? largestHeight : 429;
+        var finalHeight = 429;
 
+        // Don't let height reduce past the default of 429 (height of first column)
+        if (largestHeight > 429) {
+
+            // If the final height exceeds available safe height, cap it. Otherwise take largest height.
+            finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
+        }
+
+        // Apply height
         $reportsMegaMenu.height(finalHeight);
+
+        // If scrollbar exists, destroy and reset
+        if (perfectScrollbar) {
+            perfectScrollbar.destroy();
+            perfectScrollbar = null;
+        }
+
+        // Apply scrollbar
+        perfectScrollbar = new PerfectScrollbar('.lv-nav li.has-dropdown.is-reports-mega-menu > .dropdown');
     }
 
 //--

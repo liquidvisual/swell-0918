@@ -6,24 +6,8 @@ regenerate: true
 theme:
 ---
 
-<form class="page-state-switcher">
-	<label>
-		<input type="checkbox" name="is-logged-in" value="theme-logged-in"> User is Logged in &nbsp;
-	</label>
-	<label>
-		<input type="checkbox" name="is-paid" value="theme-paid"> User is Paid
-	</label>
-</form>
-
-<style>
-	.page-state-switcher {
-		color: #b1f22d;
-	}
-</style>
-
-<div class="mb-4"></div>
-<div class="mb-4"></div>
-<div class="mb-5"></div>
+{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+{% include sections/section_basic.html content_block=item %}
 
 # H1. This Is a Header One
 ## H2. This Is a Header Two
@@ -74,6 +58,3 @@ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
-{% include sections/section_basic.html content_block=item %}

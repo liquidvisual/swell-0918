@@ -1,7 +1,7 @@
 /*
     NAV__DROPDOWN.CSS
 
-    - updated: 27.09.18
+    - updated: 08.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -41,10 +41,17 @@
         margin: rem-calc(0 20); // [LOCKED] - design
 
         // SCROLLBARS
-        // max-height: 600px; // not a good experience!
-        // overflow-y: auto;
+        overflow-y: hidden;
     }
 }
+
+// Deprecated
+// .headroom--not-top {
+    // .lv-nav > ul > li.has-dropdown.is-mega > .dropdown {
+        // max-height: rem-calc(800);
+        // max-height: 757px;
+    // }
+// }
 
 //-----------------------------------------------------------------
 // GENERIC DROPDOWN LI, ANCHORS
@@ -102,7 +109,7 @@
         top: 100%;
         left: -100vw;
         width: 200vw;
-        height: 200vh;
+        height: 350vh; // check japan/honshu
         background: rgba($primary, 0.91); // [LOCKED] - following psd
         pointer-events: none; // [LOCKED] - brilliant
         visibility: hidden;
@@ -123,10 +130,11 @@
 // DROPDOWN TRIGGERS (ANCHOR HOVERS)
 //-----------------------------------------------------------------
 
-.lv-nav > ul > li.has-dropdown:hover {
+// .lv-nav > ul > li.has-dropdown:hover { // DEV
+.lv-nav > ul > li.has-dropdown.is-open {
 
     > a {
-        background: white; // [LOCKED] - dropdown triggers the 'triggering' nav button on hover
+        // background: white; // [LOCKED] - dropdown triggers the 'triggering' nav button on hover
     }
 
     .dropdown,

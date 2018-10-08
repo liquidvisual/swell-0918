@@ -1,6 +1,6 @@
 /*
-    MAIN.JS
-    updated: 11.09.18
+    APP.JS
+    updated: 04.10.18
 
     DEPENDENCIES
         https://unpkg.com/vue/dist/vue.js

@@ -1,7 +1,7 @@
 /*
     LISTS.CSS
 
-    - Last updated: 03.07.17
+    - Last updated: 07.07.17
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -44,11 +44,11 @@
 //-----------------------------------------------------------------
 
 .block-grid-condensed-more {
-    margin: rem-calc(-15) !important;
+    margin: rem-calc(-10) !important;
 
     > li,
     > .block-grid-item {
-        padding: rem-calc(15) !important;
+        padding: rem-calc(10) !important;
     }
 }
 
@@ -56,16 +56,16 @@
 // SMALL ONLY
 //-----------------------------------------------------------------
 
-.block-grid-condensed-sm-down {
-    @include media-breakpoint-down(sm) {
-        margin: rem-calc(-15);
+// .block-grid-condensed-sm-down {
+//     @include media-breakpoint-down(sm) {
+//         margin: rem-calc(-15);
 
-        > li,
-        > .block-grid-item {
-            padding: rem-calc(15);
-        }
-    }
-}
+//         > li,
+//         > .block-grid-item {
+//             padding: rem-calc(15);
+//         }
+//     }
+// }
 
 //-----------------------------------------------------------------
 // LIST MASONRY

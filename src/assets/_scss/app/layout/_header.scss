@@ -1,7 +1,7 @@
 /*
     HEADER.CSS
 
-    - Last updated: 27.09.18
+    - Last updated: 02.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -43,7 +43,7 @@ $header-bottom-lg-height: 47px !default; // 50
 // PINNED - SCROLLING UP
 //****************************************************
 
-.headroom--pinned .global-header {
+.headroom--pinned:not(.headroom--disabled) .global-header {
 	transform: translateY(0%);
 	margin-bottom: rem-calc(40); // only applies when NOT fixed
 }
@@ -52,21 +52,28 @@ $header-bottom-lg-height: 47px !default; // 50
 // UNPINNED - SCROLLING DOWN
 //****************************************************
 
-.headroom--unpinned.headroom--not-top .global-header {
-   	transform: translateY(-100%);
-    transition-delay: 600ms; // delay for UX
+.headroom--unpinned.headroom--not-top:not(.headroom--disabled) .global-header {
+   	// transform: translateY(-100%);
+   	// opacity: 0;
+    // transition-delay: 600ms; // delay for UX
+
+    @include media-breakpoint-down(lg) {
+    //     transform: translateY(-100%);
+    	opacity: 0;
+    }
 }
 
 // override if hovering menu
 .headroom--unpinned.headroom--not-top .global-header:hover {
    	transform: translateY(0);
+   	opacity: 1;
 }
 
 //****************************************************
 // HEADROOM NOT TOP
 //****************************************************
 
-.headroom--not-top .global-header {
+.headroom--not-top:not(.headroom--disabled) .global-header {
 	position: fixed;
 	// box-shadow: 0 0 3px 1px rgba(black, 0.2);
 
@@ -84,6 +91,9 @@ $header-bottom-lg-height: 47px !default; // 50
 	}
 }
 
+//****************************************************
+// HEADROOM DISABLED (when menu exceeds available height)
+//****************************************************
 //-----------------------------------------------------------------
 // HEADER GENERAL
 //-----------------------------------------------------------------
@@ -93,8 +103,13 @@ $header-bottom-lg-height: 47px !default; // 50
 	top: 0;
 	width: 100%;
 	will-change: transform;
-	transition: transform 200ms linear, background-color 200ms ease, padding ease 250ms;
-	z-index: 1;
+	// transition: transform 200ms linear, background-color 200ms ease, padding ease 250ms;
+	// transition: 150ms opacity ease;
+	z-index: 110; // was 1 - overtake multicams and jeep
+
+	// @include media-breakpoint-down(lg) {
+	//     transition: transform 200ms linear, background-color 200ms ease, padding ease 250ms;
+	// }
 
 	@include media-breakpoint-up(md) {
 	    position: absolute; //relative; // prev static?

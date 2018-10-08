@@ -1,7 +1,7 @@
 /*
     NAV.CSS
 
-    - updated: 25.09.18
+    - updated: 08.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -81,12 +81,30 @@
     display: none;
 }
 
+.lv-nav > ul > li > a > span.submenu-arrow {
+    display: inline-block;
+
+    i:before {
+        position: relative;
+        top: 1px;
+        content: "\f107";
+        margin-left: rem-calc(5);
+        font-size: rem-calc(19);
+        font-weight: 700;
+        color: rgba(black, 0.14);
+    }
+}
+
+.lv-nav > ul > li.is-open > a > span.submenu-arrow i:before {
+    content: "\f106";
+}
+
 //-----------------------------------------------------------------
 // HOVERS
 //-----------------------------------------------------------------
 
 .lv-nav > ul > li > a:hover {
-    background: white;
+    background: rgba(black, 0.03); // white
 
     // .text {
         // border-bottom: 0;
@@ -98,12 +116,17 @@
 // ACTIVE
 //=========================================
 
-.lv-nav > ul > li.active > a { // TODO: is this right?
-    background: white; //rgba(white, 0.15);
+.lv-nav > ul > li.active > a {
+    background: rgba(black, 0.03); // white
+}
 
-    // .text {
-        // border-bottom: 2px solid white;
-    // }
+//=========================================
+// ACTIVE MEGA (OVERRIDES)
+//=========================================
+
+.lv-nav > ul > li.is-open > a {
+    background: white;
+    transition: none;
 }
 
 //=========================================

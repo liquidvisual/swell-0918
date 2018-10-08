@@ -293,18 +293,18 @@ $font-weight-bold:            700 !default;
 // $font-weight-base:            $font-weight-normal !default;
 // $line-height-base:            1.5 !default;
 
-// $h1-font-size:                $font-size-base * 2.5 !default;
-// $h2-font-size:                $font-size-base * 2 !default;
-// $h3-font-size:                $font-size-base * 1.75 !default;
-// $h4-font-size:                $font-size-base * 1.5 !default;
-// $h5-font-size:                $font-size-base * 1.25 !default;
-// $h6-font-size:                $font-size-base !default;
+$h1-font-size:                rem-calc(44); // $font-size-base * 2.5 !default;
+$h2-font-size:                rem-calc(26); // $font-size-base * 2 !default;
+$h3-font-size:                rem-calc(22); // $font-size-base * 1.75 !default;
+$h4-font-size:                rem-calc(19); // $font-size-base * 1.5 !default;
+$h5-font-size:                rem-calc(16); // $font-size-base * 1.25 !default;
+$h6-font-size:                rem-calc(14); // $font-size-base !default;
 
 $headings-margin-bottom: $spacer; //($spacer / 2) !default;
 $headings-font-family:        Montserrat; //inherit !default;
-// $headings-font-weight:        500 !default;
+$headings-font-weight:        700; //500 !default;
 // $headings-line-height:        1.2 !default;
-// $headings-color:              inherit !default;
+$headings-color:              #424143; //inherit !default;
 
 $display1-size:               rem-calc(64) !default; //6rem !default;
 // $display2-size:               5.5rem !default;
@@ -322,7 +322,7 @@ $display1-size:               rem-calc(64) !default; //6rem !default;
 
 // $small-font-size:             80% !default;
 
-// $text-muted:                  $gray-600 !default;
+$text-muted:                  rgba(black, 0.4); //$gray-600 !default;
 
 // $blockquote-small-color:      $gray-600 !default;
 // $blockquote-font-size:        ($font-size-base * 1.25) !default;
@@ -804,11 +804,11 @@ $tooltip-padding-x:                 rem-calc(5); //.5rem !default;
 
 // // Badges
 
-// $badge-font-size:                   75% !default;
+$badge-font-size:                   rem-calc(10); //75% !default;
 // $badge-font-weight:                 $font-weight-bold !default;
-// $badge-padding-y:                   .25em !default;
-// $badge-padding-x:                   .4em !default;
-// $badge-border-radius:               $border-radius !default;
+$badge-padding-y:                   3px; //  .25em !default;
+$badge-padding-x:                   5px; //.4em !default;
+$badge-border-radius:               3px; //$border-radius !default;
 
 // $badge-pill-padding-x:              .6em !default;
 // // Use a higher than normal value to ensure completely rounded edges when

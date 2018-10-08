@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 27.09.18
+    - updated: 07.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -44,7 +44,18 @@
 
 	.global-header-top {
 		display: none; // [LOCKED] - hide the ads
-		height: 0px; // [LOCKED] - for jQuery headroom
+		height: 0; // [LOCKED] - for jQuery headroom
+	}
+
+	// PREMIUM ICONS
+	.lv-nav ul li.is-premium > a,
+	.lv-off-canvas ul li.is-premium > a {
+	    color: #5d5d5d;
+
+	    .obs-icon,
+	    .premium-icon {
+	        display: none;
+	    }
 	}
 }
 

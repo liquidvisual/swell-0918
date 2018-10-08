@@ -41,7 +41,9 @@ $hamburger-bar-height: 4px;
         .lv-hamburger-top,
         .lv-hamburger-middle,
         .lv-hamburger-bottom {
-            background: lighten($body-color, 8%);
+            @include media-breakpoint-up(xl) {
+                background: lighten($body-color, 8%);
+            }
         }
     }
 }
@@ -92,7 +94,8 @@ $hamburger-bar-height: 4px;
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(black, 0.5);
+            background: rgba(black, 0.5) !important; // [OVERRIDE] - hover
+            transition: none;
             z-index: 1;
             cursor: not-allowed;
         }
