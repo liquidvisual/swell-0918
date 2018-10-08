@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Multi-cam - Swellnet</title>
+    <title>Knights - Swellnet</title>
 
     <!-- CDN -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
@@ -13,7 +13,7 @@
     <!-- LEGACY -->
     <script src="http://content.jwplatform.com/libraries/FpR5fUx9.js?oueqgx"></script>
 </head>
-<body class="">
+<body class="theme-public">
 
     <!-- PAGE LOADER -->
     <div id="lv-page-loader" class="lv-page-loader">
@@ -14517,7 +14517,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="has-dropdown is-mega is-surfcams-mega-menu">
+                                <li class="active has-dropdown is-mega is-surfcams-mega-menu">
 
                                     <!-- ANCHOR -->
                                     <a href="/surfcams/" data-alias="">
@@ -14535,7 +14535,7 @@
 
                                     <!-- DROPDOWN -->
                                     <ul class="dropdown" data-parent="Surfcams">
-                                        <li class="has-dropdown">
+                                        <li class="active has-dropdown">
 
                                             <!-- ANCHOR -->
                                             <a href="/surfcams" data-alias="QLD">
@@ -14723,7 +14723,7 @@
                                                     </li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown">
+                                        <li class="active has-dropdown">
 
                                             <!-- ANCHOR -->
                                             <a href="/surfcams" data-alias="NSW">
@@ -14981,7 +14981,7 @@
                                                     </li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown">
+                                        <li class="active has-dropdown">
 
                                             <!-- ANCHOR -->
                                             <a href="/surfcams" data-alias="VIC">
@@ -15071,7 +15071,7 @@
                                                     </li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown">
+                                        <li class="active has-dropdown">
 
                                             <!-- ANCHOR -->
                                             <a href="/surfcams" data-alias="SA">
@@ -15131,7 +15131,7 @@
 
                                                     <!-- DROPDOWN -->
                                                     </li>
-                                                <li class="is-premium">
+                                                <li class="active is-premium">
 
                                                     <!-- ANCHOR -->
                                                     <a href="/surfcams/knights" data-alias="">
@@ -15161,7 +15161,7 @@
                                                     </li>
                                             </ul>
                                         </li>
-                                        <li class="has-dropdown">
+                                        <li class="active has-dropdown">
 
                                             <!-- ANCHOR -->
                                             <a href="/surfcams" data-alias="WA">
@@ -15225,7 +15225,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                                <li class="active">
+                                <li class="">
 
                                     <!-- ANCHOR -->
                                     <a href="/multi-cam/" data-alias="">
@@ -15415,47 +15415,66 @@
         <!-- MAIN BODY -->
         <main class="main-body">
             <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 pr-lg-4">
 
-                <!-- VUE MULTICAM -->
-                <div id="vue-app" class="mb-4">
-                    <multicam-widget v-cloak class="vue-multicam" :paywall-enabled="false" inline-template>
-                        <div>
+                        <!-- TITLE -->
+                        <h1 class="mb-4">Knights</h1>
+                        <div id="vue-app" class="mb-4">
 
-                            <!-- PREMIUM -->
-                            <div v-if="paywallActive" class="vue-multicam-premium">
-                                <div class="vue-multicam-premium-outer">
-                                    <div class="vue-multicam-premium-inner">
-                                        <h3>This is a premium feature for Swellnet Pro subscribers</h3>
-                                        <p>Become a subscriber and receive access to detailed surf forecaster notes, dawn surf reports, premium surfcams and replays, add-free surfcams and 16 day surf forecasts.</p>
-                                        <a href="#PRO-LINK-HERE" class="vue-multicam-premium-btn">Get Swellnet Pro
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                        <p class="premium-message-login-link">
-                                            <a href="#LOGIN-HERE">Already a subscriber? Login here&nbsp;
-                                                <i class="fa fa-angle-right"></i>
-                                            </a>
-                                        </p>
+                            <!-- SURFCAM WIDGET -->
+                            <surfcam-widget class="jeep-dashboardX" live-stream="rtmp://streamer.swellnet.com.au/surfcams/cabarita.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/cabarita.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/cabarita.stream/playlist.m3u8" data-path="http://staging.swellnet.com.fe2.stg.swellnet.anchor.net.au/surfcam-replays/data/" surfcam-id="29" inline-template>
+                                <div>
+
+                                    <!-- LIVE / REPLAYS TABS -->
+                                    <div class="btn-tabs collapse-row-sm-only">
+
+                                        <!-- FAVORITE -->
+                                        <span class="flag-wrapper flag-favourite-surfcam">
+                                            <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">Set as favourite</a>
+                                            <span class="flag-throbber">&nbsp;</span>
+                                        </span>
+                                        <a v-if="!replaysDisabled" class="btn-tab" :class="{active: feedType == 'replay'}" href="/surfcams/knights/replays/">Replays</a>
+                                        <a class="btn-tab" :class="{active: feedType == 'live'}" href="/surfcams/knights/">Live</a>
                                     </div>
-                                </div>
-                            </div>
 
-                            <!-- SURFCAMS -->
-                            <ul class="block-grid-xs-1 block-grid-md-2 block-grid-condensed-more">
-                                <li>
-                                    <multicam multicam-id="1" surfcam-id="" poster="/assets/img/layout/multi-cam-1.jpg" :paywall-enabled="paywallEnabled">
-                                </li>
-                                <li>
-                                    <multicam multicam-id="2" surfcam-id="" poster="/assets/img/layout/multi-cam-2.jpg" :paywall-enabled="paywallEnabled">
-                                </li>
-                                <li>
-                                    <multicam multicam-id="3" surfcam-id="" poster="/assets/img/layout/multi-cam-3.jpg" :paywall-enabled="paywallEnabled">
-                                </li>
-                                <li>
-                                    <multicam multicam-id="4" surfcam-id="" poster="/assets/img/layout/multi-cam-4.jpg" :paywall-enabled="paywallEnabled">
-                                </li>
-                            </ul>
+                                    <!-- PLAYER COMPONENT -->
+                                    <surfcam-player-plyr video-timeout="300"></surfcam-player-plyr>
+
+                                    <!-- <surfcam-player-jw video-timeout="300"></surfcam-player-jw> -->
+                                    
+<!-- JEEP OVERLAY (UNPAID / PUBLIC) --><div class="video-jeep-overlay">
+                                        <img class="image" src="/assets/img/layout/jeep-surfcam-dashboard.png" alt="Jeep Dashboard">
+                                    </div>
+
+                                    <!-- SURFCAM REPLAYS -->
+                                    <h2 v-if="!replaysDisabled" class="d-flex align-items-center mb-4 mt-5">
+                                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays</h2>
+
+                                    <!-- WRAPPER -->
+                                    <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-row-sm-only mt-0">
+
+                                        <!-- DATE-SELECT COMPONENT -->
+                                        <date-select :is-loading="feedLoading" v-model="date"></date-select>
+
+                                        <!-- TIME-SELECT COMPONENT -->
+                                        <time-select :is-loading="feedLoading" v-model="selectedTimeIndex" :index="selectedTimeIndex" :feed="feed"></time-select>
+                                    </div>
+
+                                    <!-- THUMB-SLIDER COMPONENT -->
+                                    <transition name="special-thumb-slider-entrance">
+                                        <thumb-slider v-if="feed" :is-loading="feedLoading" :feed="feed" :current-index="selectedTimeIndex"></thumb-slider>
+                                    </transition>
+                                </div>
+                            </surfcam-widget>
                         </div>
-                    </multicam-widget>
+
+                        <!-- /.vue-app -->
+                        
+<!-- { % include ads.html type=2 %} --></div>
+                    <div class="col-lg-4 pl-lg-3">
+                        <aside class="sidebar"></aside>
+                    </div>
                 </div>
             </div>
         </main>
@@ -30054,7 +30073,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="has-dropdown is-mega is-surfcams-mega-menu">
+            <li class="active has-dropdown is-mega is-surfcams-mega-menu">
 
                 <!-- ANCHOR -->
                 <a href="/surfcams/" data-alias="">
@@ -30072,7 +30091,7 @@
 
                 <!-- DROPDOWN -->
                 <ul class="dropdown" data-parent="Surfcams">
-                    <li class="has-dropdown">
+                    <li class="active has-dropdown">
 
                         <!-- ANCHOR -->
                         <a href="/surfcams" data-alias="QLD">
@@ -30260,7 +30279,7 @@
                                 </li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
+                    <li class="active has-dropdown">
 
                         <!-- ANCHOR -->
                         <a href="/surfcams" data-alias="NSW">
@@ -30518,7 +30537,7 @@
                                 </li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
+                    <li class="active has-dropdown">
 
                         <!-- ANCHOR -->
                         <a href="/surfcams" data-alias="VIC">
@@ -30608,7 +30627,7 @@
                                 </li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
+                    <li class="active has-dropdown">
 
                         <!-- ANCHOR -->
                         <a href="/surfcams" data-alias="SA">
@@ -30668,7 +30687,7 @@
 
                                 <!-- DROPDOWN -->
                                 </li>
-                            <li class="is-premium">
+                            <li class="active is-premium">
 
                                 <!-- ANCHOR -->
                                 <a href="/surfcams/knights" data-alias="">
@@ -30698,7 +30717,7 @@
                                 </li>
                         </ul>
                     </li>
-                    <li class="has-dropdown">
+                    <li class="active has-dropdown">
 
                         <!-- ANCHOR -->
                         <a href="/surfcams" data-alias="WA">
@@ -30762,7 +30781,7 @@
                     </li>
                 </ul>
             </li>
-            <li class="active">
+            <li class="">
 
                 <!-- ANCHOR -->
                 <a href="/multi-cam/" data-alias="">

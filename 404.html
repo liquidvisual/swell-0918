@@ -6,13 +6,13 @@
     <meta name="description" content="">
     <title>404: Page not found - Swellnet</title>
 
-    <!-- { % include components/widgets/google_analytics.html %} -->
-    
-<!-- CDN --><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
+    <!-- CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
     <link rel="stylesheet" href="/assets/css/minified.css">
 
-    <!-- PRIORITY SCRIPTS -->
-    </head>
+    <!-- LEGACY -->
+    <script src="http://content.jwplatform.com/libraries/FpR5fUx9.js?oueqgx"></script>
+</head>
 <body class="">
 
     <!-- PAGE LOADER -->
@@ -34,9 +34,9 @@
     var loader = document.getElementById('lv-page-loader');
     loader.style.display = 'flex';
     // Limit to 2+ seconds of waiting time
-    setTimeout(function() {
-        loader.className += ' force-finish';
-    }, 2000);
+    // setTimeout(function(){
+    // loader.className += ' force-finish';
+    // }, 2000);
     </script>
     <div class="lv-page">
 
@@ -15412,7 +15412,7 @@
             </div>
         </header>
 
-        <!-- BODY -->
+        <!-- MAIN BODY -->
         <main class="main-body">
             <div class="container"></div>
         </main>
@@ -15523,9 +15523,24 @@
             <section class="global-footer-bottom">
                 <div class="container">
 
-                    <!-- BACK TO TOP -->
-                    <div class="text-center text-md-right">
-                        <button data-back-top class="btn-back-top">
+                    <!-- ******* DEMO PURPOSES ONLY (REMOVE) ******* -->
+                    <form class="page-state-switcher mb-4">
+                        <label>
+                            <input type="checkbox" name="is-logged-in" value="theme-logged-in"> User is Logged in &nbsp;</label>
+                        <label>
+                            <input type="checkbox" name="is-paid" value="theme-paid"> User is Paid</label>
+                    </form>
+                    <style>
+                    .page-state-switcher {
+                        color: black;
+                        font-weight: bold;
+                    }
+                    </style>
+
+                    <!-- ******* / DEMO PURPOSES ONLY (REMOVE) ******* -->
+                    
+<!-- BACK TO TOP --><div class="text-center text-md-right">
+                        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-back-top">
                             <div>
                                 <i class="d-block fa fa-angle-up"></i>
                                 <span class="text">TOP</span>
@@ -30882,20 +30897,16 @@
 
     <!-- **** JAVASCRIPT **** -->
     
-<!-- HLS -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script> -->
-<!-- IE11 ES6 (Plyr) --><script>
-    window.Promise || document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"><\/script>');
-    </script>
-    <script src="https://rawgit.com/utatti/perfect-scrollbar/master/dist/perfect-scrollbar.js"></script>
-    <link rel="stylesheet" href="https://rawgit.com/utatti/perfect-scrollbar/master/css/perfect-scrollbar.css">
+<!-- IE11 ES6 (Plyr) -->
+<!-- <script>window.Promise || document.write('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6,Array.prototype.includes,CustomEvent,Object.entries,Object.values,URL"><\/script>');
+    </script> -->
+    <script src="/assets/scripts/minified-hls.js"></script>
     <script src="/assets/scripts/minified.js"></script>
-    <script src="/assets/scripts/minified-vue.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->
     <noscript>
         <div class="lv-alert-bar">
-            <p>Your browser has Javascript disabled. Some features may be limited.</p>
+            <p>Your browser has JavaScript disabled. Please enable it to continue.</p>
         </div>
     </noscript>
 </body>
