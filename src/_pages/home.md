@@ -1,10 +1,34 @@
 ---
 layout: child_layout/home
-title: Home
+title: Instructions
 permalink: /
 regenerate: true
 theme:
 ---
+
+[Click to Access 2018 Codebase](https://github.com/liquidvisual/swell-0918)
+
+[Compiled version here](https://github.com/liquidvisual/swell-0918/tree/gh-pages) (gh-pages)
+
+1. Start with [base.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base.html)
+It's a clean build with legacy styles and scripts broken off into partials (the order is important). I haven't merged any of the old codebase in, but once done we can eventually audit these separately, and remove anything that's no longer necessary. Closing body script assets are now **/assets/scripts/minified-hls.js** and **/assets/scripts/minified.js**.
+
+2. There's two main layouts which control page layout.
+See [base__page.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base__page.html) and [base__page_sidebar.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base__page_sidebar.html).
+
+3. The main Nav and Off-canvas are rendered by a single recursive partial [nav.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/navigation/nav.html) using [sitemap.json](https://github.com/liquidvisual/swell-0918/blob/master/src/_data/sitemap.json). The contents of the this file were taken from the existing one (unmodified). Additional menu items were added around them.
+
+4. State classes are placed on the body **.theme-paid** and **.theme-logged-in**
+
+5. Common partials for the rest are found here, [header.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/layout/header.html) and [footer.html](https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/layout/footer.html).
+
+<br>
+
+---
+
+<br>
+<br>
+<br>
 
 # H1. This Is a Header One
 ## H2. This Is a Header Two
