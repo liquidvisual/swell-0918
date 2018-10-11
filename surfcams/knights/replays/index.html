@@ -7,7 +7,7 @@
     <title>Knights Surfcam Replays - Swellnet</title>
 
     <!-- CDN -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:400,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
     <link rel="stylesheet" href="/assets/css/minified.css">
 
     <!-- LEGACY -->
@@ -34,9 +34,9 @@
     var loader = document.getElementById('lv-page-loader');
     loader.style.display = 'flex';
     // Limit to 2+ seconds of waiting time
-    // setTimeout(function(){
-    // loader.className += ' force-finish';
-    // }, 2000);
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
     </script>
     <div class="lv-page">
 
@@ -45,25 +45,17 @@
 
             <!-- HEADER TOP -->
             <div class="global-header-top">
+                <div class="container">
 
-                <!-- HEADER ALERT -->
-                <div class="global-header-alert">
-                    <div class="container">
-                        <a href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts...
-                            <strong>Get Swellnet PRO for $8.95 per month</strong>
-                        </a>
-                    </div>
-                </div>
+                    <!-- DESKTOP -->
+                    <a class="hidden-sm-down" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts...
+                        <strong>Get Swellnet PRO for $8.95 per month</strong>
+                    </a>
 
-                <!-- HEADER SPONSOR -->
-                <div class="global-header-sponsor">
-                    <div class="container text-center">
-
-                        <!-- AD IFRAME GOES HERE -->
-                        <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
-
-                        <!-- AD IFRAME GOES HERE -->
-                        </div>
+                    <!-- MOBILE (SHORTER) -->
+                    <a class="hidden-md-up" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, and more...
+                        <strong>Get Swellnet PRO for $8.95 per month</strong>
+                    </a>
                 </div>
             </div>
 
@@ -15412,6 +15404,17 @@
             </div>
         </header>
 
+        <!-- SPONSOR -->
+        <div class="global-sponsor">
+            <div class="container text-center">
+
+                <!-- AD IFRAME GOES HERE -->
+                <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
+
+                <!-- AD IFRAME GOES HERE -->
+                </div>
+        </div>
+
         <!-- MAIN BODY -->
         <main class="main-body">
             <div class="container">
@@ -15419,7 +15422,9 @@
                     <div class="col-lg-8 pr-lg-4">
 
                         <!-- TITLE -->
-                        <h1 class="mb-4">Knights Surfcam Replays</h1>
+                        <h1 class="mb-4">Knights Surfcam Replays
+                            <img width="28" src="/assets/img/ui/premium-icon.svg">
+                        </h1>
                         <div id="vue-app" class="mb-4">
 
                             <!-- SURFCAM WIDGET -->
@@ -15469,7 +15474,242 @@
                         
 <!-- { % include ads.html type=2 %} --></div>
                     <div class="col-lg-4 pl-lg-3">
-                        <aside class="sidebar"></aside>
+                        <aside class="sidebar">
+
+                            <!-- NEAREST REPORTS / SURFCAMS -->
+                            <section class="mb-5 mb-md-4">
+                                <h2 class="sidebar-header d-flex mb-4">
+                                    <i class="fa fa-bar-chart pr-3"></i> Nearest Report / Forecast</h2>
+                                <a href="#" class="btn btn-cta">Middleton
+                                    <i class="fa fa-angle-right"></i>
+                                </a>
+                                <hr class="my-5">
+
+                                <!-- NEAREST SURFCAMS -->
+                                <h2 class="sidebar-header h3 d-flex mb-4">
+                                    <i class="fa fa-video-camera pr-3"></i> Nearest Surfcams</h2>
+
+                                <!-- THUMB SLIDER -->
+                                <div class="thumb-slider-wrapper collapse-row-sm-only">
+                                    <div class="thumb-slider-track">
+                                        <div class="thumb-slider special-nearest-surfcams is-stacked-for-desktop" data-thumb-slider>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                            <div class="thumb-slider-item btn-tile">
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">
+                                                        <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton"> </a>
+                                                </span>
+                                                <span class="field-content">
+                                                    <a href="/surfcams/middleton">Middleton</a>
+                                                </span>
+                                                <span class="field-content">4.949165415382</span>
+                                            </div>
+                                        </div>
+
+                                        <!-- SLIDER CONTROLS -->
+                                        <button class="thumb-slider-prev-btn">
+                                            <i class="fa fa-angle-left"></i>
+                                        </button>
+                                        <button class="thumb-slider-next-btn">
+                                            <i class="fa fa-angle-right"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- LATEST COMMENTS -->
+                            <section class="panel-pane pane-views pane-latest-comments-concise">
+
+                                <!-- <h2 class="pane-title mt-0">Latest Comments</h2> -->
+                                <h2 class="sidebar-header d-flex mb-4">
+                                    <i class="fa fa-comments pr-3"></i> Latest Comments</h2>
+                                <div class="pane-content">
+                                    <div class="view view-latest-comments-concise view-id-latest_comments_concise view-display-id-block_1 view-dom-id-992e49c859c24ac4b52b3479b2fc07b7">
+                                        <div class="view-content">
+                                            <div class="views-row views-row-1 views-row-odd views-row-first">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">udo in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/09/04/it-just-consumed-me-worlds-first-proven-shark-repellant">"It just consumed me" // The world's first proven shark repellant</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">8 min 58 sec ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-2 views-row-even">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">fong in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/08/22/webber-wave-pools-begin-work-their-first-wave-pool">Webber Wave Pools begin work on their first wave pool</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">58 min 25 sec ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-3 views-row-odd">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">memlasurf in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/09/06/dane-reynolds-and-craig-anderson-premium-violence-video">Dane Reynolds and Craig Anderson // Premium Violence - video</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">1 hour 21 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-4 views-row-even">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">Nick Bone in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/09/05/marti-paradisis-purest-form-fun-video">Marti Paradisis // The Purest Form of Fun - video</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">2 hours 10 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-5 views-row-odd">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">Clam in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/surfpolitik/2015/01/19/charge-and-stripes-latest-shark-deterring-devices">Charge and stripes: The latest in shark deterring devices</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">2 hours 30 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-6 views-row-even">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">Clam in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/reports/forecaster-notes/sydney-hunter-illawarra/2017/09/04/and-away-stepladder-south-swells-ahead">Up, up and away! Stepladder south swells ahead</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">2 hours 48 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-7 views-row-odd">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">Jelly Flater in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/09/01/going-left-kelly-slater-wave-pool-video">Going left at the Kelly Slater Wave Pool - video</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">2 hours 53 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-8 views-row-even">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">thermalben in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/reports/forecaster-notes/south-east-queensland-northern-new-south-wales/2017/09/04/sustained-series">Sustained series of strong south swells coming up</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">4 hours 27 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-9 views-row-odd">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">Clam in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/reports/forecaster-notes/victoria/2017/09/04/large-cold-windy-surf">Large cold windy surf</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">12 hours 14 min ago</span>
+                                                </span>
+                                            </div>
+                                            <div class="views-row views-row-10 views-row-even views-row-last">
+                                                <span class="views-field views-field-name">
+                                                    <span class="field-content">gillos in </span>
+                                                </span>
+                                                <span class="views-field views-field-title">
+                                                    <span class="field-content">
+                                                        <a href="/news/swellnet-dispatch/2017/09/01/colosseum-video">Colosseum - video</a>
+                                                    </span>
+                                                </span>
+                                                <span class="views-field views-field-created">
+                                                    <span class="field-content">15 hours 21 min ago</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </aside>
                     </div>
                 </div>
             </div>
@@ -15482,9 +15722,9 @@
             <section class="global-footer-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-8 mb-3 mb-lg-0">
+                        <div class="col-12 col-md-8 mb-3 mb-lg-0">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4 hidden-sm-down">
 
                                     <!-- QUICK LINKS -->
                                     <h4 class="mb-3">Quick Links</h4>
@@ -15512,7 +15752,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4">
 
                                     <!-- CONTACT -->
                                     <h4 class="mb-3">About</h4>
@@ -15531,7 +15771,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4 is-user-column">
 
                                     <!-- CONTACT -->
                                     <h4 class="mb-3">User</h4>
@@ -15552,14 +15792,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+                        <div class="col-12 col-md-4 mb-3 mb-lg-0 text-md-right">
+
+                            <!-- LOGO -->
                             <p>
-                                <img width="60%" src="/assets/img/content/swellnet-logo--light.svg" alt="Swellnet">
+                                <img class="logo" src="/assets/img/content/swellnet-logo--light.svg" alt="Swellnet">
                             </p>
 
                             <!-- SOCIAL MEDIA -->
                             
-<!-- <h4 class="mb-3">Social Media</h4> -->
 <!-- SOCIAL MEDIA --><div class="social-media">
                                 <a title="Facebook" href="https://www.facebook.com/swellnet/" target="_blank" class="facebook">
                                     <div class="icon">

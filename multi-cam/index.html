@@ -7,7 +7,7 @@
     <title>Multi-cam - Swellnet</title>
 
     <!-- CDN -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:400,600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
     <link rel="stylesheet" href="/assets/css/minified.css">
 
     <!-- LEGACY -->
@@ -34,9 +34,9 @@
     var loader = document.getElementById('lv-page-loader');
     loader.style.display = 'flex';
     // Limit to 2+ seconds of waiting time
-    // setTimeout(function(){
-    // loader.className += ' force-finish';
-    // }, 2000);
+    setTimeout(function() {
+        loader.className += ' force-finish';
+    }, 2000);
     </script>
     <div class="lv-page">
 
@@ -45,25 +45,17 @@
 
             <!-- HEADER TOP -->
             <div class="global-header-top">
+                <div class="container">
 
-                <!-- HEADER ALERT -->
-                <div class="global-header-alert">
-                    <div class="container">
-                        <a href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts...
-                            <strong>Get Swellnet PRO for $8.95 per month</strong>
-                        </a>
-                    </div>
-                </div>
+                    <!-- DESKTOP -->
+                    <a class="hidden-sm-down" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts...
+                        <strong>Get Swellnet PRO for $8.95 per month</strong>
+                    </a>
 
-                <!-- HEADER SPONSOR -->
-                <div class="global-header-sponsor">
-                    <div class="container text-center">
-
-                        <!-- AD IFRAME GOES HERE -->
-                        <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
-
-                        <!-- AD IFRAME GOES HERE -->
-                        </div>
+                    <!-- MOBILE (SHORTER) -->
+                    <a class="hidden-md-up" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, and more...
+                        <strong>Get Swellnet PRO for $8.95 per month</strong>
+                    </a>
                 </div>
             </div>
 
@@ -15412,6 +15404,17 @@
             </div>
         </header>
 
+        <!-- SPONSOR -->
+        <div class="global-sponsor">
+            <div class="container text-center">
+
+                <!-- AD IFRAME GOES HERE -->
+                <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
+
+                <!-- AD IFRAME GOES HERE -->
+                </div>
+        </div>
+
         <!-- MAIN BODY -->
         <main class="main-body">
             <div class="container">
@@ -15467,9 +15470,9 @@
             <section class="global-footer-body">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-8 mb-3 mb-lg-0">
+                        <div class="col-12 col-md-8 mb-3 mb-lg-0">
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4 hidden-sm-down">
 
                                     <!-- QUICK LINKS -->
                                     <h4 class="mb-3">Quick Links</h4>
@@ -15497,7 +15500,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4">
 
                                     <!-- CONTACT -->
                                     <h4 class="mb-3">About</h4>
@@ -15516,7 +15519,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-6 col-md-4 is-user-column">
 
                                     <!-- CONTACT -->
                                     <h4 class="mb-3">User</h4>
@@ -15537,14 +15540,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4 mb-3 mb-lg-0">
+                        <div class="col-12 col-md-4 mb-3 mb-lg-0 text-md-right">
+
+                            <!-- LOGO -->
                             <p>
-                                <img width="60%" src="/assets/img/content/swellnet-logo--light.svg" alt="Swellnet">
+                                <img class="logo" src="/assets/img/content/swellnet-logo--light.svg" alt="Swellnet">
                             </p>
 
                             <!-- SOCIAL MEDIA -->
                             
-<!-- <h4 class="mb-3">Social Media</h4> -->
 <!-- SOCIAL MEDIA --><div class="social-media">
                                 <a title="Facebook" href="https://www.facebook.com/swellnet/" target="_blank" class="facebook">
                                     <div class="icon">
