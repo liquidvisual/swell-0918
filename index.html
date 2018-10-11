@@ -8,10 +8,10 @@
 
     <!-- CDN -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
-    <link rel="stylesheet" href="/assets/css/minified.css">
 
     <!-- LEGACY -->
     <script src="http://content.jwplatform.com/libraries/FpR5fUx9.js?oueqgx"></script>
+    <link rel="stylesheet" href="/assets/css/minified.css">
 </head>
 <body class="">
 
@@ -15422,9 +15422,52 @@
                     <div class="col-lg-8 pr-lg-4">
 
                         <!-- TITLE -->
-                        <h1 class="mb-4">Home
+                        <h1 class="mb-4">Instructions
                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                         </h1>
+                        <p>
+                            <a href="https://github.com/liquidvisual/swell-0918">Click to Access 2018 Codebase</a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/liquidvisual/swell-0918/tree/gh-pages">Compiled version here</a> (gh-pages)</p>
+                        <ol>
+                            <li>
+                                <p>Start with
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base.html">base.html</a> It’s a clean build with legacy styles and scripts broken off into partials (the order is important). I haven’t merged any of the old codebase in, but once done we can eventually audit these separately, and remove anything that’s no longer necessary. Closing body script assets are now
+                                    <strong>/assets/scripts/minified-hls.js</strong> and
+                                    <strong>/assets/scripts/minified.js</strong>.</p>
+                            </li>
+                            <li>
+                                <p>There’s two main layouts which control page layout. See
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base__page.html">base__page.html</a> and
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_layouts/base__page_sidebar.html">base__page_sidebar.html</a>.</p>
+                            </li>
+                            <li>
+                                <p>The main Nav and Off-canvas are rendered by a single recursive partial
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/navigation/nav.html">nav.html</a> using
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_data/sitemap.json">sitemap.json</a>. The contents of the this file were taken from the existing one (unmodified). Additional menu items were added around them.</p>
+                            </li>
+                            <li>
+                                <p>State classes are placed on the body
+                                    <strong>.theme-paid</strong> and
+                                    <strong>.theme-logged-in</strong>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Common partials for the rest are found here,
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/layout/header.html">header.html</a> and
+                                    <a href="https://github.com/liquidvisual/swell-0918/blob/master/src/_includes/components/layout/footer.html">footer.html</a>.</p>
+                            </li>
+                        </ol>
+                        <p>
+                            <br>
+                        </p>
+                        <hr>
+                        <p>
+                            <br>
+                            <br>
+                            <br>
+                        </p>
                         <h1 id="h1-this-is-a-header-one">H1. This Is a Header One</h1>
                         <h2 id="h2-this-is-a-header-two">H2. This Is a Header Two</h2>
                         <h3 id="h3-this-is-a-header-three">H3. This Is a Header Three</h3>
@@ -31174,8 +31217,9 @@
     </div>
     <![endif]-->
 
-    <!-- **** JAVASCRIPT **** -->
-    <script src="/assets/scripts/minified-hls.js"></script>
+    <!-- LEGACY -->
+    
+<!-- **** JAVASCRIPT **** --><script src="/assets/scripts/minified-hls.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->
