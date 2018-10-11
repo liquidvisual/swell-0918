@@ -1,67 +1,18 @@
 /*
     SPECIAL.CSS
 
-    - updated: 16.01.18
+    - updated: 10.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
-// PAYPAL FORM - REFACTOR
+// VUE CLOAK
 //-----------------------------------------------------------------
 
 [v-cloak] {
     visibility: hidden;
-}
-
-//-----------------------------------------------------------------
-// JEEP OVERLAY
-//-----------------------------------------------------------------
-
-.video-jeep-overlay {
-	display: none;
-	position: relative;
-	margin-bottom: 24%;
-	pointer-events: none;
-	opacity: 0;
-	animation: enter-jeep-overlay 1s ease 3s alternate 1 forwards;
-	z-index: 100;
-
-	@media (max-width: 767px) {
-		left: -15px;
-		width: calc(100% + 30px);
-		margin-bottom: 25%;
-	}
-
-	.image {
-		position: absolute;
-		bottom: 0;
-		width: 100%;
-		margin-bottom: -19%;
-		// opacity: 0.8;
-	}
-}
-
-// if dashboard mode specified - show
-.jeep-dashboard .video-jeep-overlay {
-	display: block;
-}
-
-/* reposition controls to top */
-.jeep-dashboard .jw-flag-live .jw-controls .jw-controlbar {
-	top: 0;
-	bottom: auto;
-	background: linear-gradient(to bottom, rgba(#000,0.2) 0%,rgba(#000,0) 100%) !important; // subtle bg shadow
-}
-
-// delay the overlay from showing until video loads
-@keyframes enter-jeep-overlay {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
 }
 
 //-----------------------------------------------------------------
@@ -119,71 +70,6 @@
 	margin: 0;
 	width: 760px;
 }
-
-//-----------------------------------------------------------------
-// USERBAR - need this? Doubt it
-//-----------------------------------------------------------------
-
-// .prologue {
-// 	background: $brand-secondary;
-// 	transition: background 300ms ease;
-
-// 	.block-swellnet-subscription-pro-link {
-// 		float: none;
-// 		border: 0;
-// 		text-align: left;
-// 		padding: rem-calc(0 15);
-// 	}
-
-// 	a {
-// 		display: flex;
-// 		align-items: center;
-// 		padding-left: 0;
-// 		color: white;
-// 		font-size: rem-calc(24);
-
-// 		&:hover {
-// 			text-decoration: none;
-// 		}
-
-// 		.text {
-// 			display: inline-block;
-// 			margin-right: 10px;
-// 		}
-// 	}
-
-// 	.fa-angle-right {
-// 		font-size: rem-calc(36);
-// 		line-height: 0;
-
-// 		@include media-breakpoint-down(sm) {
-// 		    font-size: rem-calc(50);
-// 		    margin-left: auto;
-// 		}
-// 	}
-// }
-
-//-----------------------------------------------------------------
-// NAVBAR - not longer necessary
-//-----------------------------------------------------------------
-
-// .navbar-nav {
-// 	width: 100%;
-// }
-
-// .navbar-nav .nav-register,
-// .navbar-nav .nav-login {
-// 	@include media-breakpoint-up(lg) {
-// 	    float: right;
-// 	}
-// }
-
-// .navbar-nav > .nav-login {
-// 	@include media-breakpoint-up(lg) {
-// 	    border-radius: 0 6px 6px 0;
-// 	    overflow: hidden;
-// 	}
-// }
 
 //-----------------------------------------------------------------
 // SPECIAL NEAREST SURFCAMS
@@ -245,8 +131,13 @@
 //-----------------------------------------------------------------
 
 .btn-tabs .flag-wrapper {
+	display: none; // [LOCKED] - off by default
 	position: relative;
 	top: rem-calc(10);
+
+	@include media-breakpoint-down(xs) {
+	    left: ($container-gutter/2); // [OVERRIDE] - see global.scss
+	}
 
 	a {
 		display: inline-block;
@@ -259,6 +150,10 @@
 		text-transform: uppercase;
 		color: white;
 		background: $primary; // NEW
+
+		&.unflag-action {
+			background: #9d9d9d; // old code
+		}
 
 		&:before {
 			content: "\f005";
@@ -295,17 +190,17 @@
 // SIDEBAR HEADER
 //=========================================
 
-.sidebar-header {
-    font-size: 23px;
+// .sidebar-header {
+//     font-size: 23px;
 
-    @include media-breakpoint-up(md) {
-        font-size: 20px;
-    }
+//     @include media-breakpoint-up(md) {
+//         font-size: 20px;
+//     }
 
-    @include media-breakpoint-up(lg) {
-        font-size: 24px;
-    }
-}
+//     @include media-breakpoint-up(lg) {
+//         font-size: 24px;
+//     }
+// }
 
 //=========================================
 //
@@ -318,26 +213,5 @@ h3 .fa {
 }
 
 //-----------------------------------------------------------------
-// PROPER GIRD REPLACES THIS
+//
 //-----------------------------------------------------------------
-
-// .collapse-row-sm-only {
-// 	@include media-breakpoint-down(sm) {
-// 	    margin-left: -15px;
-// 	    width: calc(100% + 30px);
-// 	}
-// }
-
-//=========================================
-// SUPER HACKY
-//=========================================
-
-// .video-player-plyr.is-wide,
-// .video-player-jw.is-wide, // ideal
-// .jwplayer { // jw removes classes
-// 	@include media-breakpoint-down(sm) {
-// 	    margin-left: -15px !important; // ugh for jw
-// 	    width: calc(100% + 30px);
-// 	    min-width: calc(100% + 30px);
-// 	}
-// }

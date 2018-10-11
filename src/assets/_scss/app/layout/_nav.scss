@@ -83,6 +83,7 @@
 
 .lv-nav > ul > li > a > span.submenu-arrow {
     display: inline-block;
+    pointer-events: none; // [LOCKED] - allow click through
 
     i:before {
         position: relative;

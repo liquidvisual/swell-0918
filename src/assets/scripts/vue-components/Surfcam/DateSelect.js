@@ -1,6 +1,6 @@
 /*
     DATE SELECT
-    updated: 10.09.18
+    updated: 09.10.18
 
     DESC
         Creates select list of last 7 days
@@ -23,13 +23,16 @@ Vue.component('date-select', {
                 <option v-for="(item, index) in lastSevenDays" :key="index" :value="item" v-text="item.title"></option>
             </select>
 
-            <i class="fa fa-caret-down"></i>
+            <!-- ICON -->
             <i class="fa fa-calendar-o"></i>
 
             <!-- LOADER -->
             <transition name="special-fade-in">
-                <i v-if="isLoading" class="fa-li fa fa-refresh fa-spin"></i>
+                <i v-if="isLoading" class="fa fa-refresh fa-spin"></i>
             </transition>
+
+            <!-- CARET -->
+            <i class="fa fa-caret-down"></i>
         </div>
     `,
     data() {

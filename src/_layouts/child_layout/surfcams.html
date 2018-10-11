@@ -99,3 +99,8 @@ layout: base__page_sidebar
 {% unless page.user_type == 'paid' %}
     <!-- { % include ads.html type=2 %} -->
 {% endunless %}
+
+{% contentfor sidebar %}
+    {% include legacy/nearest_surfcams.html %}
+    {% include legacy/latest_comments.html %}
+{% endcontentfor %}

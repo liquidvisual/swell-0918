@@ -1,0 +1,49 @@
+<!-- NEAREST REPORTS / SURFCAMS -->
+<section class="mb-5 mb-md-4">
+
+    <h3 class="d-flex mb-4"><i class="fa fa-bar-chart pr-3"></i> Nearest Report / Forecast</h3>
+    <a href="#" class="btn btn-cta">Middleton <i class="fa fa-angle-right"></i></a>
+    <hr class="my-5">
+
+    <!-- NEAREST SURFCAMS -->
+    <h2 class="sidebar-header h3 d-flex mb-4"><i class="fa fa-video-camera pr-3"></i> Nearest Surfcams</h2>
+
+    <!-- THUMB SLIDER -->
+    <div class="thumb-slider-wrapper collapse-row-sm-only">
+        <div class="thumb-slider-track">
+            <div class="thumb-slider special-nearest-surfcams is-stacked-for-desktop" data-thumb-slider>
+
+                {% comment %}
+                {% for i in (1..6) %}
+                    <a class="thumb-slider-item btn-tile" href="#">
+                        <img src="/assets/img/layout/placeholder-thumbnail.png">
+                        <span class="btn-tile-bg" style="background-image: url(http://static.swellnet.com.au/images/surfcams/southport-thumb.jpg)"></span>
+                        <div class="btn-tile-overlay">
+                            <h3 class="btn-tile-header">Cronulla Beaches</h3>
+                        </div>
+                    </a>
+                {% endfor %}
+                {% endcomment %}
+
+                {% for i in (1..6) %}
+                    <div class="thumb-slider-item btn-tile">
+                        <span class="field-content">
+                            <a href="/surfcams/middleton">
+                                <img class="img-responsive" src="http://static.swellnet.com.au/images/surfcams/middleton-thumb.jpg" alt="Middleton" title="Middleton">
+                            </a>
+                        </span>
+                        <span class="field-content">
+                            <a href="/surfcams/middleton">Middleton</a>
+                        </span>
+                        <span class="field-content">4.949165415382</span>
+                    </div>
+                {% endfor %}
+
+            </div>
+
+            <!-- SLIDER CONTROLS -->
+            <button class="thumb-slider-prev-btn"><i class="fa fa-angle-left"></i></button>
+            <button class="thumb-slider-next-btn"><i class="fa fa-angle-right"></i></button>
+        </div>
+    </div>
+</section>

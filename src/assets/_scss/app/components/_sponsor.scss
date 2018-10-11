@@ -1,0 +1,80 @@
+/*
+    SPONSOR.CSS
+
+    - Last updated: 10.10.18
+    - liquidvisual.com
+
+    NOTES:
+
+    Named 'sponsor' to prevent ad-blockers picking up on the word 'ad'
+*/
+//-----------------------------------------------------------------
+// VARIABLES
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+// SPONSOR
+//-----------------------------------------------------------------
+
+.global-sponsor {
+	padding: rem-calc(17 0);
+	background: #e8e8e9; // need this as var
+}
+
+//-----------------------------------------------------------------
+// JEEP OVERLAY
+//-----------------------------------------------------------------
+
+.video-jeep-overlay {
+	display: none;
+	position: relative;
+	margin-bottom: 24%;
+	pointer-events: none;
+	opacity: 0;
+	animation: enter-jeep-overlay 1s ease 3s alternate 1 forwards;
+	z-index: 100;
+
+	@media (max-width: 767px) {
+		left: -15px;
+		width: calc(100% + 30px);
+		margin-bottom: 25%;
+	}
+
+	.image {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+		margin-bottom: -19%;
+		// opacity: 0.8;
+	}
+}
+
+// if dashboard mode specified - show
+.jeep-dashboard .video-jeep-overlay {
+	display: block;
+}
+
+/* reposition controls to top */
+.jeep-dashboard .jw-flag-live .jw-controls .jw-controlbar {
+	top: 0;
+	bottom: auto;
+	background: linear-gradient(to bottom, rgba(#000,0.2) 0%,rgba(#000,0) 100%) !important; // subtle bg shadow
+}
+
+// delay the overlay from showing until video loads
+@keyframes enter-jeep-overlay {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

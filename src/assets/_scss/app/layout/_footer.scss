@@ -25,6 +25,24 @@
 			opacity: 0.85;
 		}
 	}
+
+	.list-unstyled li {
+		margin-bottom: rem-calc(10);
+		line-height: 1;
+	}
+
+	.logo {
+		width: 100%;
+		max-width: 100px;
+
+		@include media-breakpoint-up(md) {
+		    max-width: rem-calc(216);
+		}
+	}
+
+	.is-user-column {
+		display: none;
+	}
 }
 
 //-----------------------------------------------------------------

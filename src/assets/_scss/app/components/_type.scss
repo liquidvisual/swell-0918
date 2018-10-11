@@ -70,8 +70,8 @@ p.lead {
     h1, .h1 { font-size: calc(#{$h1-font-size} - 64%); }
     h2, .h2 { font-size: calc(#{$h2-font-size} - 40%); }
     h3, .h3 { font-size: calc(#{$h3-font-size} - 20%); }
-    h4, .h4 { font-size: calc(#{$h4-font-size} - 24%); }
-    h5, .h5 { font-size: calc(#{$h5-font-size} - 15%); }
+    // h4, .h4 { font-size: calc(#{$h4-font-size} - 24%); }
+    // h5, .h5 { font-size: calc(#{$h5-font-size} - 15%); }
     // h6, .h6 { font-size: calc(#{$h6-font-size} - 2%); }
 }
 

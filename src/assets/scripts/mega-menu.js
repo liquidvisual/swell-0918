@@ -1,5 +1,5 @@
 /*
-    MEGA-MENU-REPORTS.JS - Last updated: 08.10.18
+    MEGA-MENU-REPORTS.JS - Last updated: 11.10.18
 */
 //-----------------------------------------------------------------
 //
@@ -12,9 +12,12 @@
     // VARIABLES
     //-----------------------------------------------------------------
 
-    var perfectScrollbar;
+    var scrollbarSurfcams;
+    var scrollbarReports;
+
     var $mainBody = $('.main-body');
     var $reportsMegaMenu = $('.lv-nav .is-reports-mega-menu > .dropdown');
+    var $surfcamsMegaMenu = $('.lv-nav .is-surfcams-mega-menu > .dropdown');
     var $megaListItems = $('.lv-nav li.is-mega');
     var $megaListItemAnchors = $('> a', $megaListItems);
     var $topSelection = $reportsMegaMenu.find('> li:first-child');
@@ -32,6 +35,10 @@
                 setActive($topSelection);
             }
         // }
+
+        // Init scrollbars
+        scrollbarReports = new PerfectScrollbar($reportsMegaMenu[0]);
+        scrollbarSurfcams = new PerfectScrollbar($surfcamsMegaMenu[0]);
     });
 
     //-----------------------------------------------------------------
@@ -54,6 +61,9 @@
 
         // Handles use case of toggling and menu height getting stuck
         setDropdownHeight();
+
+        // REFACTOR AND MERGE
+        setSurfcamsHeight();
 
         // Set up a conditional exit click
         enableExit(!bool);
@@ -155,7 +165,7 @@
     //-----------------------------------------------------------------
 
     function setDropdownHeight() {
-        var activeDropdownHeights = [];
+        var activeDropdownHeights = [429]; // hardcoded
         var activeDropdowns = $('.lv-nav .is-mega .dropdown > li.active > .dropdown');
 
         // Vars for calculation of available height between header and viewport bottom
@@ -171,26 +181,41 @@
 
         // Find the largest height of the dropdown
         var largestHeight = Math.max.apply(Math, activeDropdownHeights);
-        var finalHeight = 429;
 
-        // Don't let height reduce past the default of 429 (height of first column)
-        if (largestHeight > 429) {
-
-            // If the final height exceeds available safe height, cap it. Otherwise take largest height.
-            finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
-        }
+        // If the final height exceeds available safe height, cap it. Otherwise take largest height.
+        var finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
 
         // Apply height
         $reportsMegaMenu.height(finalHeight);
 
-        // If scrollbar exists, destroy and reset
-        if (perfectScrollbar) {
-            perfectScrollbar.destroy();
-            perfectScrollbar = null;
+        // If scrollbar exists update
+        if (scrollbarReports) {
+            scrollbarReports.update();
         }
+    }
 
-        // Apply scrollbar
-        perfectScrollbar = new PerfectScrollbar('.lv-nav li.has-dropdown.is-reports-mega-menu > .dropdown');
+    //-----------------------------------------------------------------
+    // SET SURFCAMS HEIGHT (REFACTOR)
+    //-----------------------------------------------------------------
+
+    function setSurfcamsHeight() {
+        // Vars for calculation of available height between header and viewport bottom
+        var windowHeight = $(window).height();
+        var globalHeaderHeight = $('.global-header').height();
+        var megaMenuHeight = $surfcamsMegaMenu.outerHeight();
+        var maxAvailableHeight = windowHeight - globalHeaderHeight - 100; // 100 magic, stops hitting flush bottom
+        var largestHeight = 702; // refactor
+
+        // If the final height exceeds available safe height, cap it. Otherwise take largest height.
+        var finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
+
+        // Apply height
+        $surfcamsMegaMenu.height(finalHeight);
+
+        // If scrollbar exists update
+        if (scrollbarSurfcams) {
+            scrollbarSurfcams.update();
+        }
     }
 
 //--

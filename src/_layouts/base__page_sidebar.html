@@ -2,9 +2,20 @@
 layout: base
 ---
 
+<!-- SPONSOR -->
+<div class="global-sponsor">
+    <div class="container text-center">
+        <!-- AD IFRAME GOES HERE -->
+        <img width="728" style="max-width: 100%;" src="/assets/img/content/gio-ad.jpg">
+        <!-- AD IFRAME GOES HERE -->
+    </div>
+</div>
+
+{% comment %}
 {% if page.breadcrumbs %}
 	{% include components/navigation/breadcrumbs.html %}
 {% endif %}
+{% endcomment %}
 
 <!-- MAIN BODY -->
 <main class="main-body">
@@ -12,10 +23,13 @@ layout: base
 	    <div class="row">
 	        <div class="col-lg-8 pr-lg-4">
 
-	        	<!-- TITLE -->
-	        	<h1 class="mb-4">{{ page.title }}</h1>
-	        	{{ content }}
+				<!-- TITLE -->
+				<h1 class="mb-4">
+					{{ page.title }}
+					<img width="28" src="/assets/img/ui/premium-icon.svg">
+				</h1>
 
+	        	{{ content }}
 	        </div>
 	        <div class="col-lg-4 pl-lg-3">
 				<aside class="sidebar">

@@ -1,14 +1,14 @@
 /*
     HAMBURGER.CSS
 
-    - Last updated: 27.09.18
+    - Last updated: 10.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
 // VARIABLES
 //-----------------------------------------------------------------
 
-$hamburger-width: 24px;
+$hamburger-width: 25px; // works better than 24
 $hamburger-height: $hamburger-width - $hamburger-width/5;
 $hamburger-bar-height: 4px;
 
@@ -42,7 +42,7 @@ $hamburger-bar-height: 4px;
         .lv-hamburger-middle,
         .lv-hamburger-bottom {
             @include media-breakpoint-up(xl) {
-                background: lighten($body-color, 8%);
+                background: lighten($body-color, 5%);
             }
         }
     }

@@ -1,0 +1,15 @@
+---
+layout: base__page_sidebar
+---
+
+{% comment %}
+{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
+{% include sections/section_basic.html content_block=item %}
+{% endcomment %}
+
+{{ content }}
+
+{% contentfor sidebar %}
+    {% include legacy/nearest_surfcams.html %}
+    {% include legacy/latest_comments.html %}
+{% endcontentfor %}

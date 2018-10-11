@@ -1,5 +1,5 @@
 /*
-    MAIN.JS - Last updated: 08.10.18
+    MAIN.JS - Last updated: 10.10.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -9,53 +9,24 @@ var headroom = null;
 var lvPage = document.querySelector(".lv-page");
 var resizeTimer;
 
-var $lvPage = $('.lv-page');
-var $globalHeader = $('.global-header');
-var $html = $('html');
-
 //-----------------------------------------------------------------
 // ON READY
 //-----------------------------------------------------------------
 
 $(document).ready(function() {
 
-    // Tooltips
-    $('[data-toggle="tooltip"]').tooltip();
-
-    // onResize
-    $(window).on('resize', setPagePaddingTop);
-
-    // Set the page padding based on header
-    setPagePaddingTop();
+    // Remove page loader by adding loaded to html
+    document.documentElement.classList.add('has-loaded');
 
     // Headroom
     initHeadroom();
 
-    // Remove page loader
-    if (!$html.hasClass('has-loaded')) {
-        $html.addClass('has-loaded');
-    }
+    // onResize
+    $(window).on('resize', onResize);
+
+    // Tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 });
-
-//-----------------------------------------------------------------
-// ADJUST PAGE FOR STICKY HEADER (REFACTOR)
-//-----------------------------------------------------------------
-
-function setPagePaddingTop() {
-    clearTimeout(resizeTimer);
-
-    resizeTimer = setTimeout(function(){
-        $lvPage.css({
-            'paddingTop': $globalHeader.height() + 40, // 40 is the top gutter.
-            'visibility': 'visible'
-        });
-
-        // If headroom has init - set offsets
-        if (headroom) {
-            setHeadroomOffset();
-        }
-    }, 250)
-}
 
 //-----------------------------------------------------------------
 // HEADROOM.js
@@ -65,7 +36,7 @@ function initHeadroom() {
 
     var headroomOptions = {
         // vertical offset in px before element is first unpinned
-        offset : 50,
+        offset : 0,
         // scroll tolerance in px before state changes
         tolerance : 0,
         // or you can specify tolerance individually for up/down scroll
@@ -97,7 +68,7 @@ function initHeadroom() {
         // callback when unpinned, `this` is headroom object
         onUnpin : function() {},
         // callback when above offset, `this` is headroom object
-        onTop : setPagePaddingTop,
+        onTop : function() {},
         // callback when below offset, `this` is headroom object
         onNotTop : function() {},
         // callback when at bottom of page, `this` is headroom object
@@ -131,10 +102,22 @@ function setHeadroomOffset() {
 }
 
 //-----------------------------------------------------------------
+// ON RESIZE
+// Adjust Headroom offset upon resize
+//-----------------------------------------------------------------
+
+function onResize() {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function(){
+        if (headroom) setHeadroomOffset();
+    }, 250);
+}
+
+//-----------------------------------------------------------------
 // PAGE SWITCHER (DEV ONLY)
 //-----------------------------------------------------------------
 
-$('.page-state-switcher input').click(function(event) {
+$('.global-footer .page-state-switcher input').click(function(event) {
     var $body = $('body');
     var $this = $(this);
     var val = $this.attr('value');
@@ -144,8 +127,10 @@ $('.page-state-switcher input').click(function(event) {
     } else {
         $body.removeClass(val);
     }
-    setPagePaddingTop();
-    setHeadroomOffset();
+
+    setTimeout(function() {
+        setHeadroomOffset();
+    }, 1000)
 });
 
 //-----------------------------------------------------------------

@@ -12,7 +12,7 @@
 //-----------------------------------------------------------------
 
 .social-media {
-	display: flex;
+	display: inline-flex;
 	flex-wrap: wrap;
 
 	a {
@@ -30,10 +30,11 @@
 		text-align: center;
 		color: white !important;
 		transition: transform 200ms ease;
-		border-radius: $border-radius;
+		border-radius: 100%; //$border-radius;
+		will-change: transform;
 
 		&:hover {
-			transform: scale(0.9);
+			// transform: scale(0.9);
 			opacity: 1 !important; // [LOCKED]
 		}
 	}
@@ -62,11 +63,13 @@
 
 	//=========================================
 	// INSTAGRAM
+	// https://codepen.io/thomasrye/pen/VaRoYv
 	//=========================================
 
-	// .instagram {
-	// 	background: radial-gradient(circle farthest-corner at 32% 106%, rgb(255, 225, 125) 0%, rgb(255, 205, 105) 10%, rgb(250, 145, 55) 28%, rgb(235, 65, 65) 42%, transparent 82%), linear-gradient(135deg, rgb(35, 75, 215) 12%, rgb(195, 60, 190) 58%);
-	// }
+	.instagram {
+		background: #d6249f;
+		background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+	}
 }
 
 //-----------------------------------------------------------------

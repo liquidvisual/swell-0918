@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 07.10.18
+    - updated: 10.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -29,6 +29,15 @@
 	.lv-off-canvas .is-login {
 		display: none;
 	}
+
+	// FAV BTN (surfcams)
+	.btn-tabs .flag-wrapper {
+		display: inline-block;
+	}
+
+	.global-footer .is-user-column {
+		display: block;
+	}
 }
 
 //-----------------------------------------------------------------
@@ -38,24 +47,10 @@
 
 .theme-paid {
 
-	.global-header {
-		position: fixed; // quick fix with toggle thing
-	}
-
-	.global-header-top {
+	.global-header-top,
+	.global-sponsor {
 		display: none; // [LOCKED] - hide the ads
-		height: 0; // [LOCKED] - for jQuery headroom
-	}
-
-	// PREMIUM ICONS
-	.lv-nav ul li.is-premium > a,
-	.lv-off-canvas ul li.is-premium > a {
-	    color: #5d5d5d;
-
-	    .obs-icon,
-	    .premium-icon {
-	        display: none;
-	    }
+		height: 0; // [LOCKED] - for jQuery headroom calculation
 	}
 }
 

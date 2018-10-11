@@ -1,6 +1,6 @@
 /*
     TIME SELECT
-    updated: 11.09.18
+    updated: 09.10.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -26,9 +26,12 @@ Vue.component('time-select', {
                 <option>Replays Unavailable</option>
             </select>
 
-            <i class="fa fa-caret-down"></i>
+            <!-- ICON -->
             <i v-if="!feed" class="fa fa-ban"></i>
             <i v-if="feed" class="fa fa-clock-o"></i>
+
+            <!-- CARET -->
+            <i class="fa fa-caret-down"></i>
         </div>
     `,
 

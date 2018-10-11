@@ -1,7 +1,7 @@
 /*
     HEADER.CSS
 
-    - Last updated: 02.10.18
+    - Last updated: 10.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -10,7 +10,7 @@
 
 // $header-top-sm-height: 46px !default;
 // $header-top-md-height: 46px !default;
-// $header-top-lg-height: 46px !default;
+$header-top-lg-height: 46px !default;
 
 $header-body-sm-height: 57px !default;
 $header-body-md-height: 74px !default;
@@ -18,18 +18,34 @@ $header-body-md-height: 74px !default;
 
 // $header-bottom-sm-height: 50px !default;
 // $header-bottom-md-height: 50px !default;
-$header-bottom-lg-height: 47px !default; // 50
+$header-bottom-lg-height: 47px !default;
 
 //-----------------------------------------------------------------
-// PUSH PAGE DOWN TO ACCOMODATE FIXED HEADER
+// LV PAGE
+//   1. PUSH PAGE DOWN TO ACCOMODATE FIXED HEADER
+//   2. PAD TOP TO ACCOUNT FOR FIXED HEADER
 //-----------------------------------------------------------------
 
 .lv-page {
-	transition: margin ease 250ms;
+	padding-top: $header-top-lg-height + $header-body-sm-height;
+	transition: margin ease 250ms; // mirrored with global header padding
 	will-change: margin;
+
+	@include media-breakpoint-up(md) {
+	    padding-top: $header-top-lg-height + $header-body-md-height;
+	}
 }
 
-// // push NAV down
+// BELONGS IN THEME - but here for variables
+.theme-paid .lv-page {
+	padding-top: $header-body-sm-height;
+
+	@include media-breakpoint-up(md) {
+	    padding-top: $header-body-md-height;
+	}
+}
+
+// PUSH NAV DOWN
 .has-open-menu .headroom--top.lv-page {
 	@include media-breakpoint-up(xl) {
 	    margin-top: $header-bottom-lg-height; // to accomodate the bottom strip
@@ -43,48 +59,46 @@ $header-bottom-lg-height: 47px !default; // 50
 // PINNED - SCROLLING UP
 //****************************************************
 
-.headroom--pinned:not(.headroom--disabled) .global-header {
-	transform: translateY(0%);
-	margin-bottom: rem-calc(40); // only applies when NOT fixed
+.headroom--pinned .global-header {
+	// margin-bottom: rem-calc(40); // only applies when NOT fixed
+	// transform: translateY(0%);
 }
 
 //****************************************************
 // UNPINNED - SCROLLING DOWN
 //****************************************************
 
-.headroom--unpinned.headroom--not-top:not(.headroom--disabled) .global-header {
+.headroom--unpinned.headroom--not-top .global-header {
    	// transform: translateY(-100%);
-   	// opacity: 0;
-    // transition-delay: 600ms; // delay for UX
+    // transition-delay: 200ms; // delay for UX
 
     @include media-breakpoint-down(lg) {
-    //     transform: translateY(-100%);
-    	opacity: 0;
+        transform: translateY(-100%);
     }
 }
 
-// override if hovering menu
-.headroom--unpinned.headroom--not-top .global-header:hover {
-   	transform: translateY(0);
-   	opacity: 1;
-}
+//****************************************************
+// UNPINNED - SCROLLING DOWN HOVER
+// Prevent dropdown moving when hovering over (old)
+//****************************************************
+
+// .headroom--unpinned.headroom--not-top .global-header:hover {
+//    	transform: translateY(0);
+// }
 
 //****************************************************
 // HEADROOM NOT TOP
 //****************************************************
 
-.headroom--not-top:not(.headroom--disabled) .global-header {
+.headroom--not-top .global-header {
 	position: fixed;
-	// box-shadow: 0 0 3px 1px rgba(black, 0.2);
+	box-shadow: 0 0 3px 1px rgba(black, 0.15);
 
 	.global-header-top {
-		height: 0; // [LOCKED] - for some reason height better performs display on Safari here
+		height: 0;
 	}
 
 	.global-header-body {
-		// background: $primary; // [THEMABLE]
-		transition: all 200ms ease;
-
 		@include media-breakpoint-up(md) {
 		    height: $header-body-md-height;
 		}
@@ -99,10 +113,12 @@ $header-bottom-lg-height: 47px !default; // 50
 //-----------------------------------------------------------------
 
 .global-header {
-	position: absolute; // fixed
+	position: absolute;
 	top: 0;
 	width: 100%;
 	will-change: transform;
+	padding-bottom: 0;
+	transition: padding 250ms ease, box-shadow 250ms ease;
 	// transition: transform 200ms linear, background-color 200ms ease, padding ease 250ms;
 	// transition: 150ms opacity ease;
 	z-index: 110; // was 1 - overtake multicams and jeep
@@ -110,13 +126,9 @@ $header-bottom-lg-height: 47px !default; // 50
 	// @include media-breakpoint-down(lg) {
 	//     transition: transform 200ms linear, background-color 200ms ease, padding ease 250ms;
 	// }
-
-	@include media-breakpoint-up(md) {
-	    position: absolute; //relative; // prev static?
-	}
 }
 
-// // push NAV down
+// push NAV down
 .has-open-menu .global-header {
 	@include media-breakpoint-up(xl) {
 	    padding-bottom: $header-bottom-lg-height; // to accomodate the bottom strip positioning
@@ -128,38 +140,22 @@ $header-bottom-lg-height: 47px !default; // 50
 //-----------------------------------------------------------------
 
 .global-header-top {
-	// position: relative; // [LOCKED]
-	// transition: max-height linear 200ms;
-	overflow: hidden;
-	// max-height: 170px;
-	// z-index: 2; // [LOCKED] - dropdown needs to move over top of nav
-}
-
-//-----------------------------------------------------------------
-// HEADER TOP -- ALERT
-//-----------------------------------------------------------------
-
-.global-header-alert {
 	display: flex;
 	align-items: center;
-	// height: $header-top-lg-height;
-	padding: rem-calc(12 0);
+	height: $header-top-lg-height;
 	background: $secondary;
 	font-family: $headings-font-family;
 	font-size: rem-calc(12);
-	font-weight: $font-weight-semibold;
-	color: white; // [LOCKED] - for dropdown override
+	overflow: hidden;
+	// transition: all ease 150ms;
 
 	@include media-breakpoint-up(md) {
 	    font-size: rem-calc(14);
 	}
 
-	@include media-breakpoint-up(lg) {
-	    font-size: rem-calc(15);
-	}
-
 	a {
-		color: white; // [THEMEABLE]
+		color: white;
+		font-weight: 500; //$font-weight-semibold;
 
 		&:hover {
 			opacity: 1 !important; // override
@@ -170,15 +166,6 @@ $header-bottom-lg-height: 47px !default; // 50
 		display: inline-block; // [LOCKED] - let it fall to a new line
 		font-weight: bold;
 	}
-}
-
-//-----------------------------------------------------------------
-// HEADER TOP -- SPONSOR
-//-----------------------------------------------------------------
-
-.global-header-sponsor {
-	padding: rem-calc(17 0);
-	background: #e8e8e9; // need this as var
 }
 
 //-----------------------------------------------------------------

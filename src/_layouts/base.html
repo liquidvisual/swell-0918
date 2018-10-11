@@ -13,14 +13,14 @@
     </title>
 
     <!-- CDN -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:600,700,800">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
 
     <!-- build:css({src,.tmp}) /assets/css/minified.css -->
     <link rel="stylesheet" href="/css/main.css">
     <!-- endbuild -->
 
     <!-- LEGACY -->
-    {% include legacy_head.html %}
+    {% include legacy/head.html %}
 
 </head>
 <body class="{{ page.theme }}">
@@ -94,7 +94,7 @@
     <script src="/assets/scripts/vue-components/Multicam/MulticamSelect.js"></script>
     <script src="/assets/scripts/vue-components/app.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
-    <script src="/assets/scripts/mega-menu-reports.js"></script>
+    <script src="/assets/scripts/mega-menu.js"></script>
     <script src="/assets/scripts/flickity.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->

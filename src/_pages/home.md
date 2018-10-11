@@ -1,13 +1,10 @@
 ---
-layout: base__homepage
+layout: child_layout/home
 title: Home
 permalink: /
 regenerate: true
 theme:
 ---
-
-{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
-{% include sections/section_basic.html content_block=item %}
 
 # H1. This Is a Header One
 ## H2. This Is a Header Two
