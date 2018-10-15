@@ -95,9 +95,9 @@
 			a {
 				display: block;
 				max-width: 150px;
-				padding: rem-calc(10);
+				padding: rem-calc(8);
 				background: #2f2f2f;
-				font-size: rem-calc(26);
+				// font-size: rem-calc(26);
 				line-height: 1;
 				text-align: center;
 				text-decoration: none;
@@ -213,5 +213,61 @@ h3 .fa {
 }
 
 //-----------------------------------------------------------------
-//
+// DOES THIS WORK?
 //-----------------------------------------------------------------
+
+.views-field-comment-count .field-content {
+    position: relative;
+    background: rgba(1, 138, 147, 0.5);
+    border-radius: .2em;
+    display: inline-block;
+    min-width: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1rem;
+    padding: 2px 3px;
+    color: #fff;
+    margin-left: 3px;
+}
+
+.views-field-comment-count .field-content:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-top-color: rgba(1, 138, 147, 0.5);
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -2.5px;
+  margin-bottom: -5px;
+}
+
+.views-field-comment-count {
+    /*position: absolute;
+    margin-left: -22px;*/
+    display: inline-block;
+    /*top: 8px;
+    right: 4px;*/
+}
+
+//-----------------------------------------------------------------
+// LATEST COMMENTS
+//-----------------------------------------------------------------
+
+.panel-pane {
+	font-size: rem-calc(14);
+	margin-bottom: rem-calc(40);
+
+	.views-row {
+		padding: rem-calc(10 0);
+		// border-top: 1px solid #f1f2f3;
+		border-top: 1px solid #f1f2f3;
+	}
+
+	.views-row-odd {
+		background-color: #fbfcfd;
+	}
+}

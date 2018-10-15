@@ -1,7 +1,7 @@
 /*
     SLIDER.CSS
 
-    - Last updated: 11.08.17
+    - Last updated: 15.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -33,7 +33,7 @@
 // 2. Sidebar remove track on desktop
 //-----------------------------------------------------------------
 
-.panel-right .thumb-slider-wrapper {
+.sidebar .thumb-slider-wrapper {
 	.thumb-slider-track	{
 		@include media-breakpoint-up(md) {
 		    padding: 0;

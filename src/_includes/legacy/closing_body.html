@@ -1,0 +1,324 @@
+<!-- JW PLAYER -->
+<script src="http://content.jwplatform.com/libraries/FpR5fUx9.js?oueqgx"></script>
+
+{% comment %}
+
+<script type="text/javascript">
+  var _sf_async_config=Drupal.settings.chartbeat;
+  (function(){
+    function loadChartbeat() {
+      window._sf_endpt=(new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src',
+         (("https:" == document.location.protocol) ? "https://s3.amazonaws.com/" : "http://") +
+         "static.chartbeat.com/js/chartbeat.js");
+      document.body.appendChild(e);
+    }
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+       loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+
+  <script src="http://www.swellnet.com/profiles/swellnet/themes/bootstrap/js/bootstrap.js?pg9juv"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <!-- Begin MCN ad code -->
+  <script type="text/javascript">
+    (function(){var e=document.createElement("script"),protocol = "https:" == document.location.protocol ? "https:" : "http:";e.async=true;e.src=protocol+"//medrx.telstra.com.au/mcn/cube.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n);})();window._mcn={};_mcn.config=[];
+    _mcn.config.push(function(){
+      _mcn.publisher("swellnet");
+      _mcn.amf.postLoadAdCall(true);
+      _mcn.amf.targeting("device","Desktop");
+      _mcn.amf.targeting("area", "home");
+    });
+  </script>
+
+  <!-- End MCN ad code -->
+  <!-- BEGIN EFFECTIVE MEASURE CODE -->
+  <!-- BEGIN EFFECTIVE MEASURE CODE -->
+  <!-- COPYRIGHT EFFECTIVE MEASURE -->
+
+  <script type="text/javascript">
+    //<![CDATA[
+      (function() {
+        var em = document.createElement('script'); em.type = 'text/javascript'; em.async = true;
+        em.src = ('https:' == document.location.protocol ? 'https://au-ssl' : 'http://au-cdn') + '.effectivemeasure.net/em.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(em, s);
+      })();
+    //]]>
+  </script>
+  <noscript>
+  <img alt="" src="//au.effectivemeasure.net/em_image" style="position:absolute; left:-5px;" />
+  </noscript>
+  <!-- END EFFECTIVE MEASURE CODE -->
+  <!-- START Nielsen Online SiteCensus V6.0 -->
+  <!-- COPYRIGHT 2012 Nielsen Online -->
+  <script src="//secure-au.imrworldwide.com/v60.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    //<![CDATA[
+      //
+        var pvar = { cid: "mcn", content: "swellnet", server: "secure-au" };  var trac = nol_t(pvar);  trac.record().post();
+      //
+    //]]>
+  </script>
+  <noscript>
+  <div>
+  <img alt="" height="1" src="//secure-au.imrworldwide.com/cgi-bin/m?ci=mcn&amp;cg=swellnet&amp;cc=1&amp;ts=noscript" width="1" />
+  </div>
+  </noscript>
+  <!-- END Nielsen Online SiteCensus V6.0 -->
+  <div id="desktopTest" class="hidden-xs hidden-sm"></div>
+  <script src="/profiles/swellnet/themes/gold/js/dropdown-menu.js"></script>
+
+
+<!--[if lte IE 9]><div class="lv-alert-bar">
+        <p>You're using an outdated browser. Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
+        <span class="lv-alert-bar-close-btn">&times;</span>
+        <div class="lv-blackout"></div>
+    </div>
+    <![endif]-->
+
+  <script src="/profiles/swellnet/themes/gold/js/lv-minified.js?pg9juv"></script>
+
+
+
+<script type="text/javascript">
+
+  var ajaxObject = {};
+  var firstLoaded = true;
+
+  function isScrolledToBottom(el) {
+    var $el = $(el);
+    // console.log('el.scrollHeight=' + el.scrollHeight);
+    // console.log('el.scrollTop()=' + $el.scrollTop());
+    // console.log('el.outerHeight()=' + $el.outerHeight());
+    return el.scrollHeight - $el.scrollTop() - $el.outerHeight() < 1;
+
+  }
+
+  // function commentsAjaxRequest() {
+  //     ajaxObject = $.ajax({
+  //       url: '/comments/get/383144',
+  //       success: function(data) {
+  //         $('#swellnet-comments-container-ajax').html(data);
+  //       },
+  //       complete: function() {
+  //         // Schedule the next request when the current one's complete
+  //         setTimeout(commentsAjaxRequest, 5000);
+  //       }
+  //     });
+  //   }
+
+  function commentsAjaxRequest() {
+      console.log('Loading comments');
+      ajaxObject = $.ajax({
+        url: '/comments/get/',
+        success: function(data) {
+          scrollToBottom = false;
+
+          if(isScrolledToBottom(document.getElementById('swellnet-comments-container-ajax'))) {
+            scrollToBottom = true;
+          }
+
+          $('#swellnet-comments-container-ajax').html(data);
+
+          console.log('Comments loaded');
+
+
+          if(firstLoaded || scrollToBottom) {
+            console.log('Scrolled to bottom');
+            $('#swellnet-comments-container-ajax').animate({ scrollTop: $('#swellnet-comments-container-ajax')[0].scrollHeight}, 0);
+            firstLoaded = false;
+          }
+        },
+        complete: function() {
+
+          // Schedule the next request when the current one's complete
+          setTimeout(commentsAjaxRequest, 10000);
+        }
+      });
+    }
+
+//     (function ($) {
+//   Drupal.behaviors.swellnetCommentFormBehaviours = {
+//     attach: function (context, settings) {
+//       $("input[type='checkbox']").change(function () {
+//         $(this).parent().siblings('ul').find("input[type='checkbox']").prop('checked', this.checked);
+//       });
+//     }
+//   }
+// })(jQuery);
+
+
+
+
+  $(document).ready(function() {
+
+
+
+
+    $('#swellnet-comments-form').submit(function() {
+        // if ($('#mx_zip').val() == '' && $('#mx_city').val() == '') {
+        //     // Additional code here to light up the input or display error message
+        //     return false;
+        // }
+        return false;
+    });
+
+    $("#swellnet-comments-form .form-textarea").val('');
+    $('#swellnet-comments-form .form-submit').attr('disabled','disabled');
+    // $('#swellnet-comments-form .form-textarea').change(function(){
+    //     if($(this).val != ''){
+    //         $('#swellnet-comments-form .form-submit').removeAttr('disabled');
+    //     }
+    // });
+
+    $("#swellnet-comments-form .form-textarea").on('input',function(e){
+      if(e.target.value === ''){
+        // Textarea has no value
+        $('#swellnet-comments-form .form-submit').attr('disabled','disabled');
+        console.log('disabled');
+      } else {
+        // Textarea has a value
+        $('#swellnet-comments-form .form-submit').removeAttr('disabled');
+        console.log('enabled');
+      }
+    });
+
+
+
+    if(!$(".patagonia-email-form .form-email").val()) {
+      $('.patagonia-email-form .form-submit').attr('disabled','disabled');
+    }
+
+    $(".patagonia-email-form .form-email").on('input',function(e){
+      if(e.target.value === ''){
+        // Textarea has no value
+        $('.patagonia-email-form .form-submit').attr('disabled','disabled');
+        console.log('disabled');
+      } else {
+        // Textarea has a value
+        $('.patagonia-email-form .form-submit').removeAttr('disabled');
+        console.log('enabled');
+      }
+    });
+
+
+    $(".view-latest-comments-concise .views-field-created .field-content, .view-latest-forum-posts .views-field-created .field-content").each(function(){
+      //console.log($(this).html());
+      //console.log($(this).text());
+      //$(this).text(timeSince($(this).html()));
+
+      currentDate = new Date(Number($(this).html() * 1000));
+      //console.log(currentDate);
+      $(this).text(timeSince(currentDate));
+      $(this).show();
+
+    });
+
+
+    function timeSince(timeStamp) {
+      var returnValue = '';
+      var seconds = 0;
+      var minutes = 0;
+      var hours = 0;
+      var days = 0;
+      var months = 0;
+      var years = 0;
+
+      var now = new Date(),
+        secondsPast = (now.getTime() - timeStamp.getTime()) / 1000;
+      if(secondsPast < 60){
+        seconds =  parseInt(secondsPast);
+        returnValue = seconds + ' sec';
+      }
+      else if(secondsPast < 3600){
+        minutes =  parseInt(secondsPast/60);
+        seconds =  parseInt(secondsPast) - (minutes * 60);
+
+        returnValue = minutes + ' min';
+        if(seconds > 0) {
+          returnValue += ' ' + seconds + ' sec';
+        }
+      }
+      else if(secondsPast < 86400){
+        hours =  parseInt(secondsPast/3600);
+        minutes =  parseInt(secondsPast/60) - (hours * 60);
+        returnValue = hours + ' hour' + (hours == 1 ? ' ' : 's ');
+        if(minutes > 0) {
+          returnValue += ' ' + minutes + ' min';
+        }
+      }
+      else if(secondsPast <= 2592000){
+        days = parseInt(secondsPast/86400);
+        hours =  parseInt(secondsPast/3600) - (days * 24);
+        returnValue = days + ' day' + (days == 1 ? '' : 's');
+        if(hours > 0) {
+          returnValue += ' ' + hours + ' hour' + (hours == 1 ? '' : 's');
+        }
+      }
+      else if(secondsPast <= 31536000){
+        months = parseInt(secondsPast/2592000);
+        returnValue = months + ' month' + (months == 1 ? ' ' : 's');
+      }
+      else if(secondsPast > 31536000){
+        years = parseInt(secondsPast/31536000);
+        months = parseInt(secondsPast/2592000) - (years * 12);
+        returnValue = years + ' year' + (years == 1 ? ' ' : 's ') + months + ' month' + (months == 1 ? ' ' : 's');
+      }
+      return returnValue + ' ago';
+    }
+
+
+  // $(document).on('scroll', function() {
+  //     var distanceFromBottom = Math.floor($(document).height() - $(document).scrollTop() - $(window).height());
+
+  //     if(distanceFromBottom < 500) {
+  //         // We're less than 200 pixels away from the bottom!
+  //         console.log('near bottom');
+  //     }
+  // });
+
+
+    // $('#swellnet-comments-container-ajax').load('/comments/get/383144', function() {
+    //   console.log('Comments loaded');
+    //   $('#swellnet-comments-container-ajax').animate({ scrollTop: $('#swellnet-comments-container-ajax')[0].scrollHeight}, 0);
+    // });
+
+
+    // var commentsTimer = setInterval(
+    //   function(){
+
+    //     if(isScrolledToBottom(document.getElementById('swellnet-comments-container-ajax'))) {
+
+    //       console.log('Loading comments');
+
+    //       $('#swellnet-comments-container-ajax').load('/comments/get/383144', function() {
+    //         console.log('Comments loaded');
+    //         $('#swellnet-comments-container-ajax').animate({ scrollTop: $('#swellnet-comments-container-ajax')[0].scrollHeight}, 0);
+    //       });
+
+    //     } else {
+    //       console.log('not scrolled to bottom');
+    //     }
+    //   },
+    //   10000  /* 10000 ms = 10 sec */
+    // );
+
+
+
+
+    // onscroll, clear interval
+    // clearInterval(commentsTimer);
+
+    // if scrolled to bottom, begin interval again
+
+
+  });
+
+
+</script>
+{% endcomment %}

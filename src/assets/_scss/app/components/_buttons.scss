@@ -71,13 +71,14 @@
     width: 100%;
     border-radius: 0;
     background: $primary;
-    font-size: rem-calc(32);
+    font-size: rem-calc(18);
+    font-weight: 700;
     text-align: left;
     color: white;
 
     .fa-angle-right {
         margin-left: auto;
-        font-size: rem-calc(44);
+        font-size: rem-calc(28);
     }
 
     &:hover {
