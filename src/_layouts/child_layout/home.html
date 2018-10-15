@@ -2,11 +2,6 @@
 layout: base__page_sidebar
 ---
 
-{% comment %}
-{% capture item %}{% include components/media/media_article.html %}{% endcapture %}
-{% include sections/section_basic.html content_block=item %}
-{% endcomment %}
-
 {{ content }}
 
 {% contentfor sidebar %}
@@ -14,3 +9,54 @@ layout: base__page_sidebar
     {% include legacy/latest_comments.html %}
     {% include legacy/in_the_forums.html %}
 {% endcontentfor %}
+
+<!-- ARTICLES 4x -->
+<section class="section pb-0">
+	<div class="container">
+
+		<!-- BADGE -->
+		<a href="#">
+			<small class="mb-4 badge badge-secondary text-uppercase">Editors Picks</small>
+		</a>
+
+		<div class="row">
+			{% for item in site.data.lorem_ipsum limit: 4 %}
+				<div class="col-6 col-xl-3">
+
+					<!-- IMAGE -->
+					<p>
+						<a href="{{ item.url }}">
+							<img width="100%" src="http://placehold.it/230x146" alt="...">
+						</a>
+					</p>
+
+					<!-- HEADING -->
+					<h6 class="mb-1">
+						<a class="text-muted" href="{{ item.url }}">
+							<strong>{{ item.title }}</strong>
+						</a>
+					</h6>
+
+					<!-- CATEGORY -->
+					<a href="#">Swellnet Dispatch</a>
+
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<!-- ARTICLES -->
+<section class="section">
+	<div class="container">
+		{% include components/media/media_article.html %}
+	</div>
+</section>
+
+<!-- LOAD MORE BUTTON -->
+<div class="text-center">
+	<button class="btn btn-outline-primary">
+		<span class="text">Load more</span>
+		<i class="fa fa-refresh fa-spin ml-2" hidden></i>
+	</button>
+</div>
