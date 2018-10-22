@@ -1,7 +1,7 @@
 /*
     SPONSOR.CSS
 
-    - Last updated: 10.10.18
+    - Last updated: 23.10.18
     - liquidvisual.com
 
     NOTES:
@@ -16,8 +16,15 @@
 //-----------------------------------------------------------------
 
 .global-sponsor {
-	padding: rem-calc(17 0);
+	// padding: rem-calc(17 0);
 	background: #e8e8e9; // need this as var
+}
+
+.global-sponsor .ad-container > div,
+.global-sponsor .adblock-billboard {
+	box-sizing: content-box;
+	padding: rem-calc(17 0);
+	overflow: auto;
 }
 
 //-----------------------------------------------------------------

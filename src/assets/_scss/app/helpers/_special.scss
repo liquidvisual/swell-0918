@@ -1,7 +1,7 @@
 /*
     SPECIAL.CSS
 
-    - updated: 10.10.18
+    - updated: 23.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -217,10 +217,11 @@ h3 .fa {
 }
 
 //-----------------------------------------------------------------
-// DOES THIS WORK?
+// LEGACY - but works
 //-----------------------------------------------------------------
 
-.comment-count {
+.comment-count,
+.views-field-comment-count {
 	display: inline-block;
 	position: relative;
 	top: -2px;
@@ -236,7 +237,8 @@ h3 .fa {
 	margin-left: rem-calc(10);
 }
 
-.comment-count .text:after {
+.comment-count .text:after,
+.views-field-comment-count .field-content:after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -267,5 +269,134 @@ h3 .fa {
 
 	.views-row-odd {
 		background-color: #fbfcfd;
+	}
+}
+
+//-----------------------------------------------------------------
+// DRUPAL ARTICLE LIST ITEM
+//-----------------------------------------------------------------
+
+.drupal-article-list-item {
+	padding: $spacer*2 0;
+	border-bottom: 1px solid #e8e9e9;
+
+	// CATEGORY
+	.field-name-field-article-site-category a {
+		display: inline-block;
+		padding: rem-calc(3 5);
+		margin-bottom: $spacer;
+		border-radius: 3px;
+		font-size: rem-calc(10);
+		line-height: 1;
+		text-transform: uppercase;
+		background: $primary;
+		color: white;
+
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+
+	// HEADING
+	h2 {
+		@extend .h3;
+		margin-bottom: $spacer / 1.5;
+		a { color: $headings-color; &:hover { color: darken($headings-color, 5%); }}
+	}
+
+	// AUTHOR + DATE
+	.field-name-author,
+	.field-name-post-date {
+		font-size: rem-calc(13);
+		color: $text-muted;
+	}
+
+	// AUTHOR
+	.field-name-author {
+		float: left;
+		display: inline-block;
+		margin-right: rem-calc(10);
+
+		&:before {
+			content: "By";
+		}
+	}
+
+	.field-name-post-date {
+		margin-bottom: $spacer;
+	}
+
+	// <p></p>
+	p:empty {
+	    display: none;
+	}
+
+	// IMAGE
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+//-----------------------------------------------------------------
+// DRUPAL WAVE OF THE DAY
+//-----------------------------------------------------------------
+
+.view-latest-wave-of-the-day {
+	position: relative;
+
+	.field-name-field-wotd-photographer {
+		position: absolute;
+		top: 8px;
+		right: 10px;
+		font-size: rem-calc(15);
+		color: white;
+		text-transform: uppercase;
+		font-weight: 800;
+		text-shadow: 1px 1px 1px rgba(black, 0.2);
+
+		&:after {
+			display: inline-block;
+			content: "\f030";
+			font-family: 'FontAwesome';
+			margin-left: rem-calc(5);
+		}
+	}
+
+	img {
+		width: 100%;
+		height: auto;
+
+		@include media-breakpoint-down(sm) {
+		    margin-bottom: $spacer / 1.5;
+		}
+	}
+
+	.field-name-field-wotd-caption {
+		@include media-breakpoint-up(md) {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			padding: rem-calc(0 15);
+			height: rem-calc(40);
+			color: white;
+		    background: rgba(black, 0.4);
+		}
+
+		.field-label {
+			@extend .h4;
+			@include media-breakpoint-up(md) {
+				color: white;
+				margin: 0;
+			}
+		}
+		.field-item {
+			@include media-breakpoint-down(sm) {
+			    display: block;
+			}
+		}
 	}
 }

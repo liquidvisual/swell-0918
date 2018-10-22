@@ -24,8 +24,6 @@ See [base__page.html](https://github.com/liquidvisual/swell-0918/blob/master/src
 
 <br>
 
----
-
 {% comment %}
 
 
