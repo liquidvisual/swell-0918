@@ -226,7 +226,7 @@ h3 .fa {
 	position: relative;
 	top: -2px;
 	min-width: rem-calc(20);
-	background: #7ec5c9;
+	background: $primary; //#7ec5c9;
 	border-radius: 2px;
 	font-size: rem-calc(9);
 	font-weight: 700;
@@ -248,7 +248,7 @@ h3 .fa {
   margin-left: -4.5px;
   margin-bottom: -4px;
   border: 5px solid transparent;
-  border-top-color: #7ec5c9;
+  border-top-color: $primary; //#7ec5c9;
   border-bottom: 0;
   border-left: 0;
 }
@@ -280,12 +280,16 @@ h3 .fa {
 	padding: $spacer*2 0;
 	border-bottom: 1px solid #e8e9e9;
 
+	// .view-latest-wave-of-the-day {
+	// 	margin-top: $spacer*1.5;
+	// }
+
 	// CATEGORY
 	.field-name-field-article-site-category a {
 		display: inline-block;
 		padding: rem-calc(3 5);
 		margin-bottom: $spacer;
-		border-radius: 3px;
+		// border-radius: 3px; // requested removal
 		font-size: rem-calc(10);
 		line-height: 1;
 		text-transform: uppercase;
@@ -339,11 +343,44 @@ h3 .fa {
 }
 
 //-----------------------------------------------------------------
+// LOAD MORE BUTTON
+//-----------------------------------------------------------------
+
+.pager-load-more {
+	list-style: none;
+	padding: 0; // [RESET]
+	margin: 0; // [RESET]
+	margin-bottom: $spacer;
+	text-align: center;
+
+	.pager-next a {
+		@extend .btn;
+		@extend .btn-outline-primary;
+	}
+}
+
+//-----------------------------------------------------------------
 // DRUPAL WAVE OF THE DAY
 //-----------------------------------------------------------------
 
-.view-latest-wave-of-the-day {
+// wrap the node-waves if you want bottom border
+.node-wave-of-the-day-container {
+	.node-wave-of-the-day:last-child {
+		&:after {
+			content: "";
+			position: absolute;
+			width: 100%;
+			height: 1px;
+			margin-top: $spacer * 1.5;
+			background: #e8e9e9;
+		}
+	}
+}
+
+.view-latest-wave-of-the-day,
+.node-wave-of-the-day {
 	position: relative;
+	margin-bottom: $spacer * 1.5;
 
 	.field-name-field-wotd-photographer {
 		position: absolute;
@@ -400,3 +437,49 @@ h3 .fa {
 		}
 	}
 }
+
+//-----------------------------------------------------------------
+// TABS
+//-----------------------------------------------------------------
+
+.element-invisible {
+	display: none;
+}
+
+.nav-tabs {
+	list-style: none;
+	padding: 0; // [RESET]
+	margin-bottom: $spacer * 1.5;
+	// border: 0; // not sure where this comes from
+
+	@include media-breakpoint-up(md) {
+	    display: flex;
+	}
+
+	a {
+		display: block;
+		padding: rem-calc(7 15); // [LOCKED] - to match dropdowns
+		background: #f4f4f4;
+		border: 1px solid #e8e8e8;
+		margin-top: -1px;
+
+		@include media-breakpoint-up(md) {
+		    display: inline-block;
+		    margin-right: -1px;
+		}
+	}
+
+	.active a {
+		background: white;
+		color: $body-color;
+		border: 0;
+		border-top: 1px solid #e8e8e8;
+		// margin-top: 1px;
+
+		@include media-breakpoint-up(md) {
+		    margin-left: 1px;
+		}
+	}
+}
+
+

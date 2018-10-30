@@ -10,8 +10,8 @@ layout: base__page_sidebar
     {% include legacy/in_the_forums.html %}
 {% endcontentfor %}
 
-<!-- WAVE OF THE DAY (LEGACY) -->
-<div class="view view-latest-wave-of-the-day view-id-latest_wave_of_the_day view-display-id-panel_pane_wotd view-dom-id-23a80b1632e3d932819051c6044a31b6 mb-4">
+<!-- WAVE OF THE DAY - VIEW (LEGACY) -->
+<div class="view view-latest-wave-of-the-day view-id-latest_wave_of_the_day view-display-id-panel_pane_wotd view-dom-id-23a80b1632e3d932819051c6044a31b6">
     <div class="view-content">
         <div>
             <div class="ds-1col node node-wave-of-the-day node-promoted node-teaser node-wave_of_the_day-teaser view-mode-teaser clearfix">
@@ -124,6 +124,40 @@ layout: base__page_sidebar
         </div>
     </article>
 
+    {% if i == 1 %}
+    <!-- <div class="node-wave-of-the-day-container"> -->
+
+        <!-- WAVE OF THE DAY - NODE (LEGACY) -->
+        <div class="ds-1col node node-wave-of-the-day node-promoted node-teaser node-wave_of_the_day-teaser view-mode-teaser clearfix">
+            <div class="field field-name-field-wotd-photo field-type-file field-label-hidden">
+                <div class="ds-1col file file-image file-image-jpeg view-mode-wotd_postcard clearfix">
+                    <img class="img-responsive" src="http://www.swellnet.com/sites/default/files/styles/swellnet_large_wm_630x443/public/wave-of-the-day/img_e24.jpg?itok=CSWAjRcy" width="750" height="527" alt="">
+                </div>
+            </div>
+            <div class="field field-name-field-wotd-photographer field-type-taxonomy-term-reference field-label-hidden">Peter Jovic</div>
+            <div class="field field-name-field-wotd-caption field-type-text field-label-inline clearfix">
+                <span class="field-label">Wave of the Day:&nbsp;</span>
+                <span class="field-item">Duke Nagtzaam swinging from the trees</span>
+            </div>
+        </div>
+
+        <!-- WAVE OF THE DAY - NODE (LEGACY) -->
+        <div class="ds-1col node node-wave-of-the-day node-promoted node-teaser node-wave_of_the_day-teaser view-mode-teaser clearfix">
+            <div class="field field-name-field-wotd-photo field-type-file field-label-hidden">
+                <div class="ds-1col file file-image file-image-jpeg view-mode-wotd_postcard clearfix">
+                    <img class="img-responsive" src="http://www.swellnet.com/sites/default/files/styles/swellnet_large_wm_630x443/public/wave-of-the-day/img_e24.jpg?itok=CSWAjRcy" width="750" height="527" alt="">
+                </div>
+            </div>
+            <div class="field field-name-field-wotd-photographer field-type-taxonomy-term-reference field-label-hidden">Peter Jovic</div>
+            <div class="field field-name-field-wotd-caption field-type-text field-label-inline clearfix">
+                <span class="field-label">Wave of the Day:&nbsp;</span>
+                <span class="field-item">Duke Nagtzaam swinging from the trees</span>
+            </div>
+        </div>
+
+    <!-- </div> -->
+    {% endif %}
+
 {% endfor %}
 
 {% comment %}
@@ -137,6 +171,14 @@ layout: base__page_sidebar
 
 <div class="spacer mb-4"></div>
 
+<!-- LOAD MORE BUTTON (DRUPAL) -->
+<ul class="pager pager-load-more">
+    <li class="pager-next">
+        <a href="/welcome?page=1">Load more</a>
+    </li>
+</ul>
+
+{% comment %}
 <!-- LOAD MORE BUTTON -->
 <div class="text-center">
 	<button class="btn btn-outline-primary">
@@ -144,3 +186,6 @@ layout: base__page_sidebar
 		<i class="fa fa-refresh fa-spin ml-2" hidden></i>
 	</button>
 </div>
+{% endcomment %}
+
+<div class="spacer mb-4"></div>
