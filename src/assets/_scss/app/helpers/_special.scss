@@ -254,10 +254,11 @@ h3 .fa {
 }
 
 //-----------------------------------------------------------------
-// LATEST COMMENTS
+// SIDEBAR ZEBRA STRIPING
 //-----------------------------------------------------------------
 
-.panel-pane {
+.pane-views.pane-latest-comments-concise, // too precise?
+.pane-views.pane-latest-forum-posts {
 	font-size: rem-calc(14);
 	margin-bottom: rem-calc(40);
 
@@ -450,10 +451,17 @@ h3 .fa {
 	list-style: none;
 	padding: 0; // [RESET]
 	margin-bottom: $spacer * 1.5;
-	// border: 0; // not sure where this comes from
 
 	@include media-breakpoint-up(md) {
 	    display: flex;
+	}
+
+	li:first-child.active a {
+		border-left: 1px solid #e8e8e8;
+	}
+
+	li:last-child.active a {
+		border-right: 1px solid #e8e8e8;
 	}
 
 	a {
@@ -466,17 +474,21 @@ h3 .fa {
 		@include media-breakpoint-up(md) {
 		    display: inline-block;
 		    margin-right: -1px;
+		    font-size: 15px; // per request
+		}
+
+		@include media-breakpoint-up(xl) {
+		    font-size: rem-calc(16);
 		}
 	}
 
 	.active a {
 		background: white;
 		color: $body-color;
-		border: 0;
-		border-top: 1px solid #e8e8e8;
-		// margin-top: 1px;
 
 		@include media-breakpoint-up(md) {
+			border: 0;
+			border-top: 1px solid #e8e8e8;
 		    margin-left: 1px;
 		}
 	}

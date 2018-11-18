@@ -42,7 +42,7 @@ $hamburger-bar-height: 4px;
         .lv-hamburger-middle,
         .lv-hamburger-bottom {
             @include media-breakpoint-up(xl) {
-                background: lighten($body-color, 5%);
+                background: lighten($gray-900, 5%);
             }
         }
     }
@@ -58,7 +58,7 @@ $hamburger-bar-height: 4px;
     position: absolute;
     width: 100%;
     height: $hamburger-bar-height;
-    background: $body-color;
+    background: $gray-900; //$body-color;
     border-radius: 1.5px;
     transition: transform ease 250ms, background-color 150ms ease;
 }
