@@ -45,8 +45,7 @@
 
     <!-- OFF-CANVAS MENU -->
     <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
-        {% comment %}{% include components/navigation/nav.html %}{% endcomment %}
-        <ul data-render-nav></ul>
+        {% include components/navigation/nav.html %}
     </nav>
 
     <!--[if lte IE 9]>
@@ -73,6 +72,7 @@
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
     <script src="/node_modules/bootstrap/js/dist/util.js"></script>
     <script src="/node_modules/bootstrap/js/dist/collapse.js"></script>
+    <script src="/node_modules/bootstrap/js/dist/alert.js"></script>
     <script src="/node_modules/bootstrap/js/dist/tooltip.js"></script>
     <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
     <script src="/node_modules/flickity-bg-lazyload/bg-lazyload.js"></script>
@@ -96,7 +96,7 @@
     <script src="/assets/scripts/vue-components/Multicam/MulticamPlayerPlyr.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/MulticamSelect.js"></script>
     <script src="/assets/scripts/vue-components/app.js"></script>
-    <script src="/assets/scripts/render-nav.js"></script>
+    <script src="/assets/scripts/render-nav-children.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/mega-menu.js"></script>
     <script src="/assets/scripts/flickity.js"></script>

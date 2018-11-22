@@ -6,6 +6,13 @@ regenerate: true
 theme:
 ---
 
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
 [Click to Access 2018 Codebase](https://github.com/liquidvisual/swell-0918)
 
 [Compiled version here](https://github.com/liquidvisual/swell-0918/tree/gh-pages) (gh-pages)

@@ -1,8 +1,8 @@
 {% comment %}
 <!--
-    NAV.HTML - NESTED DROPDOWN CHILDREN RENDERED VIA JAVASCRIPT
+    NAV.HTML - RECURSIVE
 
-    - updated: 23.11.18
+    - updated: 26.09.18
 
     OUTPUT EG:
 
@@ -21,6 +21,8 @@
         </ul>
 -->
 {% endcomment %}
+
+{% comment %}
 
 {% assign data = include.data | default: site.data.sitemap %}
 
@@ -65,9 +67,10 @@
 
             <!-- DROPDOWN -->
             {% if item.children %}
-                <ul class="dropdown" data-parent="{{ item.name }}" data-render-nav-children="{{ forloop.index | minus: 1 }}"></ul>
+                {% include components/navigation/nav.html data=item.children %}
             {% endif %}
 
         </li>
     {% endfor %}
 </ul>
+{% endcomment %}
