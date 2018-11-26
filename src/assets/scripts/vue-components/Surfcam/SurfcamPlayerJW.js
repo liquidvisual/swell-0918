@@ -1,6 +1,6 @@
 /*
     SURFCAM PLAYER JW
-    updated: 11.09.18
+    updated: 26.11.18
 
     USAGE:
         <surfcam-player-jw video-timeout="300"></surfcam-player-jw>
@@ -14,7 +14,7 @@
 
 Vue.component('surfcam-player-jw', {
     template: `
-        <div class="video-player-jw is-wide"></div>
+        <div class="video-player-jw collapse-sm-down"></div>
     `,
     props: {
         videoTimeout: {

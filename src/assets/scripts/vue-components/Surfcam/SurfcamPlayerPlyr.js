@@ -1,6 +1,6 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 11.09.18
+    updated: 26.11.18
 
     USAGE:
         <surfcam-player-plyr video-timeout="300000" />
@@ -14,7 +14,7 @@
 
 Vue.component('surfcam-player-plyr', {
     template: `
-        <div class="video-player-plyr is-wide">
+        <div class="video-player-plyr collapse-sm-down">
 
             <!-- ERRORS -->
             <div

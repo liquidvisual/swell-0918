@@ -1,7 +1,7 @@
 /*
     GLOBAL.CSS
 
-    - updated: 10.10.18
+    - updated: 26.11.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -34,27 +34,26 @@ html {
 }
 
 //-----------------------------------------------------------------
-// COLLAPSE - surfcams btn tabs etc
+// COLLAPSE
+// Break through constraints of container and hug edges
+// EG. surfcams, btn-tabs, thumb slider, video etc
 //-----------------------------------------------------------------
 
-.collapse-row-sm-only {
+.collapse-sm-down {
+	@include media-breakpoint-down(sm) {
+	    margin-left: -($container-gutter/1.5);
+	    width: calc(100% + #{$container-gutter/1.5 * 2});
+
+		// LEGACY HACK UNDO
+	    .flag-favourite-surfcam { margin-left: ($container-gutter/1.5); }
+	}
+
 	@include media-breakpoint-down(xs) {
 	    margin-left: -($container-gutter/2);
 	    width: calc(100% + #{$container-gutter});
-	}
-}
 
-//=========================================
-// SUPER HACKY
-//=========================================
-
-.video-player-plyr.is-wide,
-.video-player-jw.is-wide,
-.jwplayer { // jw removes classes
-	@include media-breakpoint-down(xs) {
-		margin-left: -($container-gutter/2) !important; // for jw
-		width: calc(100% + #{$container-gutter});
-		// min-width: calc(100% + #{$container-gutter}); // ?
+    	// LEGACY HACK UNDO
+        .flag-favourite-surfcam { margin-left: -6px; }
 	}
 }
 

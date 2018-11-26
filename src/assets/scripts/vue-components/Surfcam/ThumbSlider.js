@@ -1,6 +1,6 @@
 /*
     THUMB SLIDER
-    updated: 11.09.18
+    updated: 26.11.18
 */
 //-----------------------------------------------------------------
 // VARIABLES
@@ -23,7 +23,7 @@ Vue.component('thumb-slider', {
         currentIndex: Number, // only the time select can change this
     },
     template: `
-        <div class="thumb-slider-wrapper collapse-row-sm-only" :style="isLoading ? {opacity: 0.2} : {}">
+        <div class="thumb-slider-wrapper collapse-sm-down" :style="isLoading ? {opacity: 0.2} : {}">
             <div class="thumb-slider-track">
 
                 <!-- VUE FLICKITY -->

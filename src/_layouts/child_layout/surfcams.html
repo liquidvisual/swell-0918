@@ -29,11 +29,15 @@ layout: base__page_sidebar
         <div>
 
             <!-- LIVE / REPLAYS TABS -->
-            <div class="btn-tabs collapse-row-sm-only">
+            <div class="btn-tabs collapse-sm-down">
 
                 <!-- FAVORITE -->
                 <span class="flag-wrapper flag-favourite-surfcam">
-                    <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">Set as favourite</a><span class="flag-throbber">&nbsp;</span>
+                    <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
+                        <span class="hidden-xs-down">Set as favourite</span>
+                        <span class="hidden-sm-up">Set favourite</span>
+                    </a>
+                    <span class="flag-throbber">&nbsp;</span>
                 </span>
 
                 <a v-if="!replaysDisabled" class="btn-tab" :class="{active: feedType == 'replay'}" href="/surfcams/knights/replays/">Replays</a>
@@ -42,7 +46,7 @@ layout: base__page_sidebar
 
             {% if page.url contains 'replays' or page.url == '/' %}
                 <!-- WRAPPER -->
-                <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-row-sm-only">
+                <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down">
 
                     <!-- DATE-SELECT COMPONENT -->
                     <date-select :is-loading="feedLoading" v-model="date"></date-select>
@@ -75,7 +79,7 @@ layout: base__page_sidebar
                 </h2>
 
                 <!-- WRAPPER -->
-                <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-row-sm-only mt-0">
+                <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down mt-0">
 
                     <!-- DATE-SELECT COMPONENT -->
                     <date-select :is-loading="feedLoading" v-model="date"></date-select>
