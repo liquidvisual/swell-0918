@@ -5653,19 +5653,31 @@
             {
               "name":"My Report",
               "url":"/my-report/",
-              "classes":"",
+              "classes":"is-my-report",
               "children":false
             },
             {
               "name":"My Surfcam",
               "url":"/my-surfcam/",
-              "classes":"",
+              "classes":"is-my-surfcam",
               "children":false
             },
             {
               "name":"My Account",
               "url":"/user/",
-              "classes":"",
+              "classes":"is-my-account",
+              "children":false
+            },
+            {
+              "name":"Create Report",
+              "url":"/create-surf-report/",
+              "classes":"is-create-report",
+              "children":false
+            },
+            {
+              "name":"Create Forecast",
+              "url":"/create-surf-forecast/",
+              "classes":"is-create-forecast",
               "children":false
             },
             {

@@ -1,7 +1,7 @@
 /*
     THEMES.CSS
 
-    - updated: 10.10.18
+    - updated: 26.11.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -9,6 +9,17 @@
 //-----------------------------------------------------------------
 
 .lv-off-canvas .is-user-group {
+	display: none;
+}
+
+//-----------------------------------------------------------------
+// THEME GRANULARITY
+//-----------------------------------------------------------------
+
+.theme-hide-my-report .is-user-group .is-my-report,
+.theme-hide-my-surfcam .is-user-group .is-my-surfcam,
+.theme-hide-create-report .is-user-group .is-create-report,
+.theme-hide-create-forecast .is-user-group .is-create-forecast {
 	display: none;
 }
 
