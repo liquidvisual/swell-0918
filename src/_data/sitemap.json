@@ -5582,6 +5582,12 @@
                   "name":"Middleton",
                   "url":"/surfcams/middleton",
                   "children":false
+               },
+               {
+                  "name":"Goolwa",
+                  "url":"/surfcams/goolwa",
+                  "premium":true,
+                  "children":false
                }
             ]
          },

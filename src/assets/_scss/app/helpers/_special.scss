@@ -381,7 +381,8 @@ h3 .fa {
 .view-latest-wave-of-the-day,
 .node-wave-of-the-day {
 	position: relative;
-	margin-bottom: $spacer * 1.5;
+	// margin-bottom: $spacer * 1.5;
+	margin-bottom: 1.3rem; // client requested
 
 	.field-name-field-wotd-photographer {
 		position: absolute;
@@ -404,36 +405,28 @@ h3 .fa {
 	img {
 		width: 100%;
 		height: auto;
-
-		@include media-breakpoint-down(sm) {
-		    margin-bottom: $spacer / 1.5;
-		}
 	}
 
 	.field-name-field-wotd-caption {
+		padding: rem-calc(10 15);
+		background: #333;
+		color: white;
+
 		@include media-breakpoint-up(md) {
-			display: flex;
-			align-items: center;
 			position: absolute;
 			left: 0;
 			bottom: 0;
 			width: 100%;
-			padding: rem-calc(0 15);
-			height: rem-calc(40);
-			color: white;
 		    background: rgba(black, 0.4);
 		}
 
 		.field-label {
 			@extend .h4;
+			font-size: rem-calc(16); // client requested
+			color: white;
+
 			@include media-breakpoint-up(md) {
-				color: white;
 				margin: 0;
-			}
-		}
-		.field-item {
-			@include media-breakpoint-down(sm) {
-			    display: block;
 			}
 		}
 	}

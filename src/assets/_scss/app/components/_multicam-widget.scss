@@ -55,7 +55,7 @@
 	margin: 8px;
 	background: rgba(white, 0.55);
 	border: none; // [RESET]
-	z-index: 1; // was 500? [LOCKED]
+	z-index: 100; // was 500? [LOCKED]
 
 	.icon {
 		width: 100%;
