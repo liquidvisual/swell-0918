@@ -178,7 +178,7 @@ $body-color:                #6b6b6b; //$gray-900 !default;
 // //
 // // Style anchor elements.
 
-// $link-color:                theme-color("primary") !default;
+$link-color:                #01b7c3; //theme-color("primary") !default;
 $link-hover-decoration: none; //underline !default;
 // $link-hover-color:          darken($link-color, 15%) !default;
 // $link-hover-decoration:     underline !default;
@@ -413,7 +413,7 @@ $table-border-color:          darken(#dfe2e5, 15%); //$gray-300 !default;
 
 // $btn-border-width:            $input-btn-border-width !default;
 
-// $btn-font-weight:             $font-weight-normal !default;
+$btn-font-weight:             700; //$font-weight-normal !default;
 // $btn-box-shadow:              inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075) !default;
 // $btn-focus-width:             $input-btn-focus-width !default;
 // $btn-focus-box-shadow:        $input-btn-focus-box-shadow !default;
@@ -425,7 +425,7 @@ $table-border-color:          darken(#dfe2e5, 15%); //$gray-300 !default;
 // $btn-block-spacing-y:         .5rem !default;
 
 // // Allows for customizing button radius independently from global border radius
-// $btn-border-radius:           $border-radius !default;
+$btn-border-radius:           0; //$border-radius !default;
 // $btn-border-radius-lg:        $border-radius-lg !default;
 // $btn-border-radius-sm:        $border-radius-sm !default;
 
