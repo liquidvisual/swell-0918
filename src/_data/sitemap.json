@@ -5640,12 +5640,6 @@
           "children":false
         },
         {
-          "name":"Photos",
-          "url":"/photos/",
-          "classes":"",
-          "children":false
-        },
-        {
           "name":"Forum",
           "url":"/forum/",
           "classes":"",
