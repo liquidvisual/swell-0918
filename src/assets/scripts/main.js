@@ -28,7 +28,7 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
     // Flatpickr
-    $('input[type=date]').flatpickr({
+    $('input[type="date"]').flatpickr({
             dateFormat: "d M Y" // 06 Dec 2018 etc
         }
     );
