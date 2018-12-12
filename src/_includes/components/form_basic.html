@@ -1,0 +1,27 @@
+{% assign settings = site.data.settings %}
+
+<!-- BASIC FORM -->
+<section class="section">
+    <div class="container">
+
+        <h2>Make A Booking</h2>
+
+        <!-- FORM EXAMPLE -->
+        <form name="Form Example" action="#">
+            <fieldset>
+
+               <!-- DATE* -->
+               <label class="form-group d-block">
+                   <p class="mb-2">Booking Date<small class="asterisk">*</small></p>
+                   <input class="form-control" name="Date" type="date" placeholder="Choose here" value="" required>
+                   <!-- <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A date is required.</small> -->
+               </label>
+
+            </fieldset>
+
+            <!-- SUBMIT -->
+            <button type="submit" class="btn btn-primary">Submit &nbsp;<i class="fa fa-angle-right"></i></button>
+
+        </form>
+    </div>
+</section>
