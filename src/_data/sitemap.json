@@ -7,7 +7,7 @@
    },
    {
       "name":"Gift Subscriptions",
-      "url":"/gift-subscriptions/",
+      "url":"/pro/gift",
       "classes":"has-xmas-icon",
       "children":false
    },
