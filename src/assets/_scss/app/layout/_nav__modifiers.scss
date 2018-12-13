@@ -150,17 +150,25 @@
     // left: auto;
 // }
 
-.lv-off-canvas li.has-xmas-icon .text:after,
-.lv-nav li.has-xmas-icon .text:after {
-    content: "";
-    position: relative;
-    top: 5px;
-    display: inline-block;
-    width: rem-calc(26);
-    height: rem-calc(26);
-    margin-left: rem-calc(3);
-    background: url('/assets/img/content/xmas-tree.svg') no-repeat center;
-    background-size: auto 100%;
+//-----------------------------------------------------------------
+// HAS XMAS ICON (incl. off-canvas also)
+//-----------------------------------------------------------------
+
+.lv-off-canvas li.has-xmas-icon .text,
+.lv-nav li.has-xmas-icon .text {
+    padding-right: rem-calc(25);
+
+    &:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: calc(50% - #{rem-calc(26)/2} - 4%);
+        width: rem-calc(26);
+        height: rem-calc(26);
+        margin-left: rem-calc(3);
+        background: url('/assets/img/content/xmas-tree.svg') no-repeat center;
+        background-size: contain;
+    }
 }
 
 //-----------------------------------------------------------------
