@@ -6,6 +6,12 @@
       "children":false
    },
    {
+      "name":"Gift Subscriptions",
+      "url":"/gift-subscriptions/",
+      "classes":"has-xmas-icon",
+      "children":false
+   },
+   {
       "name":"Surf Reports & Forecasts",
       "url":"/reports/",
       "classes":"is-mega is-reports-mega-menu",
