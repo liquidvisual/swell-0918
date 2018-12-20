@@ -28,8 +28,10 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
     // Flatpickr
-    $('input[type="date"]').flatpickr({
-            dateFormat: "d M Y" // 06 Dec 2018 etc
+    $('.datepicker').flatpickr({
+            format: "Y-m-d", // 2018-12-18
+            altFormat: "d M Y", // 06 Dec 2018 etc
+            altInput: true
         }
     );
 });
