@@ -45,8 +45,8 @@ Vue.component('surfcam-player-plyr', {
     `,
     props: {
         videoTimeout: {
-            type: [String, Number],
-            default: 300 // 300 secs = 5 mins
+            type: Number,
+            default: 0, // false //300 // 300 secs = 5 mins
         },
         muted: {
             type: Boolean,
@@ -180,11 +180,13 @@ Vue.component('surfcam-player-plyr', {
         //-----------------------------------------------------------------
 
         startTimeout() {
-            this.resetTimeout();
-            this.timeoutInstance = setTimeout(() => {
-                this.playerInstance.pause();
+            if (this.videoTimeout) {
                 this.resetTimeout();
-            }, Number(this.videoTimeout * 1000)); // 300 * 1000 = 300000ms = 5 minute timeout
+                this.timeoutInstance = setTimeout(() => {
+                    this.playerInstance.pause();
+                    this.resetTimeout();
+                }, Number(this.videoTimeout * 1000)); // 300 * 1000 = 300000ms = 5 minute timeout
+            }
         },
         //-----------------------------------------------------------------
         // RESET TIMEOUT
