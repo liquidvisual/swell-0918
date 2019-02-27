@@ -12,9 +12,9 @@ layout: base__page_sidebar
 
     {% capture live_stream %}
         {% unless page.url contains 'replays' %}
-            live-stream="rtmp://streamer.swellnet.com.au/surfcams/cabarita.stream"
-            live-stream-image="http://static.swellnet.com.au/images/surfcams/cabarita.jpg"
-            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/cabarita.stream/playlist.m3u8"
+            live-stream="rtmp://streamer.swellnet.com.au/surfcams/knights.stream"
+            live-stream-image="http://static.swellnet.com.au/images/surfcams/knights.jpg"
+            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/knights.stream/playlist.m3u8"
         {% endunless %}
     {% endcapture %}
 
@@ -58,7 +58,7 @@ layout: base__page_sidebar
             {% endif %}
 
             <!-- PLAYER COMPONENT -->
-            <surfcam-player-plyr video-timeout="300"></surfcam-player-plyr>
+            <surfcam-player-plyr video-timeout="300" :muted="false"></surfcam-player-plyr>
             <!-- <surfcam-player-jw video-timeout="300"></surfcam-player-jw> -->
 
             {% comment %}

@@ -1,6 +1,6 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 26.11.18
+    updated: 27.02.19, 26.11.18
 
     USAGE:
         <surfcam-player-plyr video-timeout="300000" />
@@ -48,6 +48,10 @@ Vue.component('surfcam-player-plyr', {
             type: [String, Number],
             default: 300 // 300 secs = 5 mins
         },
+        muted: {
+            type: Boolean,
+            default: true
+        }
         // errors: Boolean,
         // source: String,
         // poster: {
@@ -69,6 +73,11 @@ Vue.component('surfcam-player-plyr', {
     mounted() {
         this.videoEl = this.$refs.video;
         // this.initPlayer();
+
+        // https://github.com/vuejs/vue/issues/6887
+        if (!this.muted) {
+            this.videoEl.removeAttribute('muted');
+        }
 
         // WIDGET CALLS THIS
         bus.$on('loadVideo', this.loadVideo);
@@ -102,8 +111,8 @@ Vue.component('surfcam-player-plyr', {
                     // 'progress', // The progress bar and scrubber for playback and buffering
                     // 'current-time', // The current time of playback
                     // 'duration', // The full duration of the media
-                    //'mute', // Toggle mute
-                    //'volume', // Volume control
+                    // 'mute', // Toggle mute
+                    'volume', // Volume control
                     // 'captions', // Toggle captions
                     // 'settings', // Settings menu
                     // 'pip', // Picture-in-picture (currently Safari only)
