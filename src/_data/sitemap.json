@@ -5,12 +5,12 @@
       "classes":"is-off-canvas-only",
       "children":false
    },
-   {
-      "name":"Gift Subscriptions",
-      "url":"/pro/gift",
-      "classes":"has-xmas-icon",
-      "children":false
-   },
+   #{
+   #   "name":"Gift Subscriptions",
+   #   "url":"/pro/gift",
+   #   "classes":"has-xmas-icon",
+   #   "children":false
+   #},
    {
       "name":"Surf Reports & Forecasts",
       "url":"/reports/",
@@ -5639,6 +5639,18 @@
       "url":"#/more/",
       "classes":"is-concealed-menu is-more-group",
       "children":[
+        {
+          "name":"Gift Subscriptions",
+          "url":"/pro/gift/",
+          "classes":"",
+          "children":false
+        },
+        {
+          "name":"Swellnet Traveller",
+          "url":"/swellnet-traveller/",
+          "classes":"",
+          "children":false
+        },
         {
           "name":"News",
           "url":"/news/",

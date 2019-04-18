@@ -62,7 +62,8 @@ html {
 //-----------------------------------------------------------------
 
 .main-body {
-	margin: rem-calc(40 0);
+	// margin: rem-calc(40 0);
+	padding: rem-calc(40 0); // ** NEW **
 }
 
 // .main-body {

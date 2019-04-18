@@ -65,6 +65,20 @@
 	}
 }
 
+//-----------------------------------------------------------------
+// THEME TRAVELLER
+//-----------------------------------------------------------------
+
+.theme-traveller {
+
+	.main-body {
+		background: url('/assets/img/content/swellnet-traveller-bg.jpg') no-repeat;
+		background-size: cover;
+		background-position: left top;
+		overflow: hidden; // for iPad
+	}
+}
+
 //=========================================
 //
 //=========================================

@@ -11,6 +11,59 @@
 // FORMS
 //-----------------------------------------------------------------
 //-----------------------------------------------------------------
+// BOOTSTRAP VALIDATION
+// http://1000hz.github.io/bootstrap-validator/#validator-events
+//-----------------------------------------------------------------
+
+form,
+form[data-toggle="validator"] {
+	.error {
+		display: none;
+		// padding: rem-calc(5 10 4 10);
+		padding: rem-calc(10 10 10 0);
+		// background: $red;
+		font-weight: $font-weight-normal;
+		color: lighten($red, 20%);
+	}
+
+	.has-error > .error {
+		display: block;
+		margin-bottom: $form-group-margin-bottom;
+	}
+
+	.has-error > .form-control {
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		margin-bottom: 0;
+	}
+
+	button.disabled {
+		opacity: 1;
+	}
+}
+
+form:not(.global-search-form) .btn {
+	min-width: rem-calc(250);
+	font-size: rem-calc(17) !important;
+	color: white !important;
+	justify-content: center;
+
+	&.disabled {
+		cursor: not-allowed;
+	}
+}
+
+//-----------------------------------------------------------------
+// ASTERISK
+//-----------------------------------------------------------------
+
+.asterisk {
+	font-size: rem-calc(20);
+	line-height: 0;
+	color: #e75c5a; //$blue;
+}
+
+//-----------------------------------------------------------------
 // CUSTOM SELECT WRAPPER - has preloader for widget
 //-----------------------------------------------------------------
 
@@ -25,9 +78,10 @@
 
 //-----------------------------------------------------------------
 // CUSTOM SELECT
+// WARNING: this only applies to surfcams dropdowns - purposefully inconsistent
 //-----------------------------------------------------------------
 
-.custom-select {
+.custom-select-wrapper .custom-select {
 	display: flex; // [LOCKED] - override Bootstrap
 	align-items: center;
 	position: relative; // [LOCKED]

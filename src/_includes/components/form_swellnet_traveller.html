@@ -1,0 +1,132 @@
+<!-- SWELLNET TRAVELLER FORM -->
+<form name="Swellnet Traveller Form" action="/" novalidate>
+    <fieldset class="mb-2">
+
+        <!-- 1 WEEK TRIP -->
+        <label class="form-group d-flex">
+            <div class="pl-2 mr-2 pr-1">
+                <input name="Surf Trip Type" type="radio" value="1 Week Surf Trip - $89.95" checked>
+            </div>
+            <div>
+                <h3 class="mb-2">1 Week Surf Trip - $89.95</h3>
+                <p class="mb-0">Three forecasts 3/6/9 days before the trip, and then another two forecasts during the trip.</p>
+            </div>
+        </label>
+
+        <hr>
+
+        <!-- 2 WEEK TRIP -->
+        <label class="form-group d-flex">
+            <div class="pl-2 mr-2 pr-1">
+                <input name="Surf Trip Type" type="radio" value="2 Weeks Surf Trip - $119.95">
+            </div>
+            <div>
+                <h3 class="mb-2">2 Weeks Surf Trip - $119.95</h3>
+                <p class="mb-0">Three forecasts 3/6/9 days before the trip, and then another two forecasts during the trip.</p>
+            </div>
+        </label>
+
+        <hr>
+
+    </fieldset>
+    <fieldset>
+
+        <!-- NAME* -->
+        <label class="form-group d-block">
+            <p class="mb-2">Name<small class="asterisk">*</small></p>
+            <input class="form-control" name="Name" type="text" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+        </label>
+
+        <!-- EMAIL* -->
+        <label class="form-group d-block">
+            <p class="mb-2">Email<small class="asterisk">*</small></p>
+            <input class="form-control" name="Email" type="email" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+        </label>
+
+        <!-- FIRST POSSIBLE SURF DATE* -->
+        <label class="form-group d-block">
+            <p class="mb-2">First possible surf date<small class="asterisk">*</small></p>
+            <input class="datepicker form-control" type="text" name="Start Date" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+        </label>
+
+        <!-- LAST POSSIBLE SURF DATE* -->
+        <label class="form-group d-block">
+            <p class="mb-2">Last possible surf date<small class="asterisk">*</small></p>
+            <input class="datepicker form-control" type="text" name="End Date" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+        </label>
+
+        <!-- WHERE ARE YOU GOING? -->
+        <label class="form-group d-block">
+            <p class="mb-2">Where are you going?<small class="asterisk">*</small></p>
+            <input class="form-control" name="Location" type="text" placeholder="" required>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your location is required.</small>
+        </label>
+
+        <!-- SURFING ABILITY -->
+        <label class="form-group d-block">
+            <p class="mb-2">Surfing ability<small class="asterisk">*</small></p>
+            <select class="custom-select" name="Surfing Ability" required>
+                <option disabled selected>Select</option>
+                <option value="Beginner">Beginner</option>
+                <option value="Intermediate">Intermediate</option>
+                <option value="Advanced">Advanced</option>
+                <option value="Professional">Professional</option>
+            </select>
+        </label>
+
+        <!-- SURFCRAFT -->
+        <label class="form-group d-block">
+            <p class="mb-2">What kind of surfcraft do you ride?<small class="asterisk">*</small></p>
+            <select class="custom-select" name="Surfcraft" required>
+                <option disabled selected>Select</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </label>
+
+        <!-- IDEAL SURF CONDITIONS -->
+        <label class="form-group d-block">
+            <p class="mb-2">What are your ideal surf conditions?<small class="asterisk">*</small></p>
+            <select class="custom-select" name="Ideal Surf Conditions" required>
+                <option disabled selected>Select</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+            </select>
+        </label>
+
+        <!-- PAYMENT TYPE (BRAINTREE HERE) -->
+        <label class="form-group d-block mb-4">
+            <p class="mb-2">Choose a way to pay<small class="asterisk">*</small></p>
+            <select class="custom-select" name="Payment Type" required>
+                <option value="1" selected>Card</option>
+                <option value="2">Paypal</option>
+            </select>
+        </label>
+
+    </fieldset>
+    <fieldset class="mb-1">
+
+        <!-- TERMS AND CONDITIONS -->
+        <label class="form-group d-flex align-items-center mb-0">
+            <input class="mr-2" type="checkbox" name="Terms and Conditions Accepted" value="true">
+            <p class="mb-0">I have read and accept <a class="text-white" style="text-decoration: underline;" href="/terms-and-conditions/">terms and conditions</a></p>
+        </label>
+
+    </fieldset>
+
+    <!-- SUBMIT -->
+    <button type="submit" class="btn btn-block mb-2">PURCHASE</button>
+
+    <!-- * REQUIRED -->
+    <!-- <p class="float-right">
+        <small class="asterisk">*</small>
+        <small class="" style="position: relative; top: -5px;">required</small>
+    </p> -->
+
+</form>
