@@ -1,5 +1,5 @@
 <!-- SWELLNET TRAVELLER FORM -->
-<form name="Swellnet Traveller Form" action="/" novalidate>
+<form name="Swellnet Traveller Form" action="/" data-toggle="validator" novalidate>
     <fieldset class="mb-2">
 
         <!-- 1 WEEK TRIP -->
@@ -35,69 +35,72 @@
         <label class="form-group d-block">
             <p class="mb-2">Name<small class="asterisk">*</small></p>
             <input class="form-control" name="Name" type="text" placeholder="" required>
-            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your <b>name</b> is required.</small>
         </label>
 
         <!-- EMAIL* -->
         <label class="form-group d-block">
             <p class="mb-2">Email<small class="asterisk">*</small></p>
             <input class="form-control" name="Email" type="email" placeholder="" required>
-            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A valid <b>email</b> is required.</small>
         </label>
 
         <!-- FIRST POSSIBLE SURF DATE* -->
         <label class="form-group d-block">
             <p class="mb-2">First possible surf date<small class="asterisk">*</small></p>
             <input class="datepicker form-control" type="text" name="Start Date" placeholder="" required>
-            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A <b>date</b> is required.</small>
         </label>
 
         <!-- LAST POSSIBLE SURF DATE* -->
         <label class="form-group d-block">
             <p class="mb-2">Last possible surf date<small class="asterisk">*</small></p>
             <input class="datepicker form-control" type="text" name="End Date" placeholder="" required>
-            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; A <b>date</b> is required.</small>
         </label>
 
         <!-- WHERE ARE YOU GOING? -->
         <label class="form-group d-block">
             <p class="mb-2">Where are you going?<small class="asterisk">*</small></p>
             <input class="form-control" name="Location" type="text" placeholder="" required>
-            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your location is required.</small>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; Your <b>location</b> is required.</small>
         </label>
 
         <!-- SURFING ABILITY -->
         <label class="form-group d-block">
             <p class="mb-2">Surfing ability<small class="asterisk">*</small></p>
             <select class="custom-select" name="Surfing Ability" required>
-                <option disabled selected>Select</option>
+                <option value disabled selected>Select</option>
                 <option value="Beginner">Beginner</option>
                 <option value="Intermediate">Intermediate</option>
                 <option value="Advanced">Advanced</option>
                 <option value="Professional">Professional</option>
             </select>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; This field is required.</small>
         </label>
 
         <!-- SURFCRAFT -->
         <label class="form-group d-block">
             <p class="mb-2">What kind of surfcraft do you ride?<small class="asterisk">*</small></p>
             <select class="custom-select" name="Surfcraft" required>
-                <option disabled selected>Select</option>
+                <option value disabled selected>Select</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; This field is required.</small>
         </label>
 
         <!-- IDEAL SURF CONDITIONS -->
         <label class="form-group d-block">
             <p class="mb-2">What are your ideal surf conditions?<small class="asterisk">*</small></p>
             <select class="custom-select" name="Ideal Surf Conditions" required>
-                <option disabled selected>Select</option>
+                <option value disabled selected>Select</option>
                 <option value="1">Option 1</option>
                 <option value="2">Option 2</option>
                 <option value="3">Option 3</option>
             </select>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; This field is required.</small>
         </label>
 
         <!-- PAYMENT TYPE (BRAINTREE HERE) -->
@@ -107,15 +110,19 @@
                 <option value="1" selected>Card</option>
                 <option value="2">Paypal</option>
             </select>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; This field is required.</small>
         </label>
 
     </fieldset>
     <fieldset class="mb-1">
 
         <!-- TERMS AND CONDITIONS -->
-        <label class="form-group d-flex align-items-center mb-0">
-            <input class="mr-2" type="checkbox" name="Terms and Conditions Accepted" value="true">
-            <p class="mb-0">I have read and accept <a class="text-white" style="text-decoration: underline;" href="/terms-and-conditions/">terms and conditions</a></p>
+        <label class="form-group d-block mb-0">
+            <div class="d-flex align-items-center">
+                <input class="mr-2" type="checkbox" name="Terms and Conditions Accepted" value="true" required>
+                <p class="mb-0">I have read and accept <a class="text-white" style="text-decoration: underline;" href="/terms-and-conditions/">terms and conditions</a></p>
+            </div>
+            <small class="error shake animated"><i class="fa fa-warning"></i>&nbsp; You must agree to the <b>terms and conditions</b>.</small>
         </label>
 
     </fieldset>

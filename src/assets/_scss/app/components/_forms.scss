@@ -19,11 +19,10 @@ form,
 form[data-toggle="validator"] {
 	.error {
 		display: none;
-		// padding: rem-calc(5 10 4 10);
-		padding: rem-calc(10 10 10 0);
-		// background: $red;
+		padding: rem-calc(5 10 4 10);
+		background: $red;
 		font-weight: $font-weight-normal;
-		color: lighten($red, 20%);
+		color: white;
 	}
 
 	.has-error > .error {
