@@ -254,7 +254,7 @@
                                     <hr>
 
                                     <!-- SWELLNET TRAVELLER FORM -->
-                                    <form name="Swellnet Traveller Form" action="/" novalidate>
+                                    <form name="Swellnet Traveller Form" action="/" data-toggle="validator" novalidate>
                                         <fieldset class="mb-2">
 
                                             <!-- 1 WEEK TRIP -->
@@ -290,7 +290,8 @@
                                                 </p>
                                                 <input class="form-control" name="Name" type="text" placeholder="" required>
                                                 <small class="error shake animated">
-                                                    <i class="fa fa-warning"></i>&nbsp; Your name is required.</small>
+                                                    <i class="fa fa-warning"></i>&nbsp; Your
+                                                    <b>name</b> is required.</small>
                                             </label>
 
                                             <!-- EMAIL* -->
@@ -300,7 +301,8 @@
                                                 </p>
                                                 <input class="form-control" name="Email" type="email" placeholder="" required>
                                                 <small class="error shake animated">
-                                                    <i class="fa fa-warning"></i>&nbsp; A valid email is required.</small>
+                                                    <i class="fa fa-warning"></i>&nbsp; A valid
+                                                    <b>email</b> is required.</small>
                                             </label>
 
                                             <!-- FIRST POSSIBLE SURF DATE* -->
@@ -310,7 +312,8 @@
                                                 </p>
                                                 <input class="datepicker form-control" type="text" name="Start Date" placeholder="" required>
                                                 <small class="error shake animated">
-                                                    <i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+                                                    <i class="fa fa-warning"></i>&nbsp; A
+                                                    <b>date</b> is required.</small>
                                             </label>
 
                                             <!-- LAST POSSIBLE SURF DATE* -->
@@ -320,7 +323,8 @@
                                                 </p>
                                                 <input class="datepicker form-control" type="text" name="End Date" placeholder="" required>
                                                 <small class="error shake animated">
-                                                    <i class="fa fa-warning"></i>&nbsp; A date is required.</small>
+                                                    <i class="fa fa-warning"></i>&nbsp; A
+                                                    <b>date</b> is required.</small>
                                             </label>
 
                                             <!-- WHERE ARE YOU GOING? -->
@@ -330,7 +334,8 @@
                                                 </p>
                                                 <input class="form-control" name="Location" type="text" placeholder="" required>
                                                 <small class="error shake animated">
-                                                    <i class="fa fa-warning"></i>&nbsp; Your location is required.</small>
+                                                    <i class="fa fa-warning"></i>&nbsp; Your
+                                                    <b>location</b> is required.</small>
                                             </label>
 
                                             <!-- SURFING ABILITY -->
@@ -339,12 +344,14 @@
                                                     <small class="asterisk">*</small>
                                                 </p>
                                                 <select class="custom-select" name="Surfing Ability" required>
-                                                    <option disabled selected>Select</option>
+                                                    <option value disabled selected>Select</option>
                                                     <option value="Beginner">Beginner</option>
                                                     <option value="Intermediate">Intermediate</option>
                                                     <option value="Advanced">Advanced</option>
                                                     <option value="Professional">Professional</option>
                                                 </select>
+                                                <small class="error shake animated">
+                                                    <i class="fa fa-warning"></i>&nbsp; This field is required.</small>
                                             </label>
 
                                             <!-- SURFCRAFT -->
@@ -353,11 +360,13 @@
                                                     <small class="asterisk">*</small>
                                                 </p>
                                                 <select class="custom-select" name="Surfcraft" required>
-                                                    <option disabled selected>Select</option>
+                                                    <option value disabled selected>Select</option>
                                                     <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
                                                     <option value="3">Option 3</option>
                                                 </select>
+                                                <small class="error shake animated">
+                                                    <i class="fa fa-warning"></i>&nbsp; This field is required.</small>
                                             </label>
 
                                             <!-- IDEAL SURF CONDITIONS -->
@@ -366,11 +375,13 @@
                                                     <small class="asterisk">*</small>
                                                 </p>
                                                 <select class="custom-select" name="Ideal Surf Conditions" required>
-                                                    <option disabled selected>Select</option>
+                                                    <option value disabled selected>Select</option>
                                                     <option value="1">Option 1</option>
                                                     <option value="2">Option 2</option>
                                                     <option value="3">Option 3</option>
                                                 </select>
+                                                <small class="error shake animated">
+                                                    <i class="fa fa-warning"></i>&nbsp; This field is required.</small>
                                             </label>
 
                                             <!-- PAYMENT TYPE (BRAINTREE HERE) -->
@@ -382,16 +393,23 @@
                                                     <option value="1" selected>Card</option>
                                                     <option value="2">Paypal</option>
                                                 </select>
+                                                <small class="error shake animated">
+                                                    <i class="fa fa-warning"></i>&nbsp; This field is required.</small>
                                             </label>
                                         </fieldset>
                                         <fieldset class="mb-1">
 
                                             <!-- TERMS AND CONDITIONS -->
-                                            <label class="form-group d-flex align-items-center mb-0">
-                                                <input class="mr-2" type="checkbox" name="Terms and Conditions Accepted" value="true">
-                                                <p class="mb-0">I have read and accept
-                                                    <a class="text-white" style="text-decoration: underline;" href="/terms-and-conditions/">terms and conditions</a>
-                                                </p>
+                                            <label class="form-group d-block mb-0">
+                                                <div class="d-flex align-items-center">
+                                                    <input class="mr-2" type="checkbox" name="Terms and Conditions Accepted" value="true" required>
+                                                    <p class="mb-0">I have read and accept
+                                                        <a class="text-white" style="text-decoration: underline;" href="/terms-and-conditions/">terms and conditions</a>
+                                                    </p>
+                                                </div>
+                                                <small class="error shake animated">
+                                                    <i class="fa fa-warning"></i>&nbsp; You must agree to the
+                                                    <b>terms and conditions</b>.</small>
                                             </label>
                                         </fieldset>
 
@@ -677,8 +695,6 @@
 
     <!-- SITEMAP JSON -->
     <script src="/sitemap.json"></script>
-
-    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->
