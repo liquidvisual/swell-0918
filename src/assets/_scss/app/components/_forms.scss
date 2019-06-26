@@ -19,10 +19,11 @@ form,
 form[data-toggle="validator"] {
 	.error {
 		display: none;
-		padding: rem-calc(5 10 4 10);
-		background: $red;
+		// padding: rem-calc(5 10 4 10);
+		padding: rem-calc(10 10 10 0);
+		// background: $red;
 		font-weight: $font-weight-normal;
-		color: white;
+		color: lighten($red, 20%);
 	}
 
 	.has-error > .error {
@@ -38,16 +39,6 @@ form[data-toggle="validator"] {
 
 	button.disabled {
 		opacity: 1;
-	}
-}
-
-form:not(.global-search-form) .btn {
-	min-width: rem-calc(250);
-	font-size: rem-calc(17) !important;
-	color: white !important;
-	justify-content: center;
-
-	&.disabled {
 		cursor: not-allowed;
 	}
 }
