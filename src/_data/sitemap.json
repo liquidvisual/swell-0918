@@ -5431,6 +5431,12 @@
                   "name":"Noosa Heads",
                   "url":"/surfcams/noosa-heads",
                   "children":false
+               },
+               {
+                  "name":"Agnes Water",
+                  "url":"/surfcams/agnes-water",
+                  "premium":true,
+                  "children":false
                }
             ]
          },

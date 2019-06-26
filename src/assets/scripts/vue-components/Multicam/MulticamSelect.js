@@ -47,6 +47,7 @@ Vue.component('multicam-select', {
                         { id: 876,    name: 'Duranbah',          path: 'duranbah.stream' },
                         { id: 250741, name: 'Snapper Rocks',     path: 'snapper-rocks.stream' },
                         { id: 250746, name: 'Greenmount',        path: 'greenmount.stream' },
+                        { id: 464936, name: 'Kirra',             path: 'kirra.stream' },
                         { id: 343461, name: 'Currumbin',         path: 'currumbin.stream' },
                         { id: 851,    name: 'Burleigh Heads',    path: 'burleigh.stream' },
                         { id: 351381, name: 'Narrowneck',        path: 'narrowneck.stream' },
@@ -55,7 +56,8 @@ Vue.component('multicam-select', {
                         { id: 328632, name: 'Alex Headland',     path: 'alex-headland.stream' },
                         { id: 333699, name: 'Coolum',            path: 'coolum.stream' },
                         { id: 334466, name: 'Sunshine Beach',    path: 'sunshine-beach.stream' },
-                        { id: 856,    name: 'Noosa Heads',       path: 'noosa.stream' }
+                        { id: 856,    name: 'Noosa Heads',       path: 'noosa.stream' },
+                        { id: 468035, name: 'Agnes Water',       path: 'agnes-water.stream' }
                     ]
                 },
                 {
