@@ -1,9 +1,12 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 27.02.19, 26.11.18
+    updated: 04.07.19, 27.02.19, 26.11.18
 
     USAGE:
-        <surfcam-player-plyr video-timeout="300000" />
+        <surfcam-player-plyr
+            :muted="false"
+            :video-timeout="300">
+        </surfcam-player-plyr>
 */
 //-----------------------------------------------------------------
 // VIDEO PLAYER
@@ -19,8 +22,8 @@ Vue.component('surfcam-player-plyr', {
             <!-- ERRORS -->
             <div
                 v-if="errors"
-                class="video-player-plyr-error">
-
+                class="video-player-error"
+            >
                 <div>
                     <i class="fa fa-warning"></i>
                     <p>Sorry! We're experiencing technical difficulties with this surfcam.<br> We'll have it back up ASAP.</p>
@@ -28,7 +31,7 @@ Vue.component('surfcam-player-plyr', {
             </div>
 
             <!-- WATERMARK -->
-            <div class="video-player-plyr-watermark" />
+            <div class="video-player-watermark"></div>
 
             <!-- VIDEO -->
             <video
@@ -39,25 +42,21 @@ Vue.component('surfcam-player-plyr', {
                 playsinline
                 ref="video"
                 :poster="poster"
-                width="100%">
+                width="100%"
+            >
             </video>
+
         </div>
     `,
     props: {
-        videoTimeout: {
-            type: Number,
-            default: 0, // false //300 // 300 secs = 5 mins
-        },
         muted: {
             type: Boolean,
             default: true
+        },
+        videoTimeout: {
+            type: Number,
+            default: 0 // 300 secs = 5 mins
         }
-        // errors: Boolean,
-        // source: String,
-        // poster: {
-        //     type: String,
-        //     default: '/assets/img/layout/placeholder-video-1280x720.svg'
-        // }
     },
     data() {
         return {
@@ -75,9 +74,7 @@ Vue.component('surfcam-player-plyr', {
         // this.initPlayer();
 
         // https://github.com/vuejs/vue/issues/6887
-        if (!this.muted) {
-            this.videoEl.removeAttribute('muted');
-        }
+        if (!this.muted) this.videoEl.removeAttribute('muted');
 
         // WIDGET CALLS THIS
         bus.$on('loadVideo', this.loadVideo);

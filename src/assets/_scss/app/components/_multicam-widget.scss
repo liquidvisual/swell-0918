@@ -125,11 +125,14 @@
 // ** REFACTORED **
 //-----------------------------------------------------------------
 
+.video-player-flow,
 .video-player-plyr {
 	position: relative;
+	overflow: hidden; // stop logo from flying out in FlowPlayer
 }
 
-.video-player-plyr-watermark {
+.video-player-plyr-watermark,
+.video-player-watermark {
 	position: absolute;
 	bottom: 6px;
 	right: 6px;
@@ -141,7 +144,8 @@
 	z-index: 1;
 }
 
-.video-player-plyr-error {
+.video-player-plyr-error,
+.video-player-error {
 	display: flex;
 	align-items: center;
 	justify-content: center;

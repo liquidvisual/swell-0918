@@ -1,9 +1,12 @@
 /*
     SURFCAM PLAYER JW
-    updated: 26.11.18
+    updated: 04.07.19, 26.11.18
 
     USAGE:
-        <surfcam-player-jw video-timeout="300"></surfcam-player-jw>
+        <surfcam-player-jw
+            :muted="false"
+            :video-timeout="300">
+        </surfcam-player-jw>
 */
 //-----------------------------------------------------------------
 // VIDEO PLAYER
@@ -17,9 +20,13 @@ Vue.component('surfcam-player-jw', {
         <div class="video-player-jw collapse-sm-down"></div>
     `,
     props: {
+        muted: {
+            type: Boolean,
+            default: true
+        },
         videoTimeout: {
-            type: [String, Number],
-            default: 300
+            type: Number,
+            default: 0
         }
     },
     data() {
@@ -66,7 +73,7 @@ Vue.component('surfcam-player-jw', {
                 fallback: true,
                 file: '.mp4', //stream ? stream : '.mp4',  // Fluke, player fails without this unless legit file
                 image: '.jpg', //image ? image : '.jpg', // ^ as above
-                mute: true,
+                mute: this.muted,
                 // playlist: '',
                 primary: 'html5',
                 width: '100%',
