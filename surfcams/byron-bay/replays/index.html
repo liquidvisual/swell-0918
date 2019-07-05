@@ -217,68 +217,35 @@
                         <h1 class="mb-4">Byron Bay Surfcam Replays
                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                         </h1>
-                        <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/stable/style/flowplayer.css">
-                        <script src="//cdn.flowplayer.com/releases/native/stable/flowplayer.min.js"></script>
 
-                        <!-- OPTIONAL PLUGINS -->
-                        <script src="//cdn.flowplayer.com/releases/native/stable/plugins/hls.min.js"></script>
-                        <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-                        <script src="//cdn.flowplayer.com/releases/native/stable/plugins/ads.min.js"></script>
+                        <!-- LIVE + REPLAYS TABS -->
+                        <div class="btn-tabs collapse-sm-down">
 
-                        <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/airplay.min.js"></script> -->
-                        
-<!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/chromecast.min.js"></script> -->
-<!-- <script src="//cdn.flowplayer.com/releases/native/edge/plugins/keyboard.min.js"></script> --><div id="vue-app" class="mb-4">
+                            <!-- FAVORITE BTN -->
+                            <span class="flag-wrapper flag-favourite-surfcam">
+                                <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
+                                    <span class="hidden-xs-down">Set as favourite</span>
+                                    <span class="hidden-sm-up">Set favourite</span>
+                                </a>
+                                <span class="flag-throbber">&nbsp;</span>
+                            </span>
 
-                            <!-- SURFCAM WIDGET -->
-                            <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="10" inline-template>
-                                <div>
-
-                                    <!-- LIVE + REPLAYS TABS -->
-                                    <div class="btn-tabs collapse-sm-down">
-
-                                        <!-- FAVORITE BTN -->
-                                        <span class="flag-wrapper flag-favourite-surfcam">
-                                            <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
-                                                <span class="hidden-xs-down">Set as favourite</span>
-                                                <span class="hidden-sm-up">Set favourite</span>
-                                            </a>
-                                            <span class="flag-throbber">&nbsp;</span>
-                                        </span>
-
-                                        <!-- REPLAYS TAB -->
-                                        <a v-if="!replaysDisabled" :class="{active: feedType == 'replay'}" class="btn-tab" href="/surfcams/byron-bay/replays/">Replays </a>
-
-                                        <!-- LIVE TAB -->
-                                        <a :class="{active: feedType == 'live'}" class="btn-tab" href="/surfcams/byron-bay/">Live</a>
-                                    </div>
-
-                                    <!-- WRAPPER: SELECTS -->
-                                    <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down">
-
-                                        <!-- DATE-SELECT COMPONENT -->
-                                        <date-select v-model="date" :is-loading="feedLoading"></date-select>
-
-                                        <!-- TIME-SELECT COMPONENT -->
-                                        <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
-                                    </div>
-
-                                    <!-- PLAYER COMPONENT -->
-                                    <surfcam-player-flow :muted="true" :video-timeout="30"></surfcam-player-flow>
-
-                                    <!-- <surfcam-player-jw :muted="true" :video-timeout="30"></surfcam-player-jw> -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
-
-                                    <!-- THUMB-SLIDER COMPONENT -->
-                                    <transition name="special-thumb-slider-entrance">
-                                        <thumb-slider v-if="feed" :current-index="selectedTimeIndex" :feed="feed" :is-loading="feedLoading"></thumb-slider>
-                                    </transition>
-                                </div>
-                            </surfcam-widget>
+                            <!-- LIVE TAB -->
+                            <a class="btn-tab active" href="/surfcams/byron-bay/">Live</a>
                         </div>
 
-                        <!-- /.vue-app -->
+                        <!-- PLAYER (NON-VUE) -->
+                        <div data-player-id="a505d6e4-934f-4f40-9668-4c102963730b">
+                            <script src="//cdn.flowplayer.com/players/d891a9d0-c577-4eb4-a371-a82073f8d54c/native/flowplayer.async.js">
+                            {
+                                "src": "https://streamer.swellnet.com.au/surfcams/byron.stream/playlist.m3u8",
+                                "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
+                                "poster": "http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg",
+                                "live": "true"
+                            }
+                            </script>
                         </div>
+                    </div>
                     <div class="col-lg-4 pl-lg-3">
                         <aside class="sidebar">
 
