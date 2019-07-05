@@ -1,0 +1,200 @@
+---
+layout: base__page_sidebar
+---
+
+{% comment %}
+    NOTES
+    - https://github.com/flowplayer/flowplayer-hlsjs/issues/57
+    - https://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
+{% endcomment %}
+
+<!-- LIVE TAB -->
+<div class="btn-tabs collapse-sm-down">
+
+    <!-- FAVORITE BTN -->
+    <span class="flag-wrapper flag-favourite-surfcam">
+        <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
+            <span class="hidden-xs-down">Set as favourite</span>
+            <span class="hidden-sm-up">Set favourite</span>
+        </a>
+        <span class="flag-throbber">&nbsp;</span>
+    </span>
+
+    <!-- REPLAYS TAB -->
+    <a class="btn-tab" href="/surfcams/byron-bay/replays/">
+        Replays
+    </a>
+
+    <!-- LIVE TAB -->
+    <a class="btn-tab active" href="/surfcams/byron-bay/">
+        Live
+    </a>
+
+</div>
+
+<!-- FLOW PLAYER (NON-VUE) -->
+<div class="video-player-flow collapse-sm-down">
+
+    <!-- OVERLAY MESSAGE (HIDDEN) -->
+    <div id="video-player-error" class="video-player-error" hidden>
+        <div>
+            <i class="fa fa-warning"></i>
+            <p>Sorry! We're experiencing technical difficulties with this surfcam.<br> We'll have it back up ASAP.</p>
+        </div>
+    </div>
+
+    <!-- WATERMARK -->
+    <div class="video-player-watermark"></div>
+
+    <!-- EMBED CODE -->
+    <div data-player-id="a505d6e4-934f-4f40-9668-4c102963730b">
+        <script src="//cdn.flowplayer.com/players/d891a9d0-c577-4eb4-a371-a82073f8d54c/native/flowplayer.async.js">
+            {
+                "autoplay": true,
+                "hls": { "native": true },
+                "live": true,
+                "loop": true,
+                "muted": true,
+                "poster": "http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg",
+                "src": "//streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8",
+                "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
+                "plugins": [
+                    "ads"
+                ]
+            }
+        </script>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        flowplayer.cloud.then(function() {
+            var playerEl = document.querySelector('.video-player-flow');
+            var playerInstance = flowplayer.instances[0];
+            var playerTimeout = null;
+            var playerSrc = playerInstance.original_src;
+            var playerPoster = playerInstance.poster;
+
+            // ON PLAYING EVENT
+            playerInstance.on('playing', function() {
+                var adPlaying = !!playerInstance.ads && playerInstance.ads.adPlaying;
+
+                clearTimeout(playerTimeout);
+
+                // if no ads are playing, set a timeout for the video to unload itself
+                if (!adPlaying) {
+                    playerTimeout = setTimeout(function() {
+
+                        // unload the video by passing it an empty source
+                        playerInstance.setSrc('UNLOAD_VIDEO');
+
+                        // update the poster graphic so it's not blank
+                        playerInstance.poster = '/assets/img/layout/placeholder-video-logo.svg';
+
+                        // make wrapper appear clickable
+                        playerEl.style.cursor = 'pointer';
+
+                        // clicking player now reloads video and starts again
+                        playerEl.addEventListener('click', function handler() {
+                            // --
+                            // below reloads the video, but ads do not re-run, so instead refresh window
+                            // --
+                            // this.removeEventListener('click', handler);
+                            // playerInstance.setSrc(playerSrc);
+                            // revert back to the original poster
+                            // playerInstance.poster = playerPoster;
+                            // --
+                            location.reload();
+                        });
+                    }, 10000);
+                }
+            });
+
+            // PAUSE EVENT
+            playerInstance.on('pause', function() {
+                clearTimeout(playerTimeout);
+            });
+
+            // ERROR EVENT
+            // Any error other than an empty video src will prompt an error overlay
+            playerInstance.on('error', function(e) {
+                clearTimeout(playerTimeout);
+                if (e.data.src !== 'UNLOAD_VIDEO') {
+                    document.getElementById('video-player-error').removeAttribute('hidden');
+                    // console.info(e.data);
+                }
+            });
+        });
+    </script>
+
+</div>
+
+<style>
+    .fp-error,
+    .fp-share-menu {
+        display: none;
+    }
+</style>
+
+{% comment %}
+<div id="vue-app" class="mb-4">
+
+    <!-- SURFCAM WIDGET -->
+    <surfcam-widget
+        data-path="https://www.swellnet.com/surfcam-replays/data/"
+        live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream"
+        live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg"
+        live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8"
+        surfcam-id="10"
+        inline-template
+    >
+        <div>
+
+            <!-- HEADING: SURFCAM REPLAYS -->
+            <h2
+                v-if="!replaysDisabled"
+                class="d-flex align-items-center mb-4 mt-5"
+            >
+                <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
+            </h2>
+
+            <!-- WRAPPER: SELECTS -->
+            <div
+                v-if="!replaysDisabled"
+                class="custom-select-wrapper collapse-sm-down"
+            >
+                <!-- DATE-SELECT COMPONENT -->
+                <date-select
+                    v-model="date"
+                    :is-loading="feedLoading">
+                </date-select>
+
+                <!-- TIME-SELECT COMPONENT -->
+                <time-select
+                    v-model="selectedTimeIndex"
+                    :feed="feed"
+                    :index="selectedTimeIndex"
+                    :is-loading="feedLoading">
+                </time-select>
+
+            </div>
+
+            <!-- THUMB-SLIDER COMPONENT -->
+            <transition name="special-thumb-slider-entrance">
+                <thumb-slider
+                    v-if="feed"
+                    :current-index="selectedTimeIndex"
+                    :feed="feed"
+                    :is-loading="feedLoading">
+                </thumb-slider>
+            </transition>
+
+        </div>
+    </surfcam-widget>
+
+</div> <!-- /.vue-app -->
+{% endcomment %}
+
+{% contentfor sidebar %}
+    {% include legacy/nearest_surfcams.html %}
+    {% include legacy/latest_comments.html %}
+{% endcontentfor %}
