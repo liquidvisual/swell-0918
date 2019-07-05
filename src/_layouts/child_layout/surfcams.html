@@ -8,14 +8,34 @@ layout: base__page_sidebar
     - stream is redudant on attrs - only playlist works
     - no longer working: data-path="http://staging.swellnet.com.fe2.stg.swellnet.anchor.net.au/surfcam-replays/data/"
     - videoTimeout is in seconds (NOT milliseconds)
+
+    Original Embed code for Flow (not usable in Vue):
+    ---
+    <div data-player-id="a505d6e4-934f-4f40-9668-4c102963730b">
+    <script
+        src="//cdn.flowplayer.com/players/d891a9d0-c577-4eb4-a371-a82073f8d54c/native/flowplayer.async.js">{ "src": "31edace2-dac8-47c0-b3a1-c41d841a891a" }</script>
+    </div>
+
+    <script>
+        flowplayer.cloud.then(function() {
+            var video = flowplayer.instances[0];
+                console.log('flowplayer instance : ', video);
+                video.on("playing", () => {
+                    setTimeout(() => { video.pause() }, 10000);
+                })
+        });
+    </script>
+    ---
 {% endcomment %}
 
 {% unless page.user_type == 'paid' %}
     <link rel="stylesheet" href="//cdn.flowplayer.com/releases/native/stable/style/flowplayer.css">
     <script src="//cdn.flowplayer.com/releases/native/stable/flowplayer.min.js"></script>
-    <!-- Optional plugins -->
-    <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/airplay.min.js"></script> -->
+    <!-- OPTIONAL PLUGINS -->
     <script src="//cdn.flowplayer.com/releases/native/stable/plugins/hls.min.js"></script>
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <script src="//cdn.flowplayer.com/releases/native/stable/plugins/ads.min.js"></script>
+    <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/airplay.min.js"></script> -->
     <!-- <script src="//cdn.flowplayer.com/releases/native/stable/plugins/chromecast.min.js"></script> -->
     <!-- <script src="//cdn.flowplayer.com/releases/native/edge/plugins/keyboard.min.js"></script> -->
 {% endunless %}
@@ -95,9 +115,9 @@ layout: base__page_sidebar
             {% endif %}
 
             <!-- PLAYER COMPONENT -->
-            <surfcam-player-flow :muted="true" :video-timeout="300"></surfcam-player-flow>
-            <!-- <surfcam-player-jw :muted="true" :video-timeout="300"></surfcam-player-jw> -->
-            <surfcam-player-plyr :muted="true" :video-timeout="300"></surfcam-player-plyr>
+            <surfcam-player-flow :muted="true" :video-timeout="30"></surfcam-player-flow>
+            <!-- <surfcam-player-jw :muted="true" :video-timeout="30"></surfcam-player-jw> -->
+            <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
 
             {% comment %}
             on widget: class="jeep-dashboard"
