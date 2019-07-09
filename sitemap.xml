@@ -10,12 +10,6 @@
 <loc>/reports/australia/queensland/sunshine-coast/</loc>
 </url>
 <url>
-<loc>/surfcams/byron-bay/</loc>
-</url>
-<url>
-<loc>/surfcams/byron-bay/replays/</loc>
-</url>
-<url>
 <loc>/pro/gift/</loc>
 </url>
 <url>
@@ -29,6 +23,9 @@
 </url>
 <url>
 <loc>/surfcams/snapper-rocks/</loc>
+</url>
+<url>
+<loc>/surfcams/snapper-rocks/replays/</loc>
 </url>
 <url>
 <loc>/swellnet-traveller/</loc>

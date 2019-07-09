@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Byron Bay Surfcam Replays - Swellnet</title>
+    <title>Snapper Rocks Replays - Swellnet</title>
 
     <!-- CDN -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
@@ -214,7 +214,7 @@
                     <div class="col-lg-8 pr-lg-4">
 
                         <!-- TITLE -->
-                        <h1 class="mb-4">Byron Bay Surfcam Replays
+                        <h1 class="mb-4">Snapper Rocks Replays
                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                         </h1>
                         <div id="vue-app" class="mb-4">
@@ -236,10 +236,10 @@
                                         </span>
 
                                         <!-- REPLAYS TAB -->
-                                        <a v-if="!replaysDisabled" :class="{active: feedType == 'replay'}" class="btn-tab" href="/surfcams/byron-bay/replays/">Replays </a>
+                                        <a v-if="!replaysDisabled" :class="{active: feedType == 'replay'}" class="btn-tab" href="/surfcams/snapper-rocks/replays/">Replays </a>
 
                                         <!-- LIVE TAB -->
-                                        <a :class="{active: feedType == 'live'}" class="btn-tab" href="/surfcams/byron-bay/">Live</a>
+                                        <a :class="{active: feedType == 'live'}" class="btn-tab" href="/surfcams/snapper-rocks/">Live</a>
                                     </div>
 
                                     <!-- WRAPPER: SELECTS -->
@@ -254,7 +254,7 @@
 
                                     <!-- PLAYER COMPONENT -->
                                     
-<!-- <surfcam-player-jw :muted="true" :video-timeout="10"></surfcam-player-jw> --><surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
+<!-- <surfcam-player-jw :muted="true" :video-timeout="10"></surfcam-player-jw> --><surfcam-player-plyr :muted="true" :video-timeout="30" :paid="true"></surfcam-player-plyr>
 
                                     <!-- THUMB-SLIDER COMPONENT -->
                                     <transition name="special-thumb-slider-entrance">
