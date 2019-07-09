@@ -16,8 +16,8 @@ layout: base__page_sidebar
     {% capture live_stream %}
         {% unless page.url contains 'replays' %}
             live-stream="rtmp://streamer.swellnet.com.au/surfcams/byron.stream"
-            live-stream-image="http://static.swellnet.com.au/images/surfcams/byron-bay.jpg"
-            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/byron.stream/playlist.m3u8"
+            live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg"
+            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8"
         {% endunless %}
     {% endcapture %}
 
@@ -46,7 +46,7 @@ layout: base__page_sidebar
                     v-if="!replaysDisabled"
                     :class="{active: feedType == 'replay'}"
                     class="btn-tab"
-                    href="/surfcams/byron-bay/replays/"
+                    href="/surfcams/snapper-rocks/replays/"
                 >
                     Replays
                 </a>
@@ -55,7 +55,7 @@ layout: base__page_sidebar
                 <a
                     :class="{active: feedType == 'live'}"
                     class="btn-tab"
-                    href="/surfcams/byron-bay/"
+                    href="/surfcams/snapper-rocks/"
                 >
                     Live
                 </a>
@@ -87,7 +87,13 @@ layout: base__page_sidebar
 
             <!-- PLAYER COMPONENT -->
             <!-- <surfcam-player-jw :muted="true" :video-timeout="10"></surfcam-player-jw> -->
-            <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
+
+            <surfcam-player-plyr
+                :muted="true"
+                :video-timeout="30"
+                :paid="true"
+            >
+            </surfcam-player-plyr>
 
             {% comment %}
             on widget: class="jeep-dashboard"

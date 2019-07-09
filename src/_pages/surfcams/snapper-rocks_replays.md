@@ -1,7 +1,7 @@
 ---
 layout: child_layout/surfcams
-title: Byron Bay
-permalink: /surfcams/byron-bay/
+title: Snapper Rocks Replays
+permalink: /surfcams/snapper-rocks/replays/
 user_type: public
 theme: theme-public
 ---

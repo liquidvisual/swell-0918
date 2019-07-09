@@ -22,11 +22,44 @@ Vue.component('surfcam-player-plyr', {
             <!-- ERRORS -->
             <div
                 v-if="errors"
-                class="video-player-error"
+                class="video-player-overlay video-player-overlay-error"
             >
-                <div>
+                <div class="video-player-overlay-inner">
                     <i class="fa fa-warning"></i>
-                    <p>Sorry! We're experiencing technical difficulties with this surfcam.<br> We'll have it back up ASAP.</p>
+                    <p>Sorry! We're experiencing <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
+                </div>
+            </div>
+
+            <!-- PREMIUM OVERLAY (SHOW FOR UNPAID) -->
+            <div
+                v-if="!paid"
+                class="video-player-overlay"
+            >
+                <div class="video-player-overlay-inner">
+
+                    <!-- LOGO -->
+                    <p><img class="logo" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo"></p>
+
+                    <!-- HEADING -->
+                    <h3>
+                        This is a premium surfcam for Swellnet Pro subscribers
+                        <a class="badge badge-primary" href="/news/swellnet-dispatch/2018/06/26/walled-and-rise">WHY?</a>
+                    </h3>
+
+                    <!-- BODY -->
+                    <p class="mb-md-3">
+                        Subscribe to Swellnet Pro to access premium surfcams, remove ads and extend the timeout.
+                    </p>
+
+                    <!-- ALREADY A SUBSCRIBER? -->
+                    <p class="mb-md-4">
+                        <a class="text-link" href="/user/login">
+                            Already a subscriber? Log-in here <i class="fa fa-angle-right"></i>
+                        </a>
+                    </p>
+
+                    <!-- GET SWELLNET PRO -->
+                    <a class="btn btn-md-lg btn-secondary" href="/pro/subscribe/chooseplan">Get Swellnet Pro&nbsp;<i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
 

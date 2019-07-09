@@ -61,14 +61,14 @@
 
     <!-- **** JAVASCRIPT **** -->
 
+    <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately -->
     <!-- build:js({src,.}) /assets/scripts/minified-hls.js -->
     <script src="/node_modules/hls.js/dist/hls.js"></script>
+    <script src="/node_modules/plyr/dist/plyr.polyfilled.js"></script>
     <!-- endbuild -->
 
     <!-- SITEMAP JSON -->
     <script src="/sitemap.json"></script>
-
-    <!-- <script src="/node_modules/bootstrap-validator/dist/validator.js"></script> -->
 
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
@@ -84,7 +84,6 @@
     <script src="/node_modules/moment/min/moment.min.js"></script>
     <script src="/node_modules/moment/locale/en-au.js"></script>
     <script src="/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
-    <script src="/node_modules/plyr/dist/plyr.polyfilled.js"></script>
     <script src="/node_modules/axios/dist/axios.js"></script>
     <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     <script src="/node_modules/vue-multiselect/dist/vue-multiselect.min.js"></script>
@@ -92,7 +91,6 @@
     <script src="/assets/scripts/vue-components/Surfcam/DateSelect.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/TimeSelect.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/ThumbSlider.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerFlow.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerJW.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerPlyr.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/VueFlickity.js"></script>

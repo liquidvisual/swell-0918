@@ -121,8 +121,7 @@
 }
 
 //-----------------------------------------------------------------
-// (WAS) MULTICAM VIDEO
-// ** REFACTORED **
+// MULTICAM VIDEO (also used by surfcams)
 //-----------------------------------------------------------------
 
 .video-player-flow,
@@ -131,21 +130,24 @@
 	overflow: hidden; // stop logo from flying out in FlowPlayer
 }
 
-.video-player-plyr-watermark,
 .video-player-watermark {
 	position: absolute;
 	bottom: 6px;
 	right: 6px;
 	width: 54px;
 	height: 54px;
-	background: url(/assets/img/content/swellnet-logo-watermark.svg) no-repeat;
+	background: url('/assets/img/content/swellnet-logo-watermark.svg') no-repeat;
 	background-size: contain;
 	opacity: 0.6;
 	z-index: 1;
 }
 
-.video-player-plyr-error,
-.video-player-error {
+//-----------------------------------------------------------------
+// MESSAGE OVERLAYS
+// used by video in multicam AND surfcams
+//-----------------------------------------------------------------
+
+.video-player-overlay {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -154,18 +156,78 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(black, 0.8);
-	color: white;
+	background: linear-gradient(to bottom, #54c5d1 0%, darken(#54c5d1, 18%) 100%); // PSD
 	text-align: center;
+	color: white;
 	z-index: 10;
 
-	.fa {
+	// INNER
+	> div, // legacy
+	.video-player-overlay-inner {
+		width: 90%;
+		// border: 1px dashed red;
+
+		@include media-breakpoint-up(md) {
+		    width: 62%;
+		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: white;
+
+		.badge { // WHY? btn
+			position: relative;
+			top: -3px;
+			background-color: #545e66;
+		}
+	}
+
+	// ICON WARNING
+	.fa:not(.fa-angle-right) {
 		font-size: rem-calc(40);
 	}
 
-	> div {
-		width: 80%;
+	// LOGO
+	.logo {
+		width: rem-calc(100);
+
+		@include media-breakpoint-up(xl) {
+		    width: rem-calc(150);
+		}
 	}
+
+	p {
+		font-weight: 600; // cheating
+
+		@include media-breakpoint-up(md) {
+		    font-size: rem-calc(17);
+		}
+	}
+
+	// Already a subscriber? Log in here
+	.text-link {
+		color: white;
+		text-decoration: underline;
+	}
+
+	// EG. Get Swellnet Pro >
+	.btn {
+		justify-content: center;
+		min-width: rem-calc(230); // PSD
+		border-radius: 0;
+		font-weight: $font-weight-bold;
+		color: white;
+
+		@include media-breakpoint-up(md) {
+			font-size: rem-calc(17);
+		    line-height: rem-calc(35);
+		}
+	}
+}
+
+.video-player-overlay-error {
+	// background: rgba(black, 0.8);
+	background: black;
 }
 
 //-----------------------------------------------------------------

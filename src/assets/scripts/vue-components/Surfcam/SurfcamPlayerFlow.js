@@ -1,4 +1,5 @@
 // /*
+// Couldn't get FlowPlayer to work with Vue component, so created extra template with vanilla JS
 //     SURFCAM PLAYER FLOW
 //     updated: 04.07.19
 
@@ -34,11 +35,11 @@
 //             <!-- ERRORS -->
 //             <div
 //                 v-if="errors"
-//                 class="video-player-error"
+//                 class="video-player-overlay video-player-error"
 //             >
-//                 <div>
+//                 <div video-player-overlay-inner>
 //                     <i class="fa fa-warning"></i>
-//                     <p>Sorry! We're experiencing technical difficulties with this surfcam.<br> We'll have it back up ASAP.</p>
+//                     <p>Sorry! We're experiencing <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
 //                 </div>
 //             </div>
 

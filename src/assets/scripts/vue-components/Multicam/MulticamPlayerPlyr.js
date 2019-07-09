@@ -22,16 +22,16 @@ Vue.component('multicam-player-plyr', {
             <!-- ERRORS -->
             <div
                 v-if="errors"
-                class="video-player-plyr-error">
-
-                <div>
+                class="video-player-overlay video-player-overlay-error"
+            >
+                <div class="video-player-overlay-inner">
                     <i class="fa fa-warning"></i>
-                    <p>Sorry! We're experiencing technical difficulties with this surfcam. We'll have it back up ASAP.</p>
+                    <p>Sorry! We're experiencing <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
                 </div>
             </div>
 
             <!-- WATERMARK -->
-            <div class="video-player-plyr-watermark"></div>
+            <div class="video-player-watermark"></div>
 
             <!-- VIDEO -->
             <video
@@ -42,8 +42,10 @@ Vue.component('multicam-player-plyr', {
                 playsinline
                 ref="video"
                 :poster="poster"
-                width="100%">
+                width="100%"
+            >
             </video>
+
         </div>
     `,
     props: {
@@ -52,6 +54,10 @@ Vue.component('multicam-player-plyr', {
         poster: {
             type: String,
             default: '/assets/img/layout/placeholder-video-1280x720.svg'
+        },
+        paid: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
