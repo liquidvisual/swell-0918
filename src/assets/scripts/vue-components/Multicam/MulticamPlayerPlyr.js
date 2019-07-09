@@ -55,10 +55,10 @@ Vue.component('multicam-player-plyr', {
             type: String,
             default: '/assets/img/layout/placeholder-video-1280x720.svg'
         },
-        paid: {
-            type: Boolean,
-            default: false
-        }
+        // paid: {
+        //     type: Boolean,
+        //     default: false
+        // }
     },
     data() {
         return {

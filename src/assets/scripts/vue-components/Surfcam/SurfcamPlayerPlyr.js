@@ -89,6 +89,10 @@ Vue.component('surfcam-player-plyr', {
         videoTimeout: {
             type: Number,
             default: 0 // 300 secs = 5 mins
+        },
+        paid: {
+            type: Boolean,
+            default: false
         }
     },
     data() {
