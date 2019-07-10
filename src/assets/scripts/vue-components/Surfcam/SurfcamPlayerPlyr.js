@@ -38,7 +38,7 @@ Vue.component('surfcam-player-plyr', {
                 <div class="video-player-overlay-inner">
 
                     <!-- LOGO -->
-                    <p><img class="logo" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo"></p>
+                    <img class="logo mb-2 d-none d-md-inline-block" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo">
 
                     <!-- HEADING -->
                     <h3>
@@ -47,7 +47,7 @@ Vue.component('surfcam-player-plyr', {
                     </h3>
 
                     <!-- BODY -->
-                    <p class="mb-md-3">
+                    <p class="mb-md-3 d-none d-sm-block">
                         Subscribe to Swellnet Pro to access premium surfcams, remove ads and extend the timeout.
                     </p>
 
