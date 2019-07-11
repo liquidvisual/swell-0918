@@ -6,7 +6,6 @@ layout: base__page_sidebar
     NOTES
     - vue inline-templates: https://vuejsdevelopers.com/2017/03/24/vue-js-component-templates/
     - no longer working: data-path="http://staging.swellnet.com.fe2.stg.swellnet.anchor.net.au/surfcam-replays/data/"
-    - videoTimeout is in seconds (NOT milliseconds)
     - player overlays now in the template, not the Vue component
 
     - JEEP code:
@@ -120,10 +119,10 @@ layout: base__page_sidebar
 
                 </div>
 
-                <!-- PLAYER (PLYR) COMPONENT -->
+                <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
                 <surfcam-player-plyr
                     :muted="true"
-                    :video-timeout="30"
+                    :video-timeout="300000"
                 >
                 </surfcam-player-plyr>
 

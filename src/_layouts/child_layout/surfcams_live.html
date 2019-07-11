@@ -191,7 +191,7 @@ layout: base__page_sidebar
                         playerOverlayTimeoutEl.addEventListener('click', function handler() {
                             location.reload();
                         });
-                    }, 10000);
+                    }, 300000); // 5min timeout
                 }
             });
 
@@ -249,10 +249,10 @@ layout: base__page_sidebar
             inline-template
         >
             <div>
-                <!-- PLAYER (PLYR) COMPONENT -->
+                <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
                 <surfcam-player-plyr
                     :muted="true"
-                    :video-timeout="30"
+                    :video-timeout="300000"
                 >
                 </surfcam-player-plyr>
 

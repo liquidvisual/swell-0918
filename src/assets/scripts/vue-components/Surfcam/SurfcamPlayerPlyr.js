@@ -2,6 +2,8 @@
     SURFCAM PLAYER PLYR
     updated: 11.07.19, 27.02.19, 26.11.18
 
+    - HLS API: https://hls-js.netlify.com/api-docs/
+
     USAGE:
         <surfcam-player-plyr
             :muted="false"
@@ -66,6 +68,7 @@ Vue.component('surfcam-player-plyr', {
             hlsInstance: null,
             showControls: null,
             videoEl: null,
+            videoObj: null,
             timeoutInstance: null
         }
     },
@@ -85,17 +88,7 @@ Vue.component('surfcam-player-plyr', {
         this.playerInstance = null;
     },
     methods: {
-        //-----------------------------------------------------------------
-        // INIT
-        // https://support.jwplayer.com/customer/portal/articles/1480872
-        // https://developer.jwplayer.com/jw-player/docs/javascript-api-reference/#jwplayernext
-        //-----------------------------------------------------------------
-
-        initPlayer(command) {
-
-            log(':: initPlayer() ::');
-            log('LIMITED DURATION: '+(command == 'limitDuration'));
-
+        initPlayer() {
             this.playerInstance = new Plyr(this.videoEl, {
 
                 // https://github.com/sampotts/plyr/blob/master/controls.md
@@ -120,21 +113,25 @@ Vue.component('surfcam-player-plyr', {
                 displayDuration: false
             });
 
-            // setup timeout reset on play
-            this.playerInstance.on('play', (event) => {
-                if (command == 'limitDuration') this.startTimeout();
-                this.errors = false; // reset
-            });
+            // ON PLAY
+            this.playerInstance.on('play', this.playVideo);
+
+            // ON PAUSE
+            this.playerInstance.on('pause', this.pauseVideo);
         },
         //-----------------------------------------------------------------
         // LOAD VIDEO
+        // https://hls-js.netlify.com/api-docs/
         //-----------------------------------------------------------------
 
         loadVideo(video_obj) {
-            var isMp4 = video_obj.format == 'mp4';
+            const isMp4 = video_obj.format == 'mp4';
 
-            // this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
-            this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
+            this.videoObj = video_obj; // store object event from bus
+
+            this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
+            //this.poster = '/assets/img/layout/placeholder-video-logo.svg';
+            // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
 
             // For more Hls.js options, see https://github.com/dailymotion/hls.js
             if (!Hls.isSupported() || isMp4) { // hls can only handle streams, not mp4s
@@ -164,14 +161,41 @@ Vue.component('surfcam-player-plyr', {
             this.startTimeout(); // start timer until pause
         },
         //-----------------------------------------------------------------
+        // PLAY VIDEO
+        //-----------------------------------------------------------------
+
+        playVideo() {
+            this.startTimeout();
+
+            if (this.hlsInstance === 'RELOAD_IT')
+                this.loadVideo(this.videoObj);
+        },
+        //-----------------------------------------------------------------
+        // PAUSE VIDEO
+        // https://jsfiddle.net/Larer8ad/ - reference
+        // https://github.com/video-dev/hls.js/issues/741
+        // https://github.com/videojs/video.js/issues/5312 - stop buffering
+        // https://github.com/videojs/video.js/issues/2121
+        //-----------------------------------------------------------------
+
+        pauseVideo() {
+            this.resetTimeout();
+            this.playerInstance.pause();
+            if (this.hlsInstance) {
+                this.hlsInstance.stopLoad(); // stop further buffering
+                this.hlsInstance = 'RELOAD_IT';
+            }
+        },
+        //-----------------------------------------------------------------
         // UNLOAD VIDEO
         //-----------------------------------------------------------------
 
-        unloadVideo() {
-            this.resetTimeout();
-            this.hlsInstance = null;
-            this.videoEl.src = '';
-        },
+        // unloadVideo() {
+        //     this.resetTimeout();
+        //     if (this.hlsInstance && typeof(this.hlsInstance) == Object) this.hls.destroy();
+        //     this.hlsInstance = null;
+        //     this.videoEl.src = '';
+        // },
         //-----------------------------------------------------------------
         // START TIMEOUT
         //-----------------------------------------------------------------
@@ -179,10 +203,7 @@ Vue.component('surfcam-player-plyr', {
         startTimeout() {
             if (this.videoTimeout) {
                 this.resetTimeout();
-                this.timeoutInstance = setTimeout(() => {
-                    this.playerInstance.pause();
-                    this.resetTimeout();
-                }, Number(this.videoTimeout * 1000)); // 300 * 1000 = 300000ms = 5 minute timeout
+                this.timeoutInstance = setTimeout(this.pauseVideo, Number(this.videoTimeout));
             }
         },
         //-----------------------------------------------------------------
@@ -192,6 +213,7 @@ Vue.component('surfcam-player-plyr', {
         resetTimeout() {
             clearTimeout(this.timeoutInstance);
             this.timeoutInstance = null;
+            this.errors = false; // reset
         }
     }
 });

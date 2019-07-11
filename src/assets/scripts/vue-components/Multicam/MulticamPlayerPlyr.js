@@ -54,11 +54,7 @@ Vue.component('multicam-player-plyr', {
         poster: {
             type: String,
             default: '/assets/img/layout/placeholder-video-1280x720.svg'
-        },
-        // paid: {
-        //     type: Boolean,
-        //     default: false
-        // }
+        }
     },
     data() {
         return {
@@ -66,7 +62,8 @@ Vue.component('multicam-player-plyr', {
             hlsInstance: null,
             showControls: null,
             videoEl: null,
-            videoTimeout: null
+            videoPath: null, // * new *
+            videoTimeout: 300000 // hardcode 5mins, out of time
         }
     },
     mounted() {
@@ -79,11 +76,10 @@ Vue.component('multicam-player-plyr', {
     },
     watch: {
         source() {
-            if (this.source) {
+            if (this.source)
                 this.loadVideo(this.source); // when source changes, load new video
-            } else {
+            else
                 this.unloadVideo(); // reset
-            }
         }
     },
     methods: {
@@ -112,33 +108,37 @@ Vue.component('multicam-player-plyr', {
                 displayDuration: false
             });
 
-            // setup timeout reset on play
-            this.playerInstance.on('play', () => {
-                this.startTimeout();
+            // ON PLAY
+            this.playerInstance.on('play', this.playVideo);
+
+            // ON PAUSE
+            this.playerInstance.on('pause', this.pauseVideo);
+
+            // ON CONTROLS SHOWN
+            this.playerInstance.on('controlsshown', (event) => {
+                this.$emit('show-controls', true);
+                this.showControls = true;
+            });
+
+            // ON CONTROLS HIDDEN
+            this.playerInstance.on('controlshidden', (event) => {
+                this.$emit('show-controls', false);
+                this.showControls = false;
             });
 
             // TODO: show loader on stall (for non hls which has a delay)
             // this.playerInstance.on('stalled', (event) => {
                 // console.log('stalled! '+event);
             // });
-
-            // CONTROLS SHOWN
-            this.playerInstance.on('controlsshown', (event) => {
-                this.$emit('show-controls', true);
-                this.showControls = true;
-            });
-
-            // CONTROLS HIDDEN
-            this.playerInstance.on('controlshidden', (event) => {
-                this.$emit('show-controls', false);
-                this.showControls = false;
-            });
         },
-        //==================================================
+        //-----------------------------------------------------------------
         // LOAD VIDEO
-        //==================================================
+        // https://hls-js.netlify.com/api-docs/
+        //-----------------------------------------------------------------
 
         loadVideo(path) {
+            this.videoPath = path; // store path, we'll need it on reload
+
             // For more Hls.js options, see https://github.com/dailymotion/hls.js
             if (!Hls.isSupported()) {
                 this.videoEl.src = path; // eg. iOS
@@ -160,33 +160,59 @@ Vue.component('multicam-player-plyr', {
             }
             this.startTimeout(); // start timer until pause
         },
-        //==================================================
+        //-----------------------------------------------------------------
+        // PLAY VIDEO
+        //-----------------------------------------------------------------
+
+        playVideo() {
+            this.startTimeout();
+
+            if (this.hlsInstance === 'RELOAD_IT')
+                this.loadVideo(this.videoPath);
+        },
+        //-----------------------------------------------------------------
+        // PAUSE VIDEO
+        // https://jsfiddle.net/Larer8ad/ - reference
+        // https://github.com/video-dev/hls.js/issues/741
+        // https://github.com/videojs/video.js/issues/5312 - stop buffering
+        // https://github.com/videojs/video.js/issues/2121
+        //-----------------------------------------------------------------
+
+        pauseVideo() {
+            this.resetTimeout();
+            this.playerInstance.pause();
+            if (this.hlsInstance) {
+                this.hlsInstance.stopLoad(); // stop further buffering
+                this.hlsInstance = 'RELOAD_IT';
+            }
+        },
+        //-----------------------------------------------------------------
         // UNLOAD VIDEO
-        //==================================================
+        //-----------------------------------------------------------------
 
         unloadVideo() {
             this.resetTimeout();
+            if (this.hlsInstance && typeof(this.hlsInstance) == Object) this.hls.destroy();
             this.hlsInstance = null;
             this.videoEl.src = '';
         },
-        //==================================================
+        //-----------------------------------------------------------------
         // START TIMEOUT
-        //==================================================
+        //-----------------------------------------------------------------
 
         startTimeout() {
-            this.resetTimeout();
-            this.videoTimeout = setTimeout(() => {
-                this.playerInstance.pause();
+            if (this.videoTimeout) {
                 this.resetTimeout();
-            }, 300000); // 300000ms = 5 minute timeout
+                this.timeoutInstance = setTimeout(this.pauseVideo, Number(this.videoTimeout));
+            }
         },
-        //==================================================
+        //-----------------------------------------------------------------
         // RESET TIMEOUT
-        //==================================================
+        //-----------------------------------------------------------------
 
         resetTimeout() {
-            clearTimeout(this.videoTimeout);
-            this.videoTimeout = null;
+            clearTimeout(this.timeoutInstance);
+            this.timeoutInstance = null;
         }
     }
 });
