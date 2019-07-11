@@ -104,7 +104,7 @@ layout: base__page_sidebar
 
 {% endif %}
 
-{% unless page.user_type == 'public' and page.premium %}
+{% if page.user_type == 'public' and page.premium != true %}
 
     <!-- FLOW PLAYER -->
     <div id="video-player-flow" class="video-player-flow collapse-sm-down">
@@ -155,7 +155,7 @@ layout: base__page_sidebar
         }
     </style>
 
-{% endunless %}
+{% endif %}
 
 {% if page.user_type == 'public' %}
 
@@ -234,70 +234,132 @@ layout: base__page_sidebar
 
 {% endif %}
 
-{% unless replays %}
-    <div class="spacer mb-4"></div>
-{% endunless %}
+{% if page.user_type == 'paid' %}
 
-{% comment %}
-    {% if replays %}
+    <!-- START VUE APP -->
+    <div id="vue-app" class="mb-4">
 
-        <!-- HEADING: SURFCAM REPLAYS -->
-        <h2 class="d-flex align-items-center mb-4 mt-5">
-            <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
-        </h2>
+        <!-- SURFCAM WIDGET -->
+        <surfcam-widget
+            data-path="https://www.swellnet.com/surfcam-replays/data/"
+            live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream"
+            live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg"
+            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8"
+            surfcam-id="10"
+            inline-template
+        >
+            <div>
+                <!-- PLAYER (PLYR) COMPONENT -->
+                <surfcam-player-plyr
+                    :muted="true"
+                    :video-timeout="30"
+                >
+                </surfcam-player-plyr>
 
-        <!-- START VUE APP -->
-        <div id="vue-app" class="mb-4">
+                <!-- HEADING: SURFCAM REPLAYS -->
+                <h2 class="d-flex align-items-center my-4">
+                    <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
+                </h2>
 
-            <!-- SURFCAM WIDGET -->
-            <surfcam-widget
-                data-path="https://www.swellnet.com/surfcam-replays/data/"
-                surfcam-id="10"
-                inline-template
-            >
-                <div>
-
-                    <!-- SELECTS WRAPPER -->
-                    <div
-                        v-if="!replaysDisabled"
-                        class="custom-select-wrapper collapse-sm-down"
+                <!-- SELECTS WRAPPER -->
+                <div
+                    v-if="!replaysDisabled"
+                    class="custom-select-wrapper collapse-sm-down"
+                >
+                    <!-- DATE-SELECT COMPONENT -->
+                    <date-select
+                        v-model="date"
+                        :is-loading="feedLoading"
                     >
-                        <!-- DATE-SELECT COMPONENT -->
-                        <date-select
-                            v-model="date"
-                            :is-loading="feedLoading"
-                        >
-                        </date-select>
+                    </date-select>
 
-                        <!-- TIME-SELECT COMPONENT -->
-                        <time-select
-                            v-model="selectedTimeIndex"
-                            :feed="feed"
-                            :index="selectedTimeIndex"
-                            :is-loading="feedLoading"
-                        >
-                        </time-select>
-
-                    </div>
-
-                    <!-- THUMB-SLIDER COMPONENT -->
-                    <transition name="special-thumb-slider-entrance">
-                        <thumb-slider
-                            v-if="feed"
-                            :current-index="selectedTimeIndex"
-                            :feed="feed"
-                            :is-loading="feedLoading"
-                        >
-                        </thumb-slider>
-                    </transition>
+                    <!-- TIME-SELECT COMPONENT -->
+                    <time-select
+                        v-model="selectedTimeIndex"
+                        :feed="feed"
+                        :index="selectedTimeIndex"
+                        :is-loading="feedLoading"
+                    >
+                    </time-select>
 
                 </div>
-            </surfcam-widget>
 
-        </div> <!-- /.vue-app -->
+                <!-- THUMB-SLIDER COMPONENT -->
+                <transition name="special-thumb-slider-entrance">
+                    <thumb-slider
+                        v-if="feed"
+                        :current-index="selectedTimeIndex"
+                        :feed="feed"
+                        :is-loading="feedLoading"
+                    >
+                    </thumb-slider>
+                </transition>
 
-    {% endif %}
-{% endcomment %}
+            </div>
+        </surfcam-widget>
+
+    </div> <!-- /.vue-app -->
+
+{% endif %}
+
+{% if page.user_type == 'public' and page.premium != true %}
+
+    <!-- START VUE APP -->
+    <div id="vue-app" class="mb-4">
+
+        <!-- SURFCAM WIDGET -->
+        <surfcam-widget
+            data-path="https://www.swellnet.com/surfcam-replays/data/"
+            surfcam-id="10"
+            inline-template
+        >
+            <div>
+
+                <!-- HEADING: SURFCAM REPLAYS -->
+                <h2 class="d-flex align-items-center mb-4 mt-4">
+                    <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
+                </h2>
+
+                <!-- SELECTS WRAPPER -->
+                <div
+                    v-if="!replaysDisabled"
+                    class="custom-select-wrapper collapse-sm-down"
+                >
+                    <!-- DATE-SELECT COMPONENT -->
+                    <date-select
+                        v-model="date"
+                        :is-loading="feedLoading"
+                    >
+                    </date-select>
+
+                    <!-- TIME-SELECT COMPONENT -->
+                    <time-select
+                        v-model="selectedTimeIndex"
+                        :feed="feed"
+                        :index="selectedTimeIndex"
+                        :is-loading="feedLoading"
+                    >
+                    </time-select>
+
+                </div>
+
+                <!-- THUMB-SLIDER COMPONENT -->
+                <transition name="special-thumb-slider-entrance">
+                    <thumb-slider
+                        v-if="feed"
+                        :current-index="selectedTimeIndex"
+                        :feed="feed"
+                        :is-loading="feedLoading"
+                    >
+                    </thumb-slider>
+                </transition>
+
+            </div>
+        </surfcam-widget>
+
+    </div> <!-- /.vue-app -->
+
+{% endif %}
 
 {% contentfor sidebar %}
     {% include legacy/nearest_surfcams.html %}
