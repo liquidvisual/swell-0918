@@ -236,56 +236,6 @@
                             <!-- LIVE TAB -->
                             <a class="btn-tab active" href="/surfcams/snapper-rocks/">Live</a>
                         </div>
-
-                        <!-- FLOW PLAYER -->
-                        <div id="video-player-flow" class="video-player-flow collapse-sm-down">
-
-                            <!-- SIZER -->
-                            <img class="video-player-sizer" width="100%" src="/assets/img/layout/placeholder-video-1280x720.svg">
-
-                            <!-- BODY -->
-                            <div class="video-player-body">
-
-                                <!-- ERROR OVERLAY (HIDDEN) -->
-                                <div id="video-player-overlay-error" class="video-player-overlay video-player-overlay-error" hidden>
-                                    <div class="video-player-overlay-inner">
-                                        <i class="fa fa-warning"></i>
-                                        <p>Sorry! We're experiencing
-                                            <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
-                                    </div>
-                                </div>
-
-                                <!-- WATERMARK -->
-                                <div class="video-player-watermark"></div>
-
-                                <!-- EMBED CODE -->
-                                <div data-player-id="a505d6e4-934f-4f40-9668-4c102963730b">
-                                    <script src="//cdn.flowplayer.com/players/d891a9d0-c577-4eb4-a371-a82073f8d54c/native/flowplayer.async.js">
-                                    {
-                                        "autoplay": true,
-                                        "hls": {
-                                            "native": true
-                                        },
-                                        "live": true,
-                                        "loop": true,
-                                        "muted": true,
-                                        "poster": "http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg",
-                                        "src": "//streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8",
-                                        "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
-                                        "plugins": ["ads"]
-                                    }
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- FLOW PLAYER CUSTOM STYLES -->
-                        <style>
-                        .fp-error,
-                        .fp-share-menu {
-                            display: none;
-                        }
-                        </style>
                         <script>
                         flowplayer.cloud.then(function() {
                             var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
@@ -300,8 +250,41 @@
                             });
                         });
                         </script>
-                        <div class="spacer mb-4"></div>
-                    </div>
+
+                        <!-- START VUE APP -->
+                        <div id="vue-app" class="mb-4">
+
+                            <!-- SURFCAM WIDGET -->
+                            <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8" surfcam-id="10" inline-template>
+                                <div>
+
+                                    <!-- PLAYER (PLYR) COMPONENT -->
+                                    <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
+
+                                    <!-- HEADING: SURFCAM REPLAYS -->
+                                    <h2 class="d-flex align-items-center my-4">
+                                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays</h2>
+
+                                    <!-- SELECTS WRAPPER -->
+                                    <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down">
+
+                                        <!-- DATE-SELECT COMPONENT -->
+                                        <date-select v-model="date" :is-loading="feedLoading"></date-select>
+
+                                        <!-- TIME-SELECT COMPONENT -->
+                                        <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
+                                    </div>
+
+                                    <!-- THUMB-SLIDER COMPONENT -->
+                                    <transition name="special-thumb-slider-entrance">
+                                        <thumb-slider v-if="feed" :current-index="selectedTimeIndex" :feed="feed" :is-loading="feedLoading"></thumb-slider>
+                                    </transition>
+                                </div>
+                            </surfcam-widget>
+                        </div>
+
+                        <!-- /.vue-app -->
+                        </div>
                     <div class="col-lg-4 pl-lg-3">
                         <aside class="sidebar">
 
