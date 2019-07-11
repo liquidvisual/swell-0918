@@ -258,8 +258,8 @@
                             <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8" surfcam-id="10" inline-template>
                                 <div>
 
-                                    <!-- PLAYER (PLYR) COMPONENT -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
+                                    <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                                    <surfcam-player-plyr :muted="true" :video-timeout="300000"></surfcam-player-plyr>
 
                                     <!-- HEADING: SURFCAM REPLAYS -->
                                     <h2 class="d-flex align-items-center my-4">

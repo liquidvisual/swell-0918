@@ -254,8 +254,8 @@
                                         <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
                                     </div>
 
-                                    <!-- PLAYER (PLYR) COMPONENT -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="30"></surfcam-player-plyr>
+                                    <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                                    <surfcam-player-plyr :muted="true" :video-timeout="300000"></surfcam-player-plyr>
 
                                     <!-- THUMB-SLIDER COMPONENT -->
                                     <transition name="special-thumb-slider-entrance">
