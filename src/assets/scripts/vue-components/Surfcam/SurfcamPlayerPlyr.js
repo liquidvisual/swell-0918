@@ -1,6 +1,6 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 04.07.19, 27.02.19, 26.11.18
+    updated: 11.07.19, 27.02.19, 26.11.18
 
     USAGE:
         <surfcam-player-plyr
@@ -30,39 +30,6 @@ Vue.component('surfcam-player-plyr', {
                 </div>
             </div>
 
-            <!-- PREMIUM OVERLAY (SHOW FOR UNPAID) -->
-            <div
-                v-if="!paid"
-                class="video-player-overlay"
-            >
-                <div class="video-player-overlay-inner">
-
-                    <!-- LOGO -->
-                    <img class="logo mb-2 d-none d-md-inline-block" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo">
-
-                    <!-- HEADING -->
-                    <h3>
-                        This is a premium surfcam for Swellnet Pro subscribers
-                        <a class="badge badge-primary" href="/news/swellnet-dispatch/2018/06/26/walled-and-rise">WHY?</a>
-                    </h3>
-
-                    <!-- BODY -->
-                    <p class="mb-md-3 d-none d-sm-block">
-                        Subscribe to Swellnet Pro to access premium surfcams, remove ads and extend the timeout.
-                    </p>
-
-                    <!-- ALREADY A SUBSCRIBER? -->
-                    <p class="mb-md-4">
-                        <a class="text-link" href="/user/login">
-                            Already a subscriber? Log-in here <i class="fa fa-angle-right"></i>
-                        </a>
-                    </p>
-
-                    <!-- GET SWELLNET PRO -->
-                    <a class="btn btn-md-lg btn-secondary" href="/pro/subscribe/chooseplan">Get Swellnet Pro&nbsp;<i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-
             <!-- WATERMARK -->
             <div class="video-player-watermark"></div>
 
@@ -89,10 +56,6 @@ Vue.component('surfcam-player-plyr', {
         videoTimeout: {
             type: Number,
             default: 0 // 300 secs = 5 mins
-        },
-        paid: {
-            type: Boolean,
-            default: false
         }
     },
     data() {
