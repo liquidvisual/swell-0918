@@ -268,6 +268,14 @@
                             </div>
                         </div>
 
+                        <!-- SPONSOR OVERLAY (OPTIONAL) -->
+                        <div id="video-player-overlay-sponsor" class="video-player-overlay-sponsor is-jeep is-premium-attached collapse-sm-down animated fadeIn">
+                            <img src="/assets/img/layout/jeep-surfcam-dashboard-2019.png" alt="Jeep Dashboard">
+                        </div>
+
+                        <!-- SPACER -->
+                        <div class="spacer mb-4"></div>
+
                         <!-- TIMEOUT OVERLAY (HIDDEN) -->
                         <div id="video-player-overlay-timeout" class="video-player-overlay video-player-overlay-timeout collapse-sm-down" hidden>
 
@@ -300,7 +308,6 @@
                         flowplayer.cloud.then(function() {
                             var playerEl = document.getElementById('video-player-flow');
                             var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
-                            var playerOverlaySponsorEl = document.getElementById('video-player-overlay-sponsor');
                             var playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
                             var playerInstance = flowplayer.instances[0];
                             var playerTimeout = null;
@@ -309,8 +316,6 @@
                             playerInstance.on('playing', function() {
                                 var adPlaying = !!playerInstance.ads && playerInstance.ads.adPlaying;
                                 clearTimeout(playerTimeout);
-                                // reveal sponsor overlay (if present)
-                                if (playerOverlaySponsorEl) playerOverlaySponsorEl.style.display = 'block';
                                 // if no ads are playing, set a timeout for the video to unload itself
                                 if (!adPlaying) {
                                     playerTimeout = setTimeout(function() {
@@ -318,8 +323,6 @@
                                         playerInstance.setSrc('UNLOAD_VIDEO');
                                         // remove element so the overlay msg can take over flow
                                         playerEl.remove();
-                                        // remove player overlay
-                                        if (playerOverlaySponsorEl) playerOverlaySponsorEl.remove();
                                         // reveal timeout overlay (clicking will reload page)
                                         playerOverlayTimeoutEl.removeAttribute('hidden');
                                         // clicking player now reloads video and starts again
