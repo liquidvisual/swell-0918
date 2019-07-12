@@ -333,10 +333,10 @@
                             playerInstance.on('playing', function() {
                                 var adPlaying = !!playerInstance.ads && playerInstance.ads.adPlaying;
                                 clearTimeout(playerTimeout);
+                                // reveal sponsor overlay (if present)
+                                if (playerOverlaySponsorEl) playerOverlaySponsorEl.style.display = 'block';
                                 // if no ads are playing, set a timeout for the video to unload itself
                                 if (!adPlaying) {
-                                    // reveal sponsor overlay (if present)
-                                    if (playerOverlaySponsorEl) playerOverlaySponsorEl.style.display = 'block';
                                     playerTimeout = setTimeout(function() {
                                         // unload the video by passing it an empty source
                                         playerInstance.setSrc('UNLOAD_VIDEO');
