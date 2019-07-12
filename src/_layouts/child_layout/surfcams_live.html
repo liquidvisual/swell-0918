@@ -7,6 +7,8 @@ layout: base__page_sidebar
     - https://github.com/flowplayer/flowplayer-hlsjs/issues/57
     - https://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
     - stream is redudant on attrs - only playlist works
+    - FlowPlayer is for PUBLIC
+    - Plyr is for PAID
 {% endcomment %}
 
 <!-- LIVE + REPLAYS TABS -->
@@ -107,7 +109,7 @@ layout: base__page_sidebar
 {% if page.user_type == 'public' and page.premium != true %}
 
     <!-- FLOW PLAYER -->
-    <div id="video-player-flow" class="video-player-flow collapse-sm-down">
+    <div id="video-player-flow" class="video-player-flow collapse-sm-down has-overlay-sponsor">
 
         <!-- SIZER -->
         <img class="video-player-sizer" width="100%" src="/assets/img/layout/placeholder-video-1280x720.svg">
@@ -147,6 +149,11 @@ layout: base__page_sidebar
         </div>
     </div>
 
+    <!-- SPONSOR OVERLAY (OPTIONAL) -->
+    <div id="video-player-overlay-sponsor" class="video-player-overlay-sponsor is-jeep collapse-sm-down animated fadeIn">
+        <img src="/assets/img/layout/jeep-surfcam-dashboard-2019.png" alt="Jeep Dashboard">
+    </div>
+
     <!-- FLOW PLAYER CUSTOM STYLES -->
     <style>
         .fp-error,
@@ -163,6 +170,7 @@ layout: base__page_sidebar
         flowplayer.cloud.then(function() {
             var playerEl = document.getElementById('video-player-flow');
             var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
+            var playerOverlaySponsorEl = document.getElementById('video-player-overlay-sponsor');
             var playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
             var playerInstance = flowplayer.instances[0];
             var playerTimeout = null;
@@ -176,6 +184,11 @@ layout: base__page_sidebar
 
                 // if no ads are playing, set a timeout for the video to unload itself
                 if (!adPlaying) {
+
+                    // reveal sponsor overlay (if present)
+                    if (playerOverlaySponsorEl)
+                        playerOverlaySponsorEl.style.display = 'block';
+
                     playerTimeout = setTimeout(function() {
 
                         // unload the video by passing it an empty source
@@ -183,6 +196,9 @@ layout: base__page_sidebar
 
                         // remove element so the overlay msg can take over flow
                         playerEl.remove();
+
+                        // remove player overlay
+                        if (playerOverlaySponsorEl) playerOverlaySponsorEl.remove();
 
                         // reveal timeout overlay (clicking will reload page)
                         playerOverlayTimeoutEl.removeAttribute('hidden');
