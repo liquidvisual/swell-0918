@@ -129,9 +129,9 @@ Vue.component('surfcam-player-plyr', {
 
             this.videoObj = video_obj; // store object event from bus
 
-            this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
-            //this.poster = '/assets/img/layout/placeholder-video-logo.svg';
-            // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
+            // this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
+            // this.poster = '/assets/img/layout/placeholder-video-logo.svg';
+            this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
 
             // For more Hls.js options, see https://github.com/dailymotion/hls.js
             if (!Hls.isSupported() || isMp4) { // hls can only handle streams, not mp4s
