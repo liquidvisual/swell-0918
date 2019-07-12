@@ -267,7 +267,7 @@
                         </div>
 
                         <!-- FLOW PLAYER -->
-                        <div id="video-player-flow" class="video-player-flow collapse-sm-down">
+                        <div id="video-player-flow" class="video-player-flow collapse-sm-down has-overlay-sponsor">
 
                             <!-- SIZER -->
                             <img class="video-player-sizer" width="100%" src="/assets/img/layout/placeholder-video-1280x720.svg">
@@ -308,6 +308,11 @@
                             </div>
                         </div>
 
+                        <!-- SPONSOR OVERLAY (OPTIONAL) -->
+                        <div id="video-player-overlay-sponsor" class="video-player-overlay-sponsor is-jeep collapse-sm-down animated fadeIn">
+                            <img src="/assets/img/layout/jeep-surfcam-dashboard-2019.png" alt="Jeep Dashboard">
+                        </div>
+
                         <!-- FLOW PLAYER CUSTOM STYLES -->
                         <style>
                         .fp-error,
@@ -319,6 +324,7 @@
                         flowplayer.cloud.then(function() {
                             var playerEl = document.getElementById('video-player-flow');
                             var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
+                            var playerOverlaySponsorEl = document.getElementById('video-player-overlay-sponsor');
                             var playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
                             var playerInstance = flowplayer.instances[0];
                             var playerTimeout = null;
@@ -329,18 +335,22 @@
                                 clearTimeout(playerTimeout);
                                 // if no ads are playing, set a timeout for the video to unload itself
                                 if (!adPlaying) {
+                                    // reveal sponsor overlay (if present)
+                                    if (playerOverlaySponsorEl) playerOverlaySponsorEl.style.display = 'block';
                                     playerTimeout = setTimeout(function() {
                                         // unload the video by passing it an empty source
                                         playerInstance.setSrc('UNLOAD_VIDEO');
                                         // remove element so the overlay msg can take over flow
                                         playerEl.remove();
+                                        // remove player overlay
+                                        if (playerOverlaySponsorEl) playerOverlaySponsorEl.remove();
                                         // reveal timeout overlay (clicking will reload page)
                                         playerOverlayTimeoutEl.removeAttribute('hidden');
                                         // clicking player now reloads video and starts again
                                         playerOverlayTimeoutEl.addEventListener('click', function handler() {
                                             location.reload();
                                         });
-                                    }, 300000); // 5min timeout
+                                    }, 7000); // 30sec timeout for public 30000
                                 }
                             });
                             // PAUSE EVENT
