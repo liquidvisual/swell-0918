@@ -11,6 +11,8 @@ layout: base__page_sidebar
     - Plyr is for PAID
 {% endcomment %}
 
+{% assign replays_available = false %}
+
 <!-- LIVE + REPLAYS TABS -->
 <div class="btn-tabs collapse-sm-down">
 
@@ -23,13 +25,17 @@ layout: base__page_sidebar
         <span class="flag-throbber">&nbsp;</span>
     </span>
 
-    <!-- REPLAYS TAB -->
-    <a class="btn-tab" href="/surfcams/snapper-rocks/replays/">
-        Replays
-    </a>
+    {% if replays_available %}
+
+        <!-- REPLAYS TAB -->
+        <a class="btn-tab" href="/surfcams/kingscliff/replays/">
+            Replays
+        </a>
+
+    {% endif %}
 
     <!-- LIVE TAB -->
-    <a class="btn-tab active" href="/surfcams/snapper-rocks/">
+    <a class="btn-tab active" href="/surfcams/kingscliff/">
         Live
     </a>
 
@@ -59,7 +65,7 @@ layout: base__page_sidebar
 
             <!-- ALREADY A SUBSCRIBER? -->
             <p class="mb-md-4">
-                <a class="text-link" href="/user/login?destination=/surfcams/snapper-rocks">
+                <a class="text-link" href="/user/login?destination=/surfcams/kingscliff">
                     Already a subscriber? Log-in here <i class="fa fa-angle-right"></i>
                 </a>
             </p>
@@ -145,8 +151,8 @@ layout: base__page_sidebar
                         "live": true,
                         "loop": true,
                         "muted": true,
-                        "poster": "http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg",
-                        "src": "//streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8",
+                        "poster": "",
+                        "src": "//streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8",
                         "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
                         "plugins": [
                             "ads"
@@ -172,7 +178,7 @@ layout: base__page_sidebar
 
 {% endif %}
 
-{% if page.user_type == 'public' %}
+{% if page.user_type == 'public' and page.premium != true  %}
 
     <script>
         flowplayer.cloud.then(function() {
@@ -232,37 +238,20 @@ layout: base__page_sidebar
 
 {% if page.user_type == 'paid' %}
 
-    <script>
-        flowplayer.cloud.then(function() {
-            var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
-            var playerInstance = flowplayer.instances[0];
-
-            // ERROR EVENT
-            // Any error other than an empty video src will prompt an error overlay
-            playerInstance.on('error', function(e) {
-                if (e.data.src !== 'UNLOAD_VIDEO') {
-                    playerOverlayErrorEl.removeAttribute('hidden');
-                    // console.info(e.data);
-                }
-            });
-        });
-    </script>
-
-{% endif %}
-
-{% if page.user_type == 'paid' %}
-
     <!-- START VUE APP -->
     <div id="vue-app" class="mb-4">
 
         <!-- SURFCAM WIDGET -->
         <surfcam-widget
-            data-path="https://www.swellnet.com/surfcam-replays/data/"
-            live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream"
-            live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg"
-            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8"
-            surfcam-id="10"
             inline-template
+            live-stream="rtmp://streamer.swellnet.com.au/surfcams/kingscliff.stream"
+            live-stream-image="http://static.swellnet.com.au/images/surfcams/kingscliff.jpg"
+            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8"
+
+            {% if replays_available %}
+                data-path="https://www.swellnet.com/surfcam-replays/data/"
+                surfcam-id="9"
+            {% endif %}
         >
             <div>
                 <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
@@ -272,44 +261,48 @@ layout: base__page_sidebar
                 >
                 </surfcam-player-plyr>
 
-                <!-- HEADING: SURFCAM REPLAYS -->
-                <h2 class="d-flex align-items-center my-4">
-                    <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
-                </h2>
+                {% if replays_available %}
 
-                <!-- SELECTS WRAPPER -->
-                <div
-                    v-if="!replaysDisabled"
-                    class="custom-select-wrapper collapse-sm-down"
-                >
-                    <!-- DATE-SELECT COMPONENT -->
-                    <date-select
-                        v-model="date"
-                        :is-loading="feedLoading"
+                    <!-- HEADING: SURFCAM REPLAYS -->
+                    <h2 class="d-flex align-items-center my-4">
+                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
+                    </h2>
+
+                    <!-- SELECTS WRAPPER -->
+                    <div
+                        v-if="!replaysDisabled"
+                        class="custom-select-wrapper collapse-sm-down"
                     >
-                    </date-select>
+                        <!-- DATE-SELECT COMPONENT -->
+                        <date-select
+                            v-model="date"
+                            :is-loading="feedLoading"
+                        >
+                        </date-select>
 
-                    <!-- TIME-SELECT COMPONENT -->
-                    <time-select
-                        v-model="selectedTimeIndex"
-                        :feed="feed"
-                        :index="selectedTimeIndex"
-                        :is-loading="feedLoading"
-                    >
-                    </time-select>
+                        <!-- TIME-SELECT COMPONENT -->
+                        <time-select
+                            v-model="selectedTimeIndex"
+                            :feed="feed"
+                            :index="selectedTimeIndex"
+                            :is-loading="feedLoading"
+                        >
+                        </time-select>
 
-                </div>
+                    </div>
 
-                <!-- THUMB-SLIDER COMPONENT -->
-                <transition name="special-thumb-slider-entrance">
-                    <thumb-slider
-                        v-if="feed"
-                        :current-index="selectedTimeIndex"
-                        :feed="feed"
-                        :is-loading="feedLoading"
-                    >
-                    </thumb-slider>
-                </transition>
+                    <!-- THUMB-SLIDER COMPONENT -->
+                    <transition name="special-thumb-slider-entrance">
+                        <thumb-slider
+                            v-if="feed"
+                            :current-index="selectedTimeIndex"
+                            :feed="feed"
+                            :is-loading="feedLoading"
+                        >
+                        </thumb-slider>
+                    </transition>
+
+               {% endif %}
 
             </div>
         </surfcam-widget>
@@ -318,7 +311,7 @@ layout: base__page_sidebar
 
 {% endif %}
 
-{% if page.user_type == 'public' and page.premium != true %}
+{% if page.user_type == 'public' and page.premium != true and replays_available %}
 
     <!-- START VUE APP -->
     <div id="vue-app" class="mb-4">
@@ -326,7 +319,7 @@ layout: base__page_sidebar
         <!-- SURFCAM WIDGET -->
         <surfcam-widget
             data-path="https://www.swellnet.com/surfcam-replays/data/"
-            surfcam-id="10"
+            surfcam-id="9"
             inline-template
         >
             <div>
