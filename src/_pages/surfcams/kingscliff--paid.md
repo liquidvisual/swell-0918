@@ -1,7 +1,7 @@
 ---
 layout: child_layout/surfcams_live
-title: Snapper Rocks (paid)
-permalink: /surfcams/snapper-rocks/paid/
+title: Kingscliff (paid)
+permalink: /surfcams/kingscliff/paid/
 user_type: paid
 premium: true
 theme: theme-public
