@@ -315,6 +315,13 @@
                             // ON PLAYING EVENT
                             playerInstance.on('playing', function() {
                                 var adPlaying = !!playerInstance.ads && playerInstance.ads.adPlaying;
+                                console.log('adPlaying:');
+                                console.log(adPlaying);
+                                console.log('playerInstance.ads');
+                                console.log(playerInstance.ads);
+                                console.log('playerInstance.ads.adPlaying');
+                                console.log(playerInstance.ads.adPlaying);
+                                console.log('---------------------------------------')
                                 clearTimeout(playerTimeout);
                                 // if no ads are playing, set a timeout for the video to unload itself
                                 if (!adPlaying) {

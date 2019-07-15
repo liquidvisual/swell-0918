@@ -236,49 +236,16 @@
                             <!-- LIVE TAB -->
                             <a class="btn-tab active" href="/surfcams/snapper-rocks/">Live</a>
                         </div>
-                        <script>
-                        flowplayer.cloud.then(function() {
-                            var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
-                            var playerInstance = flowplayer.instances[0];
-                            // ERROR EVENT
-                            // Any error other than an empty video src will prompt an error overlay
-                            playerInstance.on('error', function(e) {
-                                if (e.data.src !== 'UNLOAD_VIDEO') {
-                                    playerOverlayErrorEl.removeAttribute('hidden');
-                                    // console.info(e.data);
-                                }
-                            });
-                        });
-                        </script>
 
                         <!-- START VUE APP -->
                         <div id="vue-app" class="mb-4">
 
                             <!-- SURFCAM WIDGET -->
-                            <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8" surfcam-id="10" inline-template>
+                            <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" live-stream="rtmp://streamer.swellnet.com.au/surfcams/kingscliff.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/kingscliff.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8" surfcam-id="9" inline-template>
                                 <div>
 
                                     <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
                                     <surfcam-player-plyr :muted="true" :video-timeout="300000"></surfcam-player-plyr>
-
-                                    <!-- HEADING: SURFCAM REPLAYS -->
-                                    <h2 class="d-flex align-items-center my-4">
-                                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays</h2>
-
-                                    <!-- SELECTS WRAPPER -->
-                                    <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down">
-
-                                        <!-- DATE-SELECT COMPONENT -->
-                                        <date-select v-model="date" :is-loading="feedLoading"></date-select>
-
-                                        <!-- TIME-SELECT COMPONENT -->
-                                        <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
-                                    </div>
-
-                                    <!-- THUMB-SLIDER COMPONENT -->
-                                    <transition name="special-thumb-slider-entrance">
-                                        <thumb-slider v-if="feed" :current-index="selectedTimeIndex" :feed="feed" :is-loading="feedLoading"></thumb-slider>
-                                    </transition>
                                 </div>
                             </surfcam-widget>
                         </div>
