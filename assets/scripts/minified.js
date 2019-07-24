@@ -10439,7 +10439,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var t = "mp4" == e.format;this.videoObj = e, this.poster = "/assets/img/layout/placeholder-video-1280x720.svg", !Hls.isSupported() || t ? (this.videoEl.src = e.stream, this.playerInstance.on("error", function (e) {
         _this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg";
       })) : (this.hlsInstance = new Hls(), this.hlsInstance.loadSource(e.stream), this.hlsInstance.attachMedia(this.videoEl), this.hlsInstance.on(Hls.Events.ERROR, function (e, t) {
-        t.fatal && (_this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg");
+        t.fatal && setTimeout(function () {
+          _this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg";
+        }, 100);
       })), this.startTimeout();
     },
     playVideo: function playVideo() {
