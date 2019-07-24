@@ -153,8 +153,11 @@ Vue.component('surfcam-player-plyr', {
                 this.hlsInstance.on(Hls.Events.ERROR, (event, data) => {
                     // if (data.fatal) this.$emit('log-errors');
                     if (data.fatal) {
-                        this.errors = true;
-                        this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
+                        // there's a bug which causes error data not to write immediately, timeout solves this
+                        setTimeout(() => {
+                            this.errors = true;
+                            this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
+                        }, 100);
                     }
                 });
             }
