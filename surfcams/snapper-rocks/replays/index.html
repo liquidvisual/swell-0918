@@ -255,7 +255,11 @@
                                     </div>
 
                                     <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="300000"></surfcam-player-plyr>
+                                    
+<!-- Add additional controls to plyr. See: https://github.com/sampotts/plyr/blob/master/controls.md --><surfcam-player-plyr :muted="true" :video-timeout="300000" :controls="[
+                        'progress',
+                        'duration'
+                    ]"></surfcam-player-plyr>
 
                                     <!-- THUMB-SLIDER COMPONENT -->
                                     <transition name="special-thumb-slider-entrance">
