@@ -127,6 +127,10 @@ layout: base__page_sidebar
                 <surfcam-player-plyr
                     :muted="true"
                     :video-timeout="300000"
+                    :controls="[
+                        'progress',
+                        'duration'
+                    ]"
                 >
                 </surfcam-player-plyr>
 
