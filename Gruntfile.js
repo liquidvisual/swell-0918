@@ -94,8 +94,9 @@ module.exports = function (grunt) {
           // Open the site in Chrome & Firefox
           // browser: ["google chrome", "firefox"]
           browser: ["google chrome"],
-          open: false,
-          port: '<%= yeoman.port %>',
+          open: 'external',
+          //port: '<%= yeoman.port %>',
+          port: 80,
           // host: '0.0.0.0',
           // https://www.browsersync.io/docs/grunt
           // http://osxdaily.com/2016/02/29/modify-hosts-mac-os-x-textedit/

@@ -1,13 +1,14 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 11.07.19, 27.02.19, 26.11.18
+    updated: 29.07.19, 11.07.19, 27.02.19, 26.11.18
 
     - HLS API: https://hls-js.netlify.com/api-docs/
 
     USAGE:
         <surfcam-player-plyr
             :muted="false"
-            :video-timeout="300">
+            :video-timeout="300"
+            :controls="['duration']">
         </surfcam-player-plyr>
 */
 //-----------------------------------------------------------------
@@ -143,6 +144,7 @@ Vue.component('surfcam-player-plyr', {
             // this.poster = '/assets/img/layout/placeholder-video-logo.svg';
             // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
 
+            // REPLAYS OR IOS
             // For more Hls.js options, see https://github.com/dailymotion/hls.js
             if (!Hls.isSupported() || isMp4) { // hls can only handle streams, not mp4s
                 this.videoEl.src = video_obj.stream; // eg. iOS
@@ -150,10 +152,12 @@ Vue.component('surfcam-player-plyr', {
                 // Errors for non-hls only (iOS)
                 this.playerInstance.on('error', (event) => {
                     // this.$emit('log-errors');
-                    this.errors = true;
+                    // this.errors = true; // uncomment this when thumbnails are HTTPS - errors occur with it
                     this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
                 });
             }
+
+            // LIVE
             else {
                 this.hlsInstance = new Hls();
                 this.hlsInstance.loadSource(video_obj.stream);
@@ -161,8 +165,8 @@ Vue.component('surfcam-player-plyr', {
 
                 // Errors for hls only
                 this.hlsInstance.on(Hls.Events.ERROR, (event, data) => {
-                    // if (data.fatal) this.$emit('log-errors');
                     if (data.fatal) {
+                        // this.$emit('log-errors');
                         // there's a bug which causes error data not to write immediately, timeout solves this
                         setTimeout(() => {
                             this.errors = true;
