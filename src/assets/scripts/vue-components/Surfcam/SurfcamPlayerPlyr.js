@@ -51,6 +51,11 @@ Vue.component('surfcam-player-plyr', {
         </div>
     `,
     props: {
+        controls: {
+            type: Array,
+            required: false,
+            default: () => []
+        },
         muted: {
             type: Boolean,
             default: true
@@ -89,26 +94,31 @@ Vue.component('surfcam-player-plyr', {
     },
     methods: {
         initPlayer() {
-            this.playerInstance = new Plyr(this.videoEl, {
 
-                // https://github.com/sampotts/plyr/blob/master/controls.md
-                controls: [
-                    'play-large', // The large play button in the center
-                    // 'restart', // Restart playback
-                    // 'rewind', // Rewind by the seek time (default 10 seconds)
-                    'play', // Play/pause playback
-                    // 'fast-forward', // Fast forward by the seek time (default 10 seconds)
-                    // 'progress', // The progress bar and scrubber for playback and buffering
-                    // 'current-time', // The current time of playback
-                    // 'duration', // The full duration of the media
-                    // 'mute', // Toggle mute
-                    'volume', // Volume control
-                    // 'captions', // Toggle captions
-                    // 'settings', // Settings menu
-                    // 'pip', // Picture-in-picture (currently Safari only)
-                    // 'airplay', // Airplay (currently Safari only)
-                    'fullscreen', // Toggle fullscreen
-                ],
+            // https://github.com/sampotts/plyr/blob/master/controls.md
+            const controlDefaults = [
+                'play-large', // The large play button in the center
+                // 'restart', // Restart playback
+                // 'rewind', // Rewind by the seek time (default 10 seconds)
+                'play', // Play/pause playback
+                // 'fast-forward', // Fast forward by the seek time (default 10 seconds)
+                // 'progress', // The progress bar and scrubber for playback and buffering
+                // 'current-time', // The current time of playback
+                // 'duration', // The full duration of the media
+                // 'mute', // Toggle mute
+                'volume', // Volume control
+                // 'captions', // Toggle captions
+                // 'settings', // Settings menu
+                // 'pip', // Picture-in-picture (currently Safari only)
+                // 'airplay', // Airplay (currently Safari only)
+                'fullscreen', // Toggle fullscreen
+            ];
+
+            // merge additional external prop controls
+            const controls = controlDefaults.concat(this.controls);
+
+            this.playerInstance = new Plyr(this.videoEl, {
+                controls,
                 clickToPlay: true,
                 displayDuration: false
             });
@@ -129,9 +139,9 @@ Vue.component('surfcam-player-plyr', {
 
             this.videoObj = video_obj; // store object event from bus
 
-            // this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
+            this.poster = video_obj.image; // set poster - can't set until https on images - Safari doesn't like it
             // this.poster = '/assets/img/layout/placeholder-video-logo.svg';
-            this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
+            // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // fix for short term
 
             // For more Hls.js options, see https://github.com/dailymotion/hls.js
             if (!Hls.isSupported() || isMp4) { // hls can only handle streams, not mp4s

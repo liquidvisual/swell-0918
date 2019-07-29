@@ -96,7 +96,11 @@ module.exports = function (grunt) {
           browser: ["google chrome"],
           open: false,
           port: '<%= yeoman.port %>',
-          host: '0.0.0.0',
+          // host: '0.0.0.0',
+          // https://www.browsersync.io/docs/grunt
+          // http://osxdaily.com/2016/02/29/modify-hosts-mac-os-x-textedit/
+          host: 'swellnet.local',
+          //https: true,
           server: {
             baseDir: [
               ".jekyll",

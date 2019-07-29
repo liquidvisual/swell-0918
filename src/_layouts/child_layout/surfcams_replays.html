@@ -22,6 +22,10 @@ layout: base__page_sidebar
 
 {% endcomment %}
 
+{% assign live_path = page.live_path %}
+{% assign replays_path = page.replays_path %}
+{% assign replays_surfcam_id = page.replays_surfcam_id %}
+
 <!-- LIVE + REPLAYS TABS -->
 <div class="btn-tabs collapse-sm-down">
 
@@ -35,12 +39,12 @@ layout: base__page_sidebar
     </span>
 
     <!-- REPLAYS TAB -->
-    <a class="btn-tab active" href="/surfcams/snapper-rocks/replays/">
+    <a class="btn-tab active" href="{{ replays_path }}">
         Replays
     </a>
 
     <!-- LIVE TAB -->
-    <a class="btn-tab" href="/surfcams/snapper-rocks/">
+    <a class="btn-tab" href="{{ live_path }}">
         Live
     </a>
 
@@ -91,7 +95,7 @@ layout: base__page_sidebar
         <!-- SURFCAM WIDGET -->
         <surfcam-widget
             data-path="https://www.swellnet.com/surfcam-replays/data/"
-            surfcam-id="10"
+            surfcam-id="{{ replays_surfcam_id }}"
             inline-template
         >
             <div>

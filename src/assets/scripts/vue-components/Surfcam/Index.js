@@ -370,7 +370,7 @@ Vue.component('surfcam-widget', {
                 }
             })
             .catch((error) => {
-                console.log('~~~~~~~~~~~~ Server Error: '+error+' ~~~~~~~~~~~~');
+                console.warn('~~~~~~~~~~~~ Server Error: "'+error+'" ~~~~~~~~~~~~');
                 this.feed = false; // black video
             });
         }

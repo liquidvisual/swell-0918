@@ -11,7 +11,14 @@ layout: base__page_sidebar
     - Plyr is for PAID
 {% endcomment %}
 
-{% assign replays_available = false %}
+{% assign live_path = page.live_path %}
+{% assign live_stream = page.live_stream %}
+{% assign live_stream_image = page.live_stream_image %}
+{% assign live_stream_playlist = page.live_stream_playlist %}
+
+{% assign replays_path = page.replays_path %}
+{% assign replays_available = replays_path | default: false %}
+{% assign replays_surfcam_id = page.replays_surfcam_id %}
 
 <!-- LIVE + REPLAYS TABS -->
 <div class="btn-tabs collapse-sm-down">
@@ -28,14 +35,14 @@ layout: base__page_sidebar
     {% if replays_available %}
 
         <!-- REPLAYS TAB -->
-        <a class="btn-tab" href="/surfcams/kingscliff/replays/">
+        <a class="btn-tab" href="{{ replays_path }}">
             Replays
         </a>
 
     {% endif %}
 
     <!-- LIVE TAB -->
-    <a class="btn-tab active" href="/surfcams/kingscliff/">
+    <a class="btn-tab active" href="{{ live_path }}">
         Live
     </a>
 
@@ -152,7 +159,7 @@ layout: base__page_sidebar
                         "loop": true,
                         "muted": true,
                         "poster": "",
-                        "src": "//streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8",
+                        "src": "{{ live_stream_playlist }}",
                         "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
                         "plugins": [
                             "ads"
@@ -173,6 +180,10 @@ layout: base__page_sidebar
         .fp-error,
         .fp-share-menu {
             display: none;
+        }
+
+        .flowplayer .fp-timeline.fp-bar {
+            visibility: hidden;
         }
     </style>
 
@@ -244,13 +255,13 @@ layout: base__page_sidebar
         <!-- SURFCAM WIDGET -->
         <surfcam-widget
             inline-template
-            live-stream="rtmp://streamer.swellnet.com.au/surfcams/kingscliff.stream"
-            live-stream-image="http://static.swellnet.com.au/images/surfcams/kingscliff.jpg"
-            live-stream-playlist="https://streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8"
+            live-stream="{{ live_stream }}"
+            live-stream-image="{{ live_stream_image }}"
+            live-stream-playlist="{{ live_stream_playlist }}"
 
             {% if replays_available %}
                 data-path="https://www.swellnet.com/surfcam-replays/data/"
-                surfcam-id="9"
+                surfcam-id="{{ replays_surfcam_id }}"
             {% endif %}
         >
             <div>
@@ -319,7 +330,7 @@ layout: base__page_sidebar
         <!-- SURFCAM WIDGET -->
         <surfcam-widget
             data-path="https://www.swellnet.com/surfcam-replays/data/"
-            surfcam-id="9"
+            surfcam-id="{{ replays_surfcam_id }}"
             inline-template
         >
             <div>
