@@ -10438,8 +10438,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     loadVideo: function loadVideo(e) {
       var _this6 = this;
 
-      var t = "mp4" == e.format;this.videoObj = e, this.poster = "/assets/img/layout/placeholder-video-1280x720.svg", !Hls.isSupported() || t ? (this.videoEl.src = e.stream, this.playerInstance.on("error", function (e) {
-        _this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg";
+      var t = "mp4" == e.format;this.videoObj = e, this.poster = e.image, !Hls.isSupported() || t ? (this.videoEl.src = e.stream, this.playerInstance.on("error", function (e) {
+        console.warn("errors:"), console.warn(e), _this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg";
       })) : (this.hlsInstance = new Hls(), this.hlsInstance.loadSource(e.stream), this.hlsInstance.attachMedia(this.videoEl), this.hlsInstance.on(Hls.Events.ERROR, function (e, t) {
         t.fatal && setTimeout(function () {
           _this6.errors = !0, _this6.poster = "/assets/img/layout/placeholder-video-1280x720.svg";
