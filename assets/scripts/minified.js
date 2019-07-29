@@ -10431,7 +10431,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   methods: {
     initPlayer: function initPlayer() {
-      this.playerInstance = new Plyr(this.videoEl, { controls: ["play-large", "play", "progress", "volume", "fullscreen"], clickToPlay: !0, displayDuration: !1 }), this.playerInstance.on("play", this.playVideo), this.playerInstance.on("pause", this.pauseVideo);
+      this.playerInstance = new Plyr(this.videoEl, { controls: ["play-large", "play", "volume", "fullscreen"], clickToPlay: !0, displayDuration: !1 }), this.playerInstance.on("play", this.playVideo), this.playerInstance.on("pause", this.pauseVideo);
     },
     loadVideo: function loadVideo(e) {
       var _this6 = this;
