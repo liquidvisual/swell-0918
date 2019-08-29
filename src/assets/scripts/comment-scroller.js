@@ -32,8 +32,6 @@
 		// Get element for insertion.
 		const insertionEl = document.querySelector('.main-body .field-name-body');
 
-		console.log(insertionEl)
-
 		// Create new comments btn.
 		const newCommentsBtnHTML = `
 			<button class="btn btn-primary btn-small mb-3">
