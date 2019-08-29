@@ -10782,19 +10782,19 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }(jQuery), launchSlider(), function () {
   var e = document.querySelector(".comment-wrapper").querySelectorAll(".comment-new");var t = void 0,
       n = void 0,
-      i = 0,
-      r = e[i].previousElementSibling;function o(o) {
-    var a = o.nextElementSibling.querySelector(".comment-content-wrapper .comment-header");i < e.length - 1 ? a.after(n) : (t.remove(), n.remove());var s = document.documentElement.clientWidth >= 1100 ? 80 : 0,
-        l = document.documentElement.clientWidth >= 768 ? "smooth" : "auto";window.scrollTo({ top: o.getBoundingClientRect().top + window.pageYOffset - s, behavior: l }), r = e[++i].previousElementSibling;
+      i = void 0,
+      r = 0;function o(o) {
+    var a = o.nextElementSibling.querySelector(".comment-content-wrapper .comment-header");r < e.length - 1 ? a.after(i) : (n.remove(), i.remove());var s = document.documentElement.clientWidth >= 1100 ? 80 : 0,
+        l = document.documentElement.clientWidth >= 768 ? "smooth" : "auto";window.scrollTo({ top: o.getBoundingClientRect().top + window.pageYOffset - s, behavior: l }), t = e[++r].previousElementSibling;
   }!function () {
-    if (e.length) {
+    if (t = e[r].previousElementSibling, e.length) {
       var _e4 = document.querySelector(".pane-content .node-article .field-name-post-date"),
-          _i3 = '\n\t\t\t\t<button class="btn btn-primary btn-small mb-3">\n\t\t\t\t\t<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments\n\t\t\t\t</button>\n\t\t\t',
-          a = '\n\t\t\t\t<button class="btn btn-primary btn-small btn-comment-next animated zoomIn faster">\n\t\t\t\t\tNext&nbsp;<i class="fa fa-arrow-down"></i>\n\t\t\t\t</button>\n\t\t\t';(t = new DOMParser().parseFromString(_i3, "text/html").body.firstChild).addEventListener("click", function () {
-        o(r);
-      }), (n = new DOMParser().parseFromString(a, "text/html").body.firstChild).addEventListener("click", function () {
-        o(r);
-      }), _e4.after(t);
+          _r2 = '\n\t\t\t\t<button class="btn btn-primary btn-small mb-3">\n\t\t\t\t\t<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments\n\t\t\t\t</button>\n\t\t\t',
+          a = '\n\t\t\t\t<button class="btn btn-primary btn-small btn-comment-next animated zoomIn faster">\n\t\t\t\t\tNext&nbsp;<i class="fa fa-arrow-down"></i>\n\t\t\t\t</button>\n\t\t\t';(n = new DOMParser().parseFromString(_r2, "text/html").body.firstChild).addEventListener("click", function () {
+        o(t);
+      }), (i = new DOMParser().parseFromString(a, "text/html").body.firstChild).addEventListener("click", function () {
+        o(t);
+      }), _e4.after(n);
     }
   }();
 }();var resizeTimer,
