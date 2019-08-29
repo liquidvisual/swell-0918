@@ -80,7 +80,7 @@
 
 	function setNextCommentNode() {
 		counter++;
-		activeCommentIdNode = newComments[counter].previousElementSibling;
+		activeCommentIdNode = newComments[counter] && newComments[counter].previousElementSibling;
 	}
 
 	//--------------------------------------------------
