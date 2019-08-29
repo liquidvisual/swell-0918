@@ -10788,7 +10788,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     var a = e.nextElementSibling.querySelector(".comment-content-wrapper .comment-header");o < t.length - 1 ? a.after(r) : (i.remove(), r.remove());var s = document.documentElement.clientWidth >= 1100 ? 80 : 0,
         l = document.documentElement.clientWidth >= 768 ? "smooth" : "auto";window.scrollTo({ top: e.getBoundingClientRect().top + window.pageYOffset - s, behavior: l }), n = t[++o] && t[o].previousElementSibling;
   }t && function () {
-    n = t[o].previousElementSibling;var e = document.querySelector(".main-body .field-name-body");console.log(e);(i = new DOMParser().parseFromString('\n\t\t\t<button class="btn btn-primary btn-small mb-3">\n\t\t\t\t<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments\n\t\t\t</button>\n\t\t', "text/html").body.firstChild).addEventListener("click", function () {
+    n = t[o].previousElementSibling;var e = document.querySelector(".main-body .field-name-body");(i = new DOMParser().parseFromString('\n\t\t\t<button class="btn btn-primary btn-small mb-3">\n\t\t\t\t<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments\n\t\t\t</button>\n\t\t', "text/html").body.firstChild).addEventListener("click", function () {
       a(n);
     }), (r = new DOMParser().parseFromString('\n\t\t\t<button class="btn btn-primary btn-small btn-comment-next animated zoomIn faster">\n\t\t\t\tNext&nbsp;<i class="fa fa-arrow-down"></i>\n\t\t\t</button>\n\t\t', "text/html").body.firstChild).addEventListener("click", function () {
       a(n);
