@@ -5,13 +5,9 @@
 	//--------------------------------------------------
 
 	const commentsWrapper = document.querySelector('.comment-wrapper');
-	const newComments = commentsWrapper.querySelectorAll('.comment-new');
-
+	const newComments = commentsWrapper && commentsWrapper.querySelectorAll('.comment-new');
 	let counter = 0;
-
-	// Each comment is preceded by an invis anchor with the comment id.
-	let activeCommentIdNode = getNextCommentNode();
-
+	let activeCommentIdNode; // Note: each comment is preceded by an invis anchor with the comment id.
 	let newCommentsBtnHTMLNode;
 	let nextCommentBtnHTMLNode;
 
@@ -19,7 +15,9 @@
 	// RUN
 	//--------------------------------------------------
 
-	init();
+	if (newComments) {
+		init();
+	}
 
 	//--------------------------------------------------
 	// INIT
@@ -27,45 +25,48 @@
 	//--------------------------------------------------
 
 	function init() {
-		if (newComments.length) {
 
-			// Get date element for insertion.
-			const dateEl = document.querySelector('.pane-content .node-article .field-name-post-date');
+		// Assign the first comment node.
+		activeCommentIdNode = getNextCommentNode();
 
-			// Create new comments btn.
-			const newCommentsBtnHTML = `
-				<button class="btn btn-primary btn-small mb-3">
-					<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments
-				</button>
-			`;
+		// Get element for insertion.
+		const insertionEl = document.querySelector('.main-body .field-name-body');
 
-			// Create next comment btn.
-			const nextCommentBtnHTML = `
-				<button class="btn btn-primary btn-small btn-comment-next animated zoomIn faster">
-					Next&nbsp;<i class="fa fa-arrow-down"></i>
-				</button>
-			`;
+		console.log(insertionEl)
 
-			// Create 'New Comments' dom node (once only).
-			newCommentsBtnHTMLNode = new DOMParser().parseFromString(newCommentsBtnHTML, 'text/html').body.firstChild;
+		// Create new comments btn.
+		const newCommentsBtnHTML = `
+			<button class="btn btn-primary btn-small mb-3">
+				<img class="mr-1" width="14" src="/assets/img/ui/comment-bubble.svg" alt="Comment Bubble" /> New Comments
+			</button>
+		`;
 
-			// New comment btn - click event.
-			newCommentsBtnHTMLNode.addEventListener('click', function() {
-				scrollTo(activeCommentIdNode);
-			});
+		// Create next comment btn.
+		const nextCommentBtnHTML = `
+			<button class="btn btn-primary btn-small btn-comment-next animated zoomIn faster">
+				Next&nbsp;<i class="fa fa-arrow-down"></i>
+			</button>
+		`;
 
+		// Create 'New Comments' dom node (once only).
+		newCommentsBtnHTMLNode = new DOMParser().parseFromString(newCommentsBtnHTML, 'text/html').body.firstChild;
 
-			// Create 'Next Comment' dom node (once only).
-			nextCommentBtnHTMLNode = new DOMParser().parseFromString(nextCommentBtnHTML, 'text/html').body.firstChild;
+		// New comment btn - click event.
+		newCommentsBtnHTMLNode.addEventListener('click', function() {
+			scrollTo(activeCommentIdNode);
+		});
 
-			// Next comment btn - click event.
-			nextCommentBtnHTMLNode.addEventListener('click', function() {
-				scrollTo(activeCommentIdNode);
-			});
+		// Create 'Next Comment' dom node (once only).
+		nextCommentBtnHTMLNode = new DOMParser().parseFromString(nextCommentBtnHTML, 'text/html').body.firstChild;
 
+		// Next comment btn - click event.
+		nextCommentBtnHTMLNode.addEventListener('click', function() {
+			scrollTo(activeCommentIdNode);
+		});
 
-			// Insert is directly below the date.
-			dateEl.after(newCommentsBtnHTMLNode);
+		// Insert is directly above the first body.
+		if (insertionEl) {
+			insertionEl.before(newCommentsBtnHTMLNode);
 		}
 	}
 
