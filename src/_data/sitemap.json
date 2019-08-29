@@ -5524,6 +5524,12 @@
                   "children":false
                },
                {
+                  "name":"Thirroul North",
+                  "url":"/surfcams/thirroul-north",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Thirroul",
                   "url":"/surfcams/thirroul",
                   "children":false
@@ -5531,6 +5537,12 @@
                {
                   "name":"Wollongong",
                   "url":"/surfcams/wollongong",
+                  "children":false
+               },
+               {
+                  "name":"Kiama",
+                  "url":"/surfcams/kiama",
+                  "premium":true,
                   "children":false
                }
             ]
