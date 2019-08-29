@@ -240,6 +240,7 @@ layout: base__page_sidebar
                 clearTimeout(playerTimeout);
                 if (e.data.src !== 'UNLOAD_VIDEO') {
                     playerOverlayErrorEl.removeAttribute('hidden');
+                    playerInstance.remove(); // <-- remove player so ads don't play (or destroy)
                     // console.info(e.data);
                 }
             });
