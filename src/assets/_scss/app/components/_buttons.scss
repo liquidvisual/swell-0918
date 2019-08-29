@@ -385,3 +385,36 @@
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
+
+.btn-small {
+    padding: .375rem .5rem;
+    font-family: Montserrat;
+    font-size: .6875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+}
+
+.btn-comment-next {
+    position: absolute;
+    top: 8px;
+    right: -12px;
+    padding: .375rem .4rem;
+    z-index: 1;
+}
+
+@media(min-width: 568px) {
+    .btn-comment-next {
+        position: relative;
+        right: -15px;
+        float: right;
+    }
+}
+
+@media(min-width: 992px) {
+    .btn-comment-next {
+        position: absolute;
+        top: 8px;
+        right: -46px;
+    }
+}

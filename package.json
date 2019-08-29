@@ -61,6 +61,7 @@
     "perfect-scrollbar": "^1.4.0",
     "plyr": "^3.4.4",
     "popper.js": "^1.12.9",
+    "smoothscroll-polyfill": "^0.4.4",
     "social-feed": "github:pavelk2/social-feed#gh-pages",
     "vee-validate": "^2.0.9",
     "vue": "^2.6.10",
