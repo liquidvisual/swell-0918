@@ -5,7 +5,7 @@
 	//--------------------------------------------------
 
 	const commentsWrapper = document.querySelector('.comment-wrapper');
-	const newComments = commentsWrapper && commentsWrapper.querySelectorAll('.comment-new');
+	const newComments = commentsWrapper && commentsWrapper.querySelectorAll('.comment-new') || [];
 	let counter = 0;
 	let activeCommentIdNode; // Note: each comment is preceded by an invis anchor with the comment id.
 	let newCommentsBtnHTMLNode;
@@ -15,7 +15,7 @@
 	// RUN
 	//--------------------------------------------------
 
-	if (newComments) {
+	if (newComments.length) {
 		init();
 	}
 
@@ -73,7 +73,7 @@
 	//--------------------------------------------------
 
 	function getNextCommentNode() {
-		return newComments[counter].previousElementSibling;
+		return newComments[counter] && newComments[counter].previousElementSibling;
 	}
 
 	function setNextCommentNode() {
