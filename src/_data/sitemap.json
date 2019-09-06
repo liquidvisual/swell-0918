@@ -5396,6 +5396,18 @@
                   "children":false
                },
                {
+                  "name":"Surfers Paradise South",
+                  "url":"/surfcams/surfers-paradise-south",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Surfers Paradise North",
+                  "url":"/surfcams/surfers-paradise-north",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Narrowneck",
                   "url":"/surfcams/narrowneck",
                   "children":false
