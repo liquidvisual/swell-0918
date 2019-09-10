@@ -10711,7 +10711,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var e,
       t = document.querySelector(".lv-page"),
       n = null;function i() {
-    window.innerWidth >= 1050 ? n.offset = document.querySelector(".global-header-top").getBoundingClientRect().height : n.offset = document.querySelector(".global-header").getBoundingClientRect().height;
+    window.innerWidth >= 1050 ? n.offset = document.querySelector(".global-header-top").getBoundingClientRect().height || 0 : n.offset = document.querySelector(".global-header").getBoundingClientRect().height || 0;
   }window.addEventListener("load", function () {
     var _ref;
 
