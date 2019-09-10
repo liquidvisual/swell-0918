@@ -36,12 +36,18 @@
 
     <!-- WON'T SHOW IF JAVASCRIPT IS DISABLED -->
     <script>
-    var loader = document.getElementById('lv-page-loader');
-    loader.style.display = 'flex';
-    // Limit to 2+ seconds of waiting time
-    setTimeout(function() {
-        loader.className += ' force-finish';
-    }, 2000);
+    (function loader() {
+        var loader = document.getElementById('lv-page-loader');
+        loader.style.display = 'flex';
+        // add class when window has fully loaded
+        window.addEventListener('load', function() {
+            document.documentElement.classList.add('has-loaded');
+        });
+        // Prevent loader from getting stuck if body takes too long
+        setTimeout(function() {
+            loader.classList.add('force-finish');
+        }, 1500); // max of 1.5 secs
+    })();
     </script>
     <div class="lv-page">
 
@@ -90,6 +96,20 @@
 
                                     <!-- DROPDOWN -->
                                     </li>
+                                <li class="is-shop">
+
+                                    <!-- ANCHOR -->
+                                    <a href="https://shopdev.swellnet.com" data-alias="">
+
+                                        <!-- TEXT -->
+                                        <span class="text">Shop</span>
+
+                                        <!-- SUBMENU ARROW -->
+                                        
+<!-- ICON --></a>
+
+                                    <!-- DROPDOWN -->
+                                    </li>
                                 <li class="active has-dropdown is-mega is-reports-mega-menu">
 
                                     <!-- ANCHOR -->
@@ -107,7 +127,7 @@
                                         </a>
 
                                     <!-- DROPDOWN -->
-                                    <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="1"></ul>
+                                    <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="2"></ul>
                                 </li>
                                 <li class="has-dropdown is-mega is-surfcams-mega-menu">
 
@@ -126,7 +146,7 @@
                                         </a>
 
                                     <!-- DROPDOWN -->
-                                    <ul class="dropdown" data-parent="Surfcams" data-render-nav-children="2"></ul>
+                                    <ul class="dropdown" data-parent="Surfcams" data-render-nav-children="3"></ul>
                                 </li>
                                 <li class="">
 
@@ -173,11 +193,27 @@
                                         </a>
 
                                     <!-- DROPDOWN -->
-                                    <ul class="dropdown" data-parent="More" data-render-nav-children="5"></ul>
+                                    <ul class="dropdown" data-parent="More" data-render-nav-children="6"></ul>
                                 </li>
                             </ul>
                         </div>
                     </nav>
+
+                    <!-- CART -->
+                    <a class="global-header-icon is-cart" href="/">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span class="cart-count">1</span>
+                    </a>
+
+                    <!-- USER -->
+                    <a class="global-header-icon is-user" href="/">
+                        <i class="fa fa-user-circle-o"></i>
+                    </a>
+
+                    <!-- SEARCH -->
+                    <a class="global-header-icon is-search" href="/">
+                        <i class="fa fa-search"></i>
+                    </a>
 
                     <!-- HAMBURGER -->
                     <div class="global-header-hamburger">
@@ -255,6 +291,9 @@
                                             <a href="/">Home</a>
                                         </li>
                                         <li>
+                                            <a href="https://shopdev.swellnet.com">Shop</a>
+                                        </li>
+                                        <li>
                                             <a href="/reports/">Surf Reports & Forecasts</a>
                                         </li>
                                         <li>
@@ -263,14 +302,13 @@
                                         <li>
                                             <a href="/multi-cam/">Multi-cam</a>
                                         </li>
-                                        <li>
-                                            <a href="/pro/gift/">Gift Subscriptions</a>
-                                        </li>
-                                        <li>
-                                            <a href="/swellnet-traveller/">Swellnet Traveller</a>
-                                        </li>
+
+                                        <!-- HARDCODED -->
                                         <li>
                                             <a href="/news/">News</a>
+                                        </li>
+                                        <li>
+                                            <a href="/news/">Forum</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -293,11 +331,21 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <div class="col-6 col-md-4 is-user-column">
+                                <div class="col-6 col-md-4 is-user-columnX">
 
                                     <!-- CONTACT -->
                                     <h4 class="mb-3">User</h4>
-                                    <ul class="list-unstyled"></ul>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="/login/">Log In</a>
+                                        </li>
+                                        <li>
+                                            <a href="/pro/subscribe/chooseplan/">Get Swellnet PRO</a>
+                                        </li>
+                                        <li>
+                                            <a href="/user/register/">Register</a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -395,6 +443,20 @@
 
                 <!-- DROPDOWN -->
                 </li>
+            <li class="is-shop">
+
+                <!-- ANCHOR -->
+                <a href="https://shopdev.swellnet.com" data-alias="">
+
+                    <!-- TEXT -->
+                    <span class="text">Shop</span>
+
+                    <!-- SUBMENU ARROW -->
+                    
+<!-- ICON --></a>
+
+                <!-- DROPDOWN -->
+                </li>
             <li class="active has-dropdown is-mega is-reports-mega-menu">
 
                 <!-- ANCHOR -->
@@ -412,7 +474,7 @@
                     </a>
 
                 <!-- DROPDOWN -->
-                <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="1"></ul>
+                <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="2"></ul>
             </li>
             <li class="has-dropdown is-mega is-surfcams-mega-menu">
 
@@ -431,7 +493,7 @@
                     </a>
 
                 <!-- DROPDOWN -->
-                <ul class="dropdown" data-parent="Surfcams" data-render-nav-children="2"></ul>
+                <ul class="dropdown" data-parent="Surfcams" data-render-nav-children="3"></ul>
             </li>
             <li class="">
 
@@ -478,7 +540,7 @@
                     </a>
 
                 <!-- DROPDOWN -->
-                <ul class="dropdown" data-parent="More" data-render-nav-children="5"></ul>
+                <ul class="dropdown" data-parent="More" data-render-nav-children="6"></ul>
             </li>
         </ul>
     </nav>
