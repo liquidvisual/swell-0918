@@ -10721,48 +10721,50 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       n && i();
     }, 250);
   });
-}(), function (e) {
+}(), window.lvOffcanvas = function (e) {
   "use strict";
-  var t = window.location.pathname;try {
-    e("[data-render-nav-children]").each(function () {
-      var n = e(this).data("render-nav-children");!function n(i, r) {
-        r.forEach(function (r) {
-          var o = "<li class=\"" + ("" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : ""))) + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
-              a = e(o);if (i.append(a), r.children) {
-            var _t3 = "<ul class=\"dropdown\" data-parent=\"" + r.name + "\"></ul>",
-                _i2 = e(_t3);a.append(_i2), n(_i2, r.children);
-          }
-        });
-      }(e(this), sitemapJSON[n].children);
-    });
-  } catch (e) {}
-}(jQuery), function (e) {
-  "use strict";
-  var t = e("html"),
-      n = (e(".lv-page"), e(".lv-off-canvas")),
-      i = e(".dropdown", n),
-      r = e("li:not(.has-dropdown) > a", i),
-      o = e(".submenu-arrow");e("[data-menu-toggle]").click(function (n) {
-    n.preventDefault(), t.toggleClass("has-open-menu"), e(".lv-nav .is-mega").removeClass("is-open"), e(".has-open-menu").length;
-  }), o.click(function (t) {
-    t.preventDefault(), t.stopPropagation(), e(this).parent().next(".dropdown").addClass("is-open");
-  }), r.click(function (e) {
-    t.removeClass("has-open-menu");
-  }), i.click(function (t) {
-    e(this).removeClass("is-open"), t.stopPropagation();
-  });
-}(jQuery), function (e) {
+  return { init: function init() {
+      var t = e("html"),
+          n = (e(".lv-page"), e(".lv-off-canvas")),
+          i = e(".dropdown", n),
+          r = e("li:not(.has-dropdown) > a", i),
+          o = e(".submenu-arrow");e("[data-menu-toggle]").on("click", function (n) {
+        n.preventDefault(), t.toggleClass("has-open-menu"), e(".lv-nav .is-mega").removeClass("is-open");
+      }), o.on("click", function (t) {
+        t.preventDefault(), t.stopPropagation(), e(this).parent().next(".dropdown").addClass("is-open");
+      }), r.click(function (n) {
+        n.preventDefault();var i = e(this).attr("href");t.removeClass("has-open-menu").addClass("has-closed-menu"), setTimeout(function () {
+          window.location = i;
+        }.bind(i), 200);
+      }), i.on("click", function (t) {
+        e(this).removeClass("is-open"), t.stopPropagation();
+      });
+    } };
+}(jQuery), window.megaMenu = function (e) {
   "use strict";
   var t,
       n,
-      i = e(".main-body"),
-      r = e(".lv-nav .is-reports-mega-menu > .dropdown"),
-      o = e(".lv-nav .is-surfcams-mega-menu > .dropdown"),
-      a = e(".lv-nav li.is-mega"),
-      s = e("> a", a),
-      l = r.find("> li:first-child"),
-      c = e("li", r);function u(t) {
-    return c.removeClass("active"), t.addClass("active"), function t(n) {
+      i,
+      r,
+      o,
+      a = e(".main-body"),
+      s = e(".lv-nav .is-reports-mega-menu > .dropdown"),
+      l = e(".lv-nav .is-surfcams-mega-menu > .dropdown"),
+      c = e(".lv-nav li.is-mega");return { init: function init() {
+      i = e("> a", c), r = s.find("> li:first-child"), o = e("li", s), i.on("click", u), o.on("click", d), r.length && f(r), n = new PerfectScrollbar(s[0]), t = new PerfectScrollbar(l[0]);
+    } };function u() {
+    var n,
+        i,
+        r,
+        o,
+        s = e(this).parent(),
+        u = Boolean(s.hasClass("is-open"));return c.removeClass("is-open"), s.toggleClass("is-open", !u), h(), n = e(window).height(), i = e(".global-header").height(), l.outerHeight(), o = 702 > (r = n - i - 100) ? r : 702, l.height(o), t && t.update(), !u && a.one("click", function (e) {
+      c.removeClass("is-open");
+    }), !1;
+  }function d() {
+    var t = e(this);if (t.hasClass("has-dropdown")) return f(t), !1;var n = t.find("a").attr("href");window.location = n;
+  }function f(t) {
+    return o.removeClass("active"), t.addClass("active"), function t(n) {
       if (n.hasClass("has-dropdown")) {
         var i = e("> .dropdown > li.has-dropdown:first-child", n);i.addClass("active"), t(i);
       }
@@ -10770,29 +10772,34 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       if (!t.parent().parent().hasClass("is-mega")) {
         var n = t.parent().parent();n.addClass("active"), e(n);
       }
-    }(t), d(), !1;
-  }function d() {
+    }(t), h(), !1;
+  }function h() {
     var t = [429],
         i = e(".lv-nav .is-mega .dropdown > li.active > .dropdown"),
-        o = e(window).height(),
-        a = e(".global-header").height(),
-        s = (r.outerHeight(), o - a - 100);i.each(function () {
+        r = e(window).height(),
+        o = e(".global-header").height(),
+        a = (s.outerHeight(), r - o - 100);i.each(function () {
       t.push(e(this).height());
     });var l = Math.max.apply(Math, t),
-        c = l > s ? s : l;r.height(c), n && n.update();
-  }e(function () {
-    l.length && u(l), n = new PerfectScrollbar(r[0]), t = new PerfectScrollbar(o[0]);
-  }), s.click(function (n) {
-    var r,
-        s,
-        l,
-        c,
-        u = e(this).parent(),
-        f = Boolean(u.hasClass("is-open"));return a.removeClass("is-open"), u.toggleClass("is-open", !f), d(), r = e(window).height(), s = e(".global-header").height(), o.outerHeight(), c = 702 > (l = r - s - 100) ? l : 702, o.height(c), t && t.update(), !f && i.one("click", function (e) {
-      a.removeClass("is-open");
-    }), !1;
-  }), c.on("click", function (t) {
-    var n = e(this);if (n.hasClass("has-dropdown")) return u(n), !1;var i = n.find("a").attr("href");window.location = i;
+        c = l > a ? a : l;s.height(c), n && n.update();
+  }
+}(jQuery), function (e) {
+  "use strict";
+  var t = window.location.pathname;fetch("/sitemap.json").then(function (e) {
+    return e.json();
+  }).then(function (n) {
+    e("[data-render-nav-children]").each(function () {
+      var i = e(this).data("render-nav-children");!function n(i, r) {
+        r.forEach(function (r) {
+          var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
+              a = "<li class=\"" + o + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
+              s = e(a);if (i.append(s), r.children) {
+            var _t3 = "<ul class=\"dropdown\" data-parent=\"" + r.name + "\"></ul>",
+                _i2 = e(_t3);s.append(_i2), n(_i2, r.children);
+          }
+        });
+      }(e(this), n[i].children);
+    }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
   });
 }(jQuery), launchSlider(), function () {
   var e = document.querySelector(".comment-wrapper"),
@@ -10810,7 +10817,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }), e && e.before(i);
   }();
 }(), $(document).ready(function () {
-  $('[data-toggle="tooltip"]').tooltip(), $(".datepicker").flatpickr({ format: "Y-m-d", altFormat: "d M Y", altInput: !0, allowInput: !0 }), document.querySelectorAll(".datepicker").forEach(function (e) {
+  $(".datepicker").flatpickr({ format: "Y-m-d", altFormat: "d M Y", altInput: !0, allowInput: !0 }), document.querySelectorAll(".datepicker").forEach(function (e) {
     e.onkeypress = function () {
       return !1;
     };
