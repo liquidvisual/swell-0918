@@ -10792,8 +10792,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);r(n);
       }return e.json();
     }).then(function (n) {
-      console.log("SITEMAP JSON????"), console.log(n), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
-        var r = i.dataset.renderNavChildren;!function n(i, r) {
+      var i = JSON.parse(n);console.log("SITEMAP JSON????"), console.log(i), document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+        var r = n.dataset.renderNavChildren;!function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
                 a = "<li class=\"" + o + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
@@ -10802,7 +10802,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _i2 = e(_t3);s.append(_i2), n(_i2, r.children);
             }
           });
-        }(i, n[r].children);
+        }(n, i[r].children);
       }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
     });
   }(n);
