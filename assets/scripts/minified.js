@@ -10788,7 +10788,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var t = window.location.pathname,
       n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;!function r(o) {
     axios.get(o, "", { headers: { Accept: "*/*" } }).then(function (n) {
-      var i = n.data;e("[data-render-nav-children]").each(function () {
+      var i = n.data;console.log("any data?"), console.log(n), e("[data-render-nav-children]").each(function () {
         var n = e(this).data("render-nav-children");!function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
@@ -10801,7 +10801,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }(e(this), i[n].children);
       }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
     }).catch(function (e) {
-      console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2 || r(n);
+      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 1) throw console.warn("Fallback sitemap failed. Exiting."), Error(e);r(n);
     });
   }("/sitemap.json?v=" + Date.now());
 }(jQuery), launchSlider(), function () {
