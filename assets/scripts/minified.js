@@ -10790,9 +10790,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetch(o).then(function (e) {
       if (!e.ok) {
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);r(n);
-      }return console.log("what is the response?????: "), console.log(e), e.json();
+      }return e.json();
     }).then(function (n) {
-      console.log("SITEMAP JSON????"), console.log(n), console.log("EACH LOOP START!!!"), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
+      console.log("SITEMAP JSON????"), console.log(n), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
         var r = i.dataset.renderNavChildren;!function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
