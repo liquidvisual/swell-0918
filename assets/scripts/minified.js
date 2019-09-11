@@ -10790,7 +10790,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     fetch(o).then(function (e) {
       if (!e.ok) {
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);r(n);
-      }return e.json();
+      }return console.log("what is the response?????: "), console.log(e), e.json();
     }).then(function (n) {
       e("[data-render-nav-children]").each(function () {
         var i = e(this).data("render-nav-children");!function n(i, r) {
