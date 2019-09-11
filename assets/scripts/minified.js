@@ -10791,9 +10791,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++n > 2) throw Error(i.statusText);return e(t), !1;
       }return i.json();
     }).then(function (e) {
-      console.log("TEST: V7");var t = JSON.parse(JSON.stringify(e));console.log(t), document.querySelectorAll("[data-render-nav-children]").forEach(function (e) {
+      console.log("TEST: V8");var t = JSON.parse(JSON.stringify(e));console.log(t), document.querySelectorAll("[data-render-nav-children]").forEach(function (e) {
         var n = e.dataset.renderNavChildren,
-            i = t[n].children;console.log(typeof i === "undefined" ? "undefined" : _typeof(i)), i.forEach(function (e) {
+            i = [].concat(t[n].children || []);console.log(typeof i === "undefined" ? "undefined" : _typeof(i)), i.forEach(function (e) {
           console.log(e);
         });
       });
