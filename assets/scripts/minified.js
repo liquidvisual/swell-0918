@@ -10789,7 +10789,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       n = "/sitemap.json?v=" + Date.now(),
       i = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var r = 0;!function n(o) {
     axios.get(o, "", { headers: { Accept: "*/*" } }).then(function (n) {
-      console.log("TEST: V14"), console.info("Success. Sitemap fetched.");var i = n.data;i && (document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+      console.info("Success. Sitemap fetched.");var i = n.data;i && (document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
         var r = parseInt(n.dataset.renderNavChildren),
             o = i[r].children;o && function n(i, r) {
           r.forEach(function (r) {
