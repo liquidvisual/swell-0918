@@ -10790,10 +10790,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       i = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var r = 0;!function n(o) {
     fetch(o).then(function (e) {
       if (!e.ok) {
-        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(e.statusText);return n(i), !1;
+        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(e.statusText);n(i);
       }return e.json();
     }).then(function (n) {
-      console.log("TEST: V12"), console.info("Success. Sitemap fetched."), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
+      console.log("TEST: V13"), console.info("Success. Sitemap fetched."), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
         var r = parseInt(i.dataset.renderNavChildren),
             o = n[r].children;o && function n(i, r) {
           r.forEach(function (r) {
