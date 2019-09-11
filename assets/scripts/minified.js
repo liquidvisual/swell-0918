@@ -10788,14 +10788,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   var t = window.location.pathname,
       n = "/sitemap.json?v=" + Date.now(),
       i = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var r = 0;!function n(o) {
-    fetch(o).then(function (e) {
-      if (!e.ok) {
-        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(e.statusText);n(i);
-      }return e.json();
-    }).then(function (n) {
-      console.log("TEST: V13"), console.info("Success. Sitemap fetched."), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
-        var r = parseInt(i.dataset.renderNavChildren),
-            o = n[r].children;o && function n(i, r) {
+    axios.get(o, "", { headers: { Accept: "*/*" } }).then(function (n) {
+      console.log("TEST: V14"), console.info("Success. Sitemap fetched.");var i = n.data;i && (document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+        var r = parseInt(n.dataset.renderNavChildren),
+            o = i[r].children;o && function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
                 a = "<li class=\"" + o + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
@@ -10804,8 +10800,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _i2 = e(_t3);s.append(_i2), n(_i2, r.children);
             }
           });
-        }(e(i), o);
-      }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
+        }(e(n), o);
+      }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip());
+    }).catch(function (e) {
+      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(response.statusText);n(i);
     });
   }(n);
 }(jQuery), launchSlider(), function () {
