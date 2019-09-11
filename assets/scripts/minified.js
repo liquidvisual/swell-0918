@@ -10791,7 +10791,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++n > 2) throw Error(i.statusText);return e(t), !1;
       }return i.json();
     }).then(function (e) {
-      console.log("SITEMAP JSON????"), console.log(e), document.querySelectorAll("[data-render-nav-children]").forEach(function (e) {
+      console.log("TEST: V1"), console.log(e), document.querySelectorAll("[data-render-nav-children]").forEach(function (e) {
         e.dataset.renderNavChildren;
       });
     });
