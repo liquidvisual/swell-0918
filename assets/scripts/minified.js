@@ -10793,7 +10793,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(e.statusText);return n(i), !1;
       }return e.json();
     }).then(function (n) {
-      console.log("TEST: V11"), console.log(n), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
+      console.log("TEST: V12"), console.info("Success. Sitemap fetched."), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
         var r = parseInt(i.dataset.renderNavChildren),
             o = n[r].children;o && function n(i, r) {
           r.forEach(function (r) {
