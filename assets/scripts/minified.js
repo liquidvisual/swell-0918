@@ -10791,8 +10791,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++n > 2) throw Error(i.statusText);return e(t), !1;
       }return i.json();
     }).then(function (e) {
-      console.log("TEST: V2"), console.log(e), document.querySelectorAll("[data-render-nav-children]").forEach(function (t) {
-        var n = t.dataset.renderNavChildren;r = t, o = e[n].children, console.log("target: "), console.log(r), console.log("array"), console.log(o);
+      console.log("TEST: V3"), console.log(e), document.querySelectorAll("[data-render-nav-children]").forEach(function (t) {
+        var n = t.dataset.renderNavChildren;r = t, o = e[n].children, console.log("target: "), console.log(r), console.log("array"), console.log(o), o.forEach(function (e) {
+          console.log(e);
+        });
       });
     });var r, o;
   }(t);
