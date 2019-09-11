@@ -10787,7 +10787,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   "use strict";
   var t = window.location.pathname,
       n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;!function r(o) {
-    e.getJSON(o, function (n) {
+    console.log("fetching..." + o);e.getJSON(o, function (n) {
       e("[data-render-nav-children]").each(function () {
         var i = e(this).data("render-nav-children");!function n(i, r) {
           r.forEach(function (r) {
