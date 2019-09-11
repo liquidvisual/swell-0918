@@ -10787,13 +10787,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   "use strict";
   var t = window.location.pathname,
       n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;!function r(o) {
-    fetch(o).then(function (e) {
-      if (!e.ok) {
-        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);r(n);
-      }return e.json();
-    }).then(function (n) {
-      e("[data-render-nav-children]").each(function () {
-        var i = e(this).data("render-nav-children");!function n(i, r) {
+    axios.get(o, "", { headers: { Accept: "*/*" } }).then(function (n) {
+      var i = n.data;e("[data-render-nav-children]").each(function () {
+        var n = e(this).data("render-nav-children");!function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
                 a = "<li class=\"" + o + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
@@ -10802,8 +10798,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _i2 = e(_t3);s.append(_i2), n(_i2, r.children);
             }
           });
-        }(e(this), n[i].children);
+        }(e(this), i[n].children);
       }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
+    }).catch(function (e) {
+      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e);r(n);
     });
   }("/sitemap.json?v=" + Date.now());
 }(jQuery), launchSlider(), function () {
