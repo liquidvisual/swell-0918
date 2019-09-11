@@ -10801,7 +10801,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }(e(this), i[n].children);
       }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
     }).catch(function (e) {
-      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 1) throw console.warn("Fallback sitemap failed. Exiting."), Error(e);r(n);
+      if (++i > 1) throw console.warn("Fallback sitemap failed. Exiting." + n), Error(e);r(n);
     });
   }("/sitemap.json?v=" + Date.now());
 }(jQuery), launchSlider(), function () {
