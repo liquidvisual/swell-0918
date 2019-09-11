@@ -10786,8 +10786,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }(jQuery), function (e) {
   "use strict";
   var t = window.location.pathname,
-      n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;!function r(o) {
-    console.log("fetching..." + o);e.getJSON(o, function (n) {
+      n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;r("/sitemap.json?v=" + Date.now());var r = function r(o) {
+    console.log("fetching..." + o), e.getJSON(o, function (n) {
       e("[data-render-nav-children]").each(function () {
         var i = e(this).data("render-nav-children");!function n(i, r) {
           r.forEach(function (r) {
@@ -10803,9 +10803,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }).done(function () {
       console.log("yep success");
     }).fail(function () {
-      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw console.warn("Attempts failed. Sitemap is unavailable."), Error(response.statusText);console.log("URL?: " + n), r(n);
+      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw console.warn("Attempts failed. Sitemap is unavailable."), Error(response.statusText);console.log("URL?: " + n), console.log(r), r(n);
     });
-  }("/sitemap.json?v=" + Date.now());
+  };
 }(jQuery), launchSlider(), function () {
   var e = document.querySelector(".comment-wrapper"),
       t = e && e.querySelectorAll(".comment-new") || [];var n = void 0,
