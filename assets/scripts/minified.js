@@ -10792,7 +10792,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);return r(n), !1;
       }return e.json();
     }).then(function (n) {
-      console.log("TEST: V9");var i = JSON.parse(JSON.stringify(n));console.log(i), document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+      console.log("TEST: V10");var i = JSON.parse(JSON.stringify(n));console.log(i), document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
         var r = parseInt(n.dataset.renderNavChildren),
             o = [].concat(i[r].children || []);!function n(i, r) {
           r.forEach(function (r) {
@@ -10804,7 +10804,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           });
         }(n, o);
-      });
+      }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
     });
   }(n);
 }(jQuery), launchSlider(), function () {
