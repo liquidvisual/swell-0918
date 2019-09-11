@@ -10792,7 +10792,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }return console.log("what is the response?????: "), console.log(i), i.json();
     }).then(function (e) {
       console.log("SITEMAP JSON????"), console.log(e), console.log("EACH LOOP START!!!"), document.querySelectorAll("[data-render-nav-children]").forEach(function (e) {
-        var t = e.dataset["render-nav-children"];console.log("EACH LOOP, index: "), console.log(t);
+        var t = e.dataset.renderNavChildren;console.log("EACH LOOP, index: "), console.log(t), console.log(e.dataset);
       });
     });
   }(t);
