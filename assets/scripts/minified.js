@@ -10786,7 +10786,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }(jQuery), function (e) {
   "use strict";
   var t = window.location.pathname,
-      n = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var i = 0;!function r(o) {
+      n = (Date.now(), "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now());var i = 0;!function r(o) {
     fetch(o).then(function (e) {
       if (!e.ok) {
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);r(n);
@@ -10805,7 +10805,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }(e(this), n[i].children);
       }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
     });
-  }("/sitemap.json?v=" + Date.now());
+  }(n);
 }(jQuery), launchSlider(), function () {
   var e = document.querySelector(".comment-wrapper"),
       t = e && e.querySelectorAll(".comment-new") || [];var n = void 0,
