@@ -10786,10 +10786,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 }(jQuery), function (e) {
   "use strict";
   var t = window.location.pathname,
-      n = (Date.now(), "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now());var i = 0;!function r(o) {
+      n = "/sitemap.json?v=" + Date.now(),
+      i = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var r = 0;!function n(o) {
     fetch(o).then(function (e) {
       if (!e.ok) {
-        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);return r(n), !1;
+        if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++r > 2) throw Error(e.statusText);return n(i), !1;
       }return e.json();
     }).then(function (n) {
       console.log("TEST: V11"), console.log(n), document.querySelectorAll("[data-render-nav-children]").forEach(function (i) {
