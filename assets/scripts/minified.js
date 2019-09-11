@@ -10803,7 +10803,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     }).done(function () {
       console.log("yep success");
     }).fail(function () {
-      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 1) throw console.warn("Attempts failed. Sitemap is unavailable."), Error(response.statusText);console.log("URL?: " + n), r(n);
+      if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw console.warn("Attempts failed. Sitemap is unavailable."), Error(response.statusText);console.log("URL?: " + n), r(n);
     });
   }("/sitemap.json?v=" + Date.now());
 }(jQuery), launchSlider(), function () {
