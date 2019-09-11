@@ -10792,13 +10792,13 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         if (console.warn("Error: failed to fetch sitemap. Retrying..."), ++i > 2) throw Error(e.statusText);return r(n), !1;
       }return e.json();
     }).then(function (n) {
-      console.log("TEST: V10");var i = JSON.parse(JSON.stringify(n));console.log(i), document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+      console.log("TEST: V13");var i = JSON.parse(JSON.stringify(n));console.log(i), document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
         var r = parseInt(n.dataset.renderNavChildren),
             o = [].concat(i[r].children || []);!function n(i, r) {
           r.forEach(function (r) {
             var o = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
                 a = "<li class=\"" + o + "\">" + ("<a href=\"" + r.url + "\" data-alias=\"" + (r.alias ? r.alias : "") + "\">") + ("<span class=\"text\">" + r.name + "</span>") + ("" + (r.children ? '<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>' : "")) + ("" + (r.observed ? '<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">' : "")) + ("" + (r.premium ? '<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">' : "")) + "</a></li>",
-                s = e(a);if (i.append(s), r.children) {
+                s = e(a);if (e(i).append(s), r.children) {
               var _t3 = "<ul class=\"dropdown\" data-parent=\"" + r.name + "\"></ul>",
                   _i2 = e(_t3);s.append(_i2), n(_i2, r.children);
             }
