@@ -10803,7 +10803,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
             }
           });
         }(i, n[r].children);
-      }), megaMenu.init(), lvOffcanvas.init(), e('[data-toggle="tooltip"]').tooltip();
+      });
     });
   }(n);
 }(jQuery), launchSlider(), function () {
