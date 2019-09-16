@@ -10789,11 +10789,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       n = "/sitemap.json?v=" + Date.now(),
       i = "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();var r = 0;!function n(o) {
     axios.get(o, "", { headers: { Accept: "*/*" } }).then(function (n) {
-      console.log("TEST: V17"), console.info("Success. Sitemap fetched.");var i = n.data;i && (document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
+      console.log("TEST: V19"), console.info("Success. Sitemap fetched.");var i = n.data;i && (document.querySelectorAll("[data-render-nav-children]").forEach(function (n) {
         var r = parseInt(n.dataset.renderNavChildren),
             o = i[r].children;if (o) {
           var _i2 = window.location.host,
-              _r2 = "shop.swellnet.com" === _i2 || "shopdev.swellnet.com" === _i2 || "yourwebvisual.com" === _i2;var a = _r2 ? "https://www.swellnet.com" : "";!function n(i, r) {
+              _r2 = "swellnet.local" === _i2 || "shop.swellnet.com" === _i2 || "shopdev.swellnet.com" === _i2 || -1 !== _i2.indexOf("yourwebvisual.com");var a = _r2 ? "https://www.swellnet.com" : "";!function n(i, r) {
             var o = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "";
             r.forEach(function (r) {
               var a = "" + ("/" == r.url && "/" == t ? "active" : "") + " " + ("" + (t.includes(r.url) && "/" != t ? "active" : "")) + " " + ("" + (r.children ? "has-dropdown" : "")) + " " + ("" + (r.classes ? r.classes : "")) + " " + ("" + (r.observed ? "is-observed" : "")) + " " + ("" + (r.premium ? "is-premium" : "")),
