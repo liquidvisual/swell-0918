@@ -10747,7 +10747,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       i,
       r,
       o,
-      a = e(".main-body") || e(".content-area"),
+      a = e(".main-body").length && e(".main-body") || e(".content-area").length && e(".content-area"),
       s = e(".lv-nav .is-reports-mega-menu > .dropdown"),
       l = e(".lv-nav .is-surfcams-mega-menu > .dropdown"),
       c = e(".lv-nav li.is-mega");return { init: function init() {
