@@ -10759,7 +10759,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         o,
         s = e(this).parent(),
         u = Boolean(s.hasClass("is-open"));return c.removeClass("is-open"), s.toggleClass("is-open", !u), h(), n = e(window).height(), i = e(".global-header").height(), l.outerHeight(), o = 702 > (r = n - i - 100) ? r : 702, l.height(o), t && t.update(), !u && a.one("click", function (e) {
-      c.removeClass("is-open");
+      e.preventDefault(), e.stopPropagation(), c.removeClass("is-open");
     }), !1;
   }function d() {
     var t = e(this);if (t.hasClass("has-dropdown")) return f(t), !1;var n = t.find("a").attr("href");window.location = n;
