@@ -311,6 +311,50 @@ $header-bottom-lg-height: 47px !default;
 	}
 }
 
+//-----------------------------------------------------------------
+// ICONS
+//-----------------------------------------------------------------
+
+.global-header-icon {
+	position: relative;
+	display: block;
+	padding: rem-calc(0 12);
+	font-size: rem-calc(21);
+	color: $gray-900;
+
+	&:hover {
+		@include media-breakpoint-up(xl) {
+		    color: lighten($gray-900, 5%);
+		}
+	}
+}
+
+.global-header-icon.is-cart .cart-count {
+	display: inline-block;
+	position: relative;
+	top: -11px;
+	left: -2px;
+	font-family: Arial;
+	font-size: rem-calc(12);
+	font-weight: $font-weight-bold;
+}
+
+// .global-header-icon.is-cart .cart-count {
+// 	position: absolute;
+// 	right: -4px;
+// 	margin-top: -5px;
+// 	width: 15px;
+// 	height: 15px;
+// 	border-radius: 2px;
+// 	font-family: Arial;
+// 	font-size: rem-calc(9);
+// 	font-weight: $font-weight-bolder;
+// 	line-height: 16px;
+// 	text-align: center;
+// 	background: red;
+// 	color: white;
+// }
+
 //=========================================
 //
 //=========================================

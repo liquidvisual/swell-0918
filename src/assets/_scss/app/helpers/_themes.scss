@@ -46,8 +46,14 @@
 		display: inline-block;
 	}
 
-	.global-footer .is-user-column {
+	// FOOTER USER LIST
+	.global-footer .is-user-column .list-logged-in {
 		display: block;
+	}
+
+	// FOOTER USER LIST
+	.global-footer .is-user-column .list-logged-out {
+		display: none;
 	}
 }
 

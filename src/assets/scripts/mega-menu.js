@@ -5,7 +5,7 @@
 //
 //-----------------------------------------------------------------
 
-;(function($) {
+;window.megaMenu = (function($) {
     'use strict';
 
     //-----------------------------------------------------------------
@@ -15,37 +15,54 @@
     var scrollbarSurfcams;
     var scrollbarReports;
 
-    var $mainBody = $('.main-body');
+    // content area is for wordpress shop (no main body)
+    var $mainBody = $('.main-body').length    && $('.main-body') ||
+                    $('.content-area').length && $('.content-area');
+
     var $reportsMegaMenu = $('.lv-nav .is-reports-mega-menu > .dropdown');
     var $surfcamsMegaMenu = $('.lv-nav .is-surfcams-mega-menu > .dropdown');
+
     var $megaListItems = $('.lv-nav li.is-mega');
-    var $megaListItemAnchors = $('> a', $megaListItems);
-    var $topSelection = $reportsMegaMenu.find('> li:first-child');
-    var $listItems = $('li', $reportsMegaMenu);
+
+    var $megaListItemAnchors;
+    var $topSelection;
+    var $listItems;
 
     //-----------------------------------------------------------------
     // INIT ON READY
     //-----------------------------------------------------------------
 
-    $(function() {
-        // var currentURL = window.location.pathname.split('/')[1];
+    return {
+        init: function() {
+            // var currentURL = window.location.pathname.split('/')[1];
 
-        // if (currentURL != 'reports') { // because trailing links are not in json
-            if ($topSelection.length) {
-                setActive($topSelection);
-            }
-        // }
+            $megaListItemAnchors = $('> a', $megaListItems);
+            $topSelection = $reportsMegaMenu.find('> li:first-child');
+            $listItems = $('li', $reportsMegaMenu);
 
-        // Init scrollbars
-        scrollbarReports = new PerfectScrollbar($reportsMegaMenu[0]);
-        scrollbarSurfcams = new PerfectScrollbar($surfcamsMegaMenu[0]);
-    });
+            // PARENT CLICKS
+            $megaListItemAnchors.on('click', megaListItemAnchorsClick);
+
+            // CHILD CLICKS
+            $listItems.on('click', listItemsClick);
+
+            // if (currentURL != 'reports') { // because trailing links are not in json
+                if ($topSelection.length) {
+                    setActive($topSelection);
+                }
+            // }
+
+            // Init scrollbars
+            scrollbarReports = new PerfectScrollbar($reportsMegaMenu[0]);
+            scrollbarSurfcams = new PerfectScrollbar($surfcamsMegaMenu[0]);
+        }
+    }
 
     //-----------------------------------------------------------------
     // IS-MEGA ANCHORS OPEN MEGA MENUS
     //-----------------------------------------------------------------
 
-    $megaListItemAnchors.click(function(e) {
+    function megaListItemAnchorsClick() {
 
         // Target only list items
         var $target = $(this).parent();
@@ -70,7 +87,7 @@
 
         // Prevent default on anchors
         return false;
-    })
+    };
 
     //-----------------------------------------------------------------
     // ENABLE EXIT
@@ -80,6 +97,8 @@
         if (enabled) {
             // Create exit clicker for mega menu (once only)
             $mainBody.one('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
                 // Reset all states
                 $megaListItems.removeClass('is-open');
             });
@@ -90,7 +109,7 @@
     // CLICK
     //-----------------------------------------------------------------
 
-    $listItems.on('click', function(event) {
+    function listItemsClick() {
         var $this = $(this); // list item
 
         // End of the line, launch url
@@ -105,7 +124,7 @@
 
         // Prevent Default
         return false;
-    });
+    };
 
     //-----------------------------------------------------------------
     // SET ACTIVE

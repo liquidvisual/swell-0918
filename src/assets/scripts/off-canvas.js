@@ -1,114 +1,81 @@
 /*
-    OFF-CANVAS.JS - Last updated: 27.09.18, 13.12.16
+    OFF-CANVAS.JS - Last updated: 10.09.19, 14.06.19, 13.02.19, 17.09.18, 16.04.18, 13.12.16
 
-    - Notes: Latest Nov version fixes major problem with 3rd lvls
+    - NOTES:
+
+    * most recent taken from Workskil
+    * 2019 versions delays window.location to finish animation
+    * Latest Nov version fixes major problem with 3rd lvls
     * off-canvas closes when clicking hash tag anchor
+    * swellnet september version can init on command
 */
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
 
-;(function($) {
+;window.lvOffcanvas = (function($) {
+
     'use strict';
 
-    //-----------------------------------------------------------------
-    // VARIABLES
-    //-----------------------------------------------------------------
+    return {
+        init: function() {
 
-    var $html = $('html');
-    var $lvPage = $('.lv-page');
-    var $lvOffCanvas = $('.lv-off-canvas');
-    var $dropdowns = $('.dropdown', $lvOffCanvas);
-    //var $hashAnchor = $('a[href*="#"]:not([href="#"])', $lvOffCanvas);
-    var $anchors = $('li:not(.has-dropdown) > a', $dropdowns);
-    // var $submenuTrigger = $('<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>');
-    var $submenuTrigger = $('.submenu-arrow');
+            //-----------------------------------------------------------------
+            // VARIABLES
+            //-----------------------------------------------------------------
 
-    //-----------------------------------------------------------------
-    // HAMBURGER CLICK
-    //-----------------------------------------------------------------
+            var $html = $('html');
+            var $lvPage = $('.lv-page');
+            var $lvOffCanvas = $('.lv-off-canvas');
+            var $dropdowns = $('.dropdown', $lvOffCanvas);
+            var $anchors = $('li:not(.has-dropdown) > a', $dropdowns);
+            var $submenuTrigger = $('.submenu-arrow');
 
-    $('[data-menu-toggle]').click(function(event) {
+            //-----------------------------------------------------------------
+            // HAMBURGER CLICK
+            //-----------------------------------------------------------------
 
-        event.preventDefault();
-        // event.stopPropagation();
+            $('[data-menu-toggle]').on('click', function(event) {
+                event.preventDefault();
+                $html.toggleClass('has-open-menu');
 
-        $html.toggleClass('has-open-menu');
+                $('.lv-nav .is-mega').removeClass('is-open');
+            });
 
-        $('.lv-nav .is-mega').removeClass('is-open');
+            //-----------------------------------------------------------------
+            // SUBMENU CLICK
+            //-----------------------------------------------------------------
 
-        //==================================================
-        // OPEN MENU
-        //==================================================
+            $submenuTrigger.on('click', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                $(this).parent().next('.dropdown').addClass('is-open');
+            });
 
-        if (!$('.has-open-menu').length) {
-            // $html.removeClass('has-closed-menu').addClass('has-open-menu');
+            //-----------------------------------------------------------------
+            // ANCHORS
+            //-----------------------------------------------------------------
 
-            //==================================================
-            // CLOSE MENU
-            // Assign the close to .lv-page container
-            // Requires timeout so not to contradict above
-            //==================================================
+            $anchors.click(function(event) {
+                event.preventDefault();
+                    var path = $(this).attr('href');
+                    $html.removeClass('has-open-menu').addClass('has-closed-menu');
 
-            // setTimeout(function() {
+                    setTimeout(function() {
+                        window.location = path;
+                    }.bind(path), 200);
+            });
 
-            //     $lvPage.click(function(event){
-            //         event.stopPropagation();
+            //-----------------------------------------------------------------
+            // DROPDOWN CLICK (EXIT BACK)
+            //-----------------------------------------------------------------
 
-            //         if ($('.has-open-menu').length) {
-            //             $html.removeClass('has-open-menu').addClass('has-closed-menu');
-            //             $(this).unbind('click');
-            //         }
-            //     });
-            // }, 10)
+            $dropdowns.on('click', function(event) {
+                $(this).removeClass('is-open');
+                event.stopPropagation();
+            });
         }
-    });
-
-    //-----------------------------------------------------------------
-    // HASH ANCHOR CLICK - NEW -
-    //-----------------------------------------------------------------
-
-    // $hashAnchor.click(function(event){
-    //     event.preventDefault();
-    //     event.stopPropagation();
-    //     $html.removeClass('has-open-menu').addClass('has-closed-menu');
-    //     $lvPage.unbind('click');
-    // });
-
-    //-----------------------------------------------------------------
-    // SUBMENU CLICK
-    //-----------------------------------------------------------------
-
-    $submenuTrigger.click(function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        $(this).parent().next('.dropdown').addClass('is-open');
-    });
-
-    //-----------------------------------------------------------------
-    // ANCHORS
-    //-----------------------------------------------------------------
-
-    $anchors.click(function(event) {
-        $html.removeClass('has-open-menu');
-    });
-
-    //-----------------------------------------------------------------
-    // DROPDOWN CLICK (EXIT BACK)
-    //-----------------------------------------------------------------
-
-    $dropdowns.click(function(event) {
-        $(this).removeClass('is-open');
-        event.stopPropagation();
-    });
-
-    //-----------------------------------------------------------------
-    // CREATE SUBMENU TRIGGER
-    // Not sure why, but this has to come LAST
-    //-----------------------------------------------------------------
-
-    // $('.lv-off-canvas .has-dropdown > a').append($submenuTrigger);
-
+    }
 //--
 }(jQuery));
 

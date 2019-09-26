@@ -1,0 +1,127 @@
+ @charset "utf-8";
+/*
+    SHOP.CSS
+
+    - Last updated: 24.08.19
+    - NOTES:
+
+    	* The Wordpress shop uses these this to draw the nav, footer and off-canvas.
+*/
+//-----------------------------------------------------------------
+// MIXINS
+//-----------------------------------------------------------------
+
+@import "liquidvisual/components/em-calc";
+@import "liquidvisual/components/rem-calc";
+
+//-----------------------------------------------------------------
+// BOOTSTRAP
+//-----------------------------------------------------------------
+
+@import "bootstrap/settings";
+
+// @import "bootstrap/bootstrap";
+
+@import "functions";
+@import "variables";
+@import "mixins";
+// // @import "root";
+// @import "reboot";
+@import "type";
+// @import "images";
+// @import "code";
+// @import "grid";
+// @import "tables";
+// @import "forms";
+// @import "buttons";
+@import "transitions";
+// @import "dropdown";
+// @import "button-group";
+// @import "input-group";
+// @import "custom-forms";
+// // @import "nav";
+// // @import "navbar";
+// @import "card";
+// @import "breadcrumb";
+// @import "pagination";
+// @import "badge";
+// @import "jumbotron";
+// @import "alert";
+// @import "progress";
+// @import "media";
+// @import "list-group";
+// @import "close";
+// @import "modal";
+@import "tooltip";
+// @import "popover";
+// @import "carousel";
+@import "utilities";
+// @import "print";
+
+//-----------------------------------------------------------------
+// APPLICATION
+//-----------------------------------------------------------------
+
+// @import "app/base/variables";
+@import "app/base/global";
+
+//=========================================
+// COMPONENTS (GLOBBED PREVIOUSLY)
+//=========================================
+
+@import "app/components/buttons";
+@import "app/components/hamburger";
+@import "app/components/loader";
+@import "app/components/off-canvas";
+@import "app/components/perfect-scrollbar";
+@import "app/components/social-media";
+@import "app/components/type";
+
+//=========================================
+// LAYOUT
+//=========================================
+
+@import "app/layout/footer";
+@import "app/layout/header";
+@import "app/layout/nav";
+@import "app/layout/nav__dropdown";
+@import "app/layout/nav__dropdown_reports";
+@import "app/layout/nav__dropdown_surfcams";
+@import "app/layout/nav__modifiers";
+
+//=========================================
+// HELPERS
+//=========================================
+
+// @import "app/helpers/special";
+// @import "app/helpers/text-editor";
+@import "app/helpers/themes";
+
+//-----------------------------------------------------------------
+// LOCAL DEPENDENCIES
+//-----------------------------------------------------------------
+
+@import "liquidvisual/components/alert-bar";
+// @import "liquidvisual/components/block-grid";
+@import "liquidvisual/components/custom";
+@import "liquidvisual/components/toolbox";
+
+//-----------------------------------------------------------------
+// NODE DEPENDENCIES
+//-----------------------------------------------------------------
+
+$fa-font-path: "../fonts";
+@import "font-awesome/scss/font-awesome";
+// @import "animate.css/animate"; // CSS is deprecated in Sass
+
+//-----------------------------------------------------------------
+// IMAGE PATHS
+//-----------------------------------------------------------------
+
+.lv-page .lv-nav > ul > li.has-dropdown.is-mega.is-surfcams-mega-menu > .dropdown {
+    background-image: url('../img/layout/mega-menu-surfcams-bg@2x.png');
+}
+
+.lv-page .lv-nav li.has-dropdown.is-reports-mega-menu > .dropdown {
+	background-image: url('../img/layout/mega-menu-reports-bg@2x.png');
+}

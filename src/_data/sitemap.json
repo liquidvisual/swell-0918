@@ -5,6 +5,12 @@
       "classes":"is-off-canvas-only",
       "children":false
    },
+   {
+      "name":"Shop",
+      "url":"https://shopdev.swellnet.com",
+      "classes":"",
+      "children": false
+   },
    #{
    #   "name":"Gift Subscriptions",
    #   "url":"/pro/gift",
@@ -5676,13 +5682,13 @@
       "classes":"is-concealed-menu is-more-group",
       "children":[
         {
-          "name":"Gift Subscriptions",
+          "name":"Gift Subs",
           "url":"/pro/gift/",
           "classes":"",
           "children":false
         },
         {
-          "name":"Swellnet Traveller",
+          "name":"Traveller",
           "url":"/swellnet-traveller/",
           "classes":"",
           "children":false
