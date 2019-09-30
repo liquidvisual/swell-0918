@@ -5,12 +5,6 @@
       "classes":"is-off-canvas-only",
       "children":false
    },
-   {
-      "name":"Shop",
-      "url":"https://shopdev.swellnet.com",
-      "classes":"",
-      "children": false
-   },
    #{
    #   "name":"Gift Subscriptions",
    #   "url":"/pro/gift",
@@ -5667,6 +5661,12 @@
    {
       "name":"Multi-cam",
       "url":"/multi-cam/",
+      "classes":"",
+      "children": false
+   },
+   {
+      "name":"Shop",
+      "url":"https://shopdev.swellnet.com",
       "classes":"",
       "children": false
    },
