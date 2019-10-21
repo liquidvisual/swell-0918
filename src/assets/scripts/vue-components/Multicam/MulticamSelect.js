@@ -91,6 +91,7 @@ Vue.component('multicam-select', {
                     locations: [
                         { id: 382063, name: 'Woolamai',          path: 'woolamai.stream' },
                         { id: 861,    name: 'Torquay',           path: 'torquay.stream' },
+                        { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
                         { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
                         { id: 806,    name: 'Lorne',             path: 'lorne.stream' }

@@ -5570,6 +5570,12 @@
                   "children":false
                },
                {
+                  "name":"Ocean Grove",
+                  "url":"/surfcams/ocean-grove",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"13th Beach",
                   "url":"/surfcams/13th-beach",
                   "children":false
