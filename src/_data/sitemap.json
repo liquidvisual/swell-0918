@@ -5474,6 +5474,12 @@
                   "children":false
                },
                {
+                  "name":"The Pass",
+                  "url":"/surfcams/the-pass",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Yamba",
                   "url":"/surfcams/yamba",
                   "premium":true,

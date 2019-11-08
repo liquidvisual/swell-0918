@@ -68,6 +68,7 @@ Vue.component('multicam-select', {
                         { id: 328177, name: 'Kingscliff',        path: 'kingscliff.stream' },
                         { id: 335898, name: 'Cabarita',          path: 'cabarita.stream' },
                         { id: 866,    name: 'Byron Bay',         path: 'byron.stream' },
+                        { id: 479345, name: 'The Pass',          path: 'the-pass.stream' },
                         { id: 331984, name: 'Yamba',             path: 'yamba.stream' },
                         { id: 329830, name: 'Park Beach',        path: 'park-beach.stream' },
                         { id: 766,    name: 'Coffs Harbour',     path: 'coffs-harbour.stream' },
