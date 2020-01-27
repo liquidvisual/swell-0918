@@ -5678,7 +5678,7 @@
    },
    {
       "name":"Shop",
-      "url":"https://shopdev.swellnet.com",
+      "url":"https://www.swellnet.com",
       "classes":"",
       "children": false
    },
@@ -5701,7 +5701,7 @@
         },
         {
           "name":"Traveller",
-          "url":"/swellnet-traveller/",
+          "url":"/traveller/",
           "classes":"",
           "children":false
         },
