@@ -5633,8 +5633,14 @@
                   "children":false
                },
                {
-                  "name":"Middleton",
-                  "url":"/surfcams/middleton",
+                  "name":"Middleton Bay",
+                  "url":"/surfcams/middleton-bay",
+                  "children":false
+               },
+               {
+                  "name":"Middleton Point",
+                  "url":"/surfcams/middleton-point",
+                  "premium":true,
                   "children":false
                },
                {
