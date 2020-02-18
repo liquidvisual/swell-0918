@@ -45,6 +45,7 @@ Vue.component('multicam-select', {
                     state: 'Queensland',
                     locations: [
                         { id: 876,    name: 'Duranbah',          path: 'duranbah.stream' },
+                        { id: 484779,    name: 'Tweed Bar',         path: 'tweed-bar.stream' },
                         { id: 250741, name: 'Snapper Rocks',     path: 'snapper-rocks.stream' },
                         { id: 250746, name: 'Greenmount',        path: 'greenmount.stream' },
                         { id: 464936, name: 'Kirra',             path: 'kirra.stream' },
@@ -103,7 +104,7 @@ Vue.component('multicam-select', {
                     locations: [
                         { id: 816,    name: 'Knights',           path: 'knights.stream' },
                         { id: 871,    name: 'Middleton Bay',     path: 'middleton-bay.stream' },
-                        { id: 444456, name: 'Middleton Point',   path: 'middleton-point.stream' }
+                        { id: 444455, name: 'Middleton Point',   path: 'middleton-point.stream' }
                         { id: 382064, name: 'Triggs',            path: 'triggs.stream' },
                         { id: 382065, name: 'Christies Beach',   path: 'christies-beach.stream' },
                         { id: 821,    name: 'South Port',        path: 'south-port.stream' },

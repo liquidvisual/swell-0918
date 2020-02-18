@@ -5368,6 +5368,11 @@
                   "children":false
                },
                {
+                  "name":"Tweed Bar",
+                  "url":"/surfcams/tweed-bar",
+                  "children":false
+               },
+               {
                   "name":"Snapper Rocks",
                   "url":"/surfcams/snapper-rocks",
                   "children":false
