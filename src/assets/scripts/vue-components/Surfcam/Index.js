@@ -250,8 +250,8 @@ Vue.component('surfcam-widget', {
 
                 try {
                     payload = {
-                        stream: video_obj.video_url,
-                        image: video_obj.image_url, // TODO: video_obj.video_url ??
+                        stream: video_obj.video_url.replace(/^http:\/\//i, 'https://'),
+                        image: video_obj.image_url.replace(/^http:\/\//i, 'https://'), // TODO: video_obj.video_url ??
                         format: 'mp4'
                     }
                 }
