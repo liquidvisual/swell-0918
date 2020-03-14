@@ -10358,7 +10358,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     selectVideo: function selectVideo() {
       var e;this.getVideoIdFromHash();var t = this.feed[this.selectedTimeIndex];if ("live" == this.feedType && !this.firstRun) log("IS LIVE ON INIT"), bus.$emit("initPlayer", "limitDuration"), e = { stream: this.liveStreamPlaylist, image: this.liveStreamImage };else {
         if ("live" == this.feedType) return;this.firstRun || bus.$emit("initPlayer");try {
-          e = { stream: t.video_url, image: t.image_url, format: "mp4" };
+          e = { stream: t.video_url.replace(/^http:\/\//i, "https://"), image: t.image_url.replace(/^http:\/\//i, "https://"), format: "mp4" };
         } catch (t) {
           e = { stream: ".mp4", image: ".jpg", format: "mp4" };
         }
