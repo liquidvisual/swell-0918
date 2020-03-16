@@ -82,10 +82,10 @@ Vue.component('multicam-select', {
                         { id: 786,    name: 'Shark Island',      path: 'shark-island.stream' },
                         { id: 886,    name: 'Cronulla Point',    path: 'cronulla-point.stream' },
                         { id: 891,    name: 'Cronulla Beaches',  path: 'cronulla-beaches.stream' },
-                        { id: 473140, name: 'Thirroul North', path: 'thirroul-north.stream' },
+                        { id: 473140, name: 'Thirroul North',    path: 'thirroul-north.stream' },
                         { id: 841,    name: 'Thirroul',          path: 'thirroul.stream' },
                         { id: 791,    name: 'Wollongong',        path: 'wollongong.stream' },
-                        { id: 472578, name: 'Kiama', path: 'kiama.stream' }
+                        { id: 472578, name: 'Kiama',             path: 'kiama.stream' }
                     ]
                 },
                 {
@@ -96,7 +96,9 @@ Vue.component('multicam-select', {
                         { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
                         { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
-                        { id: 806,    name: 'Lorne',             path: 'lorne.stream' }
+                        { id: 488207, name: 'Fairhaven',         path: 'fairhaven.stream' },
+                        { id: 806,    name: 'Lorne',             path: 'lorne.stream' }, 
+                        { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" }
                     ],
                 },
                 {

@@ -5592,8 +5592,20 @@
                   "children":false
                },
                {
+                  "name":"Fairhaven",
+                  "url":"/surfcams/fairhaven",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Lorne",
                   "url":"/surfcams/lorne",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Lorne Point",
+                  "url":"/surfcams/lorne-point",
                   "premium":true,
                   "children":false
                },
