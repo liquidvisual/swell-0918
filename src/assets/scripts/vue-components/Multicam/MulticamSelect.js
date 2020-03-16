@@ -51,7 +51,7 @@ Vue.component('multicam-select', {
                         { id: 464936, name: 'Kirra',             path: 'kirra.stream' },
                         { id: 343461, name: 'Currumbin',         path: 'currumbin.stream' },
                         { id: 851,    name: 'Burleigh Heads',    path: 'burleigh.stream' },
-                        { id: 473908, name: 'Surfers Paradise South', path: 'surfers-paradise-south.stream' }, 
+                        { id: 473908, name: 'Surfers Paradise South', path: 'surfers-paradise-south.stream' },
                         { id: 473909, name: 'Surfers Paradise North', path: 'surfers-paradise-north.stream' },
                         { id: 351381, name: 'Narrowneck',        path: 'narrowneck.stream' },
                         { id: 328776, name: 'Kings Beach',       path: 'kings-beach.stream' },
@@ -97,21 +97,21 @@ Vue.component('multicam-select', {
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
                         { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
                         { id: 488207, name: 'Fairhaven',         path: 'fairhaven.stream' },
-                        { id: 806,    name: 'Lorne',             path: 'lorne.stream' }, 
+                        { id: 806,    name: 'Lorne',             path: 'lorne.stream' },
                         { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" }
-                    ],
+                    ]
                 },
                 {
                     state: 'South Australia',
                     locations: [
                         { id: 816,    name: 'Knights',           path: 'knights.stream' },
                         { id: 871,    name: 'Middleton Bay',     path: 'middleton-bay.stream' },
-                        { id: 444455, name: 'Middleton Point',   path: 'middleton-point.stream' }
+                        { id: 444455, name: 'Middleton Point',   path: 'middleton-point.stream' },
                         { id: 382064, name: 'Triggs',            path: 'triggs.stream' },
                         { id: 382065, name: 'Christies Beach',   path: 'christies-beach.stream' },
                         { id: 821,    name: 'South Port',        path: 'south-port.stream' },
-                        { id: 444456, name: 'Goolwa',            path: 'goolwa.stream' },
-                    ],
+                        { id: 444456, name: 'Goolwa',            path: 'goolwa.stream' }
+                    ]
                 },
                 {
                     state: 'Western Australia',
