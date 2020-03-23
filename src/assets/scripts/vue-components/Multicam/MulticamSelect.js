@@ -118,7 +118,9 @@ Vue.component('multicam-select', {
                     locations: [
                         { id: 846,    name: 'Margaret River',    path: 'margaret-river.stream' },
                         { id: 831,    name: 'Yallingup',         path: 'yallingup.stream' },
-                        { id: 826,    name: 'Scarborough',       path: 'scarborough.stream' }
+                        { id: 489407, name: 'Brighton',          path: 'brighton.stream' },
+                        { id: 826,    name: 'Scarborough',       path: 'scarborough.stream' },
+                        { id: 489408, name: 'South Trigg',       path: 'south-trigg.stream' }
                     ]
                 }
             ]
