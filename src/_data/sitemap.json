@@ -5434,6 +5434,18 @@
                   "children":false
                },
                {
+                  "name":"Coolum Bays",
+                  "url":"/surfcams/coolum-bays",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Point Perry",
+                  "url":"/surfcams/point-perry",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Coolum",
                   "url":"/surfcams/coolum",
                   "children":false

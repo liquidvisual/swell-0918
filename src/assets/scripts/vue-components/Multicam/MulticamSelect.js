@@ -45,7 +45,7 @@ Vue.component('multicam-select', {
                     state: 'Queensland',
                     locations: [
                         { id: 876,    name: 'Duranbah',          path: 'duranbah.stream' },
-                        { id: 484779,    name: 'Tweed Bar',         path: 'tweed-bar.stream' },
+                        { id: 484779, name: 'Tweed Bar',         path: 'tweed-bar.stream' },
                         { id: 250741, name: 'Snapper Rocks',     path: 'snapper-rocks.stream' },
                         { id: 250746, name: 'Greenmount',        path: 'greenmount.stream' },
                         { id: 464936, name: 'Kirra',             path: 'kirra.stream' },
@@ -57,6 +57,8 @@ Vue.component('multicam-select', {
                         { id: 328776, name: 'Kings Beach',       path: 'kings-beach.stream' },
                         { id: 896,    name: 'Moffat Beach',      path: 'moffat-beach.stream' },
                         { id: 328632, name: 'Alex Headland',     path: 'alex-headland.stream' },
+                        { id: 492649, name: 'Coolum Bays',       path: 'coolum-bays.stream' },
+                        { id: 492651, name: 'Point Perry',       path: 'point-perry.stream' },
                         { id: 333699, name: 'Coolum',            path: 'coolum.stream' },
                         { id: 334466, name: 'Sunshine Beach',    path: 'sunshine-beach.stream' },
                         { id: 856,    name: 'Noosa Heads',       path: 'noosa.stream' },
