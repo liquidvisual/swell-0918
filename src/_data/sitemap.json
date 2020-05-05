@@ -5656,6 +5656,12 @@
                   "children":false
                },
                {
+                  "name":"Y Steps",
+                  "url":"/surfcams/y-steps",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Knights",
                   "url":"/surfcams/knights",
                   "premium":true,
