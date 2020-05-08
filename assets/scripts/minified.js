@@ -10849,4 +10849,4 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       s = $("#top-contents-wrapper");(_theatreMode = !_theatreMode) ? (t.text("EXPAND"), i.text("Expand screen"), n.removeClass("a-compress fa-rotate-45").addClass("fa-arrows-h"), s.find(".spacer").show(), $("#vue-app > div > h2").removeClass("mb-4 mt-0").addClass("my-4"), r.prependTo(".main-body > .container > .row > .col-lg-8"), s.insertAfter(r), o.appendTo(a).removeClass("mb-4")) : (t.text("SHRINK"), i.text("Shrink screen"), n.removeClass("fa-arrows-h").addClass("fa-compress fa-rotate-45"), s.find(".spacer").hide(), $("#vue-app > div > h2").removeClass("my-4").addClass("mb-4 mt-0"), r.insertBefore(".main-body > .container > .row"), s.insertAfter(r), o.insertAfter(s).addClass("mb-4"));
 };setTimeout(function () {
   $("#plyr-btn-expand").on("click", _theatreMode);
-}, 100);
+}, 300);
