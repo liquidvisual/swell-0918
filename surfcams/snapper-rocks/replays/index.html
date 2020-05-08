@@ -238,31 +238,36 @@
                     <div class="col-lg-8 pr-lg-4">
 
                         <!-- TITLE -->
-                        <h1 class="mb-4">Snapper Rocks Replays
+                        <h1 class="page-heading mb-4">Snapper Rocks Replays
                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                         </h1>
 
-                        <!-- LIVE + REPLAYS TABS -->
-                        <div class="btn-tabs collapse-sm-down">
+                        <!-- TOP CONTENTS WRAPPER -->
+                        <div id="top-contents-wrapper">
 
-                            <!-- FAVORITE BTN -->
-                            <span class="flag-wrapper flag-favourite-surfcam">
-                                <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
-                                    <span class="hidden-xs-down">Set as favourite</span>
-                                    <span class="hidden-sm-up">Set favourite</span>
-                                </a>
-                                <span class="flag-throbber">&nbsp;</span>
-                            </span>
+                            <!-- LIVE + REPLAYS TABS -->
+                            <div class="btn-tabs collapse-sm-down">
 
-                            <!-- REPLAYS TAB -->
-                            <a class="btn-tab active" href="/surfcams/snapper-rocks/replays/">Replays </a>
+                                <!-- FAVORITE BTN -->
+                                <span class="flag-wrapper flag-favourite-surfcam">
+                                    <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
+                                        <span class="hidden-xs-down">Set as favourite</span>
+                                        <span class="hidden-sm-up">Set favourite</span>
+                                    </a>
+                                    <span class="flag-throbber">&nbsp;</span>
+                                </span>
 
-                            <!-- LIVE TAB -->
-                            <a class="btn-tab" href="/surfcams/snapper-rocks/">Live</a>
+                                <!-- REPLAYS TAB -->
+                                <a class="btn-tab active" href="/surfcams/snapper-rocks/replays/">Replays </a>
+
+                                <!-- LIVE TAB -->
+                                <a class="btn-tab" href="/surfcams/snapper-rocks/">Live</a>
+                            </div>
                         </div>
 
-                        <!-- START VUE APP -->
-                        <div id="vue-app" class="mb-4">
+                        <!-- /.top-contents-wrapper -->
+                        
+<!-- START VUE APP --><div id="vue-app" class="mb-4">
 
                             <!-- SURFCAM WIDGET -->
                             <surfcam-widget data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2" inline-template>
@@ -278,11 +283,15 @@
                                         <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
                                     </div>
 
-                                    <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="300000" :controls="[
-                        'progress',
-                        'duration'
-                    ]"></surfcam-player-plyr>
+                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
+                                    <div id="surfcam-player-plyr-holder">
+
+                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000" :controls="[
+                            'progress',
+                            'duration'
+                        ]"></surfcam-player-plyr>
+                                    </div>
 
                                     <!-- THUMB-SLIDER COMPONENT -->
                                     <transition name="special-thumb-slider-entrance">

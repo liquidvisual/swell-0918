@@ -238,38 +238,47 @@
                     <div class="col-lg-8 pr-lg-4">
 
                         <!-- TITLE -->
-                        <h1 class="mb-4">Wollongong (paid)
+                        <h1 class="page-heading mb-4">Wollongong (paid)
                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                         </h1>
 
-                        <!-- LIVE + REPLAYS TABS -->
-                        <div class="btn-tabs collapse-sm-down">
+                        <!-- TOP CONTENTS WRAPPER -->
+                        <div id="top-contents-wrapper">
 
-                            <!-- FAVORITE BTN -->
-                            <span class="flag-wrapper flag-favourite-surfcam">
-                                <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
-                                    <span class="hidden-xs-down">Set as favourite</span>
-                                    <span class="hidden-sm-up">Set favourite</span>
-                                </a>
-                                <span class="flag-throbber">&nbsp;</span>
-                            </span>
+                            <!-- LIVE + REPLAYS TABS -->
+                            <div class="btn-tabs collapse-sm-down">
 
-                            <!-- REPLAYS TAB -->
-                            <a class="btn-tab" href="/surfcams/wollongong/replays/">Replays </a>
+                                <!-- FAVORITE BTN -->
+                                <span class="flag-wrapper flag-favourite-surfcam">
+                                    <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
+                                        <span class="hidden-xs-down">Set as favourite</span>
+                                        <span class="hidden-sm-up">Set favourite</span>
+                                    </a>
+                                    <span class="flag-throbber">&nbsp;</span>
+                                </span>
 
-                            <!-- LIVE TAB -->
-                            <a class="btn-tab active" href="/surfcams/wollongong/paid/">Live</a>
+                                <!-- REPLAYS TAB -->
+                                <a class="btn-tab" href="/surfcams/wollongong/replays/">Replays </a>
+
+                                <!-- LIVE TAB -->
+                                <a class="btn-tab active" href="/surfcams/wollongong/paid/">Live</a>
+                            </div>
                         </div>
 
-                        <!-- START VUE APP -->
-                        <div id="vue-app" class="mb-4">
+                        <!-- /.top-contents-wrapper -->
+                        
+<!-- START VUE APP --><div id="vue-app" class="mb-4">
 
                             <!-- SURFCAM WIDGET -->
                             <surfcam-widget inline-template live-stream="rtmp://streamer.swellnet.com.au/surfcams/wollongong.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/wollongong.jpg" live-stream-playlist="//streamer.swellnet.com.au/surfcams/wollongong.stream/playlist.m3u8" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2">
                                 <div>
 
-                                    <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                    <surfcam-player-plyr :muted="true" :video-timeout="300000"></surfcam-player-plyr>
+                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
+                                    <div id="surfcam-player-plyr-holder">
+
+                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000"></surfcam-player-plyr>
+                                    </div>
 
                                     <!-- HEADING: SURFCAM REPLAYS -->
                                     <h2 class="d-flex align-items-center my-4">
