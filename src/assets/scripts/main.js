@@ -56,8 +56,52 @@ $('.global-footer .page-state-switcher input').click(function(event) {
 });
 
 //-----------------------------------------------------------------
-//
+// THEATRE MODE FOR PLYR (NOT FLOW PLAYER)
 //-----------------------------------------------------------------
+
+var theatreMode = false;
+
+var theatreMode = function() {
+    var $expandBtn = $('#plyr-btn-expand');
+    var $expandBtnText = $('small .text', $expandBtn);
+    var $expandBtnIcon = $('.fa', $expandBtn);
+    var $expandBtnTooltip = $('.plyr__tooltip > .text', $expandBtn);
+    var $heading = $('.page-heading');
+    var $plyr = $('#surfcam-player-plyr');
+    var $plyrHolder = $('#surfcam-player-plyr-holder');
+    var $top = $('#top-contents-wrapper');
+
+    theatreMode = !theatreMode;
+
+    if (!theatreMode) {
+        $expandBtnText.text('SHRINK');
+        $expandBtnTooltip.text('Shrink screen');
+        $expandBtnIcon.removeClass('fa-arrows-h').addClass('fa-compress fa-rotate-45');
+
+        $top.find('.spacer').hide();
+        $('#vue-app > div > h2').removeClass('my-4').addClass('mb-4 mt-0');
+        $heading.insertBefore('.main-body > .container > .row');
+        $top.insertAfter($heading);
+        $plyr.insertAfter($top).addClass('mb-4');
+    }
+    else {
+        $expandBtnText.text('EXPAND');
+        $expandBtnTooltip.text('Expand screen');
+        $expandBtnIcon.removeClass('a-compress fa-rotate-45').addClass('fa-arrows-h');
+
+        $top.find('.spacer').show();
+        $('#vue-app > div > h2').removeClass('mb-4 mt-0').addClass('my-4');
+        $heading.prependTo('.main-body > .container > .row > .col-lg-8');
+        $top.insertAfter($heading);
+        $plyr.appendTo($plyrHolder).removeClass('mb-4');
+    }
+}
+
+// ASYNC
+setTimeout(() => {
+    $('#plyr-btn-expand').on('click', theatreMode);
+}, 300);
+
 //==================================================
 //
 //==================================================
