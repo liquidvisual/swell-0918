@@ -34,7 +34,7 @@ Vue.component('surfcam-player-plyr', {
             </div>
 
             <!-- WATERMARK -->
-            <div class="video-player-watermark"></div>
+            <!-- <div class="video-player-watermark"></div> -->
 
             <!-- VIDEO -->
             <video
@@ -75,6 +75,7 @@ Vue.component('surfcam-player-plyr', {
             showControls: null,
             videoEl: null,
             videoObj: null,
+            theatreMode: false,
             timeoutInstance: null
         }
     },
@@ -163,7 +164,8 @@ Vue.component('surfcam-player-plyr', {
             this.playerInstance = new Plyr(this.videoEl, {
                 controls,
                 clickToPlay: true,
-                displayDuration: false
+                displayDuration: false,
+                hideControls: false // Show controls on init.
             });
 
             // ON PLAY
@@ -224,6 +226,44 @@ Vue.component('surfcam-player-plyr', {
         //-----------------------------------------------------------------
 
         playVideo() {
+
+            // Hide controls after a short time.
+            // https://codepen.io/fullkornslimpa/pen/EpmKga?editors=1010
+            setTimeout(() => {
+
+                const playerEl = this.playerInstance.elements.container;
+                let playerHideTimeout;
+
+                // Immediately hide the controls via class removal.
+                playerEl.classList.add('plyr--hide-controls');
+
+                function hideControls() {
+                    playerEl.classList.add('plyr--hide-controls');
+                }
+
+                function showControls() {
+                    playerEl.classList.remove('plyr--hide-controls');
+                }
+
+                // Mouse enter.
+                playerEl.addEventListener('mouseover', showControls);
+
+                // Touchstart (hide manually after 3s)
+                playerEl.addEventListener('touchstart', function() {
+                    showControls();
+                    clearTimeout(playerHideTimeout)
+                    playerHideTimeout = setTimeout(hideControls, 3000);
+                });
+
+                // Mouse leave.
+                playerEl.addEventListener('mouseout', hideControls);
+
+            }, 5000);
+
+            // Setup theatre mode
+            $('#plyr-btn-expand').on('click', this.onTheatreMode);
+
+            // Start timeout for pausing video after idle time.
             this.startTimeout();
 
             if (this.hlsInstance === 'RELOAD_IT')
@@ -273,6 +313,50 @@ Vue.component('surfcam-player-plyr', {
             clearTimeout(this.timeoutInstance);
             this.timeoutInstance = null;
             this.errors = false; // reset
+        },
+
+        //-----------------------------------------------------------------
+        // THEATRE MODE FOR PLYR
+        //-----------------------------------------------------------------
+
+        onTheatreMode() {
+            const $expandBtn = $('#plyr-btn-expand');
+            const $expandBtnText = $('small .text', $expandBtn);
+            const $expandBtnIcon = $('.fa', $expandBtn);
+            const $expandBtnTooltip = $('.plyr__tooltip > .text', $expandBtn);
+            const $heading = $('.page-heading');
+            const $plyr = $('#surfcam-player-plyr');
+            const $plyrHolder = $('#surfcam-player-plyr-holder');
+            const $top = $('#top-contents-wrapper');
+
+            // Scroll to top of main body to avoid page jump.
+            $.scrollTo($('.main-body').offset().top - 74, 0);
+
+            if (!this.theatreMode) {
+                $expandBtnText.text('SHRINK');
+                $expandBtnTooltip.text('Shrink screen');
+                $expandBtnIcon.removeClass('fa-arrows-h').addClass('fa-compress fa-rotate-45');
+
+                $top.find('.spacer').hide();
+                $('#vue-app > div > h2').removeClass('my-4').addClass('mb-4 mt-0');
+                $heading.insertBefore('.main-body > .container > .row');
+                $top.insertAfter($heading);
+                $plyr.insertAfter($top).addClass('mb-4');
+            }
+            else {
+                $expandBtnText.text('EXPAND');
+                $expandBtnTooltip.text('Expand screen');
+                $expandBtnIcon.removeClass('a-compress fa-rotate-45').addClass('fa-arrows-h');
+
+                $top.find('.spacer').show();
+                $('#vue-app > div > h2').removeClass('mb-4 mt-0').addClass('my-4');
+                $heading.prependTo('.main-body > .container > .row > .col-lg-8');
+                $top.insertAfter($heading);
+                $plyr.appendTo($plyrHolder).removeClass('mb-4');
+            }
+
+            // Toggle theatreMode.
+            this.theatreMode = !this.theatreMode;
         }
     }
 });

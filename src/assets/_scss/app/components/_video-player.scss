@@ -175,9 +175,48 @@
 	}
 }
 
+// Override this prompt which shows after 30secs.
+.has-flowplayer-expanded .video-player-overlay-timeout {
+	display: none;
+}
+
 //-----------------------------------------------------------------
-//
+// THEATRE MODE FOR FLOW PLAYER
 //-----------------------------------------------------------------
+
+.flow-btn-expand,
+.flow-btn-shrink {
+	position: absolute;
+	top: rem-calc(15);
+	right: rem-calc(60);
+	border: 0;
+	background: transparent;
+	color: white;
+	z-index: 2;
+
+	&:hover {
+		background: rgba(black, 0.2);
+	}
+}
+
+.flow-btn-expand {
+	display: none;
+}
+
+.video-player-flow:hover .flow-btn-expand {
+	display: block;
+}
+
+#video-player-overlay-premium-feature {
+	@include media-breakpoint-up(lg) {
+	    height: rem-calc(720);
+	}
+}
+
+#video-player-overlay-premium-feature .flow-btn-shrink {
+	right: rem-calc(20);
+}
+
 //=========================================
 //
 //=========================================
