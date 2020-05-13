@@ -48,7 +48,6 @@ Vue.component('surfcam-player-plyr', {
                 width="100%"
             >
             </video>
-
         </div>
     `,
     props: {
@@ -139,14 +138,14 @@ Vue.component('surfcam-player-plyr', {
                         00:00
                     </div>
 
-                    <button type="button" class="plyr__control mr-1" data-plyr="fullscreen">
+                    <button type="button" class="plyr__control mr-lg-1" data-plyr="fullscreen">
                         <svg class="icon--pressed" role="presentation"><use xlink:href="#plyr-exit-fullscreen"></use></svg>
                         <svg class="icon--not-pressed" role="presentation"><use xlink:href="#plyr-enter-fullscreen"></use></svg>
                         <span class="label--pressed plyr__tooltip" role="tooltip">Exit fullscreen</span>
                         <span class="label--not-pressed plyr__tooltip" role="tooltip">Enter fullscreen</span>
                     </button>
 
-                    <button id="plyr-btn-expand" type="button" class="plyr__control" data-plyr="fullscreen" style="padding-top: 2px; padding-bottom: 2px;">
+                    <button id="plyr-btn-expand" type="button" class="plyr__control hidden-md-down" data-plyr="fullscreen" style="padding-top: 2px; padding-bottom: 2px;">
                         <small><b><span class="text">EXPAND</span></b></small>&nbsp;
                         <i class="fa fa-arrows-h"></i>
                         <span role="tooltip" class="plyr__tooltip">
@@ -320,11 +319,12 @@ Vue.component('surfcam-player-plyr', {
         //-----------------------------------------------------------------
 
         onTheatreMode() {
+            const $body = $('body');
             const $expandBtn = $('#plyr-btn-expand');
             const $expandBtnText = $('small .text', $expandBtn);
             const $expandBtnIcon = $('.fa', $expandBtn);
             const $expandBtnTooltip = $('.plyr__tooltip > .text', $expandBtn);
-            const $heading = $('.page-heading');
+            const $heading = $('.page-title');
             const $plyr = $('#surfcam-player-plyr');
             const $plyrHolder = $('#surfcam-player-plyr-holder');
             const $top = $('#top-contents-wrapper');
@@ -336,23 +336,23 @@ Vue.component('surfcam-player-plyr', {
                 $expandBtnText.text('SHRINK');
                 $expandBtnTooltip.text('Shrink screen');
                 $expandBtnIcon.removeClass('fa-arrows-h').addClass('fa-compress fa-rotate-45');
-
                 $top.find('.spacer').hide();
                 $('#vue-app > div > h2').removeClass('my-4').addClass('mb-4 mt-0');
-                $heading.insertBefore('.main-body > .container > .row');
+                $heading.prependTo('.main-body > .container');
                 $top.insertAfter($heading);
                 $plyr.insertAfter($top).addClass('mb-4');
+                $body.addClass('has-plyr-expanded');
             }
             else {
                 $expandBtnText.text('EXPAND');
                 $expandBtnTooltip.text('Expand screen');
                 $expandBtnIcon.removeClass('a-compress fa-rotate-45').addClass('fa-arrows-h');
-
                 $top.find('.spacer').show();
                 $('#vue-app > div > h2').removeClass('mb-4 mt-0').addClass('my-4');
-                $heading.prependTo('.main-body > .container > .row > .col-lg-8');
+                $heading.prependTo('.main-body > .container .col-lg-8');
                 $top.insertAfter($heading);
                 $plyr.appendTo($plyrHolder).removeClass('mb-4');
+                $body.removeClass('has-plyr-expanded');
             }
 
             // Toggle theatreMode.

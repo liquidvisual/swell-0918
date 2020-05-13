@@ -181,6 +181,26 @@
 }
 
 //-----------------------------------------------------------------
+// EXPAND FEATURE AD
+// Shows in bottom right of the video on premium layouts only.
+// Hides when video expands.
+//-----------------------------------------------------------------
+
+.new-expand-feature {
+	position: relative;
+
+	img {
+		position: absolute;
+		top: calc(100% + 4px);
+		right: 0;
+	}
+}
+
+.has-plyr-expanded .new-expand-feature {
+	display: none;
+}
+
+//-----------------------------------------------------------------
 // THEATRE MODE FOR FLOW PLAYER
 //-----------------------------------------------------------------
 

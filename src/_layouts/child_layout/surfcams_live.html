@@ -55,7 +55,7 @@ layout: base__page_sidebar
     <div id="video-player-overlay-premium-feature" class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4" hidden>
 
         <!-- THEATRE MODE EXIT -->
-        <button class="flow-btn-shrink" type="button">
+        <button class="flow-btn-shrink hidden-md-down" type="button">
             <small><b><span class="text">SHRINK</span></b></small>&nbsp;
             <i class="fa fa-compress fa-rotate-45"></i>
         </button>
@@ -191,7 +191,7 @@ layout: base__page_sidebar
             </div>
 
             <!-- THEATRE MODE -->
-            <button class="flow-btn-expand" type="button">
+            <button class="flow-btn-expand hidden-md-down" type="button">
                 <small><b><span class="text">EXPAND</span></b></small>&nbsp;
                 <i class="fa fa-arrows-h"></i>
             </button>
@@ -329,6 +329,11 @@ layout: base__page_sidebar
                     >
                     </surfcam-player-plyr>
 
+                </div>
+
+                <!-- *NEW* EXPAND FEATURE (REMOVE WHEN UNECESSARY) -->
+                <div class="new-expand-feature hidden-md-down">
+                    <img class="" src="/assets/img/content/new-expand.png" alt="New Expand Feature" />
                 </div>
 
                 {% if replays_available %}

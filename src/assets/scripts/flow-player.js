@@ -18,7 +18,7 @@ function flowPlayerTheatreMode() {
     var $expandBtn = $('#flow-btn-expand');
     var $expandBtnText = $('small .text', $expandBtn);
     var $expandBtnIcon = $('.fa', $expandBtn);
-    var $heading = $('.page-heading');
+    var $heading = $('.page-title');
     var $top = $('#top-contents-wrapper');
     var $flowPlayer = $('#video-player-flow');
     var $flowPlayerOverlaySponsor = $('#video-player-overlay-sponsor');
@@ -32,7 +32,7 @@ function flowPlayerTheatreMode() {
     $('.flow-btn-expand').on('click', function() {
         $top.find('.spacer').hide();
         $('#vue-app > div > h2').removeClass('mt-4');
-        $heading.insertBefore('.main-body > .container > .row');
+        $heading.prependTo('.main-body > .container');
         $top.insertAfter($heading);
 
         // Scroll to top of main body to avoid page jump.
@@ -56,7 +56,7 @@ function flowPlayerTheatreMode() {
     $('.flow-btn-shrink').on('click', function() {
         $top.find('.spacer').show();
         $('#vue-app > div > h2').addClass('mt-4');
-        $heading.prependTo('.main-body > .container > .row > .col-lg-8');
+        $heading.prependTo('.main-body > .container .col-lg-8');
         $top.insertAfter($heading);
 
         // Scroll to top of main body to avoid page jump.
