@@ -110,6 +110,7 @@ Vue.component('multicam-select', {
                         { id: 871,    name: 'Middleton Bay',     path: 'middleton-bay.stream' },
                         { id: 444455, name: 'Middleton Point',   path: 'middleton-point.stream' },
                         { id: 382064, name: 'Triggs',            path: 'triggs.stream' },
+                        { id: 494302, name: 'U Turns',           path: 'u-turns.stream' },
                         { id: 382065, name: 'Christies Beach',   path: 'christies-beach.stream' },
                         { id: 493168, name: 'Y Steps',           path: 'y-steps.stream' },
                         { id: 821,    name: 'South Port',        path: 'south-port.stream' },

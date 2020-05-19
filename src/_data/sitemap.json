@@ -5650,6 +5650,12 @@
                   "children":false
                },
                {
+                  "name":"U Turns",
+                  "url":"/surfcams/u-turns",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Christies Beach",
                   "url":"/surfcams/christies-beach",
                   "premium":true,
