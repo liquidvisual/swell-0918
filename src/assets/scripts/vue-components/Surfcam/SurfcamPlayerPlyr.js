@@ -154,6 +154,11 @@ Vue.component('surfcam-player-plyr', {
                     </button>
 
                 </div>
+
+                <button type="button" class="plyr__control plyr__control--overlaid" data-plyr="play" aria-label="Play">
+                    <svg role="presentation" focusable="false"><use xlink:href="#plyr-play"></use></svg>
+                    <span class="plyr__sr-only">Play</span>
+                </button>
             `;
 
             // merge additional external prop controls
