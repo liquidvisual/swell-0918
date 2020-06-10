@@ -84,6 +84,7 @@ Vue.component('multicam-select', {
                         { id: 786,    name: 'Shark Island',      path: 'shark-island.stream' },
                         { id: 886,    name: 'Cronulla Point',    path: 'cronulla-point.stream' },
                         { id: 891,    name: 'Cronulla Beaches',  path: 'cronulla-beaches.stream' },
+                        { id: 495641, name: 'Stanwell Park',     path: 'stanwell-park.stream' },
                         { id: 473140, name: 'Thirroul North',    path: 'thirroul-north.stream' },
                         { id: 841,    name: 'Thirroul',          path: 'thirroul.stream' },
                         { id: 791,    name: 'Wollongong',        path: 'wollongong.stream' },
