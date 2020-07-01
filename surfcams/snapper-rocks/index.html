@@ -347,122 +347,34 @@
                                             </div>
                                         </div>
 
-                                        <!-- FLOW PLAYER -->
-                                        <div id="video-player-flow" class="video-player-flow collapse-sm-down has-overlay-sponsor">
-
-                                            <!-- SIZER -->
-                                            <img class="video-player-sizer" width="100%" src="/assets/img/layout/placeholder-video-1280x720.svg">
-
-                                            <!-- BODY -->
-                                            <div class="video-player-body">
-
-                                                <!-- ERROR OVERLAY (HIDDEN) -->
-                                                <div id="video-player-overlay-error" class="video-player-overlay video-player-overlay-error" hidden>
-                                                    <div class="video-player-overlay-inner">
-                                                        <i class="fa fa-warning"></i>
-                                                        <p>Sorry! We're experiencing
-                                                            <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
-                                                    </div>
-                                                </div>
-
-                                                <!-- THEATRE MODE -->
-                                                <button class="flow-btn-expand hidden-md-down" type="button">
-                                                    <small>
-                                                        <b>
-                                                            <span class="text">EXPAND</span>
-                                                        </b>
-                                                    </small>&nbsp;
-                                                    <i class="fa fa-arrows-h"></i>
-                                                </button>
-
-                                                <!-- WATERMARK -->
-                                                <div class="video-player-watermark"></div>
-
-                                                <!-- EMBED CODE -->
-                                                <div data-player-id="a505d6e4-934f-4f40-9668-4c102963730b">
-                                                    <script src="//cdn.flowplayer.com/players/d891a9d0-c577-4eb4-a371-a82073f8d54c/native/flowplayer.async.js">
-                                                    {
-                                                        "autoplay": true,
-                                                        "hls": {
-                                                            "native": true
-                                                        },
-                                                        "live": true,
-                                                        "loop": true,
-                                                        "muted": true,
-                                                        "poster": "",
-                                                        "src": "https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8",
-                                                        "token": "eyJraWQiOiJuN1JTclNTNVFBaTkiLCJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJjIjoie1wiYWNsXCI6NixcImlkXCI6XCJuN1JTclNTNVFBaTlcIn0iLCJpc3MiOiJGbG93cGxheWVyIn0.M837aYfFdkiLKA1FSaPOL8GPip9MIlVOQkxkUDqXpfL15JKGpBEZB_kFNc3BDPeuXa8nJShZcGTXp2nhwOk7tA",
-                                                        "plugins": ["ads"]
-                                                    }
-                                                    </script>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- SPONSOR OVERLAY (OPTIONAL) -->
-                                        <div id="video-player-overlay-sponsor" class="video-player-overlay-sponsor is-jeep collapse-sm-down animated fadeIn">
-                                            <img src="/assets/img/layout/jeep-surfcam-dashboard-2019.png" alt="Jeep Dashboard">
-                                        </div>
-
-                                        <!-- FLOW PLAYER CUSTOM STYLES -->
-                                        <style>
-                                        .fp-error,
-                                        .fp-share-menu {
-                                            display: none;
-                                        }
-                                        /* hide flowplayer duration bar */
-                                        
-                                        .flowplayer .fp-timeline.fp-bar {
-                                            visibility: hidden;
-                                        }
-                                        </style>
-                                        <script>
-                                        flowplayer.cloud.then(function() {
-                                            var playerEl = document.getElementById('video-player-flow');
-                                            var playerOverlayErrorEl = document.getElementById('video-player-overlay-error');
-                                            var playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
-                                            var playerInstance = flowplayer.instances[0];
-                                            var playerTimeout = null;
-                                            var playerSrc = playerInstance.original_src;
-                                            // ON PLAYING EVENT
-                                            playerInstance.on('playing', function() {
-                                                var adPlaying = !!playerInstance.ads && playerInstance.ads.adPlaying;
-                                                clearTimeout(playerTimeout);
-                                                // if no ads are playing, set a timeout for the video to unload itself
-                                                if (!adPlaying) {
-                                                    playerTimeout = setTimeout(function() {
-                                                        // unload the video by passing it an empty source
-                                                        playerInstance.setSrc('UNLOAD_VIDEO');
-                                                        // remove element so the overlay msg can take over flow
-                                                        playerEl.remove();
-                                                        // reveal timeout overlay (clicking will reload page)
-                                                        playerOverlayTimeoutEl.removeAttribute('hidden');
-                                                        // clicking player now reloads video and starts again
-                                                        playerOverlayTimeoutEl.addEventListener('click', function handler() {
-                                                            location.reload();
-                                                        });
-                                                    }, 30000); // 30sec timeout for public
-                                                }
-                                            });
-                                            // PAUSE EVENT
-                                            playerInstance.on('pause', function() {
-                                                clearTimeout(playerTimeout);
-                                            });
-                                            // ERROR EVENT
-                                            // Any error other than an empty video src will prompt an error overlay
-                                            playerInstance.on('error', function(e) {
-                                                clearTimeout(playerTimeout);
-                                                if (e.data.src !== 'UNLOAD_VIDEO') {
-                                                    playerOverlayErrorEl.removeAttribute('hidden');
-                                                    playerInstance.remove(); // <-- remove player so ads don't play (or destroy)
-                                                    // console.info(e.data);
-                                                }
-                                            });
-                                        });
-                                        </script>
-
                                         <!-- START VUE APP -->
                                         <div id="vue-app" class="mb-4">
+
+                                            <!-- SURFCAM WIDGET -->
+                                            <surfcam-widget inline-template live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2">
+                                                <div>
+
+                                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
+                                                    <div id="surfcam-player-plyr-holder">
+
+                                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000" :ads="{
+                            enabled: true,
+                            tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
+                        }"></surfcam-player-plyr>
+                                                    </div>
+
+                                                    <!-- *NEW* EXPAND FEATURE (REMOVE WHEN UNECESSARY) -->
+                                                    <div class="new-expand-feature hidden-md-down">
+                                                        <img class="" src="/assets/img/content/new-expand.png" alt="New Expand Feature">
+                                                    </div>
+                                                </div>
+                                            </surfcam-widget>
+                                        </div>
+
+                                        <!-- /.vue-app -->
+                                        
+<!-- START VUE APP --><div id="vue-app" class="mb-4">
 
                                             <!-- SURFCAM WIDGET -->
                                             <surfcam-widget live-stream="true" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2" inline-template>
