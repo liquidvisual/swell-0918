@@ -1,6 +1,6 @@
 /*
     SURFCAM PLAYER PLYR
-    updated: 29.07.19, 11.07.19, 27.02.19, 26.11.18
+    updated: 01.07.20, 29.07.19, 11.07.19, 27.02.19, 26.11.18
 
     - HLS API: https://hls-js.netlify.com/api-docs/
 
@@ -11,6 +11,14 @@
             :controls="['duration']">
         </surfcam-player-plyr>
 */
+//-----------------------------------------------------------------
+// VARS
+// FYI: Google ads will fail to play when Plyr is reactive.
+// Assign Plyr to a global variable outside of Vue to fix this.
+//-----------------------------------------------------------------
+
+let globalPlayerInstance;
+
 //-----------------------------------------------------------------
 // VIDEO PLAYER
 //
@@ -51,6 +59,13 @@ Vue.component('surfcam-player-plyr', {
         </div>
     `,
     props: {
+        ads: {
+            type: Object,
+            default: () => ({
+                enabled: false,
+                tagUrl: ''
+            })
+        },
         controls: {
             type: Array,
             required: false,
@@ -68,7 +83,6 @@ Vue.component('surfcam-player-plyr', {
     data() {
         return {
             errors: false,
-            playerInstance: null,
             poster: '/assets/img/layout/placeholder-video-1280x720.svg',
             hlsInstance: null,
             showControls: null,
@@ -90,8 +104,8 @@ Vue.component('surfcam-player-plyr', {
         bus.$on('initPlayer', this.initPlayer);
     },
     beforeDestroy() {
-        this.playerInstance.destroy();
-        this.playerInstance = null;
+        globalPlayerInstance.destroy();
+        globalPlayerInstance = null;
     },
     methods: {
         initPlayer() {
@@ -165,18 +179,19 @@ Vue.component('surfcam-player-plyr', {
             // const controls = controlDefaults.concat(this.controls);
             const controls = controlsHTML;
 
-            this.playerInstance = new Plyr(this.videoEl, {
+            globalPlayerInstance = new Plyr(this.videoEl, {
                 controls,
                 clickToPlay: true,
                 displayDuration: false,
-                hideControls: false // Show controls on init.
+                hideControls: false, // Show controls on init.
+                ads: this.ads
             });
 
             // ON PLAY
-            this.playerInstance.on('play', this.playVideo);
+            globalPlayerInstance.on('play', this.playVideo);
 
             // ON PAUSE
-            this.playerInstance.on('pause', this.pauseVideo);
+            globalPlayerInstance.on('pause', this.pauseVideo);
         },
         //-----------------------------------------------------------------
         // LOAD VIDEO
@@ -198,7 +213,7 @@ Vue.component('surfcam-player-plyr', {
                 this.videoEl.src = video_obj.stream; // eg. iOS
 
                 // Errors for non-hls only (iOS)
-                this.playerInstance.on('error', (event) => {
+                globalPlayerInstance.on('error', (event) => {
                     // this.$emit('log-errors');
                     // this.errors = true; // uncomment this when thumbnails are HTTPS - errors occur with it
                     this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
@@ -235,7 +250,7 @@ Vue.component('surfcam-player-plyr', {
             // https://codepen.io/fullkornslimpa/pen/EpmKga?editors=1010
             setTimeout(() => {
 
-                const playerEl = this.playerInstance.elements.container;
+                const playerEl = globalPlayerInstance.elements.container;
                 let playerHideTimeout;
 
                 // Immediately hide the controls via class removal.
@@ -270,8 +285,9 @@ Vue.component('surfcam-player-plyr', {
             // Start timeout for pausing video after idle time.
             this.startTimeout();
 
-            if (this.hlsInstance === 'RELOAD_IT')
+            if (this.hlsInstance === 'RELOAD_IT') {
                 this.loadVideo(this.videoObj);
+            }
         },
         //-----------------------------------------------------------------
         // PAUSE VIDEO
@@ -283,7 +299,7 @@ Vue.component('surfcam-player-plyr', {
 
         pauseVideo() {
             this.resetTimeout();
-            this.playerInstance.pause();
+            globalPlayerInstance.pause();
             if (this.hlsInstance) {
                 this.hlsInstance.stopLoad(); // stop further buffering
                 this.hlsInstance = 'RELOAD_IT';

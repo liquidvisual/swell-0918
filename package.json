@@ -59,7 +59,7 @@
     "moment": "^2.22.2",
     "npm": "^6.4.1",
     "perfect-scrollbar": "^1.4.0",
-    "plyr": "^3.4.4",
+    "plyr": "^3.6.2",
     "popper.js": "^1.12.9",
     "smoothscroll-polyfill": "^0.4.4",
     "social-feed": "github:pavelk2/social-feed#gh-pages",
