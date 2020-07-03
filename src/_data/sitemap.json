@@ -5395,6 +5395,24 @@
                   "children":false
                },
                {
+                  "name":"Currumbin Alley",
+                  "url":"/surfcams/currumbin-alley",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Laceys Lane",
+                  "url":"/surfcams/laceys-lane",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"South Palm Beach",
+                  "url":"/surfcams/south-palm-beach",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Burleigh Heads",
                   "url":"/surfcams/burleigh-heads",
                   "premium":true,
