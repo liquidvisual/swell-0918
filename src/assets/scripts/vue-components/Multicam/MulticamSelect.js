@@ -117,6 +117,8 @@ Vue.component('multicam-select', {
                         { id: 382065, name: 'Christies Beach',   path: 'christies-beach.stream' },
                         { id: 493168, name: 'Y Steps',           path: 'y-steps.stream' },
                         { id: 821,    name: 'South Port',        path: 'south-port.stream' },
+                        { id: 499745, name: 'The Hump',          path: 'the-hump.stream' },
+                        { id: 499744, name: 'Rivermouth',        path: 'rivermouth.stream' },
                         { id: 444456, name: 'Goolwa',            path: 'goolwa.stream' }
                     ]
                 },

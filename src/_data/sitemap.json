@@ -5662,6 +5662,18 @@
                   "children":false
                },
                {
+                  "name":"The Hump",
+                  "url":"/surfcams/the-hump",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Rivermouth",
+                  "url":"/surfcams/rivermouth",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Triggs",
                   "url":"/surfcams/triggs",
                   "premium":true,
