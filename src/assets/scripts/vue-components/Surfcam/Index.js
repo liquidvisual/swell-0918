@@ -317,7 +317,7 @@ Vue.component('surfcam-widget', {
             .then((response) => {
                 this.feedLoading = false; // stop loading
 
-                log('~~~~~~~~~~~~ Server Response: ('+typeof(response.data)+', length: '+response.data.length+') ~~~~~~~~~~~~');
+                log('~~~~~~~~~~~~ Server Response: ('+typeof(response.data)+', length: '+response.data.length+') ~~~~~~~~~~~~', response.data);
 
                 //++++++++++++++++++++++++++++++++++++++++++++++++
                 // TEST FOR EMPTY

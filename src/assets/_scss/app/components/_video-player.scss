@@ -14,7 +14,8 @@
 //-----------------------------------------------------------------
 
 .video-player-flow,
-.video-player-plyr {
+.video-player-plyr,
+.video-js-player {
 	position: relative;
 	overflow: hidden; // stop error overlay from spilling
 }
@@ -237,6 +238,122 @@
 	right: rem-calc(20);
 }
 
+//-----------------------------------------------------------------
+// VIDEO JS - SKIN
+//-----------------------------------------------------------------
 //=========================================
-//
+// WATERMARK
 //=========================================
+
+.video-js-player .video-player-watermark {
+	// bottom: 40px;
+	bottom: auto;
+	top: rem-calc(10);
+}
+
+//=========================================
+// BUTTONS
+//=========================================
+
+.video-js-player .video-js button {
+	font-size: rem-calc(16);
+	// border: 1px solid red;
+
+	&:hover,
+	&:focus {
+		background: rgba(white, 0.2);
+	}
+}
+
+// button icons
+.video-js-player .video-js .vjs-button .vjs-icon-placeholder:before {
+	line-height: rem-calc(51);
+}
+
+//=========================================
+// CONTROL BAR
+//=========================================
+
+.video-js-player .video-js .vjs-control-bar {
+	height: rem-calc(50);
+	background: rgba(black, 0.5);
+	background: linear-gradient(to bottom, rgba(black, 0) 0%, rgba(black, 0.8) 70%);
+}
+
+//=========================================
+// PROGRESS TRACK
+//=========================================
+
+// Track holder
+.video-js-player .video-js .vjs-progress-holder {
+	height: rem-calc(6);
+	border-radius: 10px;
+	background: rgba(white, 0.4);
+}
+
+// Track and progress bar
+.video-js-player .video-js .vjs-load-progress,
+.video-js-player .video-js .vjs-slider-bar {
+	border-radius: 6px;
+}
+
+// Track and progress bar
+.video-js-player .video-js .vjs-slider-bar {
+	background: #333333; //rgba(black, 0.6);
+}
+
+.video-js-player .video-js .vjs-live-display {
+	font-size: rem-calc(16);
+	line-height: rem-calc(50);
+	padding-left: rem-calc(10);
+}
+
+// Loading bits
+.video-js-player .video-js .vjs-load-progress div {
+	background: rgba(white, 0.4);
+	border-radius: 6px;
+}
+
+// Ball
+.video-js-player .video-js .vjs-play-progress:before {
+	top: -7px;
+	font-size: rem-calc(20);
+}
+
+// Time
+.video-js-player .video-js .vjs-remaining-time {
+	font-size: rem-calc(16);
+	line-height: rem-calc(50);
+	font-weight: $font-weight-bold;
+}
+
+//=========================================
+// BIG PLAY BUTTON
+//=========================================
+
+.video-js-player .video-js .vjs-big-play-button {
+	width: rem-calc(50);
+	height: rem-calc(50);
+	margin-top: rem-calc(-25);
+	margin-left: rem-calc(-25);
+	border: 0;
+	border-radius: 100%;
+	font-size: rem-calc(30);
+	line-height: rem-calc(50);
+}
+
+// Hover / Focus
+.video-js-player .video-js:hover .vjs-big-play-button,
+.video-js-player .video-js .vjs-big-play-button:focus {
+	background: rgba(black, 0.4);
+}
+
+//=========================================
+// EXPAND BUTTON
+//=========================================
+
+.video-js-player .video-js .btn-expand {
+	width: auto;
+	padding: rem-calc(0 15);
+	font-weight: $font-weight-bold;
+}
