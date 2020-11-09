@@ -294,14 +294,20 @@
                                                         <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
                                                     </div>
 
-                                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
-                                                    <div id="surfcam-player-plyr-holder">
+                                                    <!-- SURFCAM PLAYER HOLDER -->
+                                                    <div id="surfcam-player-holder">
 
-                                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000" :controls="[
-                            'progress',
-                            'duration'
-                        ]"></surfcam-player-plyr>
+                                                        <!-- SURFCAM PLAYER (VIDEO-JS) -->
+                                                        <surfcam-player-video-js :options="{
+                            ads: {
+                                enabled: false
+                            },
+                            autoplay: true,
+                            inactivityTimeout: 5000,
+                            muted: true,
+                            pauseTimeout: 10000,
+                            watermark: false
+                        }"></surfcam-player-video-js>
                                                     </div>
 
                                                     <!-- THUMB-SLIDER COMPONENT -->
@@ -875,6 +881,9 @@
     <!-- **** JAVASCRIPT **** -->
     
 <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately --><script src="/assets/scripts/minified-hls.js"></script>
+
+    <!-- GOOGLE API IMA SDK LOADER -->
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->

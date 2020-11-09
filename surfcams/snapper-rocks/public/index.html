@@ -354,19 +354,21 @@
                                             <surfcam-widget inline-template live-stream="rtmp://streamer.swellnet.com.au/surfcams/snapper-rocks.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/snapper-rocks.jpg" live-stream-playlist="//streamer.swellnet.com.au/surfcams/snapper-rocks.stream/playlist.m3u8" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2">
                                                 <div>
 
-                                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
-                                                    <div id="surfcam-player-plyr-holder">
+                                                    <!-- SURFCAM PLAYER HOLDER -->
+                                                    <div id="surfcam-player-holder">
 
-                                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000" :ads="{
-                            enabled: true,
-                            tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
-                        }"></surfcam-player-plyr>
-                                                    </div>
-
-                                                    <!-- *NEW* EXPAND FEATURE (REMOVE WHEN UNECESSARY) -->
-                                                    <div class="new-expand-feature hidden-md-down">
-                                                        <img class="" src="/assets/img/content/new-expand.png" alt="New Expand Feature">
+                                                        <!-- SURFCAM PLAYER (VIDEO-JS) -->
+                                                        <surfcam-player-video-js :options="{
+                            ads: {
+                                enabled: true,
+                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
+                            },
+                            autoplay: true,
+                            inactivityTimeout: 5000,
+                            muted: true,
+                            pauseTimeout: 10000,
+                            watermark: true
+                        }"></surfcam-player-video-js>
                                                     </div>
                                                 </div>
                                             </surfcam-widget>
@@ -963,6 +965,9 @@
     <!-- **** JAVASCRIPT **** -->
     
 <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately --><script src="/assets/scripts/minified-hls.js"></script>
+
+    <!-- GOOGLE API IMA SDK LOADER -->
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->

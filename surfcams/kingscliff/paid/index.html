@@ -322,11 +322,20 @@
                                             <surfcam-widget inline-template live-stream="rtmp://streamer.swellnet.com.au/surfcams/kingscliff.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/kingscliff.jpg" live-stream-playlist="//streamer.swellnet.com.au/surfcams/kingscliff.stream/playlist.m3u8">
                                                 <div>
 
-                                                    <!-- SURFCAM PLAYER PLYR HOLDER -->
-                                                    <div id="surfcam-player-plyr-holder">
+                                                    <!-- SURFCAM PLAYER HOLDER -->
+                                                    <div id="surfcam-player-holder">
 
-                                                        <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
-                                                        <surfcam-player-plyr id="surfcam-player-plyr" :muted="true" :video-timeout="300000"></surfcam-player-plyr>
+                                                        <!-- SURFCAM PLAYER (VIDEO-JS) -->
+                                                        <surfcam-player-video-js :options="{
+                            ads: {
+                                enabled: false
+                            },
+                            autoplay: true,
+                            inactivityTimeout: 5000,
+                            muted: true,
+                            pauseTimeout: 10000,
+                            watermark: false
+                        }"></surfcam-player-video-js>
                                                     </div>
 
                                                     <!-- *NEW* EXPAND FEATURE (REMOVE WHEN UNECESSARY) -->
@@ -898,6 +907,9 @@
     <!-- **** JAVASCRIPT **** -->
     
 <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately --><script src="/assets/scripts/minified-hls.js"></script>
+
+    <!-- GOOGLE API IMA SDK LOADER -->
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
     <script src="/assets/scripts/minified.js"></script>
 
     <!-- NO JAVASCRIPT WARNING -->
