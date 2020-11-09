@@ -131,16 +131,20 @@ Vue.component('surfcam-player-video-js', {
 
     computed: {
         mergedOptions() {
-            return {
-                ...this.defaultOptions,
-                ...this.options,
-                children: {
-                    controlBar: {
-                        ...this.defaultOptions.children.controlBar,
-                        ...(this.options.children && this.options.children.controlBar)
-                    }
-                }
-            }
+
+            const defOptions = Object.assign({}, this.defaultOptions, this.options);
+
+            return defOptions;
+            // return {
+                // ...this.defaultOptions,
+                // ...this.options,
+                // children: {
+                //     controlBar: {
+                //         ...this.defaultOptions.children.controlBar,
+                //         ...(this.options.children && this.options.children.controlBar)
+                //     }
+                // }
+            // }
         }
     },
 
@@ -201,7 +205,7 @@ Vue.component('surfcam-player-video-js', {
                     this.addClass('vjs-button');
                     this.addClass('vjs-control');
                     this.addClass('btn-expand');
-                    this.controlText("Toggle Expand");
+                    this.controlText('Toggle Expand');
                 },
                 handleClick: () => {
                     this.onTheatreMode();
