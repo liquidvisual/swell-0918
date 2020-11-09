@@ -22,24 +22,24 @@ theme:
 ### Kingscliff
 
 * [/surfcams/kingscliff/](/surfcams/kingscliff/) (Prompt)
-* [/surfcams/kingscliff/paid/](/surfcams/kingscliff/paid/) (Plyr)
-* [/surfcams/kingscliff/public/](/surfcams/kingscliff/public/) (Flow Player)
+* [/surfcams/kingscliff/paid/](/surfcams/kingscliff/paid/) (video.js)
+* [/surfcams/kingscliff/public/](/surfcams/kingscliff/public/) (video.js)
 * [/surfcams/kingscliff/public-premium/](/surfcams/kingscliff/public-premium/) (Prompt)
-* [/surfcams/kingscliff/replays/](/surfcams/kingscliff/replays/) (Plyr)
+* [/surfcams/kingscliff/replays/](/surfcams/kingscliff/replays/) (video.js)
 
 ### Snapper Rocks
 
-* [/surfcams/snapper-rocks/](/surfcams/snapper-rocks/) (Flow Player)
-* [/surfcams/snapper-rocks/paid/](/surfcams/snapper-rocks/paid/) (Plyr)
-* [/surfcams/snapper-rocks/public/](/surfcams/snapper-rocks/public/) (Flow Player)
+* [/surfcams/snapper-rocks/](/surfcams/snapper-rocks/) (video.js)
+* [/surfcams/snapper-rocks/paid/](/surfcams/snapper-rocks/paid/) (video.js)
+* [/surfcams/snapper-rocks/public/](/surfcams/snapper-rocks/public/) (video.js)
 * [/surfcams/snapper-rocks/public-premium/](/surfcams/snapper-rocks/public-premium/) (Prompt)
-* [/surfcams/snapper-rocks/replays/](/surfcams/snapper-rocks/replays/) (Plyr)
+* [/surfcams/snapper-rocks/replays/](/surfcams/snapper-rocks/replays/) (video.js)
 
 ### Woolongong
 
-* [/surfcams/wollongong/](/surfcams/wollongong/) (Flow Player)
-* [/surfcams/wollongong/paid/](/surfcams/wollongong/paid/) (Plyr)
-* [/surfcams/wollongong/replays/](/surfcams/wollongong/replays/) (Plyr)
+* [/surfcams/wollongong/](/surfcams/wollongong/) (video.js)
+* [/surfcams/wollongong/paid/](/surfcams/wollongong/paid/) (video.js)
+* [/surfcams/wollongong/replays/](/surfcams/wollongong/replays/) (video.js)
 
 ---
 

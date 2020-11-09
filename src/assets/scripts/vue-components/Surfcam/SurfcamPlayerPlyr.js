@@ -227,16 +227,16 @@ Vue.component('surfcam-player-plyr', {
                 this.hlsInstance.attachMedia(this.videoEl);
 
                 // Errors for hls only
-                this.hlsInstance.on(Hls.Events.ERROR, (event, data) => {
-                    if (data.fatal) {
-                        // this.$emit('log-errors');
-                        // there's a bug which causes error data not to write immediately, timeout solves this
-                        setTimeout(() => {
-                            // this.errors = true; // is possibly causing a false negative. Will revisit with video.js.
-                            this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
-                        }, 100);
-                    }
-                });
+                // this.hlsInstance.on(Hls.Events.ERROR, (event, data) => {
+                //     if (data.fatal) {
+                //         // this.$emit('log-errors');
+                //         // there's a bug which causes error data not to write immediately, timeout solves this
+                //         setTimeout(() => {
+                //             this.errors = true; // is possibly causing a false negative. Will revisit with video.js.
+                //             this.poster = '/assets/img/layout/placeholder-video-1280x720--transparent.svg'; // iOS fix for weirdly large height image
+                //         }, 100);
+                //     }
+                // });
             }
             this.startTimeout(); // start timer until pause
         },

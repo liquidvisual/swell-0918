@@ -79,6 +79,9 @@
     <script src="/node_modules/plyr/dist/plyr.polyfilled.js"></script>
     <!-- endbuild -->
 
+    <!-- GOOGLE API IMA SDK LOADER -->
+    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
     <!-- build:js({src,.}) /assets/scripts/minified.js -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
@@ -98,12 +101,18 @@
     <script src="/node_modules/axios/dist/axios.js"></script>
     <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
     <script src="/node_modules/vue-multiselect/dist/vue-multiselect.min.js"></script>
+
+    <script src="/node_modules/video.js/dist/video.js"></script>
+    <script src="/node_modules/videojs-contrib-ads/dist/videojs-contrib-ads.js"></script>
+    <script src="/node_modules/videojs-ima/dist/videojs.ima.js"></script>
+    <script src="/node_modules/can-autoplay/build/can-autoplay.js"></script>
+
     <script src="/assets/scripts/vue-components/Surfcam/Index.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/DateSelect.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/TimeSelect.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/ThumbSlider.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerJW.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerPlyr.js"></script>
+    <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerVideoJS.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/VueFlickity.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/Index.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/Multicam.js"></script>

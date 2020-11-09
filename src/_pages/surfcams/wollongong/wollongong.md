@@ -1,6 +1,6 @@
 ---
 layout: child_layout/surfcams_live
-title: Wollongong (down)
+title: Wollongong
 permalink: /surfcams/wollongong/
 user_type: public
 premium: false

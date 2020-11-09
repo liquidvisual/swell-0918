@@ -1,5 +1,10 @@
 // /*
-// Couldn't get FlowPlayer to work with Vue component, so created extra template with vanilla JS
+
+
+// !!! Couldn't get FlowPlayer to work with Vue component, so created extra template with vanilla JS !!!
+
+
+
 //     SURFCAM PLAYER FLOW
 //     updated: 04.07.19
 

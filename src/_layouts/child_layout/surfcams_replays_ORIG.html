@@ -128,24 +128,20 @@ layout: base__page_sidebar
 
                 </div>
 
-                <!-- SURFCAM PLAYER HOLDER -->
-                <div id="surfcam-player-holder">
+                <!-- SURFCAM PLAYER PLYR HOLDER -->
+                <div id="surfcam-player-plyr-holder">
 
-                    <!-- SURFCAM PLAYER (VIDEO-JS) -->
-                    <surfcam-player-video-js
-                        :options="{
-                            ads: {
-                                enabled: false
-                            },
-                            autoplay: true,
-                            inactivityTimeout: 5000,
-                            muted: true,
-                            pauseTimeout: 10000,
-                            watermark: false
-                        }"
+                    <!-- PLAYER (PLYR) COMPONENT (5min timeout) -->
+                    <surfcam-player-plyr
+                        id="surfcam-player-plyr"
+                        :muted="true"
+                        :video-timeout="300000"
+                        :controls="[
+                            'progress',
+                            'duration'
+                        ]"
                     >
-                    </surfcam-player-video-js>
-
+                    </surfcam-player-plyr>
                 </div>
 
                 <!-- THUMB-SLIDER COMPONENT -->
