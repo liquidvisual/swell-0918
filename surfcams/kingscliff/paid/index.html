@@ -276,14 +276,10 @@
                                             <div id="video-player-overlay-premium-feature" class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4" hidden>
 
                                                 <!-- THEATRE MODE EXIT -->
-                                                <button class="flow-btn-shrink hidden-md-down" type="button">
-                                                    <small>
-                                                        <b>
-                                                            <span class="text">SHRINK</span>
-                                                        </b>
-                                                    </small>&nbsp;
-                                                    <i class="fa fa-compress fa-rotate-45"></i>
-                                                </button>
+                                                
+<!-- <button class="flow-btn-shrink hidden-md-down" type="button"><small><b><span class="text">SHRINK</span></b></small>&nbsp;
+            <i class="fa fa-compress fa-rotate-45"></i>
+        </button> -->
 
                                                 <!-- INNER-->
                                                 <div class="video-player-overlay-inner">
@@ -328,13 +324,14 @@
                                                         <!-- SURFCAM PLAYER (VIDEO-JS) -->
                                                         <surfcam-player-video-js :options="{
                             ads: {
-                                enabled: false
+                                enabled: false,
                             },
                             autoplay: true,
-                            inactivityTimeout: 5000,
+                            inactivityTimeout: 4*1000,
                             muted: true,
-                            pauseTimeout: 10000,
-                            watermark: false
+                            pauseTimeout: 5*60*1000,
+                            watermark: true,
+                            watermarkPosition: 'tr'
                         }"></surfcam-player-video-js>
                                                     </div>
 
