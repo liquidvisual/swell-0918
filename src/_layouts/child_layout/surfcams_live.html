@@ -52,13 +52,16 @@ layout: base__page_sidebar
     </div>
 
     <!-- PREMIUM *FEATURE* OVERLAY (SHOW FOR UNPAID) -->
-    <div id="video-player-overlay-premium-feature" class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4" hidden>
-
+    <div
+        id="video-player-overlay-premium-feature"
+        class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4"
+        hidden
+    >
         <!-- THEATRE MODE EXIT -->
-        <button class="flow-btn-shrink hidden-md-down" type="button">
+        <!-- <button class="flow-btn-shrink hidden-md-down" type="button">
             <small><b><span class="text">SHRINK</span></b></small>&nbsp;
             <i class="fa fa-compress fa-rotate-45"></i>
-        </button>
+        </button> -->
 
         <!-- INNER-->
         <div class="video-player-overlay-inner">
@@ -198,13 +201,18 @@ layout: base__page_sidebar
                         :options="{
                             ads: {
                                 enabled: true,
-                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator='
+                                cooldown: 6*1000,
+                                debug: false,
+                                midrolls: 2,
+                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=',
+                                timeout: true
                             },
                             autoplay: true,
-                            inactivityTimeout: 5000,
+                            inactivityTimeout: 4*1000,
                             muted: true,
-                            pauseTimeout: 10000,
-                            watermark: true
+                            pauseTimeout: 5*60*1000,
+                            watermark: true,
+                            watermarkPosition: 'tr'
                         }"
                     >
                     </surfcam-player-video-js>
@@ -244,13 +252,14 @@ layout: base__page_sidebar
                     <surfcam-player-video-js
                         :options="{
                             ads: {
-                                enabled: false
+                                enabled: false,
                             },
                             autoplay: true,
-                            inactivityTimeout: 5000,
+                            inactivityTimeout: 4*1000,
                             muted: true,
-                            pauseTimeout: 10000,
-                            watermark: false
+                            pauseTimeout: 5*60*1000,
+                            watermark: true,
+                            watermarkPosition: 'tr'
                         }"
                     >
                     </surfcam-player-video-js>
