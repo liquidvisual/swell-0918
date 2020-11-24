@@ -102,6 +102,7 @@ Vue.component('surfcam-player-video-js', {
             adCooldownTimeoutInstance: null,
             errors: false,
             midrollCount: 0,
+            prerollComplete: null,
             pauseTimeoutInstance: null,
             playerInstance: null,
             poster: '/assets/img/layout/placeholder-video-1280x720.svg',
@@ -252,11 +253,11 @@ Vue.component('surfcam-player-video-js', {
             // CREATE EXPAND BUTTON
             this.createExpandButton(this.playerInstance);
 
-            // SETUP USER INACTIVITY
-            // this.setupUserInactivity();
-
             // SETUP ADS (might go into loadVideo)
             this.setupAds();
+
+            // SETUP USER INACTIVITY
+            this.setupUserInactivity();
 
             // ON PLAY
             this.playerInstance.on('play', this.onPlayVideo);
@@ -375,6 +376,9 @@ Vue.component('surfcam-player-video-js', {
 
                     console.log('AD ENDED...');
 
+                    // To determine whether preroll or midroll ad fails below.
+                    this.prerollComplete = true;
+
                     // Force player to play.
                     this.playerInstance.play();
 
@@ -398,22 +402,67 @@ Vue.component('surfcam-player-video-js', {
 
                             // Else midrolls completed, timeout.
                             else if (this.mergedOptions.ads.timeout) {
-
-                                // Clear player.
-                                this.playerInstance.dispose();
-                                this.playerInstance.ima = null;
-
-                                const playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
-
-                                // Reveal timeout overlay.
-                                playerOverlayTimeoutEl.removeAttribute('hidden');
-
-                                // Clicking player reloads video/page and reinits.
-                                playerOverlayTimeoutEl.addEventListener('click', () => location.reload());
+                                timeoutPlayer();
                             }
                         }, this.mergedOptions.ads.cooldown);
                     }
                 });
+
+                //==================================================
+                // ON ADS ERROR
+                // https://github.com/googleads/videojs-ima/issues/690
+                //==================================================
+
+                this.playerInstance.on('adserror', err => {
+
+                    //==================================================
+                    // The midroll has failed. Timeout immediately.
+                    //==================================================
+
+                    if (this.prerollComplete) {
+                        console.warn('Midroll not found. Player will timeout immediately.');
+                        timeoutPlayer();
+                    }
+
+                    //==================================================
+                    // The preroll has failed. Play video but timeout after cooldown.
+                    //==================================================
+
+                    else {
+
+                        console.warn('Preroll not found. Player will timeout shortly after play.');
+
+                        // Clear timeout to be safe.
+                        clearTimeout(this.adCooldownTimeoutInstance);
+
+                        // Timeout earlier.
+                        this.adCooldownTimeoutInstance = setTimeout(() => {
+                            timeoutPlayer();
+                        }, this.mergedOptions.ads.cooldown);
+                    }
+
+                    console.log('AD ERROR...', err.data.AdError.g, err.data.AdError.g.errorCode);
+                });
+
+                //==================================================
+                // TIMEOUT PLAYER
+                //==================================================
+
+                const timeoutPlayer = () => {
+
+                    // Clear player.
+                    this.playerInstance.dispose();
+                    this.playerInstance.ima = null;
+                    this.playerInstance = null;
+
+                    const playerOverlayTimeoutEl = document.getElementById('video-player-overlay-timeout');
+
+                    // Reveal timeout overlay.
+                    playerOverlayTimeoutEl.removeAttribute('hidden');
+
+                    // Clicking player reloads video/page and reinits.
+                    playerOverlayTimeoutEl.addEventListener('click', () => location.reload());
+                }
 
                 //==================================================
                 // TOUCH DEVICES
@@ -441,35 +490,82 @@ Vue.component('surfcam-player-video-js', {
 
         //-----------------------------------------------------------------
         // SETUP USER INACTIVITY
+        // (Not related to the userInactivity option)
         //-----------------------------------------------------------------
 
         setupUserInactivity() {
 
-            document.addEventListener('visibilitychange', () => {
-                // document.title = document.hidden ? "I'm away" : "I'm here";
+            //================================================
+            // UNPAID USERS HAVE OFF-FOCUS EVENTS (INTRUSIVE)
+            //================================================
 
-                if (document.hidden) {
-                    this.clearPauseTimeout();
+            if (this.mergedOptions.ads &&
+                this.mergedOptions.ads.enabled &&
+                this.mergedOptions.ads.tagUrl) {
 
-                    // https://github.com/googleads/videojs-ima/issues/430
-                    this.playerInstance.reset();
-                    this.playerInstance.ima = null;
-                    console.log('Resetting player');
-                }
-                else {
-                    this.loadVideo(this.videoObj);
-                    console.log('Loading Video');
+                // Start timeout when user isn't focused.
+                window.addEventListener('blur', () => {
+                    if (this.playerInstance) {
+                        try {
+                            // console.log('Pausing Ad');
+                            this.playerInstance.pause();
+                            this.playerInstance.ima.pauseAd();
+                        }
+                        catch(err) {
+                            console.warn("playerInstance or ima not available. Cannot pause.");
+                        }
+                    }
+                });
 
-                    setTimeout(() => {
-                        if (this.options.ads.enabled) {
-                            if (this.playerInstance.ima) {
-                                this.playerInstance.ima.changeAdTag(this.options.ads.tagUrl);
-                                this.playerInstance.ima.requestAds();
+                // Return focus to window. -- perhaps not necessary anymore
+                window.addEventListener('focus', () => {
+                    if (this.playerInstance) {
+                        try {
+                            // Since there's no way to reliably tell if a user has invoked the play event we disable for non-autoplay.
+                            if (this.mergedOptions.autoplay) {
+
+                                console.log('Resuming ad or video.');
+                                this.playerInstance.play();
+                                this.playerInstance.ima.resumeAd();
+                            }
+                            else {
+                                this.playerInstance.ima.resumeAd();
                             }
                         }
-                    }, 1000);
-                }
-            });
+                        catch(err) {
+                            console.warn("playerInstance or ima not available. Cannot resume.");
+                        }
+                    }
+                });
+            }
+
+            //================================================
+            // PAID USERS HAVE
+            //================================================
+
+            else {
+
+                document.addEventListener('visibilitychange', () => {
+                    // document.title = document.hidden ? "I'm away" : "I'm here";
+
+                    if (document.hidden) {
+
+                        console.log('Resetting player');
+                        this.clearPauseTimeout();
+                        // https://github.com/googleads/videojs-ima/issues/430
+                        this.playerInstance.reset();
+                    }
+                    else {
+                        this.startPauseTimeout();
+                        this.loadVideo(this.videoObj);
+                        console.log('Loading Video');
+                    }
+                });
+            }
+
+            //-----------------------------------------------------------------
+            // SETUP USER INACTIVITY
+            //-----------------------------------------------------------------
 
             // ON USER ACTIVE
             // this.playerInstance.on('useractive', () => this.userActive = true);
