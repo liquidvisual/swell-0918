@@ -48,11 +48,15 @@ Vue.component('multicam-select', {
                         { id: 484779, name: 'Tweed Bar',         path: 'tweed-bar.stream' },
                         { id: 250741, name: 'Snapper Rocks',     path: 'snapper-rocks.stream' },
                         { id: 250746, name: 'Greenmount',        path: 'greenmount.stream' },
+                        { id: 508111, name: 'Coolangatta',       path: 'coolangatta.stream' },
+                        { id: 508110, name: 'Spot X',            path: 'spot-x.stream' },
+                        { id: 508108, name: 'Kirra Big Groyne',  path: 'kirra-big-groyne.stream' },
                         { id: 464936, name: 'Kirra',             path: 'kirra.stream' },
                         { id: 343461, name: 'Currumbin',         path: 'currumbin.stream' },
                         { id: 497132, name: 'Currumbin Alley',   path: 'currumbin-alley.stream' },
                         { id: 497133, name: 'Laceys Lane',       path: 'laceys-lane.stream' },
                         { id: 497134, name: 'South Palm Beach',  path: 'south-palm-beach.stream' },
+                        { id: 497135, name: 'Palm Beach',        path: 'palm-beach.stream' },
                         { id: 851,    name: 'Burleigh Heads',    path: 'burleigh.stream' },
                         { id: 473908, name: 'Surfers Paradise South', path: 'surfers-paradise-south.stream' },
                         { id: 473909, name: 'Surfers Paradise North', path: 'surfers-paradise-north.stream' },
@@ -73,6 +77,7 @@ Vue.component('multicam-select', {
                     locations: [
                         { id: 328177, name: 'Kingscliff',        path: 'kingscliff.stream' },
                         { id: 335898, name: 'Cabarita',          path: 'cabarita.stream' },
+                        { id: 497597, name: 'Cabarita Beach',    path: 'cabarita-beach.stream' },
                         { id: 866,    name: 'Byron Bay',         path: 'byron.stream' },
                         { id: 479345, name: 'The Pass',          path: 'the-pass.stream' },
                         { id: 331984, name: 'Yamba',             path: 'yamba.stream' },
@@ -127,6 +132,7 @@ Vue.component('multicam-select', {
                     locations: [
                         { id: 846,    name: 'Margaret River',    path: 'margaret-river.stream' },
                         { id: 831,    name: 'Yallingup',         path: 'yallingup.stream' },
+                        { id: 489371, name: 'Mandurah Wedge',    path: 'mandurah-wedge.stream' },
                         { id: 489407, name: 'Brighton',          path: 'brighton.stream' },
                         { id: 826,    name: 'Scarborough',       path: 'scarborough.stream' },
                         { id: 489408, name: 'South Trigg',       path: 'south-trigg.stream' }
