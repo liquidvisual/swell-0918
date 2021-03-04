@@ -5564,11 +5564,13 @@
                {
                   "name":"Shark Island",
                   "url":"/surfcams/shark-island",
+                  "premium":true,
                   "children":false
                },
                {
                   "name":"Cronulla Point",
                   "url":"/surfcams/cronulla-point",
+                  "premium":true,
                   "children":false
                },
                {
