@@ -91,6 +91,7 @@ Vue.component('multicam-select', {
                         { id: 881,    name: 'Maroubra',          path: 'maroubra.stream' },
                         { id: 786,    name: 'Shark Island',      path: 'shark-island.stream' },
                         { id: 886,    name: 'Cronulla Point',    path: 'cronulla-point.stream' },
+                        { id: 512660, name: 'The Alley',         path: 'the-alley.stream' },
                         { id: 891,    name: 'Cronulla Beaches',  path: 'cronulla-beaches.stream' },
                         { id: 473140, name: 'Thirroul North',    path: 'thirroul-north.stream' },
                         { id: 841,    name: 'Thirroul',          path: 'thirroul.stream' },

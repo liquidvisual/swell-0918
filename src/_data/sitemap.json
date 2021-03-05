@@ -5574,6 +5574,12 @@
                   "children":false
                },
                {
+                  "name":"The Alley",
+                  "url":"/surfcams/the-alley",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Cronulla Beaches",
                   "url":"/surfcams/cronulla-beaches",
                   "children":false
