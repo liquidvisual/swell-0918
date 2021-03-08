@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no">
     <meta name="description" content="">
-    <title>Wollongong - Swellnet</title>
+    <title>Home v2 with Tabs - Swellnet</title>
 
     <!-- CDN -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/custom.css?pwrd3v">
     <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/custom-2018.css?pwrd3v">
 </head>
-<body class="theme-public theme-hide-create-report theme-hide-create-forecast">
+<body class="theme-hide-create-report theme-hide-create-forecast">
 
     <!-- PAGE LOADER -->
     <div id="lv-page-loader" class="lv-page-loader">
@@ -115,7 +115,7 @@
                                     <!-- DROPDOWN -->
                                     <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="1"></ul>
                                 </li>
-                                <li class="active has-dropdown is-mega is-surfcams-mega-menu">
+                                <li class="has-dropdown is-mega is-surfcams-mega-menu">
 
                                     <!-- ANCHOR -->
                                     <a href="/surfcams/" data-alias="">
@@ -249,172 +249,393 @@
 
                                         <!-- /DRUPAL -->
                                         
-<!-- TITLE --><h1 class="page-title mb-4">Wollongong
+<!-- TITLE --><h1 class="page-title mb-4">Home v2 with Tabs
                                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                                         </h1>
 
-                                        <!-- TOP CONTENTS WRAPPER -->
-                                        <div id="top-contents-wrapper">
-
-                                            <!-- LIVE + REPLAYS TABS -->
-                                            <div class="btn-tabs collapse-sm-down">
-
-                                                <!-- FAVORITE BTN -->
-                                                <span class="flag-wrapper flag-favourite-surfcam">
-                                                    <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
-                                                        <span class="hidden-xs-down">Set as favourite</span>
-                                                        <span class="hidden-sm-up">Set favourite</span>
-                                                    </a>
-                                                    <span class="flag-throbber">&nbsp;</span>
-                                                </span>
-
-                                                <!-- REPLAYS TAB -->
-                                                <a class="btn-tab" href="/surfcams/wollongong/replays/">Replays </a>
-
-                                                <!-- LIVE TAB -->
-                                                <a class="btn-tab active" href="/surfcams/wollongong/">Live</a>
-                                            </div>
-
-                                            <!-- PREMIUM *FEATURE* OVERLAY (SHOW FOR UNPAID) -->
-                                            <div id="video-player-overlay-premium-feature" class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4" hidden>
-
-                                                <!-- THEATRE MODE EXIT -->
-                                                
-<!-- <button class="flow-btn-shrink hidden-md-down" type="button"><small><b><span class="text">SHRINK</span></b></small>&nbsp;
-            <i class="fa fa-compress fa-rotate-45"></i>
-        </button> -->
-
-                                                <!-- INNER-->
-                                                <div class="video-player-overlay-inner">
-
-                                                    <!-- LOGO -->
-                                                    <img class="logo mb-2" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo">
-
-                                                    <!-- HEADING -->
-                                                    <h3>This is a premium feature for Swellnet Pro subscribers
-                                                        <a class="badge badge-primary" href="/news/swellnet-dispatch/2018/06/26/walled-and-rise">WHY?</a>
-                                                    </h3>
-
-                                                    <!-- BODY -->
-                                                    <p class="mb-md-3">Become a subscriber and receive access to premium surfcams and replays, ad-free surfcams, detailed surf forecaster notes, dawn surf reports and 16 day surf forecasts.</p>
-
-                                                    <!-- ALREADY A SUBSCRIBER? -->
-                                                    <p class="mb-md-4">
-                                                        <a class="text-link" href="/user/login?destination=/surfcams/kingscliff">Already a subscriber? Log-in here
-                                                            <i class="fa fa-angle-right"></i>
-                                                        </a>
-                                                    </p>
-
-                                                    <!-- GET SWELLNET PRO -->
-                                                    <a class="btn btn-md-lg btn-secondary" href="/pro/subscribe/chooseplan">Get Swellnet Pro&nbsp;
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- /.top-contents-wrapper -->
-                                        
-<!-- TIMEOUT OVERLAY (HIDDEN) --><div id="video-player-overlay-timeout" class="video-player-overlay video-player-overlay-timeout collapse-sm-down" hidden>
-
-                                            <!-- INNER -->
-                                            <div class="video-player-overlay-inner">
-
-                                                <!-- LOGO -->
-                                                <img class="logo mb-2" src="/assets/img/content/swellnet-logomark--white.svg" alt="Swellnet Logo">
-
-                                                <!-- HEADING -->
-                                                <h3>Click to reload and continue watching</h3>
-
-                                                <!-- BODY -->
-                                                <p class="mb-md-3">Subscribe to Swellnet Pro to access premium surfcams, remove ads and extend the timeout.</p>
-
-                                                <!-- ALREADY A SUBSCRIBER? -->
-                                                <p class="mb-md-4">
-                                                    <a class="text-link" href="https://www.swellnet.com/user/login">Already a subscriber? Log-in here
-                                                        <i class="fa fa-angle-right"></i>
-                                                    </a>
-                                                </p>
-
-                                                <!-- GET SWELLNET PRO -->
-                                                <a class="btn btn-md-lg btn-secondary" href="/pro/subscribe/chooseplan">Get Swellnet Pro&nbsp;
-                                                    <i class="fa fa-angle-right"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
-                                        <!-- START VUE APP -->
-                                        <div id="vue-app" class="mb-4">
-
-                                            <!-- SURFCAM WIDGET -->
-                                            <surfcam-widget inline-template live-stream="rtmp://streamer.swellnet.com.au/surfcams/wollongong.stream" live-stream-image="http://static.swellnet.com.au/images/surfcams/wollongong.jpg" live-stream-playlist="https://streamer.swellnet.com.au/surfcams/wollongong.stream/playlist.m3u8" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2">
+                                        <!-- WAVE OF THE DAY - VIEW (LEGACY) -->
+                                        <div class="view view-latest-wave-of-the-day view-id-latest_wave_of_the_day view-display-id-panel_pane_wotd view-dom-id-23a80b1632e3d932819051c6044a31b6">
+                                            <div class="view-content">
                                                 <div>
-
-                                                    <!-- SURFCAM PLAYER HOLDER -->
-                                                    <div id="surfcam-player-holder">
-
-                                                        <!-- SURFCAM PLAYER (VIDEO-JS) -->
-                                                        
-<!-- adv -->
-<!-- tagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=', -->
-<!-- simple -->
-<!-- tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=', -->
-<!-- autoPlayAdBreaks: false, --><surfcam-player-video-js :options="{
-                            ads: {
-                                enabled: true,
-                                cooldown: 20*1000,
-                                debug: false,
-                                midrolls: [
-                                    'https://pubads.g.doubleclick.net/gampad/ads?iu=/71161633/SWNT_swellnet/convention_midroll_1&description_url=https%3A%2F%2Fwww.swellnet.com%2F&tfcd=0&npa=0&sz=300x169%7C400x300%7C640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=',
-                                    'https://pubads.g.doubleclick.net/gampad/ads?iu=/71161633/SWNT_swellnet/convention_midroll_2&description_url=https%3A%2F%2Fwww.swellnet.com%2F&tfcd=0&npa=0&sz=300x169%7C400x300%7C640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator='
-                                ],
-                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/live/ads?iu=/71161633/SWNT_swellnet/video&description_url=http%3A%2F%2Fswellnet.com&tfcd=0&npa=0&sz=300x169%7C400x300%7C640x480&min_ad_duration=0&max_ad_duration=120000&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=',
-                                timeout: true
-                            },
-                            autoplay: false,
-                            inactivityTimeout: 4*1000,
-                            muted: true,
-                            pauseTimeout: 5*60*1000,
-                            watermark: true,
-                            watermarkPosition: 'tr'
-                        }"></surfcam-player-video-js>
+                                                    <div class="ds-1col node node-wave-of-the-day node-promoted node-teaser node-wave_of_the_day-teaser view-mode-teaser clearfix">
+                                                        <div class="field field-name-field-wotd-photo field-type-file field-label-hidden">
+                                                            <div class="ds-1col file file-image file-image-jpeg view-mode-wotd_postcard clearfix">
+                                                                <img class="img-responsive" src="http://www.swellnet.com/sites/default/files/styles/swellnet_large_wm_630x443/public/wave-of-the-day/img_e24.jpg?itok=CSWAjRcy" width="750" height="527" alt="">
+                                                            </div>
+                                                        </div>
+                                                        <div class="field field-name-field-wotd-photographer field-type-taxonomy-term-reference field-label-hidden">Steve Arklay</div>
+                                                        <div class="field field-name-field-wotd-caption field-type-text field-label-inline clearfix">
+                                                            <span class="field-label">Wave of the Day:</span>
+                                                            <span class="field-item">Craig's List longer sentence goes here, longere sentensdf asdf asdfkjsd sdfsdf</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </surfcam-widget>
+                                            </div>
                                         </div>
 
-                                        <!-- /.vue-app -->
+                                        <!-- SPACER -->
+                                        <div class="spacer mb-3"></div>
+
+                                        <!-- ARTICLES SNIPPET -->
                                         
-<!-- START VUE APP --><div id="vue-app" class="mb-4">
+<!-- HOME CONTAINER v2 --><div class="home-container-v2">
 
-                                            <!-- SURFCAM WIDGET -->
-                                            <surfcam-widget live-stream="true" data-path="https://www.swellnet.com/surfcam-replays/data/" surfcam-id="2" inline-template>
-                                                <div>
+                                            <!-- MOBILE: ARTICLES / FAST NEWS / COMMENTS -->
+                                            <div class="hidden-lg-up">
 
-                                                    <!-- HEADING: SURFCAM REPLAYS -->
-                                                    <h2 class="d-flex align-items-center mb-4 mt-4">
-                                                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays</h2>
+                                                <!-- NAV TABS -->
+                                                <ul id="tabs" class="nav nav-tabs" role="tablist">
+                                                    <li role="presentation">
+                                                        <a href="#tab-group-1" class="active" role="tab" data-toggle="tab">Articles</a>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <a href="#tab-group-2" role="tab" data-toggle="tab">Fast News</a>
+                                                    </li>
+                                                    <li role="presentation">
+                                                        <a href="#tab-group-3" role="tab" data-toggle="tab">Comments</a>
+                                                    </li>
+                                                </ul>
 
-                                                    <!-- SELECTS WRAPPER -->
-                                                    <div v-if="!replaysDisabled" class="custom-select-wrapper collapse-sm-down">
+                                                <!-- TAB CONTENT -->
+                                                <div class="tab-content mb-5">
 
-                                                        <!-- DATE-SELECT COMPONENT -->
-                                                        <date-select v-model="date" :is-loading="feedLoading"></date-select>
+                                                    <!-- TAB GROUP #1 (ARTICLES) -->
+                                                    <div id="tab-group-1" class="tab-pane active" role="tabpanel">
+                                                        <article class="py-2">
 
-                                                        <!-- TIME-SELECT COMPONENT -->
-                                                        <time-select v-model="selectedTimeIndex" :feed="feed" :index="selectedTimeIndex" :is-loading="feedLoading"></time-select>
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
                                                     </div>
 
-                                                    <!-- THUMB-SLIDER COMPONENT -->
-                                                    <transition name="special-thumb-slider-entrance">
-                                                        <thumb-slider v-if="feed" :current-index="selectedTimeIndex" :feed="feed" :is-loading="feedLoading"></thumb-slider>
-                                                    </transition>
-                                                </div>
-                                            </surfcam-widget>
-                                        </div>
+                                                    <!-- TAB GROUP #2 (FAST NEWS) -->
+                                                    <div id="tab-group-2" class="tab-pane" role="tabpanel">
+                                                        <h4>Fast News Articles Here...</h4>
+                                                    </div>
 
-                                        <!-- /.vue-app -->
+                                                    <!-- TAB GROUP #3 (COMMENTS) -->
+                                                    <div id="tab-group-3" class="tab-pane" role="tabpanel">
+                                                        <h4>Comments Here...</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- DESKTOP: ARTICLES / FAST NEWS -->
+                                            <div class="hidden-md-down">
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <h2>Articles</h2>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <h2>Fast News</h2>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                        <article class="py-2">
+
+                                                            <!-- HEADING -->
+                                                            <a href="#">
+                                                                <h3 class="h4 mb-3">Lorem ipsum dolor sit amet, consectetur</h3>
+                                                            </a>
+
+                                                            <!-- COLUMNS -->
+                                                            <div class="row">
+                                                                <div class="col-6">
+
+                                                                    <!-- AUTHOR NAME + DATE -->
+                                                                    <small class="d-block mb-0">
+                                                                        <a href="#">Author Name</a>
+                                                                    </small>
+                                                                    <small class="d-block mb-2">
+                                                                        <time class="text-muted">Tuesday 29/01</time>
+                                                                    </small>
+
+                                                                    <!-- BODY -->
+                                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                                                </div>
+                                                                <div class="col-6">
+
+                                                                    <!-- IMAGE -->
+                                                                    <div>
+                                                                        <a href="#">
+                                                                            <img width="100%" src="https://placehold.it/350x220" alt="Image">
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </article>
+                                                        <hr>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -663,6 +884,135 @@
                                         </div>
                                     </div>
                                 </section>
+
+                                <!-- IN THE FORUMS -->
+                                <section class="panel-pane pane-views pane-latest-forum-posts">
+
+                                    <!-- <h2 class="pane-title">In the Forums</h2> -->
+                                    <h3 class="d-flex mb-4">
+                                        <i class="fa fa-comments pr-3"></i> In the Forums</h3>
+                                    <div class="pane-content">
+                                        <div class="view view-latest-forum-posts view-id-latest_forum_posts view-display-id-block view-dom-id-3a1a906b4b4ac42bb913f4e0c2e3918b">
+                                            <div class="view-content">
+                                                <div class="views-row views-row-1 views-row-odd views-row-first">
+                                                    <span class="views-field views-field-name">
+                                                        <span class="field-content">Blowin said:</span>
+                                                    </span>
+                                                    <span class="views-field views-field-view-comment">
+                                                        <span class="field-content">
+                                                            <a href="/comment/551272#comment-551272">As long as Australia pursues the current radically high levels of immigration then wages will continue to fall. The rest of the...</a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="views-field views-field-created">
+                                                        <span class="field-content">- 27 min 36 sec ago</span>
+                                                    </span>
+                                                    <span class="views-field views-field-taxonomy-forums">
+                                                        <span class="field-content">
+                                                            <br>
+                                                            <a href="/forums/politico">Politico</a> &gt; </span>
+                                                    </span>
+                                                    <span class="views-field views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="/forums/politico/307178">What's what?</a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="views-row views-row-2 views-row-even">
+                                                    <span class="views-field views-field-name">
+                                                        <span class="field-content">Jamyardy said:</span>
+                                                    </span>
+                                                    <span class="views-field views-field-view-comment">
+                                                        <span class="field-content">
+                                                            <a href="/comment/551264#comment-551264">Ha, Abrolhos islands and Abrolhos banks, two different spots in two different oceans.</a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="views-field views-field-created">
+                                                        <span class="field-content">- 1 hour 6 min ago</span>
+                                                    </span>
+                                                    <span class="views-field views-field-taxonomy-forums">
+                                                        <span class="field-content">
+                                                            <br>
+                                                            <a href="/forums/crystal-ball">The Crystal Ball</a> &gt; </span>
+                                                    </span>
+                                                    <span class="views-field views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="/forums/crystal-ball/317418">Will the Leeuwin current be affected by the el nino?</a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="views-row views-row-3 views-row-odd">
+                                                    <span class="views-field views-field-name">
+                                                        <span class="field-content">Shatner'sBassoon said:</span>
+                                                    </span>
+                                                    <span class="views-field views-field-view-comment">
+                                                        <span class="field-content">
+                                                            <a href="/comment/551244#comment-551244">Rinse and repeat! Yew!</a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="views-field views-field-created">
+                                                        <span class="field-content">- 2 hours 32 min ago</span>
+                                                    </span>
+                                                    <span class="views-field views-field-taxonomy-forums">
+                                                        <span class="field-content">
+                                                            <br>
+                                                            <a href="/forums/wax">Wax On</a> &gt; </span>
+                                                    </span>
+                                                    <span class="views-field views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="/forums/wax/11351">Where did you surf today?</a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="views-row views-row-4 views-row-even">
+                                                    <span class="views-field views-field-name">
+                                                        <span class="field-content">Shatner'sBassoon said:</span>
+                                                    </span>
+                                                    <span class="views-field views-field-view-comment">
+                                                        <span class="field-content">
+                                                            <a href="/comment/551243#comment-551243">Fuck sake! We all know it's this guy: Check round the 59 sec mark for a flash of tit! Now on to more important matters, who's the...</a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="views-field views-field-created">
+                                                        <span class="field-content">- 2 hours 34 min ago</span>
+                                                    </span>
+                                                    <span class="views-field views-field-taxonomy-forums">
+                                                        <span class="field-content">
+                                                            <br>
+                                                            <a href="/forums/wax-0">Wax Off</a> &gt; </span>
+                                                    </span>
+                                                    <span class="views-field views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="/forums/wax/12901">Tunes</a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <div class="views-row views-row-5 views-row-odd views-row-last">
+                                                    <span class="views-field views-field-name">
+                                                        <span class="field-content">MonkeyStyle said:</span>
+                                                    </span>
+                                                    <span class="views-field views-field-view-comment">
+                                                        <span class="field-content">
+                                                            <a href="/comment/551239#comment-551239">Better later to comment than never... Mad Wax Apocalypse Now (!) Crystal Voyager Morning of the earth Momentum</a>
+                                                        </span>
+                                                    </span>
+                                                    <span class="views-field views-field-created">
+                                                        <span class="field-content">- 2 hours 53 min ago</span>
+                                                    </span>
+                                                    <span class="views-field views-field-taxonomy-forums">
+                                                        <span class="field-content">
+                                                            <br>
+                                                            <a href="/forums/wax">Wax On</a> &gt;</span>
+                                                    </span>
+                                                    <span class="views-field views-field-title">
+                                                        <span class="field-content">
+                                                            <a href="/forums/wax/9906">Best Surf Movie List Ever</a>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
                             </aside>
                         </div>
                     </div>
@@ -877,7 +1227,7 @@
                 <!-- DROPDOWN -->
                 <ul class="dropdown" data-parent="Surf Reports & Forecasts" data-render-nav-children="1"></ul>
             </li>
-            <li class="active has-dropdown is-mega is-surfcams-mega-menu">
+            <li class="has-dropdown is-mega is-surfcams-mega-menu">
 
                 <!-- ANCHOR -->
                 <a href="/surfcams/" data-alias="">
