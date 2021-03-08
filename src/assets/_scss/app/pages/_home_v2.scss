@@ -1,0 +1,86 @@
+/*
+    HOME v2
+
+    - updated: 08.03.21
+    - https://getbootstrap.com/docs/5.0/components/navs-tabs/
+*/
+//-----------------------------------------------------------------
+// TAB OVERRIDES
+// Note: we're manually writing these as .nav could impact
+// existing legacy code.
+//-----------------------------------------------------------------
+
+.home-container-v2 .tab-content > .tab-pane {
+	display: none;
+}
+
+.home-container-v2 .tab-content > .active {
+	display: block;
+}
+
+//-----------------------------------------------------------------
+// TABS
+//-----------------------------------------------------------------
+
+.home-container-v2 {
+
+	.nav-tabs {
+		display: flex;
+		position: relative;
+		background: none;
+	}
+
+	// Gradient strip
+	.nav-tabs:after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: -50%;
+		width: 200%;
+		height: 100%;
+		background: linear-gradient(to bottom,  rgba(231,231,231,0) 10%,rgba(231,231,231,1) 100%);
+		z-index: -1;
+	}
+
+	.nav-tabs > li {
+		flex: 1;
+		text-align: center;
+		color: $headings-color;
+	}
+
+	// Button
+	.nav-tabs > li > a {
+		position: relative;
+		padding: rem-calc(15 0);
+		border: 0 !important; // reset
+		font-family: $headings-font-family; // reset
+		font-size: rem-calc(17);
+		font-weight: bold;
+		background: none; // reset
+		color: $headings-color; // reset
+	}
+
+	// Triangle
+	.nav-tabs > li > a.active:before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 30px;
+		height: 30px;
+		transform: translateX(-50%);
+
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 0 10px 10px 10px;
+		border-color: transparent transparent white transparent;
+	}
+}
+
+//-----------------------------------------------------------------
+//
+//-----------------------------------------------------------------
+//=========================================
+//
+//=========================================

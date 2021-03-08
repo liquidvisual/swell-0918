@@ -14,6 +14,7 @@ theme:
 
 ## Test Links
 
+* [/home-tabs/](/home-tabs/)
 * [/swellnet-traveller/](/swellnet-traveller/)
 * [/news/news-item/](/news/news-item/)
 * [/pro/gift/](/pro/gift/) (Blank)
