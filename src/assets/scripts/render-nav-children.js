@@ -1,14 +1,17 @@
 /*
-    RENDER-NAV.JS - Last updated: 23.11.18
+    RENDER-NAV.JS - Last updated: 09.03.21, 23.11.18
 
-    USAGE:
+	- Notes:
+		* Removed JQuery dependency.
+
+    - USAGE:
     	<ul data-render-nav="{{index}}"></ul>
 */
 //-----------------------------------------------------------------
 //
 //-----------------------------------------------------------------
 
-;(function($) {
+;(function() {
     'use strict';
 
 	//-----------------------------------------------------------------
@@ -20,9 +23,17 @@
 	const fallbackURL = 'https://swellnet-2018.yourwebvisual.com/sitemap.json?v='+Date.now();
 	let attempts = 0;
 
+	//-----------------------------------------------------------------
+	// INIT
+	//-----------------------------------------------------------------
+
 	fetchSitemap(sitemapURL);
 
+	//-----------------------------------------------------------------
 	// FETCH SITEMAP
+	// Using Axios since Fetch not available to IE11.
+	//-----------------------------------------------------------------
+
 	function fetchSitemap(path) {
 		axios.get(path, '', {
 		    headers: {
@@ -32,12 +43,13 @@
 		.then(response => {
 
 			// console.log('Retrieved: V19');
-			console.info('Success. Sitemap fetched.');
+			console.info('%c Success. Sitemap fetched.', 'color: green');
 
 			const sitemapJSON = response.data;
 
 			if (sitemapJSON) {
 				document.querySelectorAll('[data-render-nav-children]').forEach(item => {
+
 					const index = parseInt(item.dataset.renderNavChildren);
 					const childArr = sitemapJSON[index].children;
 
@@ -54,7 +66,7 @@
 
 						let baseUrl = useAbsolutePaths ? 'https://www.swellnet.com' : '';
 
-						createList($(item), childArr, baseUrl);
+						createList(item, childArr, baseUrl);
 					}
 				})
 
@@ -69,58 +81,16 @@
 			}
 		})
 		.catch(error => {
-			console.warn("Error: failed to fetch sitemap. Retrying...");
+			console.warn("%c Error: failed to fetch sitemap. Retrying...", 'color: red');
 			attempts++;
 
-			if (attempts > 2)
+			if (attempts > 2) {
 				throw Error(response.statusText);
-			else
+			} else {
 				fetchSitemap(fallbackURL);
-		})
-	}
-
-	//-----------------------------------------------------------------
-	// FETCH NOT COMPATIBLE WITH IE11
-	//-----------------------------------------------------------------
-	/*
-	function fetchSitemap(path) {
-		fetch(path)
-		.then((response) => {
-			if (!response.ok) {
-
-				console.warn("Error: failed to fetch sitemap. Retrying...");
-				attempts++;
-
-				if (attempts > 2)
-					throw Error(response.statusText);
-				else
-					fetchSitemap(fallbackURL);
 			}
-
-			return response.json();
-		})
-		.then((sitemapJSON) => {
-
-			console.log('TEST: V13');
-			console.info('Success. Sitemap fetched.');
-
-			document.querySelectorAll('[data-render-nav-children]').forEach(item => {
-				const index = parseInt(item.dataset.renderNavChildren);
-				const childArr = sitemapJSON[index].children;
-
-				if (childArr) createList($(item), childArr);
-			})
-
-			// Init Mega Menu
-			megaMenu.init();
-
-			// Init Offcanvas
-			lvOffcanvas.init();
-
-			// Tooltips
-			$('[data-toggle="tooltip"]').tooltip();
 		});
-	}*/
+	}
 
 	//-----------------------------------------------------------------
 	// CREATE LIST
@@ -130,18 +100,18 @@
 
 	    arr.forEach(item => {
 
-	    	const li_classes =
-	    			`${item.url == "/" && pageURL == "/" ? `active` : ''}` + ' ' +
-	    			`${pageURL.includes(item.url) && pageURL != "/" ? `active` : ''}` + ' ' +
+	    	const listClasses =
+	    			`${item.url === "/" && pageURL === "/" ? 'active active-init' : ''}` + ' ' +
+	    			`${pageURL.includes(item.url) && pageURL !== "/" ? `active active-init` : ''}` + ' ' +
 	    			`${item.children ? `has-dropdown` : ''}` + ' ' +
 	    			`${item.classes ? item.classes : ''}` + ' ' +
 	    			`${item.observed ? `is-observed` : ''}` + ' ' +
 	    			`${item.premium ? `is-premium` : ''}`;
 
-	        const li_item =
+	        const listItemString =
 
 	        		// LIST ITEM
-	        		`<li class="${li_classes}">` +
+	        		`<li class="${listClasses.trim()}">` +
 
 	        			// ANCHOR
 		        		`<a href="${baseUrl + item.url}" data-alias="${item.alias ? item.alias : ''}">` +
@@ -164,24 +134,21 @@
 
 	        		`</li>`;
 
-	        const $li_item = $(li_item);
+	        const listItemEl = new DOMParser().parseFromString(listItemString, 'text/html').body.firstChild;
+	        target.appendChild(listItemEl);
 
-	        target.append($li_item);
-
-	        // ~~~~ RECURSION BEGINS ~~~~
-
+	        // RECURSION BEGINS
 	        if (item.children) {
 
-	        	const ul_item = `<ul class="dropdown" data-parent="${ item.name }"></ul>`;
-	        	const $ul_item = $(ul_item);
+	        	const ulItem = `<ul class="dropdown" data-parent="${ item.name }"></ul>`;
+	        	const ulItemEl = new DOMParser().parseFromString(ulItem, 'text/html').body.firstChild;
 
-	        	$li_item.append($ul_item);
-	            createList($ul_item, item.children, baseUrl);
+	        	listItemEl.appendChild(ulItemEl);
+	            createList(ulItemEl, item.children, baseUrl);
 	        }
 	    });
 	}
-//--
-}(jQuery));
+}());
 
 //==================================================
 //
