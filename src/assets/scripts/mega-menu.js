@@ -1,5 +1,5 @@
 /*
-    MEGA-MENU-REPORTS.JS - Last updated: 11.10.18
+    MEGA-MENU-REPORTS.JS - Last updated: 09.03.21, 11.10.18
 */
 //-----------------------------------------------------------------
 //
@@ -12,33 +12,33 @@
     // VARIABLES
     //-----------------------------------------------------------------
 
-    var scrollbarSurfcams;
-    var scrollbarReports;
+    let scrollbarSurfcams;
+    let scrollbarReports;
+
+    const scrollbars = [];
 
     // content area is for wordpress shop (no main body)
-    var $mainBody = $('.main-body').length    && $('.main-body') ||
+    const $mainBody = $('.main-body').length    && $('.main-body') ||
                     $('.content-area').length && $('.content-area');
 
-    var $reportsMegaMenu = $('.lv-nav .is-reports-mega-menu > .dropdown');
-    var $surfcamsMegaMenu = $('.lv-nav .is-surfcams-mega-menu > .dropdown');
+    const $megaMenu = $('.lv-nav .is-mega > .dropdown');
 
-    var $megaListItems = $('.lv-nav li.is-mega');
+    const $megaListItems = $('.lv-nav li.is-mega');
 
-    var $megaListItemAnchors;
-    var $topSelection;
-    var $listItems;
+    let $megaListItemAnchors;
+    let $topSelection;
+    let $listItems;
 
     //-----------------------------------------------------------------
     // INIT ON READY
     //-----------------------------------------------------------------
 
     return {
-        init: function() {
-            // var currentURL = window.location.pathname.split('/')[1];
+        init() {
 
             $megaListItemAnchors = $('> a', $megaListItems);
-            $topSelection = $reportsMegaMenu.find('> li:first-child');
-            $listItems = $('li', $reportsMegaMenu);
+            $topSelection = $megaMenu.find('> li:first-child');
+            $listItems = $('li', $megaMenu);
 
             // PARENT CLICKS
             $megaListItemAnchors.on('click', megaListItemAnchorsClick);
@@ -46,15 +46,16 @@
             // CHILD CLICKS
             $listItems.on('click', listItemsClick);
 
-            // if (currentURL != 'reports') { // because trailing links are not in json
-                if ($topSelection.length) {
-                    setActive($topSelection);
-                }
-            // }
+            // SET TOP ITEMS ACTIVE
+            if ($topSelection.length) {
+                setActive($topSelection);
+            }
 
             // Init scrollbars
-            scrollbarReports = new PerfectScrollbar($reportsMegaMenu[0]);
-            scrollbarSurfcams = new PerfectScrollbar($surfcamsMegaMenu[0]);
+            $megaMenu.each(function(item) {
+                const scrollbar = new PerfectScrollbar($(this)[0]);
+                scrollbars.push(scrollbar);
+            });
         }
     }
 
@@ -78,9 +79,6 @@
 
         // Handles use case of toggling and menu height getting stuck
         setDropdownHeight();
-
-        // REFACTOR AND MERGE
-        setSurfcamsHeight();
 
         // Set up a conditional exit click
         enableExit(!bool);
@@ -112,7 +110,7 @@
     function listItemsClick() {
         var $this = $(this); // list item
 
-        // End of the line, launch url
+        // End of the line - so to speak; launch url.
         if (!$this.hasClass('has-dropdown')) {
             var url = $this.find('a').attr('href');
             window.location = url;
@@ -132,17 +130,20 @@
 
     function setActive($target) {
 
+        const $scope = $target.parents('.is-mega');
+        const $scopedActives = $('.active', $scope);
+
         // Remove all actives
-        $listItems.removeClass('active');
+        $scopedActives.removeClass('active');
 
         // Apply current active
         $target.addClass('active');
 
         // Drill left
-        getActiveDescendant($target);
+        setActiveDescendants($target);
 
         // Drill right
-        setActiveAscendant($target);
+        setActiveAscendants($target);
 
         // Set Dropdown height based on largest column
         setDropdownHeight();
@@ -155,13 +156,13 @@
     // SET ACTIVE DESCENDANTS
     //-----------------------------------------------------------------
 
-    function getActiveDescendant($target) {
+    function setActiveDescendants($target) {
         if ($target.hasClass('has-dropdown')) {
-            var $nextDropdownListItem = $('> .dropdown > li.has-dropdown:first-child', $target);
+            const $nextDropdownListItem = $('> .dropdown > li.has-dropdown:first-child', $target);
             $nextDropdownListItem.addClass('active');
 
             // Recursively apply active to decendant until none
-            getActiveDescendant($nextDropdownListItem);
+            setActiveDescendants($nextDropdownListItem);
         }
     }
 
@@ -169,13 +170,13 @@
     // SET ACTIVE ASCENDANTS
     //-----------------------------------------------------------------
 
-    function setActiveAscendant($target) {
+    function setActiveAscendants($target) {
         if (!$target.parent().parent().hasClass('is-mega')) {
-            var $prevDropdownListItem = $target.parent().parent();
+            const $prevDropdownListItem = $target.parent().parent();
             $prevDropdownListItem.addClass('active');
 
             // Recursively apply active to ascendant until none
-            setActiveAscendant($prevDropdownListItem);
+            setActiveAscendants($prevDropdownListItem);
         }
     }
 
@@ -184,14 +185,14 @@
     //-----------------------------------------------------------------
 
     function setDropdownHeight() {
-        var activeDropdownHeights = [429]; // hardcoded
-        var activeDropdowns = $('.lv-nav .is-mega .dropdown > li.active > .dropdown');
+        const activeDropdownHeights = [429]; // hardcoded
+        const activeDropdowns = $('.lv-nav .is-mega .dropdown > li.active > .dropdown');
 
         // Vars for calculation of available height between header and viewport bottom
-        var windowHeight = $(window).height();
-        var globalHeaderHeight = $('.global-header').height();
-        var megaMenuHeight = $reportsMegaMenu.outerHeight();
-        var maxAvailableHeight = windowHeight - globalHeaderHeight - 100; // 100 magic, stops hitting flush bottom
+        const windowHeight = $(window).height();
+        const globalHeaderHeight = $('.global-header').height();
+        const megaMenuHeight = $megaMenu.outerHeight();
+        const maxAvailableHeight = windowHeight - globalHeaderHeight - 100; // 100 magic, stops hitting flush bottom
 
         // Push all heights into array to analyze
         activeDropdowns.each(function() {
@@ -199,41 +200,21 @@
         })
 
         // Find the largest height of the dropdown
-        var largestHeight = Math.max.apply(Math, activeDropdownHeights);
+        const largestHeight = Math.max.apply(Math, activeDropdownHeights);
 
         // If the final height exceeds available safe height, cap it. Otherwise take largest height.
-        var finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
+        const finalHeight = largestHeight > maxAvailableHeight
+            ? maxAvailableHeight
+            : largestHeight;
 
         // Apply height
-        $reportsMegaMenu.height(finalHeight);
+        $megaMenu.height(finalHeight);
 
         // If scrollbar exists update
-        if (scrollbarReports) {
-            scrollbarReports.update();
-        }
-    }
-
-    //-----------------------------------------------------------------
-    // SET SURFCAMS HEIGHT (REFACTOR)
-    //-----------------------------------------------------------------
-
-    function setSurfcamsHeight() {
-        // Vars for calculation of available height between header and viewport bottom
-        var windowHeight = $(window).height();
-        var globalHeaderHeight = $('.global-header').height();
-        var megaMenuHeight = $surfcamsMegaMenu.outerHeight();
-        var maxAvailableHeight = windowHeight - globalHeaderHeight - 100; // 100 magic, stops hitting flush bottom
-        var largestHeight = 702; // refactor
-
-        // If the final height exceeds available safe height, cap it. Otherwise take largest height.
-        var finalHeight = largestHeight > maxAvailableHeight ? maxAvailableHeight : largestHeight;
-
-        // Apply height
-        $surfcamsMegaMenu.height(finalHeight);
-
-        // If scrollbar exists update
-        if (scrollbarSurfcams) {
-            scrollbarSurfcams.update();
+        if (scrollbars.length) {
+            scrollbars.forEach(item => {
+                item.update();
+            })
         }
     }
 
