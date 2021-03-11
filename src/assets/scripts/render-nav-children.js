@@ -103,10 +103,11 @@
 	    	const listClasses =
 	    			`${item.url === "/" && pageURL === "/" ? 'active active-init' : ''}` + ' ' +
 	    			`${pageURL.includes(item.url) && pageURL !== "/" ? `active active-init` : ''}` + ' ' +
-	    			`${item.children ? `has-dropdown` : ''}` + ' ' +
+	    			`${item.twoByTwo ? 'is-2x2' : ''}` + ' ' +
+	    			`${item.children ? 'has-dropdown' : ''}` + ' ' +
 	    			`${item.classes ? item.classes : ''}` + ' ' +
-	    			`${item.observed ? `is-observed` : ''}` + ' ' +
-	    			`${item.premium ? `is-premium` : ''}`;
+	    			`${item.observed ? 'is-observed' : ''}` + ' ' +
+	    			`${item.premium ? 'is-premium' : ''}`;
 
 	        const listItemString =
 

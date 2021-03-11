@@ -5365,6 +5365,7 @@
                {
                   "name":"Gold Coast",
                   "url":"/surfcams/gold-coast",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"Burleigh Heads",
@@ -5544,8 +5545,9 @@
             "url":"/surfcams",
             "children":[
                {
-                  "name":"Central / Southern NSW",
-                  "url":"/surfcams/central-southern-nsw",
+                  "name":"Southern NSW",
+                  "url":"/surfcams/southern-nsw",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"The Alley",
