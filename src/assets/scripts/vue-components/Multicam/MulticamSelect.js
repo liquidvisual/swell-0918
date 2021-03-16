@@ -58,6 +58,8 @@ Vue.component('multicam-select', {
                         { id: 497134, name: 'South Palm Beach',  path: 'south-palm-beach.stream' },
                         { id: 497135, name: 'Palm Beach',        path: 'palm-beach.stream' },
                         { id: 851,    name: 'Burleigh Heads',    path: 'burleigh.stream' },
+                        { id: 508303, name: 'Burleigh Heads Beach',    path: 'burleigh-heads-beach.stream' },
+                        { id: 508304, name: 'North Burleigh',    path: 'north-burleigh.stream' },
                         { id: 473908, name: 'Surfers Paradise South', path: 'surfers-paradise-south.stream' },
                         { id: 473909, name: 'Surfers Paradise North', path: 'surfers-paradise-north.stream' },
                         { id: 351381, name: 'Narrowneck',        path: 'narrowneck.stream' },
