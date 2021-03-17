@@ -5368,14 +5368,50 @@
                   "twoByTwo":true,
                   "children":[
                      {
-                        "name":"Burleigh Heads",
-                        "url":"/surfcams/burleigh-heads",
-                        "premium":true,
+                        "name":"Duranbah",
+                        "url":"/surfcams/duranbah",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Tweed Bar",
+                        "url":"/surfcams/tweed-bar",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Snapper Rocks",
+                        "url":"/surfcams/snapper-rocks",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Greenmount",
+                        "url":"/surfcams/greenmount",
+                        "premium":false,
                         "children":false
                      },
                      {
                         "name":"Coolangatta",
                         "url":"/surfcams/coolangatta",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Spot X",
+                        "url":"/surfcams/spot-x",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Kirra Big Groyne",
+                        "url":"/surfcams/kirra-big-groyne",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Kirra",
+                        "url":"/surfcams/kirra",
                         "premium":true,
                         "children":false
                      },
@@ -5392,51 +5428,9 @@
                         "children":false
                      },
                      {
-                        "name":"Duranbah",
-                        "url":"/surfcams/duranbah",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Greenmount",
-                        "url":"/surfcams/greenmount",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Kirra",
-                        "url":"/surfcams/kirra",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Kirra Big Groyne",
-                        "url":"/surfcams/kirra-big-groyne",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
                         "name":"Laceys Lane",
                         "url":"/surfcams/laceys-lane",
                         "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Narrowneck",
-                        "url":"/surfcams/narrowneck",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Palm Beach",
-                        "url":"/surfcams/palm-beach",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Snapper Rocks",
-                        "url":"/surfcams/snapper-rocks",
-                        "premium":false,
                         "children":false
                      },
                      {
@@ -5446,14 +5440,26 @@
                         "children":false
                      },
                      {
-                        "name":"Spot X",
-                        "url":"/surfcams/spot-x",
+                        "name":"Palm Beach",
+                        "url":"/surfcams/palm-beach",
                         "premium":true,
                         "children":false
                      },
                      {
-                        "name":"Surfers Paradise North",
-                        "url":"/surfcams/surfers-paradise-north",
+                        "name":"Burleigh Heads",
+                        "url":"/surfcams/burleigh-heads",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Burleigh Heads Beach",
+                        "url":"/surfcams/burleigh-heads-beach",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Burleigh North",
+                        "url":"/surfcams/burleigh-north",
                         "premium":true,
                         "children":false
                      },
@@ -5464,8 +5470,14 @@
                         "children":false
                      },
                      {
-                        "name":"Tweed Bar",
-                        "url":"/surfcams/tweed-bar",
+                        "name":"Surfers Paradise North",
+                        "url":"/surfcams/surfers-paradise-north",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Narrowneck",
+                        "url":"/surfcams/narrowneck",
                         "premium":false,
                         "children":false
                      },
@@ -5475,24 +5487,6 @@
                   "name":"Sunshine Coast",
                   "url":"/surfcams/sunshine-coast",
                   "children":[
-                     {
-                        "name":"Alex Headland",
-                        "url":"/surfcams/alex-headland",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Coolum",
-                        "url":"/surfcams/coolum",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Coolum Bays",
-                        "url":"/surfcams/coolum-bays",
-                        "premium":true,
-                        "children":false
-                     },
                      {
                         "name":"Kings Beach",
                         "url":"/surfcams/kings-beach",
@@ -5506,9 +5500,15 @@
                         "children":false
                      },
                      {
-                        "name":"Noosa Heads",
-                        "url":"/surfcams/noosa-heads",
-                        "premium":false,
+                        "name":"Alex Headland",
+                        "url":"/surfcams/alex-headland",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Coolum Bays",
+                        "url":"/surfcams/coolum-bays",
+                        "premium":true,
                         "children":false
                      },
                      {
@@ -5518,9 +5518,21 @@
                         "children":false
                      },
                      {
+                        "name":"Coolum",
+                        "url":"/surfcams/coolum",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
                         "name":"Sunshine Beach",
                         "url":"/surfcams/sunshine-beach/",
                         "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Noosa Heads",
+                        "url":"/surfcams/noosa-heads",
+                        "premium":false,
                         "children":false
                      },
                   ]
@@ -5550,9 +5562,9 @@
                   "twoByTwo":true,
                   "children":[
                      {
-                        "name":"The Alley",
-                        "url":"/surfcams/the-alley",
-                        "premium":true,
+                        "name":"Newcastle",
+                        "url":"/surfcams/newcastle",
+                        "premium":false,
                         "children":false
                      },
                      {
@@ -5562,38 +5574,20 @@
                         "children":false
                      },
                      {
-                        "name":"Bondi",
-                        "url":"/surfcams/bondi",
+                        "name":"Narrabeen",
+                        "url":"/surfcams/narrabeen",
                         "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Cabarita",
-                        "url":"/surfcams/cabarita",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Cronulla Beaches",
-                        "url":"/surfcams/cronulla-beaches",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Cronulla Point",
-                        "url":"/surfcams/cronulla-point",
-                        "premium":true,
-                        "children":false
-                     },
-                     {
-                        "name":"Kiama",
-                        "url":"/surfcams/kiama",
-                        "premium":true,
                         "children":false
                      },
                      {
                         "name":"Manly",
                         "url":"/surfcams/manly",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Bondi",
+                        "url":"/surfcams/bondi",
                         "premium":false,
                         "children":false
                      },
@@ -5604,26 +5598,20 @@
                         "children":false
                      },
                      {
-                        "name":"Narrabeen",
-                        "url":"/surfcams/narrabeen",
+                        "name":"Cronulla Beaches",
+                        "url":"/surfcams/cronulla-beaches",
                         "premium":false,
                         "children":false
                      },
                      {
-                        "name":"Newcastle",
-                        "url":"/surfcams/newcastle",
-                        "premium":false,
+                        "name":"The Alley",
+                        "url":"/surfcams/the-alley",
+                        "premium":true,
                         "children":false
                      },
                      {
-                        "name":"Park Beach",
-                        "url":"/surfcams/park-beach",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"The Pass",
-                        "url":"/surfcams/the-pass",
+                        "name":"Cronulla Point",
+                        "url":"/surfcams/cronulla-point",
                         "premium":true,
                         "children":false
                      },
@@ -5634,15 +5622,15 @@
                         "children":false
                      },
                      {
-                        "name":"Thirroul",
-                        "url":"/surfcams/thirroul",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
                         "name":"Thirroul North",
                         "url":"/surfcams/thirroul-north",
                         "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Thirroul",
+                        "url":"/surfcams/thirroul",
+                        "premium":false,
                         "children":false
                      },
                      {
@@ -5651,7 +5639,12 @@
                         "premium":false,
                         "children":false
                      },
-
+                     {
+                        "name":"Kiama",
+                        "url":"/surfcams/kiama",
+                        "premium":true,
+                        "children":false
+                     },
                   ]
                },
                {
@@ -5659,20 +5652,32 @@
                   "url":"/surfcams/northern-nsw",
                   "children":[
                      {
+                        "name":"Kingscliff",
+                        "url":"/surfcams/kingscliff",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Cabarita",
+                        "url":"/surfcams/cabarita",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Cabarita Beach",
+                        "url":"/surfcams/cabarita-beach",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Byron Bay",
                         "url":"/surfcams/byron-bay",
                         "premium":false,
                         "children":false
                      },
                      {
-                        "name":"Coffs Harbour",
-                        "url":"/surfcams/coffs-harbour",
-                        "premium":false,
-                        "children":false
-                     },
-                     {
-                        "name":"Kingscliff",
-                        "url":"/surfcams/kingscliff",
+                        "name":"The Pass",
+                        "url":"/surfcams/the-pass",
                         "premium":true,
                         "children":false
                      },
@@ -5680,6 +5685,18 @@
                         "name":"Yamba",
                         "url":"/surfcams/yamba",
                         "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Park Beach",
+                        "url":"/surfcams/park-beach",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Coffs Harbour",
+                        "url":"/surfcams/coffs-harbour",
+                        "premium":false,
                         "children":false
                      },
                   ]
@@ -5691,6 +5708,18 @@
             "alias":"VIC",
             "url":"/surfcams",
             "children":[
+               {
+                  "name":"Torquay",
+                  "url":"/surfcams/torquay",
+                  "premium":false,
+                  "children":false
+               },
+               {
+                  "name":"Ocean Grove",
+                  "url":"/surfcams/ocean-grove",
+                  "premium":true,
+                  "children":false
+               },
                {
                   "name":"13th Beach",
                   "url":"/surfcams/13th-beach",
@@ -5716,20 +5745,8 @@
                   "children":false
                },
                {
-                  "name":"Ocean Grove",
-                  "url":"/surfcams/ocean-grove",
-                  "premium":true,
-                  "children":false
-               },
-               {
                   "name":"Portsea",
                   "url":"/surfcams/portsea",
-                  "premium":false,
-                  "children":false
-               },
-               {
-                  "name":"Torquay",
-                  "url":"/surfcams/torquay",
                   "premium":false,
                   "children":false
                },
@@ -5747,15 +5764,9 @@
             "url":"/surfcams",
             "children":[
                {
-                  "name":"Christies Beach",
-                  "url":"/surfcams/christies-beach",
-                  "premium":true,
-                  "children":false
-               },
-               {
-                  "name":"Goolwa",
-                  "url":"/surfcams/goolwa",
-                  "premium":true,
+                  "name":"South Port",
+                  "url":"/surfcams/south-port",
+                  "premium":false,
                   "children":false
                },
                {
@@ -5765,33 +5776,9 @@
                   "children":false
                },
                {
-                  "name":"Knights",
-                  "url":"/surfcams/knights",
-                  "premium":true,
-                  "children":false
-               },
-               {
-                  "name":"Middleton Bay",
-                  "url":"/surfcams/middleton-bay",
-                  "premium":false,
-                  "children":false
-               },
-               {
-                  "name":"Middleton Point",
-                  "url":"/surfcams/middleton-point",
-                  "premium":true,
-                  "children":false
-               },
-               {
                   "name":"Rivermouth",
                   "url":"/surfcams/rivermouth",
                   "premium":true,
-                  "children":false
-               },
-               {
-                  "name":"South Port",
-                  "url":"/surfcams/south-port",
-                  "premium":false,
                   "children":false
                },
                {
@@ -5807,8 +5794,38 @@
                   "children":false
                },
                {
+                  "name":"Christies Beach",
+                  "url":"/surfcams/christies-beach",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Y Steps",
                   "url":"/surfcams/y-steps",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Knights",
+                  "url":"/surfcams/knights",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Goolwa",
+                  "url":"/surfcams/goolwa",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Middleton Bay",
+                  "url":"/surfcams/middleton-bay",
+                  "premium":false,
+                  "children":false
+               },
+               {
+                  "name":"Middleton Point",
+                  "url":"/surfcams/middleton-point",
                   "premium":true,
                   "children":false
                },
@@ -5820,15 +5837,9 @@
             "url":"/surfcams",
             "children":[
                {
-                  "name":"Brighton",
-                  "url":"/surfcams/brighton",
+                  "name":"South Trigg",
+                  "url":"/surfcams/south-trigg",
                   "premium":true,
-                  "children":false
-               },
-               {
-                  "name":"Margaret River",
-                  "url":"/surfcams/margaret-river",
-                  "premium":false,
                   "children":false
                },
                {
@@ -5838,8 +5849,14 @@
                   "children":false
                },
                {
-                  "name":"South Trigg",
-                  "url":"/surfcams/south-trigg",
+                  "name":"Brighton",
+                  "url":"/surfcams/brighton",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Mandurah Wedge",
+                  "url":"/surfcams/mandurah-wedge",
                   "premium":true,
                   "children":false
                },
@@ -5847,6 +5864,12 @@
                   "name":"Yallingup",
                   "url":"/surfcams/yallingup",
                   "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Margaret River",
+                  "url":"/surfcams/margaret-river",
+                  "premium":false,
                   "children":false
                },
             ]
