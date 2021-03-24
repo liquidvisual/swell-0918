@@ -92,6 +92,7 @@
                   "url":"/reports/australia/new-south-wales",
                   "nodequeue":"Australia New South Wales",
                   "tid":"11",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"Eden",
@@ -240,6 +241,7 @@
                   "url":"/reports/australia/victoria",
                   "nodequeue":"Australia Victoria",
                   "tid":"57",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"Wilsons Promontory",
@@ -433,6 +435,7 @@
                   "url":"/reports/australia/western-australia",
                   "nodequeue":"Australia Western Australia",
                   "tid":"12",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"Albany",
@@ -584,6 +587,7 @@
                   "url":"/reports/australia/tasmania",
                   "nodequeue":"Australia Tasmania",
                   "tid":"118",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"South East Cape",
@@ -5458,8 +5462,8 @@
                         "children":false
                      },
                      {
-                        "name":"Burleigh North",
-                        "url":"/surfcams/burleigh-north",
+                        "name":"North Burleigh",
+                        "url":"/surfcams/north-burleigh",
                         "premium":true,
                         "children":false
                      },
