@@ -88,6 +88,7 @@ Vue.component('multicam-select', {
                         { id: 781,    name: 'Newcastle',         path: 'newcastle.stream' },
                         { id: 394603, name: 'Avoca Beach',       path: 'avoca-beach.stream' },
                         { id: 776,    name: 'Narrabeen',         path: 'narrabeen.stream' },
+                        { id: 513741,    name: 'Queenscliff',         path: 'queenscliff.stream' },
                         { id: 771,    name: 'Manly',             path: 'manly.stream' },
                         { id: 761,    name: 'Bondi',             path: 'bondi.stream' },
                         { id: 881,    name: 'Maroubra',          path: 'maroubra.stream' },

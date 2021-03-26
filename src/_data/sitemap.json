@@ -5584,6 +5584,12 @@
                         "children":false
                      },
                      {
+                        "name":"Queenscliff",
+                        "url":"/surfcams/queenscliff",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Manly",
                         "url":"/surfcams/manly",
                         "premium":false,
