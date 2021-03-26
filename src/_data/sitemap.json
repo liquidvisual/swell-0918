@@ -5765,6 +5765,12 @@
                   "url":"/surfcams/woolamai",
                   "premium":false,
                   "children":false
+               },
+               {
+                  "name":"St Kilda",
+                  "url":"/surfcams/st-kilda",
+                  "premium":false,
+                  "children":false
                }
             ]
          },

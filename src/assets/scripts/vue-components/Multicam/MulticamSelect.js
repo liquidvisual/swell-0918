@@ -112,7 +112,8 @@ Vue.component('multicam-select', {
                         { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
                         { id: 488207, name: 'Fairhaven',         path: 'fairhaven.stream' },
                         { id: 806,    name: 'Lorne',             path: 'lorne.stream' },
-                        { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" }
+                        { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" },
+                        { id: 514231, name: "St Kilda",       path: "st-kilda.stream" }
                     ]
                 },
                 {
