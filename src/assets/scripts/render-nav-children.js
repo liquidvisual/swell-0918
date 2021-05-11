@@ -51,7 +51,7 @@
 				document.querySelectorAll('[data-render-nav-children]').forEach(item => {
 
 					const index = parseInt(item.dataset.renderNavChildren);
-					const childArr = sitemapJSON[index].children;
+					const childArr = sitemapJSON[index] && sitemapJSON[index].children;
 
 					if (childArr) {
 
@@ -67,6 +67,9 @@
 						let baseUrl = useAbsolutePaths ? 'https://www.swellnet.com' : '';
 
 						createList(item, childArr, baseUrl);
+					}
+					else {
+						console.warn(`Warning! There are no children at index ${index} for node:`, sitemapJSON[index]);
 					}
 				})
 
