@@ -20,6 +20,12 @@ theme:
 * [/pro/gift/](/pro/gift/) (Blank)
 * [/forecaster-notes/forecaster-notes-item/](/forecaster-notes/forecaster-notes-item/)
 
+### Bondi
+
+* [/surfcams/bondi/](/surfcams/bondi/) (video.js)
+* [/surfcams/bondi/paid/](/surfcams/bondi/paid/) (video.js)
+* [/surfcams/bondi/replays/](/surfcams/bondi/replays/) (video.js)
+
 ### Kingscliff
 
 * [/surfcams/kingscliff/](/surfcams/kingscliff/) (Prompt)
