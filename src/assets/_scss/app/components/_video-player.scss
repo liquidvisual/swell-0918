@@ -87,7 +87,9 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(black, 0.8);
+	// background: rgba(black, 0.8);
+	background: url('/assets/img/layout/offline-background.jpg') no-repeat;
+	background-size: contain;
 
 	// INNER
 	> div, // legacy multicam
@@ -100,6 +102,10 @@
 		@include media-breakpoint-up(md) {
 		    width: 62%;
 		}
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		color: white;
 	}
 
 	// ICON WARNING (ERRORS)

@@ -23,6 +23,10 @@
                     timeout: true
                 },
                 autoplay: true,
+                error: {
+                    heading: "Some heading text can go here",
+                    body: "Sorry! We're experiencing technical difficulties with this surfcam. We'll have it back up ASAP.",
+                },
                 inactivityTimeout: 5*60*1000,
                 muted: true,
                 pauseTimeout: 5*60*1000,
@@ -47,12 +51,12 @@ Vue.component('surfcam-player-video-js', {
         >
             <!-- ERRORS -->
             <div
-                v-if="errors"
+                v-show="errors"
                 class="video-player-overlay video-player-overlay-error"
             >
                 <div class="video-player-overlay-inner">
-                    <i class="fa fa-warning"></i>
-                    <p>Sorry! We're experiencing <b>technical difficulties</b> with this surfcam. We'll have it back up ASAP.</p>
+                    <h3>{{ options.error?.heading }}</h3>
+                    <p>{{ options.error?.body }}</p>
                 </div>
             </div>
 
@@ -205,7 +209,7 @@ Vue.component('surfcam-player-video-js', {
         clearPauseTimeout() {
             // console.log('Pause Timeout cleared.');
             clearTimeout(this.pauseTimeoutInstance);
-            this.errors = false; // reset
+            // this.errors = false; // reset --> this shouldn't be responsible for errors.
         },
 
         //-----------------------------------------------------------------
@@ -256,14 +260,28 @@ Vue.component('surfcam-player-video-js', {
             // SETUP ADS (might go into loadVideo)
             this.setupAds();
 
-            // SETUP USER INACTIVITY
-            this.setupUserInactivity();
+            // ON PLAY (VIDEO SUCCESS)
+            this.playerInstance.on('play', () => {
+                this.onPlayVideo();
 
-            // ON PLAY
-            this.playerInstance.on('play', this.onPlayVideo);
+                // SETUP USER INACTIVITY
+                this.setupUserInactivity();
+            });
 
             // ON PAUSE
             this.playerInstance.on('pause', this.onPauseVideo);
+
+            // ON ERROR
+            this.playerInstance.on('error', error => {
+                console.log('Oops! There were errors loading video:', error);
+                this.clearPauseTimeout();
+                this.errors = true; // uncomment this when thumbnails are HTTPS - errors occur with it
+                // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
+                // this.$emit('log-errors');
+            });
+
+            // ON RESET
+            this.playerInstance.on('reset', () => this.errors = false);
         },
 
         //-----------------------------------------------------------------
@@ -283,14 +301,6 @@ Vue.component('surfcam-player-video-js', {
             this.playerInstance.src({
                 type: videoType,
                 src: videoObj.stream //'/assets/img/content/loop-test.mp4'
-            });
-
-            // Errors
-            this.playerInstance.on('error', error => {
-                // this.$emit('log-errors');
-                console.log('Oops! There were errors loading video:', error);
-                this.errors = true; // uncomment this when thumbnails are HTTPS - errors occur with it
-                // this.poster = '/assets/img/layout/placeholder-video-1280x720.svg'; // iOS fix for weirdly large height image
             });
 
             // Time until player pause.
