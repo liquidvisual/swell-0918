@@ -5492,15 +5492,21 @@
                   "url":"/surfcams/sunshine-coast",
                   "children":[
                      {
-                        "name":"Kings Beach",
-                        "url":"/surfcams/kings-beach",
-                        "premium":false,
+                        "name":"Caloundra Bar",
+                        "url":"/surfcams/caloundra-bar",
+                        "premium":true,
                         "children":false
                      },
                      {
-                        "name":"Moffat Beach",
-                        "url":"/surfcams/moffat-beach",
-                        "premium":false,
+                        "name":"Caloundra",
+                        "url":"/surfcams/caloundra",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Kings Beach",
+                        "url":"/surfcams/kings-beach",
+                        "premium":true,
                         "children":false
                      },
                      {

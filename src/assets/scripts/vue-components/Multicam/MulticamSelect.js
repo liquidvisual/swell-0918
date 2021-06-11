@@ -63,8 +63,10 @@ Vue.component('multicam-select', {
                         { id: 473908, name: 'Surfers Paradise South', path: 'surfers-paradise-south.stream' },
                         { id: 473909, name: 'Surfers Paradise North', path: 'surfers-paradise-north.stream' },
                         { id: 351381, name: 'Narrowneck',        path: 'narrowneck.stream' },
+                        { id: 518798, name: 'Caloundra Bar',     path: 'caloundra-bar.stream' },
+                        { id: 518797, name: 'Caloundra',         path: 'caloundra.stream' },
                         { id: 328776, name: 'Kings Beach',       path: 'kings-beach.stream' },
-                        { id: 896,    name: 'Moffat Beach',      path: 'moffat-beach.stream' },
+                        /*{ id: 896,    name: 'Moffat Beach',      path: 'moffat-beach.stream' },*/
                         { id: 328632, name: 'Alex Headland',     path: 'alex-headland.stream' },
                         { id: 492649, name: 'Coolum Bays',       path: 'coolum-bays.stream' },
                         { id: 492651, name: 'Point Perry',       path: 'point-perry.stream' },
