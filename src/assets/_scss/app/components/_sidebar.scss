@@ -1,0 +1,31 @@
+/*
+    SIDEBARS.CSS
+*/
+//-----------------------------------------------------------------
+// IS-STICKY
+//-----------------------------------------------------------------
+
+.sidebar.is-sticky {
+	@include media-breakpoint-up(lg) {
+	    position: sticky;
+	    top: $header-body-md-height + 40px; // top inner padding
+	    height: auto !important; // Override any custom CSS
+	}
+}
+
+.has-open-menu .sidebar.is-sticky {
+	@include media-breakpoint-up(lg) {
+	    top: $header-body-md-height + $header-bottom-lg-height + 40px;
+	}
+}
+
+// To account for tablet landscape where the header is hidden due to scrolling.
+.headroom--unpinned .sidebar.is-sticky {
+	@include media-breakpoint-only(lg) {
+	    top: 40px;
+	}
+}
+
+//=========================================
+//
+//=========================================
