@@ -5516,6 +5516,24 @@
                         "children":false
                      },
                      {
+                        "name":"Alex Beach",
+                        "url":"/surfcams/alex-beach",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Maroochydore",
+                        "url":"/surfcams/maroochydore",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Maroochy River",
+                        "url":"/surfcams/maroochy-river",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Coolum Bays",
                         "url":"/surfcams/coolum-bays",
                         "premium":true,
