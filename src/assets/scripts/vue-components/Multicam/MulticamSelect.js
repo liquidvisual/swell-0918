@@ -47,7 +47,7 @@ Vue.component('multicam-select', {
                         { id: 876,    name: 'Duranbah',          path: 'duranbah.stream' },
                         { id: 484779, name: 'Tweed Bar',         path: 'tweed-bar.stream' },
                         { id: 250741, name: 'Snapper Rocks',     path: 'snapper-rocks.stream' },
-                        { id: 250746, name: 'Superbank',        path: 'superbank.stream' },
+                        { id: 522621, name: 'Superbank',        path: 'superbank.stream' },
                         { id: 250746, name: 'Greenmount',        path: 'greenmount.stream' },
                         { id: 508111, name: 'Coolangatta',       path: 'coolangatta.stream' },
                         { id: 508110, name: 'Spot X',            path: 'spot-x.stream' },
