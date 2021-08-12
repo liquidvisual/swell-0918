@@ -5497,6 +5497,12 @@
                         "premium":false,
                         "children":false
                      },
+                     {
+                        "name":"Narrowneck Reef",
+                        "url":"/surfcams/narrowneck-reef",
+                        "premium":true,
+                        "children":false
+                     },
                   ]
                },
                {
