@@ -5390,6 +5390,12 @@
                         "children":false
                      },
                      {
+                        "name":"Superbank",
+                        "url":"/surfcams/superbank",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Greenmount",
                         "url":"/surfcams/greenmount",
                         "premium":false,
@@ -5416,6 +5422,12 @@
                      {
                         "name":"Kirra",
                         "url":"/surfcams/kirra",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"North Kirra",
+                        "url":"/surfcams/north-kirra",
                         "premium":true,
                         "children":false
                      },
