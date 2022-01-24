@@ -5508,6 +5508,7 @@
                {
                   "name":"Sunshine Coast",
                   "url":"/surfcams/sunshine-coast",
+                  "twoByTwo":true,
                   "children":[
                      {
                         "name":"Caloundra Bar",
@@ -5570,8 +5571,32 @@
                         "children":false
                      },
                      {
+                        "name":"Peregian",
+                        "url":"/surfcams/peregian",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Marcus Beach",
+                        "url":"/surfcams/marcus-beach",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Sunshine South",
+                        "url":"/surfcams/sunshine-south/",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Sunshine Beach",
                         "url":"/surfcams/sunshine-beach/",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Sunshine North",
+                        "url":"/surfcams/sunshine-north/",
                         "premium":true,
                         "children":false
                      },
@@ -5736,6 +5761,12 @@
                      {
                         "name":"Yamba",
                         "url":"/surfcams/yamba",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Pippies",
+                        "url":"/surfcams/pippies",
                         "premium":true,
                         "children":false
                      },

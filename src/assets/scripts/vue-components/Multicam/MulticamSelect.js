@@ -77,7 +77,11 @@ Vue.component('multicam-select', {
                         { id: 492649, name: 'Coolum Bays',       path: 'coolum-bays.stream' },
                         { id: 492651, name: 'Point Perry',       path: 'point-perry.stream' },
                         { id: 333699, name: 'Coolum',            path: 'coolum.stream' },
+                        { id: 532641, name: 'Peregian',            path: 'peregian.stream' },
+                        { id: 532642, name: 'Marcus Beach',            path: 'marcus-beach.stream' },
+                        { id: 532709, name: 'Sunshine South',    path: 'sunshine-south.stream' },
                         { id: 334466, name: 'Sunshine Beach',    path: 'sunshine-beach.stream' },
+                        { id: 532708, name: 'Sunshine North',    path: 'sunshine-north.stream' },
                         { id: 856,    name: 'Noosa Heads',       path: 'noosa.stream' },
                         { id: 468035, name: 'Agnes Water',       path: 'agnes-water.stream' }
                     ]
@@ -91,6 +95,7 @@ Vue.component('multicam-select', {
                         { id: 866,    name: 'Byron Bay',         path: 'byron.stream' },
                         { id: 479345, name: 'The Pass',          path: 'the-pass.stream' },
                         { id: 331984, name: 'Yamba',             path: 'yamba.stream' },
+                        { id: 523948, name: 'Pippes',             path: 'pippies.stream' },
                         { id: 329830, name: 'Park Beach',        path: 'park-beach.stream' },
                         { id: 766,    name: 'Coffs Harbour',     path: 'coffs-harbour.stream' },
                         { id: 781,    name: 'Newcastle',         path: 'newcastle.stream' },
