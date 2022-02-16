@@ -89,6 +89,7 @@ Vue.component('multicam-select', {
                 {
                     state: 'New South Wales',
                     locations: [
+                        { id: 533893, name: 'Kingscliff North',  path: 'kingscliff-north.stream' },
                         { id: 328177, name: 'Kingscliff',        path: 'kingscliff.stream' },
                         { id: 335898, name: 'Cabarita',          path: 'cabarita.stream' },
                         { id: 497597, name: 'Cabarita Beach',    path: 'cabarita-beach.stream' },

@@ -5729,6 +5729,12 @@
                   "url":"/surfcams/northern-nsw",
                   "children":[
                      {
+                        "name":"Kingscliff North",
+                        "url":"/surfcams/kingscliff-north",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Kingscliff",
                         "url":"/surfcams/kingscliff",
                         "premium":true,
