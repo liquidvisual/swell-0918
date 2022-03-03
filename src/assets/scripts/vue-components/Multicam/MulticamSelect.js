@@ -120,6 +120,8 @@ Vue.component('multicam-select', {
                     state: 'Victoria',
                     locations: [
                         { id: 382063, name: 'Woolamai',          path: 'woolamai.stream' },
+                        { id: 535211, name: 'Anzacs',          path: 'anzacs.stream' },
+                        { id: 535209, name: 'Magiclands',          path: 'magiclands.stream' },
                         { id: 861,    name: 'Torquay',           path: 'torquay.stream' },
                         { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },

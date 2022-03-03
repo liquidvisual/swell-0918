@@ -5840,9 +5840,21 @@
                   "children":false
                },
                {
+                  "name":"Anzacs",
+                  "url":"/surfcams/anzacs",
+                  "premium":true,
+                  "children":false
+               },
+               {
                   "name":"Woolamai",
                   "url":"/surfcams/woolamai",
                   "premium":false,
+                  "children":false
+               },
+               {
+                  "name":"Magiclands",
+                  "url":"/surfcams/magiclands",
+                  "premium":true,
                   "children":false
                },
                {
