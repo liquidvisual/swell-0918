@@ -5535,6 +5535,12 @@
                         "children":false
                      },
                      {
+                        "name":"Alex Bluff",
+                        "url":"/surfcams/alex-bluff",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Alex Beach",
                         "url":"/surfcams/alex-beach",
                         "premium":true,
