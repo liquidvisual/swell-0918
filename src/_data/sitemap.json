@@ -299,7 +299,7 @@
                         "name":"Warrnambool",
                         "url":"/reports/australia/victoria/warrnambool",
                         "children":false,
-                        "observed":true
+                        "observed":false
                      },
                      {
                         "name":"90 Mile Beach",
