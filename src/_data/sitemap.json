@@ -5783,14 +5783,32 @@
                         "children":false
                      },
                      {
+                        "name":"Macauleys",
+                        "url":"/surfcams/macauleys",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Park Beach",
                         "url":"/surfcams/park-beach",
                         "premium":false,
                         "children":false
                      },
                      {
+                        "name":"Park Beach South",
+                        "url":"/surfcams/park-beach-south",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Coffs Harbour",
                         "url":"/surfcams/coffs-harbour",
+                        "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"Gallows",
+                        "url":"/surfcams/gallows",
                         "premium":false,
                         "children":false
                      },
