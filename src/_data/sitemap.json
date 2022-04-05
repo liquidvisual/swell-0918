@@ -5723,6 +5723,12 @@
                         "children":false
                      },
                      {
+                        "name":"City Beach",
+                        "url":"/surfcams/city-beach",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Kiama",
                         "url":"/surfcams/kiama",
                         "premium":true,

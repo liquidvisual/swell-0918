@@ -117,6 +117,7 @@ Vue.component('multicam-select', {
                         { id: 473140, name: 'Thirroul North',    path: 'thirroul-north.stream' },
                         { id: 841,    name: 'Thirroul',          path: 'thirroul.stream' },
                         { id: 791,    name: 'Wollongong',        path: 'wollongong.stream' },
+                        { id: 537243,    name: 'City Beach',        path: 'city-beach.stream' },
                         { id: 472578, name: 'Kiama',             path: 'kiama.stream' }
                     ]
                 },
