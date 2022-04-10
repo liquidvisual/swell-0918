@@ -6009,6 +6009,18 @@
                   "premium":false,
                   "children":false
                },
+               {
+                  "name":"Margaret River Bombie",
+                  "url":"/surfcams/margaret-river-bombie",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Boat Ramp",
+                  "url":"/surfcams/boat-ramp",
+                  "premium":true,
+                  "children":false
+               },
             ]
          }
       ]

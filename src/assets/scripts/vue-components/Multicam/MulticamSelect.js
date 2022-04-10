@@ -157,6 +157,8 @@ Vue.component('multicam-select', {
                     state: 'Western Australia',
                     locations: [
                         { id: 846,    name: 'Margaret River',    path: 'margaret-river.stream' },
+                        { id: 537573, name: 'Margaret River Bombie',    path: 'margaret-river-bombie.stream' },
+                        { id: 537574, name: 'Boat Ramp',    path: 'boat-ramp.stream' },
                         { id: 831,    name: 'Yallingup',         path: 'yallingup.stream' },
                         { id: 489371, name: 'Mandurah Wedge',    path: 'mandurah-wedge.stream' },
                         { id: 489407, name: 'Brighton',          path: 'brighton.stream' },
