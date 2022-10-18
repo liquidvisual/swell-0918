@@ -5645,6 +5645,18 @@
                         "children":false
                      },
                      {
+                        "name":"Newcastle Point",
+                        "url":"/surfcams/newcastle-point",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
+                        "name":"Newcastle South",
+                        "url":"/surfcams/newcastle-south",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Avoca Beach",
                         "url":"/surfcams/avoca-beach",
                         "premium":true,
@@ -5675,9 +5687,21 @@
                         "children":false
                      },
                      {
+                        "name":"North Maroubra",
+                        "url":"/surfcams/north-maroubra",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Maroubra",
                         "url":"/surfcams/maroubra",
                         "premium":false,
+                        "children":false
+                     },
+                     {
+                        "name":"South Maroubra",
+                        "url":"/surfcams/south-maroubra",
+                        "premium":true,
                         "children":false
                      },
                      {
@@ -6021,6 +6045,49 @@
                   "premium":true,
                   "children":false
                },
+            ]
+         },
+         {
+            "name":"Tasmania",
+            "alias":"TAS",
+            "url":"/surfcams",
+            "children":[
+               {
+                  "name":"Clifton Beach",
+                  "url":"/surfcams/clifton-beach",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Clifton Beach South",
+                  "url":"/surfcams/clifton-south-beach",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Bicheno",
+                  "url":"/surfcams/bicheno",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Redbill Beach",
+                  "url":"/surfcams/redbill-beach",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Eaglehawk Neck",
+                  "url":"/surfcams/eaglehawk-neck",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Pirates Bay",
+                  "url":"/surfcams/pirates-bay",
+                  "premium":true,
+                  "children":false
+               }
             ]
          }
       ]

@@ -104,12 +104,16 @@ Vue.component('multicam-select', {
                         { id: 766,    name: 'Coffs Harbour',     path: 'coffs-harbour.stream' },
                         { id: 530941, name: 'Gallows',     path: 'gallows.stream' },
                         { id: 781,    name: 'Newcastle',         path: 'newcastle.stream' },
+                        { id: 548893,    name: 'Newcastle South',         path: 'newcastle-south.stream' },
+                        { id: 548891,    name: 'Newcastle Point',         path: 'newcastle-point.stream' },
                         { id: 394603, name: 'Avoca Beach',       path: 'avoca-beach.stream' },
                         { id: 776,    name: 'Narrabeen',         path: 'narrabeen.stream' },
                         { id: 513741,    name: 'Queenscliff',         path: 'queenscliff.stream' },
                         { id: 771,    name: 'Manly',             path: 'manly.stream' },
                         { id: 761,    name: 'Bondi',             path: 'bondi.stream' },
                         { id: 881,    name: 'Maroubra',          path: 'maroubra.stream' },
+                        { id: 548942,    name: 'North Maroubra',          path: 'north-maroubra.stream' },
+                        { id: 548943,    name: 'South Maroubra',          path: 'south-maroubra.stream' },
                         { id: 786,    name: 'Shark Island',      path: 'shark-island.stream' },
                         { id: 886,    name: 'Cronulla Point',    path: 'cronulla-point.stream' },
                         { id: 512660, name: 'The Alley',         path: 'the-alley.stream' },
@@ -127,13 +131,16 @@ Vue.component('multicam-select', {
                         { id: 382063, name: 'Woolamai',          path: 'woolamai.stream' },
                         { id: 535211, name: 'Anzacs',          path: 'anzacs.stream' },
                         { id: 535209, name: 'Magiclands',          path: 'magiclands.stream' },
+                        { id: 506942, name: "Winkipop",  path: "winkipop.stream" },
                         { id: 861,    name: 'Torquay',           path: 'torquay.stream' },
+                        { id: 540386, name: "Fishermans Beach", path: "fishermans-beach.stream" },
                         { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
                         { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
                         { id: 488207, name: 'Fairhaven',         path: 'fairhaven.stream' },
                         { id: 806,    name: 'Lorne',             path: 'lorne.stream' },
                         { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" },
+                        { id: 488323, name: "Wye River", path: "wye-river.stream" },
                         { id: 514231, name: "St Kilda",       path: "st-kilda.stream" }
                     ]
                 },
@@ -161,9 +168,22 @@ Vue.component('multicam-select', {
                         { id: 537574, name: 'Boat Ramp',    path: 'boat-ramp.stream' },
                         { id: 831,    name: 'Yallingup',         path: 'yallingup.stream' },
                         { id: 489371, name: 'Mandurah Wedge',    path: 'mandurah-wedge.stream' },
+                        { id: 537773, name: "North Floreat", path: "north-floreat.stream" },
                         { id: 489407, name: 'Brighton',          path: 'brighton.stream' },
                         { id: 826,    name: 'Scarborough',       path: 'scarborough.stream' },
+                        { id: 537774, name: "Contacio", path: "contacio.stream" },
                         { id: 489408, name: 'South Trigg',       path: 'south-trigg.stream' }
+                    ]
+                },
+                {
+                    state: 'Tasmania',
+                    locations: [
+                        { id: 547735,    name: 'Eaglehawk Neck',    path: 'eaglehawk-neck.stream' },
+                        { id: 547737, name: 'Pirates Bay',    path: 'pirates-bay.stream' },
+                        { id: 547738, name: 'Bicheno',    path: 'bicheno.stream' },
+                        { id: 547739,    name: 'Redbill Beach',         path: 'redbill-beach.stream' },
+                        { id: 547740, name: 'Clifton Beach',    path: 'clifton-beach.stream' },
+                        { id: 547741, name: 'Clifton Beach South',          path: 'clifton-beach-south.stream' }
                     ]
                 }
             ]
