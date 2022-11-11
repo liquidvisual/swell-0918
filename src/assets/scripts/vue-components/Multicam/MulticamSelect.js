@@ -131,6 +131,7 @@ Vue.component('multicam-select', {
                         { id: 382063, name: 'Woolamai',          path: 'woolamai.stream' },
                         { id: 535211, name: 'Anzacs',          path: 'anzacs.stream' },
                         { id: 535209, name: 'Magiclands',          path: 'magiclands.stream' },
+                        { id: 550206, name: 'Smiths Beach',          path: 'smiths-beach.stream' },
                         { id: 506942, name: "Winkipop",  path: "winkipop.stream" },
                         { id: 861,    name: 'Torquay',           path: 'torquay.stream' },
                         { id: 540386, name: "Fishermans Beach", path: "fishermans-beach.stream" },
