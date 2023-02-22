@@ -114,6 +114,7 @@ Vue.component('multicam-select', {
                         { id: 881,    name: 'Maroubra',          path: 'maroubra.stream' },
                         { id: 548942,    name: 'North Maroubra',          path: 'north-maroubra.stream' },
                         { id: 548943,    name: 'South Maroubra',          path: 'south-maroubra.stream' },
+                        { id:556914,    name:"Wanda",                       path:"wanda.stream"}
                         { id: 786,    name: 'Shark Island',      path: 'shark-island.stream' },
                         { id: 886,    name: 'Cronulla Point',    path: 'cronulla-point.stream' },
                         { id: 512660, name: 'The Alley',         path: 'the-alley.stream' },
@@ -136,8 +137,12 @@ Vue.component('multicam-select', {
                         { id: 861,    name: 'Torquay',           path: 'torquay.stream' },
                         { id: 540386, name: "Fishermans Beach", path: "fishermans-beach.stream" },
                         { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
+                        { id:553188,    name:"Raffs",           path:"raffs.stream"},
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
-                        { id: 796,    name: '13th Beach',        path: '13th-beach.stream' },
+                        { id:540522,    name:"Rye",             path:"rye.stream"},
+                        { id:796,       name:"13th Beach",      path:"13th-beach.stream"},
+                        { id:553189,    name:"Boings",             path:"boings.stream"},
+                        { id:553190,    name:"Sign Posts",      path:"sign-posts.stream"}
                         { id: 488207, name: 'Fairhaven',         path: 'fairhaven.stream' },
                         { id: 806,    name: 'Lorne',             path: 'lorne.stream' },
                         { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" },

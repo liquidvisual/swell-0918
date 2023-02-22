@@ -5705,6 +5705,12 @@
                         "children":false
                      },
                      {
+                        "name":"Wanda",
+                        "url":"/surfcams/wanda",
+                        "premium":true,
+                        "children":false
+                     },
+                     {
                         "name":"Cronulla Beaches",
                         "url":"/surfcams/cronulla-beaches",
                         "premium":false,
@@ -5858,8 +5864,26 @@
                   "children":false
                },
                {
-                  "name":"Ocean Grove",
-                  "url":"/surfcams/ocean-grove",
+                  "name":"Raffs",
+                  "url":"/surfcams/raffs",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"13th Beach",
+                  "url":"/surfcams/13th-beach",
+                  "premium":false,
+                  "children":false
+               },
+               {
+                  "name":"Sign Posts",
+                  "url":"/surfcams/sign-posts",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Boings",
+                  "url":"/surfcams/boings",
                   "premium":true,
                   "children":false
                },
@@ -5908,6 +5932,12 @@
                {
                   "name":"Magiclands",
                   "url":"/surfcams/magiclands",
+                  "premium":true,
+                  "children":false
+               },
+               {
+                  "name":"Smiths Beach",
+                  "url":"/surfcams/smiths-beach",
                   "premium":true,
                   "children":false
                },
