@@ -78,6 +78,7 @@ Vue.component('multicam-select', {
                         { id: 492649, name: 'Coolum Bays',       path: 'coolum-bays.stream' },
                         { id: 492651, name: 'Point Perry',       path: 'point-perry.stream' },
                         { id: 333699, name: 'Coolum',            path: 'coolum.stream' },
+                        { id: 561227, name: 'North Coolum',            path: 'north-coolum.stream' },
                         { id: 532641, name: 'Peregian',            path: 'peregian.stream' },
                         { id: 532642, name: 'Marcus Beach',            path: 'marcus-beach.stream' },
                         { id: 532709, name: 'Sunshine South',    path: 'sunshine-south.stream' },
@@ -139,6 +140,8 @@ Vue.component('multicam-select', {
                         { id: 477963, name: 'Ocean Grove',       path: 'ocean-grove.stream' },
                         { id:553188,    name:"Raffs",           path:"raffs.stream"},
                         { id: 811,    name: 'Portsea',           path: 'portsea.stream' },
+                        { id: 553185,    name: 'Portsea East',           path: 'portsea-east.stream' },
+                        { id: 553186,    name: 'Portsea West',           path: 'portsea-west.stream' },
                         { id:540522,    name:"Rye",             path:"rye.stream"},
                         { id:796,       name:"13th Beach",      path:"13th-beach.stream"},
                         { id:553189,    name:"Boings",             path:"boings.stream"},
@@ -147,7 +150,8 @@ Vue.component('multicam-select', {
                         { id: 806,    name: 'Lorne',             path: 'lorne.stream' },
                         { id: 486859, name: "Lorne Point",       path: "lorne-point.stream" },
                         { id: 488323, name: "Wye River", path: "wye-river.stream" },
-                        { id: 514231, name: "St Kilda",       path: "st-kilda.stream" }
+                        { id: 514231, name: "St Kilda",       path: "st-kilda.stream" },
+                        { id: 549788, name: "St Kilda Marina",       path: "st-kilda-marina.stream" }
                     ]
                 },
                 {
@@ -156,6 +160,10 @@ Vue.component('multicam-select', {
                         { id: 816,    name: 'Knights',           path: 'knights.stream' },
                         { id: 871,    name: 'Middleton Bay',     path: 'middleton-bay.stream' },
                         { id: 444455, name: 'Middleton Point',   path: 'middleton-point.stream' },
+                        { id: 560117, name: 'Day Street',        path: 'day-street.stream' },
+                        { id: 444456, name: 'Goolwa',            path: 'goolwa.stream' },
+                        { id: 560349, name: 'Chiton Rocks',            path: 'chiton-rocks.stream' },
+                        { id: 560350, name: 'The Dump',            path: 'the-dump.stream' },
                         { id: 382064, name: 'Triggs',            path: 'triggs.stream' },
                         { id: 494302, name: 'U Turns',           path: 'u-turns.stream' },
                         { id: 382065, name: 'Christies Beach',   path: 'christies-beach.stream' },
@@ -163,7 +171,8 @@ Vue.component('multicam-select', {
                         { id: 821,    name: 'South Port',        path: 'south-port.stream' },
                         { id: 499745, name: 'The Hump',          path: 'the-hump.stream' },
                         { id: 499744, name: 'Rivermouth',        path: 'rivermouth.stream' },
-                        { id: 444456, name: 'Goolwa',            path: 'goolwa.stream' }
+                        { id: 560407, name: 'West Beach North',        path: 'west-beach-north.stream' },
+                        { id: 560405, name: 'West Beach South',        path: 'west-beach-south.stream' }
                     ]
                 },
                 {
