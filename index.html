@@ -235,7 +235,7 @@
 
                                         <!-- /DRUPAL -->
                                         
-<!-- TITLE --><h1 class="page-title mb-4">Instructions
+<!-- TITLE --><h1 class="page-title mb-4">Home
                                             <img width="28" src="/assets/img/ui/premium-icon.svg">
                                         </h1>
                                         <p>
@@ -243,12 +243,36 @@
                                         </p>
                                         <p>
                                             <a href="https://github.com/liquidvisual/swell-0918/tree/gh-pages">Compiled version here</a> (gh-pages)</p>
+                                        <p>
+                                            <strong>Dev Notes:</strong>
+                                        </p>
+                                        <p>Stream urls are in this format:
+                                            <strong>https://stream.n1.au.swellnet.com/surfcams/snapper-rocks.stream/playlist.m3u8</strong>
+                                        </p>
+                                        <p>If 404s are experienced, check the base url.</p>
+                                        <p>Make sure to map
+                                            <strong>localhost</strong> to <code class="language-plaintext highlighter-rouge">swellnet.local</code> under hosts. To access over the local network, enter the machine IP address in the browser eg <code class="language-plaintext highlighter-rouge">http://192.168.1.66</code>.</p>
                                         <hr>
-                                        <h2 id="test-links">Test Links</h2>
+                                        <h3 id="live-surfcams">Live Surfcams</h3>
+                                        <p>
+                                            <strong>Note:</strong> replays are now managed outside of this codebase. Latest 2023 version also drops sidebar layout.</p>
                                         <ul>
                                             <li>
-                                                <a href="/home-tabs/">/home-tabs/</a>
-                                            </li>
+                                                <a href="/surfcams/snapper-rocks/paid/">/surfcams/snapper-rocks/paid/</a> (video.js)</li>
+                                            <li>
+                                                <a href="/surfcams/snapper-rocks/public/">/surfcams/snapper-rocks/public/</a> (video.js)</li>
+                                        </ul>
+                                        <hr>
+                                        <h3 id="multi-cam">Multi-cam</h3>
+                                        <ul>
+                                            <li>
+                                                <a href="/multi-cam/">/multi-cam/</a> (playr.js)</li>
+                                        </ul>
+                                        <hr>
+                                        <h3 id="test-links">Test Links</h3>
+                                        <ul>
+                                            <li>
+                                                <a href="/home-tabs/">/home-tabs/</a> (tabs visible on mobile)</li>
                                             <li>
                                                 <a href="/swellnet-traveller/">/swellnet-traveller/</a>
                                             </li>
@@ -256,54 +280,8 @@
                                                 <a href="/news/news-item/">/news/news-item/</a>
                                             </li>
                                             <li>
-                                                <a href="/pro/gift/">/pro/gift/</a> (Blank)</li>
-                                            <li>
                                                 <a href="/forecaster-notes/forecaster-notes-item/">/forecaster-notes/forecaster-notes-item/</a>
                                             </li>
-                                        </ul>
-                                        <h3 id="bondi">Bondi</h3>
-                                        <ul>
-                                            <li>
-                                                <a href="/surfcams/bondi/">/surfcams/bondi/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/bondi/paid/">/surfcams/bondi/paid/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/bondi/replays/">/surfcams/bondi/replays/</a> (video.js)</li>
-                                        </ul>
-                                        <h3 id="kingscliff">Kingscliff</h3>
-                                        <ul>
-                                            <li>
-                                                <a href="/surfcams/kingscliff/">/surfcams/kingscliff/</a> (Prompt)</li>
-                                            <li>
-                                                <a href="/surfcams/kingscliff/paid/">/surfcams/kingscliff/paid/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/kingscliff/public/">/surfcams/kingscliff/public/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/kingscliff/public-premium/">/surfcams/kingscliff/public-premium/</a> (Prompt)</li>
-                                            <li>
-                                                <a href="/surfcams/kingscliff/replays/">/surfcams/kingscliff/replays/</a> (video.js)</li>
-                                        </ul>
-                                        <h3 id="snapper-rocks">Snapper Rocks</h3>
-                                        <ul>
-                                            <li>
-                                                <a href="/surfcams/snapper-rocks/">/surfcams/snapper-rocks/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/snapper-rocks/paid/">/surfcams/snapper-rocks/paid/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/snapper-rocks/public/">/surfcams/snapper-rocks/public/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/snapper-rocks/public-premium/">/surfcams/snapper-rocks/public-premium/</a> (Prompt)</li>
-                                            <li>
-                                                <a href="/surfcams/snapper-rocks/replays/">/surfcams/snapper-rocks/replays/</a> (video.js)</li>
-                                        </ul>
-                                        <h3 id="woolongong">Woolongong</h3>
-                                        <ul>
-                                            <li>
-                                                <a href="/surfcams/wollongong/">/surfcams/wollongong/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/wollongong/paid/">/surfcams/wollongong/paid/</a> (video.js)</li>
-                                            <li>
-                                                <a href="/surfcams/wollongong/replays/">/surfcams/wollongong/replays/</a> (video.js)</li>
                                         </ul>
                                         <hr>
 
@@ -1306,19 +1284,8 @@
         </ul>
     </nav>
 
-    <!--[if lte IE 9]>
-    <div class="lv-alert-bar">
-        <p>You're using an outdated browser. Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
-        <span class="lv-alert-bar-close-btn">&times;</span>
-    </div>
-    <![endif]-->
-
-    <!-- Begin MCN ad code -->
+    <!-- **** JAVASCRIPT **** -->
     
-<!-- <script async src="https://cdn.fuseplatform.net/publift/tags/2/2050/fuse.js"></script> -->
-<!-- LEGACY -->
-<!-- { % include legacy/closing_body.html %} -->
-<!-- **** JAVASCRIPT **** -->
 <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately --><script src="/assets/scripts/minified-hls.js"></script>
 
     <!-- GOOGLE API IMA SDK LOADER -->
