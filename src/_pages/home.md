@@ -24,6 +24,13 @@ theme:
 ### Multi-cam
 
 * [/multi-cam/](/multi-cam/) (playr.js)
+* [Editable multicam datafile](/public/multicam-data.js)
+
+1. To update multicam data, make edits to `/public/multicam-data.js` 
+2. Keep a duplicate copy synced with it on the Swellnet server.<br>
+3. Must be the same relative path (eg. `swellnet.com/public/multicam-data.js`).<br>
+4. **Be careful not to leave out object commas** .
+5. Push to **master** when done.
 
 ---
 

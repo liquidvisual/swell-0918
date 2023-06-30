@@ -2,6 +2,13 @@
     "name": "swell-0918",
     "private": true,
     "version": "0.0.1",
+    "scripts": {
+        "installs": "npm install && bundle install",
+        "dev": "grunt serve",
+        "build": "grunt build",
+        "preview": "grunt preview",
+        "deploy": "grunt deploy"
+    },
     "devDependencies": {
         "@babel/core": "^7.22.5",
         "@babel/preset-env": "^7.22.5",

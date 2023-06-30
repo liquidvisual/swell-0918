@@ -5,23 +5,24 @@ Instructions (2023)
 
 ```bash
 git clone git@github.com:liquidvisual/swell-0918.git
-bundle install
-npm install
-grunt serve
+npm run installs
+npm run dev
 ```
 
 ## More commands
 ```bash
-grunt build
-grunt preview # spins up http-server on port:8888
-grunt deploy # deploys to gh-pages
+npm run build
+npm run preview # spins up http-server on port:8888
+npm run deploy # deploys to gh-pages
 ```
 
 ## IE11 Support Dropped
 **grunt-babel** was previously being used in **Gruntfile.js** under `build` (approx line 635) to translate ES6 compatibility. This has now been dropped to simplify the build process. To restore IE11 support; uncomment babel from the build task.
 
 ## Dev Notes
-Stream urls are in this format: https://stream.n1.au.swellnet.com/surfcams/[location-name].stream/playlist.m3u8. If 404s are experienced, check the base url.
+* Stream urls are in this format: https://stream.n1.au.swellnet.com/surfcams/[location-name].stream/playlist.m3u8. If 404s are experienced, check the base url.
+* Video posters (thumbnails) are following format: https://static.swellnet.com.au/images/surfcams/[location-name].jpg
+* Video posters may not during dev due to https and cors, but should work on swellnet domain.
 
 Make sure to map `localhost` to `swellnet.local` under hosts. To access over the local network, enter the machine IP address in the browser eg `http://192.168.1.66`.
 
