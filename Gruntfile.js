@@ -31,7 +31,7 @@ module.exports = function (grunt) {
         sass: "grunt-sass",
         sass_globbing: "grunt-sass-globbing", // [LOCKED]
         shell: "grunt-shell",
-        uglify: "grunt-contrib-uglify-es",
+        uglify: "grunt-contrib-uglify",
         useminPrepare: "grunt-usemin",
     });
 
@@ -90,8 +90,8 @@ module.exports = function (grunt) {
                     notify: false,
                     // Here you can disable/enable each feature individually
                     ghostMode: {
-                        clicks: true,
-                        forms: true,
+                        clicks: false,
+                        forms: false,
                         scroll: false,
                     },
                     // Don't send any file-change events to browsers
@@ -111,7 +111,7 @@ module.exports = function (grunt) {
                         baseDir: [
                             ".jekyll",
                             ".tmp",
-                            ".", // fuck yeah!!
+                            ".",
                             "<%= yeoman.app %>",
                         ],
                     },
@@ -329,10 +329,10 @@ module.exports = function (grunt) {
         //-----------------------------------------------------
         babel: {
             options: {
-                // sourceMap: false,
+                // sourceMap: true,
                 // minified: false,
                 // comments: false,
-                // presets: ['env']
+                presets: ['@babel/preset-env']
             },
             dist: {
                 files: {
@@ -567,9 +567,9 @@ module.exports = function (grunt) {
             serveDist: {
                 command: [
                     "cd <%= yeoman.dist %>",
-                    "open http://localhost:8000",
-                    "python -m SimpleHTTPServer 8000",
-                    "open http://localhost:8000",
+                    "open http://localhost:8888",
+                    "http-server -p 8888 --cors",
+                    "open http://localhost:8888",
                     "cd -",
                 ].join("&&"),
             },
@@ -630,17 +630,14 @@ module.exports = function (grunt) {
         "concat",
         "cssmin",
         "uglify",
-        //'imagemin',
-        //'svgmin',
-        //'filerev',
         "usemin",
         "postcss",
-        "babel",
-        "htmlmin", // best not to use this?
+        // "babel", uncomment to support IE11
+        "htmlmin",
         "prettify",
     ]);
 
-    grunt.registerTask("host", ["build", "shell:serveDist"]);
+    grunt.registerTask("preview", ["build", "shell:serveDist"]);
 
     //=======================================
     // GRUNT DEPLOY (GIT)

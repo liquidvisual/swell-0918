@@ -23,13 +23,6 @@
     <link rel="stylesheet" href="/node_modules/flatpickr/dist/themes/airbnb.css">
     <!-- endbuild -->
 
-    {% comment %}
-    <!-- WORDPRESS SHOP CSS - (Generated separately) -->
-    <!-- build:css({src,.tmp,.}) /assets/css/shop-minified.css -->
-    <link rel="stylesheet" href="/css/shop.css">
-    <!-- endbuild -->
-    {% endcomment %}
-
     <!-- OVERRIDES (FROM: SWELLNET.COM) -->
     <link rel="stylesheet" href="https://www.swellnet.com/assets/lv-event-page.css?pwrd3v">
     <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/custom.css?pwrd3v">
@@ -61,19 +54,6 @@
         {% include components/navigation/nav.html %}
     </nav>
 
-    <!--[if lte IE 9]>
-    <div class="lv-alert-bar">
-        <p>You're using an outdated browser. Please <a href="http://outdatedbrowser.com">upgrade your browser</a> to improve your experience.</p>
-        <span class="lv-alert-bar-close-btn">&times;</span>
-    </div>
-    <![endif]-->
-
-    <!-- Begin MCN ad code -->
-    <!-- <script async src="https://cdn.fuseplatform.net/publift/tags/2/2050/fuse.js"></script> -->
-
-    <!-- LEGACY -->
-    <!-- { % include legacy/closing_body.html %} -->
-
     <!-- **** JAVASCRIPT **** -->
 
     <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately -->
@@ -94,8 +74,6 @@
     <script src="/node_modules/bootstrap/js/dist/tab.js"></script>
     <script src="/node_modules/bootstrap/js/dist/tooltip.js"></script>
     <script src="/node_modules/flatpickr/dist/flatpickr.js"></script>
-    <script src="/node_modules/flickity/dist/flickity.pkgd.js"></script>
-    <script src="/node_modules/flickity-bg-lazyload/bg-lazyload.js"></script>
     <script src="/node_modules/headroom.js/dist/headroom.js"></script>
     <script src="/node_modules/moment/min/moment.min.js"></script>
     <script src="/node_modules/moment/locale/en-au.js"></script>
@@ -112,23 +90,19 @@
     <script src="/node_modules/can-autoplay/build/can-autoplay.js"></script>
 
     <script src="/assets/scripts/vue-components/Surfcam/Index.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/DateSelect.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/TimeSelect.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/ThumbSlider.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerPlyr.js"></script>
     <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerVideoJS.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/VueFlickity.js"></script>
+
     <script src="/assets/scripts/vue-components/Multicam/Index.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/Multicam.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/MulticamPlayerPlyr.js"></script>
     <script src="/assets/scripts/vue-components/Multicam/MulticamSelect.js"></script>
     <script src="/assets/scripts/vue-components/app.js"></script>
+
     <script src="/assets/scripts/liquidvisual/headroom.js"></script>
-    <script src="/assets/scripts/flow-player.js"></script>
     <script src="/assets/scripts/off-canvas.js"></script>
     <script src="/assets/scripts/mega-menu.js"></script>
     <script src="/assets/scripts/render-nav-children.js"></script>
-    <script src="/assets/scripts/flickity.js"></script>
     <script src="/assets/scripts/comment-scroller.js"></script>
     <script src="/assets/scripts/main.js"></script>
     <!-- endbuild -->

@@ -10,12 +10,6 @@
 
 $(document).ready(function() {
 
-    // Remove page loader by adding loaded to html
-    // document.documentElement.classList.add('has-loaded');
-
-    // Tooltips
-    // $('[data-toggle="tooltip"]').tooltip();
-
     // Flatpickr
     $('.datepicker').flatpickr({
             format: "Y-m-d", // 2018-12-18

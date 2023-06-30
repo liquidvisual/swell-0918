@@ -39,6 +39,20 @@
 }
 
 //-----------------------------------------------------------------
+// PLAYER DEBUG
+//-----------------------------------------------------------------
+
+.video-player-debug {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	padding: 10px;
+	background-color: black;
+	color: yellow;
+	z-index: 999999;
+}
+
+//-----------------------------------------------------------------
 // PLAYER WATERMARK
 //-----------------------------------------------------------------
 
@@ -125,8 +139,13 @@
 	justify-content: center;
 	background: linear-gradient(to bottom, #54c5d1 0%, darken(#54c5d1, 18%) 100%); // PSD
 
+	@include media-breakpoint-up(md) {
+		aspect-ratio: 1920 / 1080;
+		max-width: 100%;
+	}
+
 	@include media-breakpoint-up(xl) {
-		min-height: 413px;
+		// min-height: 413px;
 	}
 
 	// INNER

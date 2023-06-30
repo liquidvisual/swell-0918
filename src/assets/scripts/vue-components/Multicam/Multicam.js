@@ -56,7 +56,7 @@ Vue.component('multicam', {
         multicamId: [String, Number], // used to identify multicam - shown in select placeholder
         path: {
             type: String,
-            default: 'https://streamer.swellnet.com.au/surfcams/' // can be overriden
+            default: '//stream.n1.au.swellnet.com/surfcams/' // can be overriden
         },
         paywallEnabled: Boolean,
         poster: String,

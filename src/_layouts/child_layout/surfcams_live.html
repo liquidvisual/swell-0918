@@ -1,5 +1,5 @@
 ---
-layout: base__page_sidebar
+layout: base__page
 ---
 
 {% comment %}
@@ -7,8 +7,7 @@ layout: base__page_sidebar
     - https://github.com/flowplayer/flowplayer-hlsjs/issues/57
     - https://stackoverflow.com/questions/4950115/removeeventlistener-on-anonymous-functions-in-javascript
     - stream is redudant on attrs - only playlist works
-    - FlowPlayer is for PUBLIC
-    - Plyr is for PAID
+    - Video.js is for public and paid
 {% endcomment %}
 
 {% assign live_path = page.live_path %}
@@ -16,40 +15,8 @@ layout: base__page_sidebar
 {% assign live_stream_image = page.live_stream_image %}
 {% assign live_stream_playlist = page.live_stream_playlist %}
 
-{% assign replays_path = page.replays_path %}
-{% assign replays_available = replays_path | default: false %}
-{% assign replays_surfcam_id = page.replays_surfcam_id %}
-
 <!-- TOP CONTENTS WRAPPER -->
 <div id="top-contents-wrapper">
-
-    <!-- LIVE + REPLAYS TABS -->
-    <div class="btn-tabs collapse-sm-down">
-
-        <!-- FAVORITE BTN -->
-        <span class="flag-wrapper flag-favourite-surfcam">
-            <a href="#" class="flag flag-action flag-link-normal" rel="nofollow">
-                <span class="hidden-xs-down">Set as favourite</span>
-                <span class="hidden-sm-up">Set favourite</span>
-            </a>
-            <span class="flag-throbber">&nbsp;</span>
-        </span>
-
-        {% if replays_available %}
-
-            <!-- REPLAYS TAB -->
-            <a class="btn-tab" href="{{ replays_path }}">
-                Replays
-            </a>
-
-        {% endif %}
-
-        <!-- LIVE TAB -->
-        <a class="btn-tab active" href="{{ live_path }}">
-            Live
-        </a>
-
-    </div>
 
     <!-- PREMIUM *FEATURE* OVERLAY (SHOW FOR UNPAID) -->
     <div
@@ -57,12 +24,6 @@ layout: base__page_sidebar
         class="video-player-overlay video-player-overlay-premium collapse-sm-down mb-4"
         hidden
     >
-        <!-- THEATRE MODE EXIT -->
-        <!-- <button class="flow-btn-shrink hidden-md-down" type="button">
-            <small><b><span class="text">SHRINK</span></b></small>&nbsp;
-            <i class="fa fa-compress fa-rotate-45"></i>
-        </button> -->
-
         <!-- INNER-->
         <div class="video-player-overlay-inner">
 
@@ -176,6 +137,7 @@ layout: base__page_sidebar
 
 {% if page.user_type == 'public' and page.premium != true %}
 
+    {% capture code_public %}
     <!-- START VUE APP -->
     <div id="vue-app" class="mb-4">
 
@@ -185,11 +147,6 @@ layout: base__page_sidebar
             live-stream="{{ live_stream }}"
             live-stream-image="{{ live_stream_image }}"
             live-stream-playlist="{{ live_stream_playlist }}"
-
-            {% if replays_available %}
-                data-path="https://www.swellnet.com/surfcam-replays/data/"
-                surfcam-id="{{ replays_surfcam_id }}"
-            {% endif %}
         >
             <div>
 
@@ -197,31 +154,23 @@ layout: base__page_sidebar
                 <div id="surfcam-player-holder">
 
                     <!-- SURFCAM PLAYER (VIDEO-JS) -->
-                    <!-- adv -->
-                    <!-- tagUrl: 'http://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/ad_rule_samples&ciu_szs=300x250&ad_rule=1&impl=s&gdfp_req=1&env=vp&output=xml_vmap1&unviewed_position_start=1&cust_params=sample_ar%3Dpremidpostpod%26deployment%3Dgmf-js&cmsid=496&vid=short_onecue&correlator=', -->
-
-                    <!-- simple -->
-                    <!-- tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&iu=/124319096/external/single_ad_samples&ciu_szs=300x250&impl=s&gdfp_req=1&env=vp&output=vast&unviewed_position_start=1&cust_params=deployment%3Ddevsite%26sample_ct%3Dlinear&correlator=', -->
-                    <!-- autoPlayAdBreaks: false, -->
+                    <!-- tagURL #1: works 100% (Google example) -->
+                    <!-- tagURL #2: rarely works in dev (HTTPS issue?)-->
                     <surfcam-player-video-js
                         :options="{
                             ads: {
                                 enabled: true,
-                                cooldown: 20*1000,
-                                debug: false,
-                                midrolls: 2,
-                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/live/ads?iu=/71161633/SWNT_swellnet/video&description_url=http%3A%2F%2Fswellnet.com&tfcd=0&npa=0&sz=300x169%7C400x300%7C640x480&min_ad_duration=0&max_ad_duration=120000&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator=',
-                                timeout: true
+                                tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/21775744923/external/vmap_ad_samples&sz=640x480&cust_params=sample_ar%3Dpreonly&ciu_szs=300x250%2C728x90&gdfp_req=1&ad_rule=1&output=vmap&unviewed_position_start=1&env=vp&impl=s&correlator=',
+                                //tagUrl: 'https://pubads.g.doubleclick.net/gampad/ads?iu=/71161633,8349402/SWNT_swellnet/video&description_url=https%3A%2F%2Fwww.swellnet.com%2F&tfcd=0&npa=0&sz=300x169%7C400x300%7C640x480&gdfp_req=1&output=vast&unviewed_position_start=1&env=vp&impl=s&correlator='
                             },
                             autoplay: false,
+                            debug: true,
                             error: {
                                 meta: 'MAKE SURE TO ESCAPE ANY COMMAS',
                                 heading: 'Some heading text can go here',
                                 body: 'Sorry! We\'re experiencing technical difficulties with this surfcam. We\'ll have it back up ASAP.'
                             },
-                            inactivityTimeout: 4*1000,
-                            muted: true,
-                            pauseTimeout: 5*60*1000,
+                            totalSecondsUntilTimeout: 10,
                             watermark: true,
                             watermarkPosition: 'tr'
                         }"
@@ -232,13 +181,39 @@ layout: base__page_sidebar
 
             </div>
         </surfcam-widget>
+        {% endcapture %}
+
+        {{ code_public }}
 
     </div> <!-- /.vue-app -->
+
+    <h3>This is Public | <a href="/surfcams/snapper-rocks/paid/">Switch Paid</a></h3>
+    <p>
+        <ul>
+            <li>ads: <b>yes</b></li>
+            <li>autoplay: <b>no</b></li>
+            <li>debug: <b>yes</b></li>
+            <li>player: <b>videoJS</b></li>
+            <li>totalSecondsUntilTimeout: <b>10</b></li>
+            <li>watermark: <b>yes</b></li>
+        </ul>
+        <ul>
+            <li>Leaving browser window pauses video (not ads), timer position restores on return.</li>
+            <li>Video posters don't work in this example due to lack of https.</li>
+            <li>Will show overlay after timeout completes.</li>
+        </ul>
+    </p>
+
+    <h3>Code</h3>
+    <pre class="highlight" style="background-color: #eee;">
+        <code>{{- code_public | xml_escape -}}</code>
+    </pre>
 
 {% endif %}
 
 {% if page.user_type == 'paid' %}
 
+    {% capture code_paid %}
     <!-- START VUE APP -->
     <div id="vue-app" class="mb-4">
 
@@ -248,11 +223,6 @@ layout: base__page_sidebar
             live-stream="{{ live_stream }}"
             live-stream-image="{{ live_stream_image }}"
             live-stream-playlist="{{ live_stream_playlist }}"
-
-            {% if replays_available %}
-                data-path="https://www.swellnet.com/surfcam-replays/data/"
-                surfcam-id="{{ replays_surfcam_id }}"
-            {% endif %}
         >
             <div>
 
@@ -265,139 +235,49 @@ layout: base__page_sidebar
                             ads: {
                                 enabled: false,
                             },
+                            debug: true,
                             autoplay: true,
                             error: {
                                 meta: 'MAKE SURE TO ESCAPE ANY COMMAS',
                                 heading: 'Some heading text can go here',
                                 body: 'Sorry! We\'re experiencing technical difficulties with this surfcam. We\'ll have it back up ASAP.'
                             },
-                            inactivityTimeout: 4*1000,
-                            muted: true,
-                            pauseTimeout: 5*60*1000,
-                            watermark: true,
-                            watermarkPosition: 'tr'
+                            totalSecondsUntilTimeout: 10,
+                            watermark: false
                         }"
                     >
                     </surfcam-player-video-js>
 
                 </div>
-
-                <!-- *NEW* EXPAND FEATURE (REMOVE WHEN UNECESSARY) -->
-                <div class="new-expand-feature hidden-md-down">
-                    <img class="" src="/assets/img/content/new-expand.png" alt="New Expand Feature" />
-                </div>
-
-                {% if replays_available %}
-
-                    <!-- HEADING: SURFCAM REPLAYS -->
-                    <h2 class="d-flex align-items-center my-4">
-                        <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
-                    </h2>
-
-                    <!-- SELECTS WRAPPER -->
-                    <div
-                        v-if="!replaysDisabled"
-                        class="custom-select-wrapper collapse-sm-down"
-                    >
-                        <!-- DATE-SELECT COMPONENT -->
-                        <date-select
-                            v-model="date"
-                            :is-loading="feedLoading"
-                        >
-                        </date-select>
-
-                        <!-- TIME-SELECT COMPONENT -->
-                        <time-select
-                            v-model="selectedTimeIndex"
-                            :feed="feed"
-                            :index="selectedTimeIndex"
-                            :is-loading="feedLoading"
-                        >
-                        </time-select>
-
-                    </div>
-
-                    <!-- THUMB-SLIDER COMPONENT -->
-                    <transition name="special-thumb-slider-entrance">
-                        <thumb-slider
-                            v-if="feed"
-                            :current-index="selectedTimeIndex"
-                            :feed="feed"
-                            :is-loading="feedLoading"
-                        >
-                        </thumb-slider>
-                    </transition>
-
-               {% endif %}
-
             </div>
         </surfcam-widget>
 
     </div> <!-- /.vue-app -->
+    {% endcapture %}
+
+    {{ code_paid }}
+
+    <h3>This is Paid | <a href="/surfcams/snapper-rocks/public/">Switch Public</a></h3>
+    <p>
+        Notes:
+        <ul>
+            <li>ads: <b>no</b></li>
+            <li>autoplay: <b>yes</b></li>
+            <li>debug: <b>yes</b></li>
+            <li>player: <b>videoJS</b></li>
+            <li>totalSecondsUntilTimeout: <b>10</b></li>
+            <li>watermark: <b>no</b></li>
+        </ul>
+        <ul>
+            <li>Video posters don't work in this example due to lack of https.</li>
+            <li>Will pause after timeout completes.</li>
+            <li>Will replenish timeout counter when user clicks play after pausing.</li>
+        </ul>
+    </p>
+
+    <h3>Code</h3>
+    <pre class="highlight" style="background-color: #eee;">
+        <code>{{- code_paid | xml_escape -}}</code>
+    </pre>
 
 {% endif %}
-
-{% if page.user_type == 'public' and page.premium != true and replays_available %}
-
-    <!-- START VUE APP -->
-    <div id="vue-app" class="mb-4">
-
-        <!-- SURFCAM WIDGET -->
-        <surfcam-widget
-            live-stream="true"
-            data-path="https://www.swellnet.com/surfcam-replays/data/"
-            surfcam-id="{{ replays_surfcam_id }}"
-            inline-template
-        >
-            <div>
-
-                <!-- HEADING: SURFCAM REPLAYS -->
-                <h2 class="d-flex align-items-center mb-4 mt-4">
-                    <i class="fa fa-rotate-left mr-2"></i> Surfcam Replays
-                </h2>
-
-                <!-- SELECTS WRAPPER -->
-                <div
-                    v-if="!replaysDisabled"
-                    class="custom-select-wrapper collapse-sm-down"
-                >
-                    <!-- DATE-SELECT COMPONENT -->
-                    <date-select
-                        v-model="date"
-                        :is-loading="feedLoading"
-                    >
-                    </date-select>
-
-                    <!-- TIME-SELECT COMPONENT -->
-                    <time-select
-                        v-model="selectedTimeIndex"
-                        :feed="feed"
-                        :index="selectedTimeIndex"
-                        :is-loading="feedLoading"
-                    >
-                    </time-select>
-
-                </div>
-
-                <!-- THUMB-SLIDER COMPONENT -->
-                <transition name="special-thumb-slider-entrance">
-                    <thumb-slider
-                        v-if="feed"
-                        :current-index="selectedTimeIndex"
-                        :feed="feed"
-                        :is-loading="feedLoading"
-                    >
-                    </thumb-slider>
-                </transition>
-
-            </div>
-        </surfcam-widget>
-
-    </div> <!-- /.vue-app -->
-
-{% endif %}
-
-{% contentfor sidebar %}
-    {% include legacy/nearest_surfcams.html %}
-    {% include legacy/latest_comments.html %}
-{% endcontentfor %}
