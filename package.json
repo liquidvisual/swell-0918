@@ -76,7 +76,7 @@
         "social-feed": "github:pavelk2/social-feed#gh-pages",
         "vee-validate": "^2.0.9",
         "video.js": "^7.10.1",
-        "videojs-contrib-ads": "^6.7.0",
+        "videojs-contrib-ads": "^6.0.0",
         "videojs-ima": "^2.1.0",
         "vue": "^2.6.10",
         "vue-multiselect": "^2.1.0"

@@ -1,6 +1,6 @@
 /*
     MULTICAM SELECT
-    updated: 10.09.18
+    updated: 13.07.23, 04.07.23, 10.09.18
 */
 //-----------------------------------------------------------------
 // MULTICAM SELECT
@@ -52,18 +52,18 @@ Vue.component('multicam-select', {
         }
     },
     created() {
-        // serve up stream from external id on INIT
-        var stream = this.getStreamFromId(this.surfcamId);
-        if (stream) {
-            this.value = stream;
-            this.broadcast();
-        }
-
         // Multicam data is external for easy editing.
         fetch(`/public/multicam-data.js?v=${Date.now()}`)
             .then(response => response.text())
             .then(jsCode => {
                 this.options = eval(jsCode);
+
+                // Serve up stream from external id on INIT.
+                const stream = this.getStreamFromId(this.surfcamId);
+                if (stream) {
+                    this.value = stream;
+                    this.broadcast();
+                }
             })
             .catch(error => {
                 console.error("Oops! Multicam data failed:", error);
