@@ -64,6 +64,7 @@
       { id: 781,    name: "Newcastle",         path: "newcastle.stream" },
       { id: 548893, name: "Newcastle South",   path: "newcastle-south.stream" },
       { id: 548891, name: "Newcastle Point",   path: "newcastle-point.stream" },
+      { id: 557306, name: "Wamberal",          path: "wamberal.stream" },
       { id: 394603, name: "Avoca Beach",       path: "avoca-beach.stream" },
       { id: 776,    name: "Narrabeen",         path: "narrabeen.stream" },
       { id: 513741, name: "Queenscliff",       path: "queenscliff.stream" },
