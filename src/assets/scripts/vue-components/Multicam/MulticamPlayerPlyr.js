@@ -12,6 +12,14 @@
         </multicam-player-plyr>
 */
 //-----------------------------------------------------------------
+// PLAYER OPTIONS
+//-----------------------------------------------------------------
+
+const DEFAULT_OPTIONS_MULTICAM = {
+  watermark: false,
+};
+
+//-----------------------------------------------------------------
 // VIDEO PLAYER
 //-----------------------------------------------------------------
 
@@ -31,7 +39,11 @@ Vue.component('multicam-player-plyr', {
             </div>
 
             <!-- WATERMARK -->
-            <div class="video-player-watermark"></div>
+            <div
+                v-if="options.watermark"
+                class="video-player-watermark"
+            >
+            </div>
 
             <!-- VIDEO -->
             <video
@@ -49,12 +61,22 @@ Vue.component('multicam-player-plyr', {
         </div>
     `,
     props: {
-        errors: Boolean,
-        source: String,
+        errors: {
+            type: Boolean,
+            default: null
+        },
+        options: {
+            type: Object,
+            default: () => ({}),
+        },
         poster: {
             type: String,
             default: '/assets/img/layout/placeholder-video-1280x720.svg'
-        }
+        },
+        source: {
+            type: String,
+            default: ""
+        },
     },
     data() {
         return {
@@ -65,6 +87,14 @@ Vue.component('multicam-player-plyr', {
             videoPath: null, // * new *
             videoTimeout: 300000 // hardcode 5mins, out of time
         }
+    },
+    computed: {
+        mergedOptions() {
+            return {
+                ...DEFAULT_OPTIONS_MULTICAM,
+                ...this.options,
+            };
+        },
     },
     mounted() {
         this.videoEl = this.$refs.video;

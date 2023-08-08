@@ -32,8 +32,8 @@ Vue.component('multicam', {
             <transition name="multicam-select-entrance">
                 <multicam-select
                     v-show="editing"
-                    :multicam-id="multicamId"
                     :editing="editing"
+                    :multicam-id="multicamId"
                     :style="{ backgroundImage: 'url(' + poster + ')'}"
                     :surfcam-id="surfcamId"
                     @open="open = $event"
@@ -43,9 +43,10 @@ Vue.component('multicam', {
 
             <!-- MULTICAM PLAYER PLYR -->
             <multicam-player-plyr
-                :source="liveStreamPath"
-                :poster="poster"
                 :errors="errors"
+                :options="options"
+                :poster="poster"
+                :source="liveStreamPath"
                 @log-errors="errors = editing ? false : true"
                 @show-controls="showEditBtn = hovering ? true : $event">
             </multicam-player-plyr>
@@ -54,6 +55,10 @@ Vue.component('multicam', {
     `,
     props: {
         multicamId: [String, Number], // used to identify multicam - shown in select placeholder
+        options: {
+            type: Object,
+            default: () => ({})
+        },
         path: {
             type: String,
             default: '//stream.n1.au.swellnet.com/surfcams/' // can be overriden
