@@ -1,7 +1,7 @@
 /*
     NOTES:
     
-    updated: 29.06.23, 09.11.20
+    updated: 08.08.23, 29.06.23, 09.11.20
 
     * Jira: https://swellnet.atlassian.net/jira/software/projects/WV2/boards/37?selectedIssue=WV2-6
     * ima ad tags: https://developers.google.com/interactive-media-ads/docs/sdks/html5/client-side/tags
@@ -232,9 +232,13 @@ methods: {
 
   handlePlay() {
     // Replenish pause timer for paid users.
-    if (!this.mergedOptions.ads.enabled) {
-      this.timeoutSecondsRemaining = this.mergedOptions.totalSecondsUntilTimeout;
-    }
+    // if (!this.mergedOptions.ads.enabled) {
+    //   this.timeoutSecondsRemaining = this.mergedOptions.totalSecondsUntilTimeout;
+    // }
+
+    // Some users were experiencing abruptly ending videos after ads - this will
+    // replenish timer for each play event, at the disadvantage of playing unfettered if paused/unpaused continuously.
+    this.timeoutSecondsRemaining = this.mergedOptions.totalSecondsUntilTimeout;
 
     this.startTimeoutCountdown();
     this.setupUserInactivity();
