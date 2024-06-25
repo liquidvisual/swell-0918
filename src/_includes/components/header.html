@@ -1,37 +1,47 @@
-{% assign settings = site.data.settings %}
-{% assign logo = page.logo | default: "/assets/img/content/swellnet-logo--dark.svg" %}
+{% assign settings = site.data.settings %} {% assign logo = page.logo | default:
+"/assets/img/content/swellnet-logo--dark.svg" %}
 
 <!-- HEADER TOP -->
 <div class="global-header-top">
     <div class="container">
-
         <!-- DESKTOP -->
-        <a class="hidden-sm-down" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, forecaster notes, long range surf forecasts... <strong>Get Swellnet PRO for $8.95 per month</strong></a>
+        <a class="hidden-sm-down" href="/pro/subscribe/chooseplan"
+            >Premium ad-free surfcams, dawn surf reports, forecaster notes, long
+            range surf forecasts...
+            <strong>Get Swellnet PRO for $8.95 per month</strong></a
+        >
 
         <!-- MOBILE (SHORTER) -->
-        <a class="hidden-md-up" href="/pro/subscribe/chooseplan">Premium ad-free surfcams, dawn surf reports, and more... <strong>Get Swellnet PRO for $8.95 per month</strong></a>
+        <a class="hidden-md-up" href="/pro/subscribe/chooseplan"
+            >Premium ad-free surfcams, dawn surf reports, and more...
+            <strong>Get Swellnet PRO for $7.33 per month</strong></a
+        >
     </div>
 </div>
 
 <!-- HEADER BODY -->
 <div class="global-header-body">
     <div class="container">
-
         <!-- LOGO -->
-        <a class="logo" href="/" title="{{ settings.title_homepage }}" itemprop="url">
-            <img src="{{ logo }}" alt="{{ settings.company }}" itemprop="logo">
+        <a
+            class="logo"
+            href="/"
+            title="{{ settings.title_homepage }}"
+            itemprop="url"
+        >
+            <img
+                src="{{ logo }}"
+                alt="{{ settings.company }}"
+                itemprop="logo"
+            />
         </a>
 
         <!-- NAVIGATION -->
         <nav class="global-navigation hidden-lg-down">
-            <div class="lv-nav">
-                {% include components/navigation/nav.html %}
-            </div>
+            <div class="lv-nav">{% include components/nav.html %}</div>
         </nav>
 
-        {% comment %}
-
-            Wordpress stuff:
+        {% comment %} Wordpress stuff:
 
         <!-- CART -->
         <a class="global-header-icon is-cart" href="/">
@@ -59,7 +69,6 @@
                 <span class="lv-hamburger-bottom"></span>
             </div>
         </div>
-
     </div>
 </div>
 

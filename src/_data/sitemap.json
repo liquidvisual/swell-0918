@@ -6129,6 +6129,18 @@
       "children": false
    },
    {
+      "name":"App",
+      "url":"/app/",
+      "classes":"",
+      "children": false
+   },
+   {
+      "name":"Shop",
+      "url":"/shop/",
+      "classes":"",
+      "children": false
+   },
+   {
       "name":"Log In",
       "url":"/user/login/",
       "classes":"is-login",

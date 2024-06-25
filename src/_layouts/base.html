@@ -1,122 +1,100 @@
 <!DOCTYPE html>
 <html lang="en" {{ site.environment }}>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.data.settings.description }}{% endif %}">
-    <title>
-        {%- if page.url == '/' -%}
-            {{- site.data.settings.title_homepage -}}
-        {%- else -%}
-            {{- page.title }} - {{ site.data.settings.title -}}
-        {%- endif -%}
-    </title>
+    <head>
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no"
+        />
+        <meta name="description" content="..." />
+        <title>Shopify Template (2024)</title>
 
-    <!-- CDN -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800">
+        <!-- CDN -->
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800"
+        />
 
-    <!-- LEGACY -->
-    <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/legacy.css?pwrd3v">
+        <!-- build:css({src,.tmp,.}) /assets/css/minified.css -->
+        <link rel="stylesheet" href="/css/main.css" />
+        <!-- endbuild -->
+    </head>
+    <body class="{{ page.theme }}">
+        <div class="lv-page">
+            <!-- HEADER -->
+            <header class="global-header">
+                {% include components/header.html %}
+            </header>
 
-    <!-- build:css({src,.tmp,.}) /assets/css/minified.css -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/node_modules/flatpickr/dist/themes/airbnb.css">
-    <!-- endbuild -->
+            <!-- MAIN BODY -->
+            <main class="main-body">
+                <div class="container">
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                    testing<br />
+                </div>
+            </main>
 
-    <!-- OVERRIDES (FROM: SWELLNET.COM) -->
-    <link rel="stylesheet" href="https://www.swellnet.com/assets/lv-event-page.css?pwrd3v">
-    <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/custom.css?pwrd3v">
-    <link rel="stylesheet" href="https://www.swellnet.com/profiles/swellnet/themes/gold/css/custom-2018.css?pwrd3v">
-
-</head>
-<body class="{{ page.theme }} theme-hide-create-report theme-hide-create-forecast">
-
-    {% include components/layout/loader.html %}
-
-    <div class="lv-page">
-
-        <!-- HEADER -->
-        <header class="global-header">
-            {% include components/layout/header.html %}
-        </header>
-
-        {{ content }}
-
-        <!-- FOOTER -->
-        <footer class="global-footer">
-            {% include components/layout/footer.html %}
-        </footer>
-
-    </div> <!-- /.lv-page -->
-
-    <!-- OFF-CANVAS MENU -->
-    <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
-        {% include components/navigation/nav.html %}
-    </nav>
-
-    <!-- **** JAVASCRIPT **** -->
-
-    <!-- NOTE: Plyr & HLS cause issues with grunt-babel, so they must compile separately -->
-    <!-- build:js({src,.}) /assets/scripts/minified-hls.js -->
-    <script src="/node_modules/hls.js/dist/hls.js"></script>
-    <script src="/node_modules/plyr/dist/plyr.polyfilled.js"></script>
-    <!-- endbuild -->
-
-    <!-- GOOGLE API IMA SDK LOADER -->
-    <script src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-
-    <!-- build:js({src,.}) /assets/scripts/minified.js -->
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
-    <script src="/node_modules/bootstrap/js/dist/util.js"></script>
-    <script src="/node_modules/bootstrap/js/dist/collapse.js"></script>
-    <script src="/node_modules/bootstrap/js/dist/alert.js"></script>
-    <script src="/node_modules/bootstrap/js/dist/tab.js"></script>
-    <script src="/node_modules/bootstrap/js/dist/tooltip.js"></script>
-    <script src="/node_modules/flatpickr/dist/flatpickr.js"></script>
-    <script src="/node_modules/headroom.js/dist/headroom.js"></script>
-    <script src="/node_modules/moment/min/moment.min.js"></script>
-    <script src="/node_modules/moment/locale/en-au.js"></script>
-    <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
-    <script src="/node_modules/smoothscroll-polyfill/dist/smoothscroll.js"></script>
-    <script src="/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
-    <script src="/node_modules/axios/dist/axios.js"></script>
-    <script src="/node_modules/vue/dist/vue{% unless site.environment == 'development' %}.min{% endunless %}.js"></script>
-    <script src="/node_modules/vue-multiselect/dist/vue-multiselect.min.js"></script>
-
-    <script src="/node_modules/video.js/dist/video.js"></script>
-    <script src="/node_modules/videojs-contrib-ads/dist/videojs-contrib-ads.js"></script>
-    <script src="/node_modules/videojs-ima/dist/videojs.ima.js"></script>
-    <script src="/node_modules/can-autoplay/build/can-autoplay.js"></script>
-
-    <script src="/assets/scripts/vue-components/Surfcam/Index.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerPlyr.js"></script>
-    <script src="/assets/scripts/vue-components/Surfcam/SurfcamPlayerVideoJS.js"></script>
-
-    <script src="/assets/scripts/vue-components/Multicam/Index.js"></script>
-    <script src="/assets/scripts/vue-components/Multicam/Multicam.js"></script>
-    <script src="/assets/scripts/vue-components/Multicam/MulticamPlayerPlyr.js"></script>
-    <script src="/assets/scripts/vue-components/Multicam/MulticamSelect.js"></script>
-    <script src="/assets/scripts/vue-components/app.js"></script>
-
-    <script src="/assets/scripts/liquidvisual/headroom.js"></script>
-    <script src="/assets/scripts/off-canvas.js"></script>
-    <script src="/assets/scripts/mega-menu.js"></script>
-    <script src="/assets/scripts/render-nav-children.js"></script>
-    <script src="/assets/scripts/comment-scroller.js"></script>
-    <script src="/assets/scripts/main.js"></script>
-    <!-- endbuild -->
-
-    {% if site.environment == 'development' %}
-        <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
-    {% endif %}
-
-    <!-- NO JAVASCRIPT WARNING -->
-    <noscript>
-        <div class="lv-alert-bar">
-            <p>Your browser has JavaScript disabled. Please enable it to continue.</p>
+            <!-- FOOTER -->
+            <footer class="global-footer">
+                {% include components/footer.html %}
+            </footer>
         </div>
-    </noscript>
+        <!-- /.lv-page -->
 
-</body>
+        <!-- OFF-CANVAS MENU -->
+        <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
+            {% include components/nav.html %}
+        </nav>
+
+        <!-- **** JAVASCRIPT **** -->
+
+        <!-- build:js({src,.}) /assets/scripts/minified.js -->
+        <script src="/node_modules/jquery/dist/jquery.js"></script>
+        <script src="/node_modules/popper.js/dist/umd/popper.js"></script>
+        <script src="/node_modules/bootstrap/js/dist/util.js"></script>
+        <script src="/node_modules/bootstrap/js/dist/tooltip.js"></script>
+        <script src="/node_modules/headroom.js/dist/headroom.js"></script>
+        <script src="/node_modules/jquery.scrollTo/jquery.scrollTo.js"></script>
+        <script src="/node_modules/smoothscroll-polyfill/dist/smoothscroll.js"></script>
+        <script src="/node_modules/perfect-scrollbar/dist/perfect-scrollbar.js"></script>
+        <script src="/node_modules/axios/dist/axios.js"></script>
+        <script src="/assets/scripts/liquidvisual/headroom.js"></script>
+        <script src="/assets/scripts/off-canvas.js"></script>
+        <script src="/assets/scripts/mega-menu.js"></script>
+        <script src="/assets/scripts/render-nav-children.js"></script>
+        <script src="/assets/scripts/main.js"></script>
+        <!-- endbuild -->
+
+        {% if site.environment == 'development' %}
+        <script src="/assets/scripts/liquidvisual/responsive-utility.js"></script>
+        {% endif %}
+
+        <!-- NO JAVASCRIPT WARNING -->
+        <noscript>
+            <div class="lv-alert-bar">
+                <p>
+                    Your browser has JavaScript disabled. Please enable it to
+                    continue.
+                </p>
+            </div>
+        </noscript>
+    </body>
 </html>
