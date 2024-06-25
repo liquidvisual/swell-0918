@@ -12,7 +12,7 @@
 
 module.exports = function (grunt) {
     // https://peterdaugaardrasmussen.com/2020/08/01/fatal-error-the-implementation-option-must-be-passed-to-the-sass-task/
-    const sass = require("node-sass");
+    const sass = require("sass");
 
     // Show elapsed time after tasks run
     require("time-grunt")(grunt);
@@ -108,12 +108,7 @@ module.exports = function (grunt) {
                     host: "swellnet.local",
                     //https: true,
                     server: {
-                        baseDir: [
-                            ".jekyll",
-                            ".tmp",
-                            ".",
-                            "<%= yeoman.app %>",
-                        ],
+                        baseDir: [".jekyll", ".tmp", ".", "<%= yeoman.app %>"],
                     },
                     watchTask: true,
                 },
@@ -332,7 +327,7 @@ module.exports = function (grunt) {
                 // sourceMap: true,
                 // minified: false,
                 // comments: false,
-                presets: ['@babel/preset-env']
+                presets: ["@babel/preset-env"],
             },
             dist: {
                 files: {

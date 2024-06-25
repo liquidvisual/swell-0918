@@ -2,6 +2,9 @@
     "name": "swell-0918",
     "private": true,
     "version": "0.0.1",
+    "engines": {
+        "node": ">=0.8.0"
+    },
     "scripts": {
         "installs": "npm install && bundle install",
         "dev": "grunt serve",
@@ -45,11 +48,7 @@
         "http-server": "^14.1.1",
         "jit-grunt": "^0.10.0",
         "jshint-stylish": "^2.2.1",
-        "node-sass": "^9.0.0",
         "time-grunt": "^1.4.0"
-    },
-    "engines": {
-        "node": ">=0.8.0"
     },
     "dependencies": {
         "animate.css": "^3.5.2",
@@ -72,6 +71,7 @@
         "perfect-scrollbar": "^1.4.0",
         "plyr": "^3.6.2",
         "popper.js": "^1.12.9",
+        "sass": "^1.77.6",
         "smoothscroll-polyfill": "^0.4.4",
         "social-feed": "github:pavelk2/social-feed#gh-pages",
         "vee-validate": "^2.0.9",
