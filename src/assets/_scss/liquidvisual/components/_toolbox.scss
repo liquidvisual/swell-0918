@@ -40,17 +40,6 @@ body {
 // Helper Classes
 //-----------------------------------------------------------------
 //=========================================
-// Prevent Flicker on Webkit
-//=========================================
-
-.lv-no-flicker {
-	-webkit-transition: translate3d(0,0,0);
-	-webkit-backface-visibility: hidden;
-	-webkit-perspective: 1000;
-	-webkit-transform-style: preserve-3d;
-}
-
-//=========================================
 // Unselectable Elements
 //=========================================
 

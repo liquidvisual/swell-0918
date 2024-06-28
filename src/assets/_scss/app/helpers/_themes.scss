@@ -80,28 +80,6 @@
 // 	}
 // }
 
-//-----------------------------------------------------------------
-// THEME TRAVELLER
-//-----------------------------------------------------------------
-
-.theme-traveller {
-
-	.main-body {
-		@include media-breakpoint-up(md) {
-		    background: url('/assets/img/content/swellnet-traveller-bg.jpg') no-repeat;
-		    background-size: cover;
-		    background-position: left top;
-		    overflow: hidden; // for iPad
-		}
-	}
-
-	.global-header-top,
-	.global-sponsor {
-		display: none; // [LOCKED] - hide the ads
-		height: 0; // [LOCKED] - for jQuery headroom calculation
-	}
-}
-
 //=========================================
 //
 //=========================================

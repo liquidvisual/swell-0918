@@ -20,6 +20,7 @@
 
 	a {
 		color: white; // [THEMEABLE]
+		margin: 0 3px;
 
 		&:hover {
 			opacity: 0.85;
@@ -40,7 +41,7 @@
 		max-width: 100px;
 
 		@include media-breakpoint-up(md) {
-		    max-width: rem-calc(216);
+		    max-width: 168px; //rem-calc(216);
 		}
 	}
 
@@ -89,7 +90,7 @@
 .global-footer-bottom {
 	padding: $spacer/2 0;
 	background: $primary; // [THEMEABLE]
-	font-size: rem-calc(15);
+	font-size: 14px; // rem-calc(15);
 
 	a {
 		display: inline-flex;

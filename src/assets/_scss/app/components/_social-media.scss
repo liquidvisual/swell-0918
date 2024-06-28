@@ -19,14 +19,14 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: rem-calc(40); // [LOCKED]
-		min-width: rem-calc(40); // [LOCKED]
-		height: rem-calc(40);
+		width: 40px; //rem-calc(40); // [LOCKED]
+		min-width: 40px; // rem-calc(40); // [LOCKED]
+		height: 40px; //rem-calc(40);
 		padding: 0; // [LOCKED] - override off-canvas
-		margin: rem-calc(0 5 5 0);
+		margin: 40px; //rem-calc(0 5 5 0);
 		line-height: 1;
 		background: #222; // [LOCKED] - default
-		font-size: rem-calc(22);
+		font-size: 22px; //rem-calc(22);
 		text-align: center;
 		color: white !important;
 		transition: transform 200ms ease;

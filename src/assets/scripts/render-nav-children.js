@@ -11,148 +11,182 @@
 //
 //-----------------------------------------------------------------
 
-;(function() {
-    'use strict';
+(function () {
+    "use strict";
 
-	//-----------------------------------------------------------------
-	// VARIABLES
-	//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+    // VARIABLES
+    //-----------------------------------------------------------------
 
-	const pageURL = window.location.pathname;
-	const sitemapURL = '/sitemap.json?v='+Date.now();
-	const fallbackURL = 'https://swellnet-2018.yourwebvisual.com/sitemap.json?v='+Date.now();
-	let attempts = 0;
+    const pageURL = window.location.pathname;
+    const sitemapURL = window.sitemap || "/sitemap.json?v=" + Date.now();
+    const fallbackURL =
+        "https://swellnet-2018.yourwebvisual.com/sitemap.json?v=" + Date.now();
+    let attempts = 0;
 
-	//-----------------------------------------------------------------
-	// INIT
-	//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+    // INIT
+    //-----------------------------------------------------------------
 
-	fetchSitemap(sitemapURL);
+    fetchSitemap(sitemapURL);
 
-	//-----------------------------------------------------------------
-	// FETCH SITEMAP
-	// Using Axios since Fetch not available to IE11.
-	//-----------------------------------------------------------------
+    //-----------------------------------------------------------------
+    // FETCH SITEMAP
+    // Using Axios since Fetch not available to IE11.
+    //-----------------------------------------------------------------
 
-	function fetchSitemap(path) {
-		axios.get(path, '', {
-		    headers: {
-		        'Accept': '*/*'
-		    }
-		})
-		.then(response => {
+    function fetchSitemap(path) {
+        axios
+            .get(path, "", {
+                headers: {
+                    Accept: "*/*",
+                },
+            })
+            .then((response) => {
+                // console.log('Retrieved: V19');
+                console.info("%c Success. Sitemap fetched.", "color: green");
 
-			// console.log('Retrieved: V19');
-			console.info('%c Success. Sitemap fetched.', 'color: green');
+                const sitemapJSON = response.data;
 
-			const sitemapJSON = response.data;
+                if (sitemapJSON) {
+                    document
+                        .querySelectorAll("[data-render-nav-children]")
+                        .forEach((item) => {
+                            const index = parseInt(
+                                item.dataset.renderNavChildren
+                            );
+                            const childArr =
+                                sitemapJSON[index] &&
+                                sitemapJSON[index].children;
 
-			if (sitemapJSON) {
-				document.querySelectorAll('[data-render-nav-children]').forEach(item => {
+                            if (childArr) {
+                                // The shop uses the same codebase for nav rendering
+                                // so ensure it defaults to absolute paths for it.
 
-					const index = parseInt(item.dataset.renderNavChildren);
-					const childArr = sitemapJSON[index] && sitemapJSON[index].children;
+                                const host = window.location.host;
+                                const useAbsolutePaths =
+                                    host === "shop.swellnet.com" ||
+                                    host === "shopdev.swellnet.com" ||
+                                    host === "swellnet.local" ||
+                                    host.indexOf("yourwebvisual.com") !== -1;
 
-					if (childArr) {
+                                let baseUrl = useAbsolutePaths
+                                    ? "https://www.swellnet.com"
+                                    : "";
 
-						// The shop uses the same codebase for nav rendering
-						// so ensure it defaults to absolute paths for it.
+                                createList(item, childArr, baseUrl);
+                            } else {
+                                console.warn(
+                                    `Warning! There are no children at index ${index} for node:`,
+                                    sitemapJSON[index]
+                                );
+                            }
+                        });
 
-						const host = window.location.host;
-						const useAbsolutePaths = host === 'shop.swellnet.com' ||
-									             host === 'shopdev.swellnet.com' ||
-									             host === 'swellnet.local' ||
-									             host.indexOf('yourwebvisual.com') !== -1;
+                    // Init Mega Menu
+                    megaMenu.init();
 
-						let baseUrl = useAbsolutePaths ? 'https://www.swellnet.com' : '';
+                    // Init Offcanvas
+                    lvOffcanvas.init();
 
-						createList(item, childArr, baseUrl);
-					}
-					else {
-						console.warn(`Warning! There are no children at index ${index} for node:`, sitemapJSON[index]);
-					}
-				})
+                    // Tooltips
+                    $('[data-toggle="tooltip"]').tooltip();
+                }
+            })
+            .catch((error) => {
+                console.warn(
+                    "%c Error: failed to fetch sitemap. Retrying...",
+                    "color: red"
+                );
+                attempts++;
 
-				// Init Mega Menu
-				megaMenu.init();
+                if (attempts > 2) {
+                    throw Error(response.statusText);
+                } else {
+                    fetchSitemap(fallbackURL);
+                }
+            });
+    }
 
-				// Init Offcanvas
-				lvOffcanvas.init();
+    //-----------------------------------------------------------------
+    // CREATE LIST
+    //-----------------------------------------------------------------
 
-				// Tooltips
-				$('[data-toggle="tooltip"]').tooltip();
-			}
-		})
-		.catch(error => {
-			console.warn("%c Error: failed to fetch sitemap. Retrying...", 'color: red');
-			attempts++;
+    function createList(target, arr, baseUrl = "") {
+        arr.forEach((item) => {
+            const listClasses =
+                `${
+                    item.url === "/" && pageURL === "/"
+                        ? "active active-init"
+                        : ""
+                }` +
+                " " +
+                `${
+                    pageURL.includes(item.url) && pageURL !== "/"
+                        ? `active active-init`
+                        : ""
+                }` +
+                " " +
+                `${item.twoByTwo ? "is-2x2" : ""}` +
+                " " +
+                `${item.children ? "has-dropdown" : ""}` +
+                " " +
+                `${item.classes ? item.classes : ""}` +
+                " " +
+                `${item.observed ? "is-observed" : ""}` +
+                " " +
+                `${item.premium ? "is-premium" : ""}`;
 
-			if (attempts > 2) {
-				throw Error(response.statusText);
-			} else {
-				fetchSitemap(fallbackURL);
-			}
-		});
-	}
+            const listItemString =
+                // LIST ITEM
+                `<li class="${listClasses.trim()}">` +
+                // ANCHOR
+                `<a href="${baseUrl + item.url}" data-alias="${
+                    item.alias ? item.alias : ""
+                }">` +
+                // TEXT
+                `<span class="text">${item.name}</span>` +
+                // SUBMENU ARROW
+                `${
+                    item.children
+                        ? `<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>`
+                        : ""
+                }` +
+                // OBSERVED ICON
+                `${
+                    item.observed
+                        ? `<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">`
+                        : ""
+                }` +
+                // PREMIUM ICON
+                `${
+                    item.premium
+                        ? `<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">`
+                        : ""
+                }` +
+                `</a>` +
+                `</li>`;
 
-	//-----------------------------------------------------------------
-	// CREATE LIST
-	//-----------------------------------------------------------------
+            const listItemEl = new DOMParser().parseFromString(
+                listItemString,
+                "text/html"
+            ).body.firstChild;
+            target.appendChild(listItemEl);
 
-	function createList(target, arr, baseUrl = '') {
+            // RECURSION BEGINS
+            if (item.children) {
+                const ulItem = `<ul class="dropdown" data-parent="${item.name}"></ul>`;
+                const ulItemEl = new DOMParser().parseFromString(
+                    ulItem,
+                    "text/html"
+                ).body.firstChild;
 
-	    arr.forEach(item => {
-
-	    	const listClasses =
-	    			`${item.url === "/" && pageURL === "/" ? 'active active-init' : ''}` + ' ' +
-	    			`${pageURL.includes(item.url) && pageURL !== "/" ? `active active-init` : ''}` + ' ' +
-	    			`${item.twoByTwo ? 'is-2x2' : ''}` + ' ' +
-	    			`${item.children ? 'has-dropdown' : ''}` + ' ' +
-	    			`${item.classes ? item.classes : ''}` + ' ' +
-	    			`${item.observed ? 'is-observed' : ''}` + ' ' +
-	    			`${item.premium ? 'is-premium' : ''}`;
-
-	        const listItemString =
-
-	        		// LIST ITEM
-	        		`<li class="${listClasses.trim()}">` +
-
-	        			// ANCHOR
-		        		`<a href="${baseUrl + item.url}" data-alias="${item.alias ? item.alias : ''}">` +
-
-							// TEXT
-			        		`<span class="text">${item.name}</span>` +
-
-			        		// SUBMENU ARROW
-			        		`${item.children ?
-			        			`<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>` : ''}` +
-
-			        		// OBSERVED ICON
-			        		`${item.observed ?
-			        			`<img class="obs-icon" title="Observed surf report" src="https://www.swellnet.com/assets/img/ui/obs-icon.svg" data-toggle="tooltip" alt="Observed">` : ''}` +
-
-			        		// PREMIUM ICON
-			        		`${item.premium ?
-			        			`<img class="premium-icon" title="Premium surfcam for subscribers" src="https://www.swellnet.com/assets/img/ui/premium-icon.svg" data-toggle="tooltip" alt="Premium">` : ''}` +
-			        	`</a>` +
-
-	        		`</li>`;
-
-	        const listItemEl = new DOMParser().parseFromString(listItemString, 'text/html').body.firstChild;
-	        target.appendChild(listItemEl);
-
-	        // RECURSION BEGINS
-	        if (item.children) {
-
-	        	const ulItem = `<ul class="dropdown" data-parent="${ item.name }"></ul>`;
-	        	const ulItemEl = new DOMParser().parseFromString(ulItem, 'text/html').body.firstChild;
-
-	        	listItemEl.appendChild(ulItemEl);
-	            createList(ulItemEl, item.children, baseUrl);
-	        }
-	    });
-	}
-}());
+                listItemEl.appendChild(ulItemEl);
+                createList(ulItemEl, item.children, baseUrl);
+            }
+        });
+    }
+})();
 
 //==================================================
 //

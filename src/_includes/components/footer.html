@@ -1,166 +1,146 @@
-{% assign settings = site.data.settings %}
-{% assign sitemap = site.data.sitemap %}
+{% assign settings = site.data.settings %} {% assign sitemap = site.data.sitemap
+%}
 
 <!-- FOOTER BODY -->
 <section class="global-footer-body">
-	<div class="container">
-		<div class="row">
-			<div class="col-12 col-md-8 mb-3 mb-lg-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-8 mb-3 mb-lg-0">
+                <div class="row">
+                    <div class="col-6 col-md-4 hidden-sm-down">
+                        <!-- QUICK LINKS -->
+                        <h4 class="mb-3">Quick Links</h4>
+                        <ul class="list-unstyled">
+                            {% for item in sitemap | limit: 5 %}
+                            <li>
+                                <a href="{{ item.url }}">{{ item.name }}</a>
+                            </li>
+                            {% endfor %} {% for item in sitemap[5].children |
+                            limit: 3 %}
+                            <li>
+                                <a href="{{ item.url }}">{{ item.name }}</a>
+                            </li>
+                            {% endfor %}
 
-				<div class="row">
-					<div class="col-6 col-md-4 hidden-sm-down">
+                            <!-- HARDCODED -->
+                            <li><a href="/news/">News</a></li>
+                            <li><a href="/news/">Forum</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <!-- ABOUT -->
+                        <h4 class="mb-3">About</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="/privacy/">Privacy Policy</a></li>
+                            <li>
+                                <a href="/terms/">Terms &amp; Conditions</a>
+                            </li>
+                            <li><a href="/contact/">Contact Us</a></li>
+                            <li><a href="/about/">About Swellnet</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-4 is-user-column">
+                        <!-- USER -->
+                        <h4 class="mb-3">User</h4>
 
-						<!-- QUICK LINKS -->
-						<h4 class="mb-3">Quick Links</h4>
-						<ul class="list-unstyled">
-							{% for item in sitemap | limit: 5 %}
-								<li><a href="{{ item.url }}">{{ item.name }}</a></li>
-							{% endfor %}
-							{% for item in sitemap[5].children | limit: 3 %}
-								<li><a href="{{ item.url }}">{{ item.name }}</a></li>
-							{% endfor %}
+                        <!-- NOT LOGGED OUT -->
+                        <ul class="list-unstyled list-logged-out">
+                            <li><a href="/login/">Log In</a></li>
+                            <li>
+                                <a href="/pro/subscribe/chooseplan/"
+                                    >Get Swellnet PRO</a
+                                >
+                            </li>
+                            <li><a href="/user/register/">Register</a></li>
+                        </ul>
 
-							<!-- HARDCODED -->
-							<li><a href="/news/">News</a></li>
-							<li><a href="/news/">Forum</a></li>
-						</ul>
+                        <!-- LOGGED IN -->
+                        <ul class="list-unstyled list-logged-in">
+                            <li><a href="/my-report/">My Report</a></li>
+                            <li><a href="/my-surfcam/">My Surfcam</a></li>
+                            <li><a href="/user/">My Account</a></li>
+                            <li><a href="/user/logout/">Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3 mb-lg-0 text-md-right">
+                <!-- LOGO -->
+                <p>
+                    <img
+                        class="logo"
+                        src="/assets/img/content/swellnet-logo--light.svg"
+                        alt="Swellnet"
+                    />
+                </p>
 
-					</div>
-					<div class="col-6 col-md-4">
-
-						<!-- ABOUT -->
-						<h4 class="mb-3">About</h4>
-						<ul class="list-unstyled">
-							<li><a href="/privacy/">Privacy Policy</a></li>
-							<li><a href="/terms/">Terms &amp; Conditions</a></li>
-							<li><a href="/contact/">Contact Us</a></li>
-							<li><a href="/about/">About Swellnet</a></li>
-						</ul>
-
-					</div>
-					<div class="col-6 col-md-4 is-user-column">
-
-						<!-- USER -->
-						<h4 class="mb-3">User</h4>
-
-						<!-- NOT LOGGED OUT -->
-						<ul class="list-unstyled list-logged-out">
-							<li><a href="/login/">Log In</a></li>
-							<li><a href="/pro/subscribe/chooseplan/">Get Swellnet PRO</a></li>
-							<li><a href="/user/register/">Register</a></li>
-						</ul>
-
-						<!-- LOGGED IN -->
-						<ul class="list-unstyled list-logged-in">
-							<li><a href="/my-report/">My Report</a></li>
-							<li><a href="/my-surfcam/">My Surfcam</a></li>
-							<li><a href="/user/">My Account</a></li>
-							<li><a href="/user/logout/">Log Out</a></li>
-						</ul>
-
-					</div>
-				</div>
-
-			</div>
-			<div class="col-12 col-md-4 mb-3 mb-lg-0 text-md-right">
-
-				<!-- LOGO -->
-				<p><img class="logo" src="/assets/img/content/swellnet-logo--light.svg" alt="Swellnet"></p>
-
-				<!-- SOCIAL MEDIA -->
-				{% include components/social_media.html %}
-
-			</div>
-		</div>
-	</div>
+                <!-- SOCIAL MEDIA -->
+                {% include components/social_media.html %}
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- FOOTER BOTTOM -->
 <section class="global-footer-bottom">
     <div class="container">
+        <!-- ******* DEMO PURPOSES ONLY (REMOVE) ******* -->
+        <form class="page-state-switcher mb-4">
+            <label>
+                <input
+                    type="checkbox"
+                    name="is-logged-in"
+                    value="theme-logged-in"
+                />
+                User is Logged in &nbsp;
+            </label>
+            <label>
+                <input type="checkbox" name="is-paid" value="theme-paid" /> User
+                is Paid
+            </label>
+        </form>
 
-		<!-- ******* DEMO PURPOSES ONLY (REMOVE) ******* -->
-    	<form class="page-state-switcher mb-4">
-    		<label>
-    			<input type="checkbox" name="is-logged-in" value="theme-logged-in"> User is Logged in &nbsp;
-    		</label>
-    		<label>
-    			<input type="checkbox" name="is-paid" value="theme-paid"> User is Paid
-    		</label>
-    	</form>
+        <style>
+            .page-state-switcher {
+                color: black;
+                font-weight: bold;
+            }
+        </style>
+        <!-- ******* / DEMO PURPOSES ONLY (REMOVE) ******* -->
 
-    	<style>
-    		.page-state-switcher {
-    			color: black;
-    			font-weight: bold;
-    		}
-    	</style>
-    	<!-- ******* / DEMO PURPOSES ONLY (REMOVE) ******* -->
+        <!-- BACK TO TOP -->
+        <div class="text-center text-md-right">
+            <button
+                onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+                class="btn-back-top"
+            >
+                <div>
+                    <i class="d-block fa fa-angle-up"></i>
+                    <span class="text">TOP</span>
+                </div>
+            </button>
+        </div>
 
-    	<!-- BACK TO TOP -->
-    	<div class="text-center text-md-right">
-    		<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="btn-back-top">
-    			<div>
-    				<i class="d-block fa fa-angle-up"></i>
-    				<span class="text">TOP</span>
-    			</div>
-    		</button>
-    	</div>
+        <div class="row">
+            <div class="col-md-7 col-lg-6 text-center text-md-left">
+                <!-- COPYRIGHT + SITEMAP -->
+                <small class="mr-2 d-block d-md-inline">
+                    &copy;
+                    <date
+                        ><script>
+                            document.write(new Date().getFullYear());
+                        </script></date
+                    >
+                    - Swellnet. All rights reserved.
+                </small>
 
-		<div class="row">
-			<div class="col-md-7 col-lg-6 text-center text-md-left">
-
-				<!-- COPYRIGHT + SITEMAP -->
-				<small class="mr-2 d-block d-md-inline">
-					&copy; <date><script>document.write(new Date().getFullYear())</script></date> - Swellnet.
-					All rights reserved.
-					<!-- <a href="/site-map/">Site Map</a> -->
-					<!-- <a data-toggle="collapse" href="#sitemap">Site Map&nbsp;<i class="fa fa-angle-down"></i></a> -->
-				</small>
-
-				{% comment %}
-				<!-- OPTIONAL LINKS -->
-				<!-- <small class="mr-2"><a href="#">Your Link Here</a></small> -->
-				<!-- <small class="mr-2"><a href="#">Your Link Here</a></small> -->
-				<!-- <small class="mr-2"><a href="/kitchen-sink/">Your Link Here</a></small> -->
-				{% endcomment %}
-
-			</div>
-			<div class="col-md-5 col-lg-6 text-center text-md-right">
-
-				{% comment %}
-				<!-- AUTHOR -->
-				<small>
-					<a class="author-logo" target="_blank" href="{{ settings.author.url }}">
-						<img width="20" height="20" src="{{ settings.author.logo }}" alt="Powered by {{ settings.author.title }}">
-				    	<span class="text">{{ settings.author.description }}</span>
-					</a>
-				</small>
-				{% endcomment %}
-
-			</div>
-		</div>
+                {% comment %}
+                <!-- OPTIONAL LINKS -->
+                <!-- <small class="mr-2"><a href="#">Your Link Here</a></small> -->
+                <!-- <small class="mr-2"><a href="#">Your Link Here</a></small> -->
+                <!-- <small class="mr-2"><a href="/kitchen-sink/">Your Link Here</a></small> -->
+                {% endcomment %}
+            </div>
+        </div>
     </div>
 </section>
-
-{% comment %}
-Removed for now since only larger sites will benefit from this particular design
-
-<!-- FOOTER SITEMAP -->
-<section id="sitemap" class="global-footer-sitemap collapse">
-	<div class="container">
-		<ul class="block-grid-xs-2 block-grid-lg-5">
-			{% for item in site.data.sitemap offset: 1 %}
-				<li>
-					<h5>{{ item.title }}</h5>
-					<ul class="list-unstyled">
-						{% for item in item.children %}
-							<li><a href="{{ item.url }}">{{ item.title }}</a></li>
-						{% endfor %}
-					</ul>
-				</li>
-			{% endfor %}
-		</ul>
-	</div>
-</section>
-{% endcomment %}

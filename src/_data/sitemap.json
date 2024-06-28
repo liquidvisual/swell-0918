@@ -6137,15 +6137,15 @@
    {
       "name":"Shop",
       "url":"/shop/",
-      "classes":"",
+      "classes":"active",
       "children": false
    },
-   {
-      "name":"Log In",
-      "url":"/user/login/",
-      "classes":"is-login",
-      "children":false
-   },
+   #{
+   #   "name":"Log In",
+   #   "url":"/user/login/",
+   #   "classes":"is-login",
+   #   "children":false
+   # },
    {
       "name":"More",
       "url":"#/more/",

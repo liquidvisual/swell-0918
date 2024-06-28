@@ -1,0 +1,29 @@
+.lv-page .global-header,
+.lv-page .global-footer,
+.lv-page .lv-off-canvas {
+  font-size: 16px;
+}
+
+.lv-page .is-more-group {
+  font-size: 18px;
+}
+
+.lv-page .lv-nav .dropdown li a {
+  //padding: rem-calc(0 24); // [LOCKED] - design
+  //line-height: rem-calc(38); // [LOCKED] - design
+  //font-size: rem-calc(15); // [LOCKED] - opinionated - design is 16
+
+  font-size: rem-calc(17);
+  line-height: rem-calc(40);
+}
+
+$countries2: 11;
+
+.lv-page .lv-nav li.has-dropdown.is-reports-mega-menu {
+  // [LOCKED] - most simple way to achieve this - fixed didn't work
+  @for $i from 0 to $countries2 {
+      > .dropdown > li:nth-child(#{$i + 1}) > ul.dropdown {
+          // top: calc(-#{rem-calc(46)} * #{$i});
+      }
+  }
+}
