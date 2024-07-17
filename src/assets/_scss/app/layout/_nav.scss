@@ -1,7 +1,7 @@
 /*
     NAV.CSS
 
-    - updated: 08.10.18
+    - updated: 17.07.24, 08.10.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -77,7 +77,8 @@
 // SUBMENU ARROWS
 //-----------------------------------------------------------------
 
-.lv-nav a > span.submenu-arrow {
+.lv-nav a > span.submenu-arrow,
+.lv-nav a > span.submenu-index {
     display: none;
 }
 

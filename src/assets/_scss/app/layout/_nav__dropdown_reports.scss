@@ -1,7 +1,7 @@
 /*
     NAV__DROPDOWN_REPORTS.CSS
 
-    - updated: 27.09.18
+    - updated: 17.07.24, 27.09.18
     - liquidvisual.com
 */
 //-----------------------------------------------------------------
@@ -182,6 +182,8 @@ $countries: 11;
 
     //-----------------------------------------------------------------
     // ANCHOR ARROWS
+    // Remember: forecast megamenu styling replaced the original surfcam one,
+    // which was originally a bespoke thing with columns of states and locations.
     //-----------------------------------------------------------------
 
     li.has-dropdown > a:after {
@@ -194,6 +196,19 @@ $countries: 11;
         font-size: rem-calc(25);
         font-weight: normal;
         color: rgba(black, 0.15);
+    }
+
+    // INDEX ICON (little grid, similar to arrow)
+    li.is-index > a:after {
+        content: "\f00a";
+        display: inline-block;
+        height: 100%;
+        margin-left: auto;
+        margin-right: rem-calc(-10);
+        font-family: "FontAwesome";
+        font-size: rem-calc(16);
+        font-weight: normal;
+        color: rgba(black, 0.15); // 0.4
     }
 
     //-----------------------------------------------------------------

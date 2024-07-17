@@ -1,7 +1,7 @@
 /*
     OFF-CANVAS.CSS
 
-    - Last updated: 27.04.18
+    - Last updated: 17.07.24, 27.04.18
     - liquidvisual.com
 
     - latest update removes 'off-canvas' effect and transforms.
@@ -183,6 +183,25 @@ $hamburger-slit-height: 3px;
 		color: rgba(black, 0.45);
 		text-align: center;
 		cursor: pointer;
+	}
+
+	// Little grid icon for Index buttons
+	.is-index > a > .submenu-index {
+		content: "\f00a";
+		position: absolute;
+		top: 0;
+		right: 5px;
+		width: 44px;
+		height: 100%;
+		// background: $menu-bg-color;
+		// background: pink;
+		font-family: "FontAwesome";
+		font-size: 16px;
+		font-weight: normal;
+		color: rgba(black, 0.45);
+		text-align: center;
+		cursor: pointer;
+		pointer-events: none;
 	}
 }
 
