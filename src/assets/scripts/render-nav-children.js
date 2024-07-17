@@ -67,6 +67,7 @@
                                 const useAbsolutePaths =
                                     host === "shop.swellnet.com" ||
                                     host === "shopdev.swellnet.com" ||
+                                    host === "swellnet.myshopify.com" ||
                                     host === "swellnet.local" ||
                                     host.indexOf("yourwebvisual.com") !== -1;
 

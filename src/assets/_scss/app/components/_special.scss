@@ -8,13 +8,12 @@
   font-size: 18px;
 }
 
-.lv-page .lv-nav .dropdown li a {
-  //padding: rem-calc(0 24); // [LOCKED] - design
-  //line-height: rem-calc(38); // [LOCKED] - design
-  //font-size: rem-calc(15); // [LOCKED] - opinionated - design is 16
 
-  font-size: rem-calc(17);
-  line-height: rem-calc(40);
+.lv-page .lv-nav .dropdown li a {
+  padding: 0 24px; // rem-calc(0 24); // [LOCKED] - design
+  line-height: 38px; //rem-calc(38); // [LOCKED] - design
+  font-size: 15px; //rem-calc(15); // [LOCKED] - opinionated - design is 16
+  // color: orange;
 }
 
 $countries2: 11;
@@ -23,7 +22,15 @@ $countries2: 11;
   // [LOCKED] - most simple way to achieve this - fixed didn't work
   @for $i from 0 to $countries2 {
       > .dropdown > li:nth-child(#{$i + 1}) > ul.dropdown {
-          // top: calc(-#{rem-calc(46)} * #{$i});
+          top: calc(-39px * #{$i});
       }
   }
+}
+
+.lv-off-canvas ul li.is-off-canvas-only  {
+  border-bottom: 1px solid rgba(0,0,0,.05); /* home */
+}
+
+.lv-off-canvas ul li.is-more-group {
+  border-bottom: 0; /* last item line */
 }
