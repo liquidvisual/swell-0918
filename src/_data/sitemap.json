@@ -6119,6 +6119,12 @@
                   "children":false
                }
             ]
+         },
+         {
+            "name":"View All Surfcams",
+            "alias":"INDEX",
+            "url":"/surfcams/",
+            "children": false
          }
       ]
    },

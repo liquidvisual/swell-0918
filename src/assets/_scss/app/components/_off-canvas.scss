@@ -1,7 +1,7 @@
 /*
     OFF-CANVAS.CSS
 
-    - Last updated: 27.04.18
+    - Last updated: 17.07.24, 27.04.18
     - liquidvisual.com
 
     - latest update removes 'off-canvas' effect and transforms.
@@ -168,7 +168,8 @@ $hamburger-slit-height: 3px;
 	// NEXT ARROW .has-dropdown > a > .text::after
 	//=========================================
 
-	.has-dropdown > a > .submenu-arrow {
+	.has-dropdown > a > .submenu-arrow,
+	.is-index > a > .submenu-arrow {
 		content: "\f105";
 		position: absolute;
 		top: 0;
@@ -183,6 +184,12 @@ $hamburger-slit-height: 3px;
 		color: rgba(black, 0.45);
 		text-align: center;
 		cursor: pointer;
+	}
+
+	// Little grid icon for Index buttons
+	.is-index > a > .submenu-arrow {
+		content: "\f00a";
+		font-size: 16px;
 	}
 }
 

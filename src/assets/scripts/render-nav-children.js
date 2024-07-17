@@ -1,5 +1,5 @@
 /*
-    RENDER-NAV.JS - Last updated: 09.03.21, 23.11.18
+    RENDER-NAV.JS - Last updated: 17.07.24, 09.03.21, 23.11.18
 
 	- Notes:
 		* Removed JQuery dependency.
@@ -130,6 +130,8 @@
                 " " +
                 `${item.twoByTwo ? "is-2x2" : ""}` +
                 " " +
+                `${item.alias === "INDEX" ? "is-index" : ""}` +
+                " " +
                 `${item.children ? "has-dropdown" : ""}` +
                 " " +
                 `${item.classes ? item.classes : ""}` +
@@ -151,6 +153,12 @@
                 `${
                     item.children
                         ? `<span class="submenu-arrow"><i class="fa fa-angle-right"></i></span>`
+                        : ""
+                }` +
+                // INDEX ICON
+                `${
+                    item.alias === "INDEX"
+                        ? `<span class="submenu-arrow"><i class="fa fa-th"></i></span>`
                         : ""
                 }` +
                 // OBSERVED ICON
