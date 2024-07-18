@@ -158,7 +158,7 @@
                 // INDEX ICON
                 `${
                     item.alias === "INDEX"
-                        ? `<span class="submenu-arrow"><i class="fa fa-th"></i></span>`
+                        ? `<span class="submenu-index"><i class="fa fa-th"></i></span>`
                         : ""
                 }` +
                 // OBSERVED ICON

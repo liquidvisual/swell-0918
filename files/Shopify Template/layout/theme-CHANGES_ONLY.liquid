@@ -1,0 +1,141 @@
+<!doctype html>
+<html class="js" lang="{{ request.locale.iso_code }}">
+  <head>
+    {% style %}
+
+      html {
+        box-sizing: border-box;
+        font-size: calc(var(--font-body-scale) * 62.5%);
+        height: 100%;
+      }
+
+      body {
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-columns: 100%;
+        min-height: 100%;
+        margin: 0;
+        font-size: 1.5rem;
+        /* letter-spacing: 0.06rem; */
+        line-height: calc(1 + 0.8 / var(--font-body-scale));
+        font-family: var(--font-body-family);
+        font-style: var(--font-body-style);
+        font-weight: var(--font-body-weight);
+      }
+
+      @media screen and (min-width: 750px) {
+        body {
+          font-size: 1.6rem;
+          font-size: 6px;
+        }
+      }
+    {% endstyle %}
+
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+
+    <!-- START LV BASE OVERRIDES -->
+    {% style %}
+      .lv-page .page-width {
+        max-width: none;
+        padding: 0;
+      }
+
+      .lv-page .header--middle-left {
+        padding: 0 !important;
+        column-gap: 0 !important;
+      }
+
+      .lv-page .header__inline-menu .list-menu {
+        margin-left: -12px;
+      }
+
+      .lv-page .header .header__icons {
+        margin-right: -8px;
+      }
+
+      .lv-page .global-header-bottom-strip {
+        display: block !important;
+      }
+
+      .lv-page .main-body {
+        margin-top: -50px;
+      }
+
+      .lv-page .button--primary,
+      .lv-page .button,
+      .shopify-payment-button__button {
+        font-weight: bold;
+      }
+
+      .tooltip .tooltip-inner {
+        font-size: 11px; /* bootstrap via lv-nav */
+      }
+
+      /* Search modal */
+      .lv-page .search-modal .modal-overlay:after {
+        position: fixed;
+        top: 0;
+        background-color: rgba(255,255,255,0.8);
+      }
+
+      .lv-page .search-modal {
+        border-bottom: 0;
+      }
+
+      .lv-page .search-modal.modal__content {
+        width: calc(100% + 10px); /* covers cart number */
+      }
+    {% endstyle %}
+    <!-- END LV BASE OVERRIDES -->
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,600,700|Montserrat:500,600,700,800"
+    >
+
+    {{ '_custom.minified.css' | asset_url | stylesheet_tag }}
+
+  </head>
+
+  <body class="gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}">
+    <div class="lv-page">
+      <!-- HEADER (LV) -->
+      <header class="global-header">
+        {% section 'custom-header' %}
+      </header>
+
+      <!-- MAIN BODY (LV) -->
+      <main class="main-body">
+        <div class="container">
+          <!-- -->
+        </div>
+      </main>
+
+      <!-- FOOTER (LV) -->
+      <footer class="global-footer">
+        {% section 'custom-footer' %}
+      </footer>
+    </div>
+    <!-- /.lv-page -->
+
+    <!-- OFF-CANVAS MENU (LV) -->
+    <nav class="lv-off-canvas" data-off-canvas-menu aria-hidden="true">
+      {% section 'custom-off-canvas' %}
+    </nav>
+
+    <!-- JAVASCRIPT (LV) -->
+    <script>
+      window.sitemap = "{{ '_sitemap.json' | asset_url }}";
+    </script>
+    <script src="{{ '_custom.minified.js' | asset_url }}" defer="defer"></script>
+    <!-- <script src="{{ '_responsive-utility.js' | asset_url }}" defer="defer"></script> -->
+
+    <!-- NO JAVASCRIPT WARNING (LV) -->
+    <noscript>
+      <div class="lv-alert-bar">
+        <p>Your browser has JavaScript disabled. Please enable it to continue.</p>
+      </div>
+    </noscript>
+
+  </body>
+</html>
